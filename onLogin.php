@@ -24,14 +24,14 @@
     }
     else
     {
-      echo "wrong login.";
-      //header("Location: ./");
+      //echo "wrong login.";
+      header("Location: ./");
     }
   }
   else
   {
-    echo "not set.";
-    //header("Location: ./");
+    //echo "not set.";
+    header("Location: ./");
   }
 
  ?>
