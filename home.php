@@ -49,6 +49,22 @@
         <div class="container">
           <div class="well">
             <H3>Start a New Pinkie</H3>
+
+            <!-- Form for starting a new pinkie. -->
+            <form class="form-horizontal" role="form" action="" method="POST">
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="title">Title:</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="title" name="title" placeholder="Title of this pinkie">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-default">Start a New Pinkie</button>
+                </div>
+              </div>
+            </form>
+            <!-- End form -->
           </div>
         </div>
     <?php endif; ?>
@@ -57,7 +73,7 @@
     <?php if(isUser() || isTrans() || isSuper() || isAdmin()): ?>
       <div class="container">
         <div class="well">
-          <H3>Review Pinkie</H3>
+          <H3>Review Pinkies</H3>
         </div>
       </div>
   <?php endif; ?>
