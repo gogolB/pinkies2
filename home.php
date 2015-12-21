@@ -50,18 +50,18 @@
       <!-- Start a new Pinkie -->
       <?php if(isUser() || isTrans() || isSuper() || isAdmin()): ?>
         <div class="container">
-          <div class="well-lg">
+          <div class="well well-lg">
             <H3>Start a New Pinkie</H3>
 
             <!-- Form for starting a new pinkie. -->
             <form class="form-horizontal" role="form" action="" method="POST">
-              <div class="form-group-lg">
+              <div class="form-group form-group-lg">
                 <label class="control-label col-sm-2" for="title">Title:</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="title" name="title" placeholder="Title of the pinkie">
                 </div>
               </div>
-              <div class="form-group-lg">
+              <div class="form-group form-group-lg">
                 <div class="col-sm-offset-2 col-sm-10">
                   <button type="submit" class="btn btn-success">Start a New Pinkie</button>
                 </div>
