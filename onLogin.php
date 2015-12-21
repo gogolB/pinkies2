@@ -24,12 +24,14 @@ error_reporting(E_ALL);
     }
     else
     {
-      header("Location: ./");
+      echo "wrong login."
+      //header("Location: ./");
     }
   }
   else
   {
-    header("Location: ./");
+    echo "not set."
+    //header("Location: ./");
   }
 
  ?>
