@@ -9,7 +9,7 @@
   // login system is supposed to be.
   function login($s_username, $s_password)
   {
-    $_SESSION['Username'] = $$s_username;
+    $_SESSION['Username'] = $s_username;
     if($s_username == "PinkiesAdmin")
     {
         setAdminPermissions();
