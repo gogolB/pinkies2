@@ -28,11 +28,13 @@ function secureSessionStart()
     session_regenerate_id(true);    // regenerated the session, delete the old one.
 }
 
+// Redirects the user to a nicer error page.
 function onError($s_Title, $s_Reason)
 {
-
+  header("Location: ./oops.php?title=".$s_Title."&reason=".$s_Reason);
 }
 
+// prints out all the nice header info.
 function printHeaderInfo()
 {
   echo '<!-- Latest compiled and minified CSS -->
