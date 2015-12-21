@@ -1,76 +1,52 @@
 <?php
+// -----------------------------------------------------------------------------
+// Here are all the helper functions used throughout ePinkies 2.
+// -----------------------------------------------------------------------------
 
-// Start a secure session
-function secureSessionStart() {
+// Starts a secure session
+function secureSessionStart()
+{
     $session_name = 'EPinkies2-Session';
     $secure = false;
     // This stops JavaScript being able to access the session id.
     $httponly = true;
     // Forces sessions to only use cookies.
     if (ini_set('session.use_only_cookies', 1) === FALSE) {
-        header("Location: ../error.php?err=Could not initiate a safe session (ini_set)");
+        onError("Failed to start a Secure Session", "Could not init a safe session. Failed to force session to use cookies only.");
         exit();
     }
     // Gets current cookies params.
     $cookieParams = session_get_cookie_params();
     session_set_cookie_params($cookieParams["lifetime"],
-        $cookieParams["path"],
-        $cookieParams["domain"],
-        $secure,
-        $httponly);
-    // Sets the session name to the one set above.
+                              $cookieParams["path"],
+                              $cookieParams["domain"],
+                              $secure,
+                              $httponly);
+
     session_name($session_name);
-    session_start();            // Start the PHP session
+    session_start();                // Start the PHP session
     session_regenerate_id(true);    // regenerated the session, delete the old one.
 }
 
-function isUser()
+function onError($s_Title, $s_Reason)
 {
-  if(isset($_SESSION))
-  {
-    if($_SESSION["Access"] == "USER")
-    {
-      return true;
-    }
-  }
-  return false;
+
 }
 
-function isTrans()
+function printHeaderInfo()
 {
-  if(isset($_SESSION))
-  {
-    if($_SESSION["Access"] == "TRANS")
-    {
-      return true;
-    }
-  }
-  return false;
+  echo '<!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+      <!-- Optional theme -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+      <!-- Latest compiled and minified JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+      <meta charset="utf-8">
+
+      <meta name="viewport" content="width=device-width, initial-scale=1">';
 }
 
-function isSuper()
-{
-  if(isset($_SESSION))
-  {
-    if($_SESSION["Access"] == "SUPER")
-    {
-      return true;
-    }
-  }
-  return false;
-}
-
-function isAdmin()
-{
-  if(isset($_SESSION))
-  {
-    if($_SESSION["Access"] == "ADMIN")
-    {
-      return true;
-    }
-  }
-  return false;
-}
-
-
- ?>
+?>

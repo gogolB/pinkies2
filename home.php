@@ -1,1 +1,4 @@
-THis is the home page.
+<?php
+  include 'includes/functions.php';
+  secureSessionStart();
+ ?>

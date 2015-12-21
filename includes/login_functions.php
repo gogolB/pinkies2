@@ -7,6 +7,7 @@
 
   // This is a temp function. It is supposed to be replaced with whatever your
   // login system is supposed to be.
+  // @returns: True if valid username and password combo, false if otherwise.
   function login($s_username, $s_password)
   {
     $_SESSION['Username'] = $s_username;
@@ -33,23 +34,31 @@
     return false;
   }
 
+  // Sets the admin permissions.
   function setAdminPermissions()
   {
     $_SESSION['Access'] = "ADMIN";
+    $_SESSION['Name'] = "Pinkies Devlopment Admin";
   }
 
+  // Sets the Supervisor permissions.
   function setSupervisorPermissions()
   {
     $_SESSION['Access'] = "SUPER";
+    $_SESSION['Name'] = "Pinkies Devlopment Supervisor";
   }
 
+  // Sets the Transactor permissions.
   function setTransactorPermissions()
   {
     $_SESSION['Access'] = "TRANS";
+    $_SESSION['Name'] = "Pinkies Devlopment Transactor";
   }
 
+  // Sets the User permissions. 
   function setUserPermissions()
   {
     $_SESSION['Access'] = "USER";
+    $_SESSION['Name'] = "Pinkies Devlopment User";
   }
  ?>
