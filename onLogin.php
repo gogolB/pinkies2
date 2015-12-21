@@ -24,13 +24,13 @@ error_reporting(E_ALL);
     }
     else
     {
-      echo "wrong login."
+      echo "wrong login.";
       //header("Location: ./");
     }
   }
   else
   {
-    echo "not set."
+    echo "not set.";
     //header("Location: ./");
   }
 
