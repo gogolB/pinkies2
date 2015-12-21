@@ -28,7 +28,7 @@
     </div>
 
     <div class="container">
-      <div class="card">
+      <div class="well">
         <H2>Please take a screenshot of this error report or explain your problem to <a href="mailto:systems@ece.ucr.edu?Subject=ePinkies2%20Error" target="_top">ECE Systems</a></H2>
         <p>Click here to return to <a href"./home.php">home</a>.</p>
       </div>
