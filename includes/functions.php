@@ -3,7 +3,7 @@
 // Start a secure session
 function secureSessionStart() {
     $session_name = 'EPinkies2-Session';
-    $secure = SECURE;
+    $secure = false;
     // This stops JavaScript being able to access the session id.
     $httponly = true;
     // Forces sessions to only use cookies.
