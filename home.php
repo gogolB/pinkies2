@@ -50,7 +50,7 @@
       <!-- Start a new Pinkie -->
       <?php if(isUser() || isTrans() || isSuper() || isAdmin()): ?>
         <div class="container">
-          <div class="well">
+          <div class="well-lg">
             <H3>Start a New Pinkie</H3>
 
             <!-- Form for starting a new pinkie. -->
