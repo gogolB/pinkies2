@@ -47,11 +47,38 @@
       <!-- Start a new Pinkie -->
       <?php if(isUser() || isTrans() || isSuper() || isAdmin()): ?>
         <div class="container">
-          <div class-"well">
+          <div class="well">
             <H3>Start a New Pinkie</H3>
           </div>
         </div>
     <?php endif; ?>
+
+    <!-- Review Pinkies -->
+    <?php if(isUser() || isTrans() || isSuper() || isAdmin()): ?>
+      <div class="container">
+        <div class="well">
+          <H3>Review Pinkie</H3>
+        </div>
+      </div>
+  <?php endif; ?>
+
+  <!-- Manage Vendors -->
+  <?php if(isAdmin()): ?>
+    <div class="container">
+      <div class="well">
+        <H3>Manage Vendors</H3>
+      </div>
+    </div>
+<?php endif; ?>
+
+<!-- Manage Funds -->
+<?php if(isAdmin()): ?>
+  <div class="container">
+    <div class="well">
+      <H3>Manage Funds</H3>
+    </div>
+  </div>
+<?php endif; ?>
 
 
 
