@@ -36,5 +36,41 @@ function isUser()
   return false;
 }
 
+function isTrans()
+{
+  if(isset($_SESSION))
+  {
+    if($_SESSION["Access"] == "TRANS")
+    {
+      return true;
+    }
+  }
+  return false;
+}
+
+function isSuper()
+{
+  if(isset($_SESSION))
+  {
+    if($_SESSION["Access"] == "SUPER")
+    {
+      return true;
+    }
+  }
+  return false;
+}
+
+function isAdmin()
+{
+  if(isset($_SESSION))
+  {
+    if($_SESSION["Access"] == "ADMIN")
+    {
+      return true;
+    }
+  }
+  return false;
+}
+
 
  ?>

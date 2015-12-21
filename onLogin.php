@@ -8,6 +8,10 @@
   include 'includes/login_functions.php'
   include 'includes/functions.php'
 
+  ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
   // Start the session.
   secureSessionStart();
 
@@ -20,12 +24,12 @@
     }
     else
     {
-      header("Location: ../");
+      header("Location: ./");
     }
   }
   else
   {
-    header("Location: ../");
+    header("Location: ./");
   }
 
  ?>
