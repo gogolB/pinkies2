@@ -56,7 +56,7 @@
               <div class="form-group">
                 <label class="control-label col-sm-2" for="title">Title:</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="title" name="title" placeholder="Title of this pinkie">
+                  <input type="text" class="form-control" id="title" name="title" placeholder="Title of the pinkie">
                 </div>
               </div>
               <div class="form-group">
@@ -84,9 +84,9 @@
     <div class="container">
       <div class="well">
         <H3>Manage Vendors</H3>
-        <a href="#" class="btn btn-success" role="button"Add a new Vendor</a>
-        <a href="#" class="btn btn-info" role="button"Update a Vendor</a>
-        <a href="#" class="btn btn-primary" role="button"View all Vendors</a>
+        <a href="#" class="btn btn-success" role="button">Add a new Vendor</a>
+        <a href="#" class="btn btn-info" role="button">Update a Vendor</a>
+        <a href="#" class="btn btn-primary" role="button">View all Vendors</a>
       </div>
     </div>
 <?php endif; ?>
@@ -96,9 +96,9 @@
   <div class="container">
     <div class="well">
       <H3>Manage Funds</H3>
-      <a href="#" class="btn btn-success" role="button"Add a new Fund</a>
-      <a href="#" class="btn btn-info" role="button"Update a Fund</a>
-      <a href="#" class="btn btn-primary" role="button"View all Funds</a>
+      <a href="#" class="btn btn-success" role="button">Add a new Fund</a>
+      <a href="#" class="btn btn-info" role="button">Update a Fund</a>
+      <a href="#" class="btn btn-primary" role="button">View all Funds</a>
     </div>
   </div>
 <?php endif; ?>
