@@ -32,6 +32,7 @@
       <title>ePinkies2 Home</title>
       <script type="text/javascript" src="js/functions.js"></script>
     </head>
+
     <body>
       <div class="jumbotron text-center">
         <H1>ePinkies 2</H1>
@@ -39,12 +40,13 @@
         <h3>Department of Electrical and Computer Engineering</h3>
       </div>
       <div class="container">
-        <div class-"well">
-          <p>
+        <div class="well">
+          <H2>
             Welcome <?php echo(getName());?> to ePinkies2.
-          </p>
+          </H2>
         </div>
       </div>
+
       <!-- Start a new Pinkie -->
       <?php if(isUser() || isTrans() || isSuper() || isAdmin()): ?>
         <div class="container">
@@ -77,30 +79,30 @@
           <H3>Review Pinkies</H3>
         </div>
       </div>
-  <?php endif; ?>
+    <?php endif; ?>
 
-  <!-- Manage Vendors -->
-  <?php if(isAdmin()): ?>
-    <div class="container">
-      <div class="well">
-        <H3>Manage Vendors</H3>
-        <a href="#" class="btn btn-success" role="button">Add a new Vendor</a>
-        <a href="#" class="btn btn-info" role="button">Update a Vendor</a>
-        <a href="#" class="btn btn-primary" role="button">View all Vendors</a>
+    <!-- Manage Vendors -->
+    <?php if(isAdmin()): ?>
+      <div class="container">
+        <div class="well">
+          <H3>Manage Vendors</H3>
+          <a href="#" class="btn btn-success" role="button">Add a new Vendor</a>
+          <a href="#" class="btn btn-info" role="button">Update a Vendor</a>
+          <a href="#" class="btn btn-primary" role="button">View all Vendors</a>
+        </div>
       </div>
-    </div>
-<?php endif; ?>
+    <?php endif; ?>
 
-<!-- Manage Funds -->
-<?php if(isAdmin()): ?>
-  <div class="container">
-    <div class="well">
-      <H3>Manage Funds</H3>
-      <a href="#" class="btn btn-success" role="button">Add a new Fund</a>
-      <a href="#" class="btn btn-info" role="button">Update a Fund</a>
-      <a href="#" class="btn btn-primary" role="button">View all Funds</a>
-    </div>
-  </div>
-<?php endif; ?>
+    <!-- Manage Funds -->
+    <?php if(isAdmin()): ?>
+      <div class="container">
+        <div class="well">
+          <H3>Manage Funds</H3>
+          <a href="#" class="btn btn-success" role="button">Add a new Fund</a>
+          <a href="#" class="btn btn-info" role="button">Update a Fund</a>
+          <a href="#" class="btn btn-primary" role="button">View all Funds</a>
+        </div>
+      </div>
+    <?php endif; ?>
     </body>
  </html>
