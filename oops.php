@@ -9,12 +9,9 @@
     <?php printHeaderInfo(); ?>
     <title>Oops!</title>
     <style>
-      body {
-        background-color: linen!;
-      }
-
       .jumbotron {
-        color: maroon!;
+        background-color: #FFBABA;
+        color: #ffffff;
       }
     </style>
   </head>
