@@ -1,4 +1,26 @@
 <?php
+  // ---------------------------------------------------------------------------
+  // This is the main page from where the user will select what they want to do.
+  // Their access will be granted based on their user level.
+  // --- USER ---
+  // + Make a new Pinkie.
+  // + Submit a pinkie to a supervisor.
+  // + Review past submitted pinkies.
+  // + Change/Update a pinkie.
+  // + Delete a submitted, but not approved pinkie.
+  // --- SUPER ---
+  // + Do all a USER can do.
+  // + Approve submitted pinkies.
+  // + Reject a pinkie.
+  // --- ADMIN ---
+  // + Do all a SUPER can do.
+  // + Send a pinkie to a Transactor.
+  // + Add/Update Vendors.
+  // + Add/Update Funds.
+  // --- TRANS ---
+  // + Do all a user can do.
+  // + Submit directly to the admin.
+  // ---------------------------------------------------------------------------
   include 'includes/functions.php';
   include 'includes/sessionFunctions.php';
   secureSessionStart();
@@ -22,5 +44,16 @@
           </p>
         </div>
       </div>
+      <!-- Start a new Pinkie -->
+      <?php if(isUser() || isTrans() || isSuper() || isAdmin()): ?>
+        <div class="container">
+          <div class-"well">
+            <H3>Start a New Pinkie</H3>
+          </div>
+        </div>
+    <?php endif; ?>
+
+
+
     </body>
  </html>

@@ -7,7 +7,7 @@
 // Returns true if this current session is at User level.
 function isUser()
 {
-  if(isset($_SESSION))
+  if(isset($_SESSION['Access']))
   {
     if($_SESSION["Access"] == "USER")
     {
@@ -20,7 +20,7 @@ function isUser()
 // Returns true if this current session is at Transactor level.
 function isTrans()
 {
-  if(isset($_SESSION))
+  if(isset($_SESSION['Access']))
   {
     if($_SESSION["Access"] == "TRANS")
     {
@@ -33,7 +33,7 @@ function isTrans()
 // Returns true if this current session is at Supervisor level.
 function isSuper()
 {
-  if(isset($_SESSION))
+  if(isset($_SESSION['Access']))
   {
     if($_SESSION["Access"] == "SUPER")
     {
@@ -46,7 +46,7 @@ function isSuper()
 // Returns true if this current session is at Admin level.
 function isAdmin()
 {
-  if(isset($_SESSION))
+  if(isset($_SESSION['Access']))
   {
     if($_SESSION["Access"] == "ADMIN")
     {
