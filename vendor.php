@@ -153,7 +153,7 @@ function printAllVendors()
 
          <form class="form-horizontal" role="form" action="" method="POST">
 
-           <div class="form-group-lg">
+           <div class="form-group form-group-lg">
              <label class="control-label col-sm-2" for="vendorName">Vendor Name:</label>
              <div class="col-sm-10">
                <input type="text" class="form-control" id="vendorName" name="vendorName" >
@@ -237,9 +237,9 @@ function printAllVendors()
              </div>
            </div>
 
-           <div class="form-group-lg">
+           <div class="form-group form-group-lg">
              <div class="col-sm-offset-2 col-sm-10">
-               <button type="submit" class="btn btn-default">Submit</button>
+               <button type="submit" class="btn btn-Success">Submit</button>
              </div>
            </div>
          </form>
