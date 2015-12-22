@@ -153,7 +153,7 @@ function printAllVendors()
      <div class="container">
        <div class="well well-lg">
 
-         <form class="form-horizontal" role="form" action="onVendorSubmit.php" method="POST">
+         <form class="form-horizontal" role="form" action="onVendorSubmit.php" method="POST" name="addNewVendorForm">
 
            <div class="form-group form-group-lg">
              <label class="control-label col-sm-2" for="vendorName">Vendor Name:</label>
@@ -398,13 +398,13 @@ function printAllVendors()
                <input type="text" class="form-control" id="internet" name="internet" value='<?php echo $_vendor->s_Internet; ?>' >
              </div>
            </div>
-         </form>
 
          <div class="form-group form-group-lg">
            <div class="col-sm-offset-2 col-sm-10">
-             <button type="button" class="btn btn-success" onclick="updateVendor(this, <?php echo $_vendor->i_VendorID; ?>)">Update this Vendor</button>
+             <button type="button" class="btn btn-success" onclick="updateVendor(this.form, <?php echo $_vendor->i_VendorID; ?>)">Update this Vendor</button>
            </div>
          </div>
+
        </form>
 
        </div>

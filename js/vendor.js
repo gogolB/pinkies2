@@ -13,7 +13,6 @@ function submitNewVendor(form)
 
 function updateVendor(form, vendorID)
 {
-  alert(form);
   var input = document.createElement("input");
   input.setAttribute("type", "hidden");
   input.setAttribute("name", "vendorID");
