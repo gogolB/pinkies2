@@ -74,7 +74,7 @@ class Vendor
           $this->addNewVendor();
         }
       }
-      $_result->free();
+      $statement->free_results();
       $_db->close();
     }
   }
