@@ -1,5 +1,5 @@
 <?php
-  include 'includes/functions.php';
+  include_once 'includes/functions.php';
   $s_errorTitle = $_GET['title'];
   $s_errorReason = $_GET['reason'];
 ?>

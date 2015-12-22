@@ -5,8 +5,8 @@
   // in to and using the rest of ePinkies2.
   //----------------------------------------------------------------------------
 
-  include 'includes/login_functions.php';
-  include 'includes/functions.php';
+  include_once 'includes/login_functions.php';
+  include_once 'includes/functions.php';
 
   //ini_set('display_errors', 1);
   //ini_set('display_startup_errors', 1);

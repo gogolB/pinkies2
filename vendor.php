@@ -1,7 +1,7 @@
 <?php
-include 'includes/functions.php';
-include 'includes/sessionFunctions.php';
-include 'includes/vendor_object.php';
+include_once 'includes/functions.php';
+include_once 'includes/sessionFunctions.php';
+include_once 'includes/vendor_object.php';
 secureSessionStart();
 
 // Check why we are here on this page.

@@ -1,5 +1,5 @@
 <?php
-include 'functions.php';
+include_once 'functions.php';
 // -----------------------------------------------------------------------------
 // Vendor class is responsible for carrying and holding all the variables
 // associated with the vendor object. This object can construct itself from a

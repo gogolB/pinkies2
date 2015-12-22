@@ -21,8 +21,8 @@
   // + Do all a user can do.
   // + Submit directly to the admin.
   // ---------------------------------------------------------------------------
-  include 'includes/functions.php';
-  include 'includes/sessionFunctions.php';
+  include_once 'includes/functions.php';
+  include_once 'includes/sessionFunctions.php';
   secureSessionStart();
  ?>
  <!DOCTYPE html>
