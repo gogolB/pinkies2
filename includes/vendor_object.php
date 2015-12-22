@@ -12,20 +12,20 @@ class Vendor
   public $i_VendorID = -1;
 
   // Address Variables
-  public $s_Address = '';
-  public $s_City = '';
-  public $s_State = '';
-  public $s_Zip = '';
-  public $s_Country = '';
+  public $s_Address = ' ';
+  public $s_City = ' ';
+  public $s_State = ' ';
+  public $s_Zip = ' ';
+  public $s_Country = ' ';
 
   // UCR specific Vendor Variables
-  public $s_UCRAccountID = '';
+  public $s_UCRAccountID = ' ';
 
   // Contact Info.
-  public $s_POC = '';
-  public $s_PhoneNumber = '';
-  public $s_FaxNumber = '';
-  public $s_Internet = '';
+  public $s_POC = ' ';
+  public $s_PhoneNumber = ' ';
+  public $s_FaxNumber = ' ';
+  public $s_Internet = ' ';
 
   public function toDatabase()
   {
@@ -53,7 +53,7 @@ class Vendor
 
       if($statement->errno != 0)
       {
-        $_tmp = $statement->errno;
+        $_tmp = $statement->error;
         $statement->close();
         $_db->close();
         onError("Database Error in Vendor",'There was an error running the query [' . $_tmp . ']');
