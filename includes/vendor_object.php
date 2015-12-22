@@ -107,7 +107,7 @@ class Vendor
         if($statement->num_rows > 0)
         {
           // It exists in the database! Populate all the variables.
-          $statement->bind_result($throwaway, $this->s_VendorName, $this->s_Address, $this->s_City, $this->s_State, $this->s_Zip, $this->s_UCRAccountID, $this->s_POC, $this->s_PhoneNumber, $this->s_PhoneNumber, $this->s_FaxNumber, $this->s_Internet);
+          $statement->bind_result($throwaway, $this->s_VendorName, $this->s_Address, $this->s_City, $this->s_State, $this->s_Zip, $this->s_Country,$this->s_UCRAccountID, $this->s_POC, $this->s_PhoneNumber, $this->s_FaxNumber, $this->s_Internet);
           $statement->fetch();
           $statement->free_result();
           $statement->close();
