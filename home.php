@@ -86,8 +86,7 @@
       <div class="container">
         <div class="well">
           <H3>Manage Vendors</H3>
-          <a href="#" class="btn btn-success" role="button"><span class="glyphicon glyphicon-plus"></span> Add a new Vendor</a>
-          <a href="#" class="btn btn-info" role="button"><span class="glyphicon glyphicon-pencil"></span> Update a Vendor</a>
+          <a href="./vendor.php?reason=add" class="btn btn-success" role="button"><span class="glyphicon glyphicon-plus"></span> Add a new Vendor</a>
           <a href="./vendor.php?reason=list" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-list-alt"></span> View all Vendors</a>
         </div>
       </div>
@@ -99,7 +98,6 @@
         <div class="well">
           <H3>Manage Funds</H3>
           <a href="#" class="btn btn-success" role="button"><span class="glyphicon glyphicon-plus"></span> Add a new Fund</a>
-          <a href="#" class="btn btn-info" role="button"><span class="glyphicon glyphicon-pencil"></span> Update a Fund</a>
           <a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-list-alt"></span> View all Funds</a>
         </div>
       </div>
