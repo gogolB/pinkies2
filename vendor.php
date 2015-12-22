@@ -239,7 +239,7 @@ function printAllVendors()
 
            <div class="form-group form-group-lg">
              <div class="col-sm-offset-2 col-sm-10">
-               <button type="submit" class="btn btn-Success">Submit</button>
+               <button type="submit" class="btn btn-success">Submit</button>
              </div>
            </div>
          </form>
