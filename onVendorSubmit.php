@@ -4,7 +4,7 @@ include_once 'includes/sessionFunctions.php';
 include_once 'includes/vendor_object.php';
 secureSessionStart();
 
-if(!isset($_POST['vendorname'])
+if(!isset($_POST['vendorname']))
 {
   onError("Vendor Submission Error!", "No Vendor name set! Can not update in database without vendor name");
 }
