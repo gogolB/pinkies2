@@ -63,7 +63,7 @@
               </div>
               <div class="form-group form-group-lg">
                 <div class="col-sm-offset-2 col-sm-10">
-                  <button type="submit" class="btn btn-success">Start a New Pinkie</button>
+                  <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Start a New Pinkie</button>
                 </div>
               </div>
             </form>
