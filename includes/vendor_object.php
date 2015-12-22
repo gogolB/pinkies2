@@ -30,7 +30,7 @@ class Vendor
 
   public function toDatabase()
   {
-    if($i_VendorID > 0)
+    if($this->i_VendorID > 0)
     {
         // This vendor already exists!
         // We just need to update it.
