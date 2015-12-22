@@ -273,7 +273,9 @@ function printAllVendors()
       header("Location: ./vendor.php?reason=view&vid=".$_vid);
     }
 
-
+    $_vendor = new Vendor();
+    $_vendor->i_VendorID = $_vid;
+    $_vendor->fromDatabase();
 
 ?>
 <!DOCTYPE html>
