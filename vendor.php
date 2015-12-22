@@ -105,7 +105,17 @@ function printAllVendors()
 </html>
 
 <?php elseif($s_reason == 'add') :?>
+<?php
+  // ---------------------------------------------------------------------------
+  // Here the user can add a new vendor to ePinkies2.
+  // ---------------------------------------------------------------------------
 
+  // Security Check. Make sure that this person is allowed to add a new vendor.
+  if(!isAdmin())
+  {
+    header("Location: ./vendor.php?reason=list");
+  }
+?>
 <!DOCTYPE html>
 <html>
    <head>
@@ -137,11 +147,131 @@ function printAllVendors()
        </div>
      </div>
 
+     <!-- Form to add a new Vendor.-->
+     <div class="container">
+       <div class="well">
+
+         <form class="form-horizontal" role="form" action="" method="POST">
+
+           <div class="form-group-lg">
+             <label class="control-label col-sm-2" for="vendorName">Vendor Name:</label>
+             <div class="col-sm-10">
+               <input type="text" class="form-control" id="vendorName" name="vendorName" >
+             </div>
+           </div>
+
+           <!-- Address/Location -->
+           <div class="form-group">
+             <label class="control-label col-sm-2" for="address">Address:</label>
+             <div class="col-sm-10">
+               <input type="password" class="form-control" id="address" name="address">
+             </div>
+           </div>
+
+           <div class="form-group">
+             <label class="control-label col-sm-2" for="city">City:</label>
+             <div class="col-sm-10">
+               <input type="password" class="form-control" id="city" name="city">
+             </div>
+           </div>
+
+           <div class="form-group">
+             <label class="control-label col-sm-2" for="state">State:</label>
+             <div class="col-sm-10">
+               <input type="password" class="form-control" id="state" name="state">
+             </div>
+           </div>
+
+           <div class="form-group">
+             <label class="control-label col-sm-2" for="zip">Zip:</label>
+             <div class="col-sm-10">
+               <input type="password" class="form-control" id="zip" name="zip">
+             </div>
+           </div>
+
+           <div class="form-group">
+             <label class="control-label col-sm-2" for="country">Country:</label>
+             <div class="col-sm-10">
+               <input type="password" class="form-control" id="country" name="country">
+             </div>
+           </div>
+
+           <!-- UCR Info -->
+
+           <div class="form-group">
+             <label class="control-label col-sm-2" for="ucrAccountID">UCR Account ID:</label>
+             <div class="col-sm-10">
+               <input type="password" class="form-control" id="ucrAccountID" name="ucrAccountID">
+             </div>
+           </div>
+
+           <!-- Contact info -->
+
+           <div class="form-group">
+             <label class="control-label col-sm-2" for="poc">POC:</label>
+             <div class="col-sm-10">
+               <input type="password" class="form-control" id="poc" name="poc">
+             </div>
+           </div>
+
+           <div class="form-group">
+             <label class="control-label col-sm-2" for="phoneNumber">Phone Number:</label>
+             <div class="col-sm-10">
+               <input type="password" class="form-control" id="phoneNumber" name="phoneNumber">
+             </div>
+           </div>
+
+           <div class="form-group">
+             <label class="control-label col-sm-2" for="faxNumber">Fax Number:</label>
+             <div class="col-sm-10">
+               <input type="password" class="form-control" id="faxNumber" name="faxNumber">
+             </div>
+           </div>
+
+           <div class="form-group">
+             <label class="control-label col-sm-2" for="internet">Internet:</label>
+             <div class="col-sm-10">
+               <input type="password" class="form-control" id="internet" name="internet">
+             </div>
+           </div>
+
+           <div class="form-group-lg">
+             <div class="col-sm-offset-2 col-sm-10">
+               <button type="submit" class="btn btn-default">Submit</button>
+             </div>
+           </div>
+         </form>
+
+       </div>
+     </div>
+
    </body>
 </html>
 
 <?php elseif($s_reason == 'edit') :?>
+<?php
+    // -------------------------------------------------------------------------
+    // The user can edit a vendor here.
+    // -------------------------------------------------------------------------
 
+    // Error catching.
+    if(!isset($_GET['vid']))
+    {
+      header("Location: ./vendor.php?reason=list");
+    }
+
+    // Get the vendorID
+    $_vid = $_GET['vid'];
+
+    // Security Check. Make sure that this person is allowed to edit a vendor.
+    if(!isAdmin())
+    {
+      header("Location: ./vendor.php?reason=view&vid=".$_vid);
+    }
+
+
+
+?>
 <!DOCTYPE html>
 <html>
    <head>
@@ -177,6 +307,22 @@ function printAllVendors()
 </html>
 
 <?php elseif($s_reason == 'view') :?>
+<?php
+  // ---------------------------------------------------------------------------
+  // The user can view all the variables associated with a single vendor.
+  // ---------------------------------------------------------------------------
+
+  // Error catching.
+  if(!isset($_GET['vid']))
+  {
+    header("Location: ./vendor.php?reason=list");
+  }
+
+  // Get the vendorID
+  $_vid = $_GET['vid'];
+
+
+?>
 
 <!DOCTYPE html>
 <html>
