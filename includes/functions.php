@@ -1,4 +1,5 @@
 <?php
+include_once 'defines.php';
 // -----------------------------------------------------------------------------
 // Here are all the helper functions used throughout ePinkies 2.
 // -----------------------------------------------------------------------------
@@ -32,6 +33,17 @@ function secureSessionStart()
 function onError($s_Title, $s_Reason)
 {
   header("Location: ./oops.php?title=".$s_Title."&reason=".$s_Reason);
+}
+
+// Returns a new Mysqli object.
+function getMysqli()
+{
+  $_db = new mysqli(HOST, DB_USER, DB_PASS, DB);
+  if($_db->connect_errno > 0)
+  {
+    onError("Unable to connect to database.", $_db->connect_error);
+  }
+  return $_db
 }
 
 // prints out all the nice header info.

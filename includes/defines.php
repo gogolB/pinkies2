@@ -4,8 +4,9 @@
 // -----------------------------------------------------------------------------
 
 // Database Defines.
-define(HOST, 'localhost');
-define(DB, 'Pinkies2');
-define(DB_USER, 'Pinkies2');
-define(DB_PASS, 'Pinkies2');
+define('HOST', 'localhost');
+define('DB', 'epinkie2');
+define('DB_USER', 'epinkie2');
+define('DB_PASS', 'epinkie2');
+
 ?>
