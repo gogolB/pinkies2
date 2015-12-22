@@ -274,7 +274,7 @@ function printAllVendors()
     }
 
     $_vendor = new Vendor();
-    $_vendor->i_VendorID = $_vid;
+    $_vendor->i_VendorID = (int)$_vid;
     $_vendor->fromDatabase();
 
 ?>

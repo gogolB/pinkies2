@@ -96,7 +96,7 @@ class Vendor
 
       if($statement->errno != 0)
       {
-        $_tmp = $statement->errno;
+        $_tmp = $statement->error;
         $statement->close();
         $_db->close();
         onError("Database Error in Vendor",'There was an error running the query [' . $_tmp . '] Could not fetch vendor.');
@@ -115,7 +115,7 @@ class Vendor
         else
         {
           $_db->close();
-          onError("Vendor not Found",'Could not find the vendor with the given vendorid of '.$this->i_VendorID);
+          onError("Vendor not Found",'Could not find the vendor with the given VendorID of '.$this->i_VendorID);
         }
       }
 
