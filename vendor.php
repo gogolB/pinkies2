@@ -34,11 +34,11 @@ function printAllVendors()
                 <td>";
     if(isAdmin())
     {
-        $_value = $_value."<a href='./vendor.php?reason=edit&vid=".$i_VendorID."' class='btn btn-info' role='button'><span class='glyphicon glyphicon-pencil'></span>Update/Change</a> ";
+        $_value = $_value."<a href='./vendor.php?reason=edit&vid=".$i_VendorID."' class='btn btn-info' role='button'><span class='glyphicon glyphicon-pencil'></span> Update/Change</a> ";
     }
 
     {
-        $_value = $_value."<a href='./vendor.php?reason=view&vid=".$i_VendorID."' class='btn btn-primary' role='button'><span class='glyphicon glyphicon-search'></span>View</a>";
+        $_value = $_value."<a href='./vendor.php?reason=view&vid=".$i_VendorID."' class='btn btn-primary' role='button'><span class='glyphicon glyphicon-search'></span> View</a>";
     }
     $_value = $_value."</td></tr>";
     echo $_value;
@@ -144,7 +144,7 @@ function printAllVendors()
          <!-- Back to Home button. -->
          <a href="./home.php" class="btn btn-success" role="button"><span class="glyphicon glyphicon-home"></span> Back to Home</a>
          <!-- Back to the list button. -->
-         <a href="./vendor.php?reason=list" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-list-alt"></span> List of Vendor</a>
+         <a href="./vendor.php?reason=list" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-list-alt"></span> List of Vendors</a>
 
        </div>
      </div>
@@ -305,7 +305,7 @@ function printAllVendors()
          <!-- Back to Home button. -->
          <a href="./home.php" class="btn btn-success" role="button"><span class="glyphicon glyphicon-home"></span> Back to Home</a>
          <!-- Back to the list button. -->
-         <a href="./vendor.php?reason=list" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-list-alt"></span> List of Vendor</a>
+         <a href="./vendor.php?reason=list" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-list-alt"></span> List of Vendors</a>
 
        </div>
      </div>
@@ -461,7 +461,7 @@ function printAllVendors()
          <!-- Back to Home button. -->
          <a href="./home.php" class="btn btn-success" role="button"><span class="glyphicon glyphicon-home"></span> Back to Home</a>
          <!-- Back to the list button. -->
-         <a href="./vendor.php?reason=list" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-list-alt"></span> List of Vendor</a>
+         <a href="./vendor.php?reason=list" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-list-alt"></span> List of Vendors</a>
 
        </div>
      </div>
