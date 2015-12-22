@@ -49,7 +49,7 @@ class Vendor
       {
         $_tmp = $_db->error;
         $_db->close();
-        onError("Database Error in Vendor",'There was an error running the query [' . $_tmp . ']');
+        onError("Database Error in Vendor",'There was an error running the query [' . $_tmp . ']  The SQL statment was: '.$_sql);
       }
       else
       {
