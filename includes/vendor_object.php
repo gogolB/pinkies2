@@ -41,7 +41,7 @@ class Vendor
       // database. Need to do a search by name.
       if(strlen($s_VendorName) == 0)
       {
-        onError("Vendor Object",'No valid vendor name set!');
+        onError("Vendor Object",'No valid vendor name set! Vendor name is: '.$s_VendorName);
       }
 
       // Connect to the database.
