@@ -150,7 +150,7 @@ class Vendor
     $_sql = "INSERT INTO Vendors (VendorName, Address, City, State, Zip, Country, UCRAccountID, POC, PhoneNumber, FaxNumber, Internet) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
     $_stmt = $_db->prepare($_sql);
 
-    $_stmt->bind_param('sssssssssss', $s_VendorName, $s_Address, $s_City, $s_State, $s_Zip, $s_Country, $s_UCRAccountID, $s_POC, $s_POC, $s_PhoneNumber, $s_FaxNumber, $s_Internet);
+    $_stmt->bind_param('sssssssssss', $this->$s_VendorName, $this->$s_Address, $this->$s_City, $this->$s_State, $this->$s_Zip, $this->$s_Country, $this->$s_UCRAccountID, $this->$s_POC, $this->$s_POC, $this->$s_PhoneNumber, $this->$s_FaxNumber, $this->$s_Internet);
     $_stmt->execute();
 
     if ($_stmt->errno)
