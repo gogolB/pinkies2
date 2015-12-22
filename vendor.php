@@ -160,7 +160,7 @@ function printAllVendors()
              </div>
            </div>
 
-           <br><br>
+           <br>
            <H3><u>Address/Location</u></H3>
            <!-- Address/Location -->
            <div class="form-group">
