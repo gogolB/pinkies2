@@ -12,7 +12,7 @@ function addVendorID(vendorID, form)
 
 function submitNewVendor(form)
 {
-  if(form["vendorname"].value == "" ||form["vendorname"].value == null )
+  if(form["vendorName"].value == "" ||form["vendorName"].value == null )
   {
     alert("You must have a name for this vendor!");
     return false;

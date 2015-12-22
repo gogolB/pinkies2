@@ -400,7 +400,7 @@ function printAllVendors()
 
          <div class="form-group form-group-lg">
            <div class="col-sm-offset-2 col-sm-10">
-             <button type="button" class="btn btn-success" onclick="updateVendor(this, <?php echo $_vendor->i_VendorID; ?>)">Update</button>
+             <button type="button" class="btn btn-success" onclick="updateVendor(this.form, <?php echo $_vendor->i_VendorID; ?>)">Update</button>
            </div>
          </div>
        </form>
