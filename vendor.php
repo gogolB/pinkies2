@@ -70,7 +70,7 @@ function printAllVendors()
      <div class="container">
        <div class="well">
          <H2>
-           Welcome the list of Vendors avaliable to ePinkies2.
+           Welcome the List of Vendors avaliable to ePinkies2.
          </H2>
 
          <!-- Only avaliable to those who can create new Vendors.-->
@@ -98,6 +98,114 @@ function printAllVendors()
              <?php printAllVendors(); ?>
            </tbody>
          </table>
+       </div>
+     </div>
+
+   </body>
+</html>
+
+<?php elseif($s_reason == 'add') :?>
+
+<!DOCTYPE html>
+<html>
+   <head>
+     <?php printHeaderInfo(); ?>
+     <title>ePinkies2 Vendors</title>
+     <script type="text/javascript" src="js/functions.js"></script>
+   </head>
+
+   <body>
+
+     <div class="jumbotron text-center">
+       <H1>ePinkies 2</H1>
+       <h2>University of California at Riverside</h2>
+       <h3>Department of Electrical and Computer Engineering</h3>
+     </div>
+
+     <!-- Sort of the welcome banner.-->
+     <div class="container">
+       <div class="well">
+         <H2>
+           Adding a new Vendor to ePinkies2.
+         </H2>
+
+         <!-- Back to Home button. -->
+         <a href="./home.php" class="btn btn-success" role="button"><span class="glyphicon glyphicon-home"></span> Back to Home</a>
+         <!-- Back to the list button. -->
+         <a href="./vendor.php?reason=list" class="btn btn-info" role="button"><span class="glyphicon glyphicon-list-alt"></span> List of Vendor</a>
+
+       </div>
+     </div>
+
+   </body>
+</html>
+
+<?php elseif($s_reason == 'edit') :?>
+
+<!DOCTYPE html>
+<html>
+   <head>
+     <?php printHeaderInfo(); ?>
+     <title>ePinkies2 Vendors</title>
+     <script type="text/javascript" src="js/functions.js"></script>
+   </head>
+
+   <body>
+
+     <div class="jumbotron text-center">
+       <H1>ePinkies 2</H1>
+       <h2>University of California at Riverside</h2>
+       <h3>Department of Electrical and Computer Engineering</h3>
+     </div>
+
+     <!-- Sort of the welcome banner.-->
+     <div class="container">
+       <div class="well">
+         <H2>
+           Editing a Vendor.
+         </H2>
+
+         <!-- Back to Home button. -->
+         <a href="./home.php" class="btn btn-success" role="button"><span class="glyphicon glyphicon-home"></span> Back to Home</a>
+         <!-- Back to the list button. -->
+         <a href="./vendor.php?reason=list" class="btn btn-info" role="button"><span class="glyphicon glyphicon-list-alt"></span> List of Vendor</a>
+
+       </div>
+     </div>
+
+   </body>
+</html>
+
+<?php elseif($s_reason == 'view') :?>
+
+<!DOCTYPE html>
+<html>
+   <head>
+     <?php printHeaderInfo(); ?>
+     <title>ePinkies2 Vendors</title>
+     <script type="text/javascript" src="js/functions.js"></script>
+   </head>
+
+   <body>
+
+     <div class="jumbotron text-center">
+       <H1>ePinkies 2</H1>
+       <h2>University of California at Riverside</h2>
+       <h3>Department of Electrical and Computer Engineering</h3>
+     </div>
+
+     <!-- Sort of the welcome banner.-->
+     <div class="container">
+       <div class="well">
+         <H2>
+           Viewing a Vendor.
+         </H2>
+
+         <!-- Back to Home button. -->
+         <a href="./home.php" class="btn btn-success" role="button"><span class="glyphicon glyphicon-home"></span> Back to Home</a>
+         <!-- Back to the list button. -->
+         <a href="./vendor.php?reason=list" class="btn btn-info" role="button"><span class="glyphicon glyphicon-list-alt"></span> List of Vendor</a>
+
        </div>
      </div>
 
