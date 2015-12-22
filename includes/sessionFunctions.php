@@ -56,9 +56,9 @@ function isAdmin()
   return false;
 }
 
-// Gets this current sessions name.
+// Gets this current sessions user's name.
 function getName()
 {
   return $_SESSION['Name'];
 }
- ?>
+?>
