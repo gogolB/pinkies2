@@ -17,8 +17,6 @@ if(isset($_POST['vendorID']))
 
 $_vendor->s_VendorName = $_POST['vendorName'];
 
-echo $_vendor->s_VendorName;
-
 $_vendor->s_Address = $_POST['address'];
 $_vendor->s_City = $_POST['city'];
 $_vendor->s_State = $_POST['state'];

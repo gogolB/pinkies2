@@ -39,7 +39,7 @@ class Vendor
     {
       // It doesn't have a vendor ID. Doesn't mean it doesn't exist in the
       // database. Need to do a search by name.
-      if($s_VendorName == '')
+      if($s_VendorName === '')
       {
         onError("Vendor Object",'No valid vendor name set!');
       }
