@@ -33,7 +33,7 @@ class Vendor
     {
         // This vendor already exists!
         // We just need to update it.
-        updateInDatabase();
+        $this->updateInDatabase();
     }
     else
     {
@@ -65,12 +65,12 @@ class Vendor
         {
           // It exists in the database, we just need to update it.
           $statement->bind_result($i_VendorID);
-          updateInDatabase();
+          $this->updateInDatabase();
         }
         else
         {
           // It doesn't exist in the database, we need to add it.
-          addNewVendor();
+          $this->addNewVendor();
         }
       }
       $_result->free();
