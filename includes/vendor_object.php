@@ -47,7 +47,7 @@ class Vendor
       // Connect to the database.
       $_db = getMysqli();
       // SQL query to run.
-      $_sql = 'SELECT 1 FROM Vendors WHERE VendorName='.$s_VendorName;
+      $_sql = 'SELECT VendorID FROM Vendors WHERE VendorName='.$s_VendorName.' LIMIT 1';
 
       if(!$_result = $_db->query($_sql))
       {
