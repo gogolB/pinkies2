@@ -241,7 +241,7 @@ function printAllVendors()
 
            <div class="form-group form-group-lg">
              <div class="col-sm-offset-2 col-sm-10">
-               <button type="button" class="btn btn-success" onclick="submitNewVendor(this)">Add new Vendor</button>
+               <button type="button" class="btn btn-success" onclick="submitNewVendor(this.form)">Add new Vendor</button>
              </div>
            </div>
          </form>
