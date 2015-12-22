@@ -47,8 +47,9 @@ class Vendor
 
       if(!$_result = $_db->query($_sql))
       {
+        $_tmp = $_db->error;
         $_db->close();
-        onError("Database Error in Vendor",'There was an error running the query [' . $_db->error . ']');
+        onError("Database Error in Vendor",'There was an error running the query [' . $_tmp . ']');
       }
       else
       {
