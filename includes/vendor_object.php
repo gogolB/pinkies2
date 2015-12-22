@@ -51,7 +51,7 @@ class Vendor
       $statement->bind_param('s', $s_VendorName);
       $statement->execute();
 
-      if(!$statement->errno)
+      if($statement->errno != 0)
       {
         $_tmp = $statement->errno;
         $statement->close();
@@ -93,7 +93,7 @@ class Vendor
       $statement->bind_param('i', $i_VendorID);
       $statement->execute();
 
-      if(!$statement->errno)
+      if($statement->errno != 0)
       {
         $_tmp = $statement->errno;
         $statement->close();
@@ -132,7 +132,7 @@ class Vendor
     $_stmt->bind_param('sssssssssssd', $s_VendorName, $s_Address, $s_City, $s_State, $s_Zip, $s_Country, $s_UCRAccountID, $s_POC, $s_POC, $s_PhoneNumber, $s_FaxNumber, $s_Internet, $i_VendorID);
     $_stmt->execute();
 
-    if ($_stmt->errno)
+    if ($_stmt->errno != 0)
     {
       onError("Error in Vendor::updateInDatabase()", $_stmt->error);
     }
