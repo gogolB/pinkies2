@@ -43,7 +43,7 @@ function printAllVendors()
     $_value = $_value."</td></tr>";
     echo $_value;
   }
-
+  $_stmt->free_result();
   $_db->close();
 }
 
@@ -56,6 +56,7 @@ function printAllVendors()
      <?php printHeaderInfo(); ?>
      <title>ePinkies2 Vendors</title>
      <script type="text/javascript" src="js/functions.js"></script>
+     <script type="text/javascript" src="js/vendor.js"></script>
    </head>
 
    <body>
@@ -122,6 +123,7 @@ function printAllVendors()
      <?php printHeaderInfo(); ?>
      <title>ePinkies2 Vendors</title>
      <script type="text/javascript" src="js/functions.js"></script>
+     <script type="text/javascript" src="js/vendor.js"></script>
    </head>
 
    <body>
@@ -151,7 +153,7 @@ function printAllVendors()
      <div class="container">
        <div class="well well-lg">
 
-         <form class="form-horizontal" role="form" action="" method="POST">
+         <form class="form-horizontal" role="form" action="onVendorSubmit.php" method="POST">
 
            <div class="form-group form-group-lg">
              <label class="control-label col-sm-2" for="vendorName">Vendor Name:</label>
@@ -239,7 +241,7 @@ function printAllVendors()
 
            <div class="form-group form-group-lg">
              <div class="col-sm-offset-2 col-sm-10">
-               <button type="submit" class="btn btn-success">Submit</button>
+               <button type="button" class="btn btn-success" onclick="submitNewVendor()">Add new Vendor</button>
              </div>
            </div>
          </form>
@@ -280,6 +282,7 @@ function printAllVendors()
      <?php printHeaderInfo(); ?>
      <title>ePinkies2 Vendors</title>
      <script type="text/javascript" src="js/functions.js"></script>
+     <script type="text/javascript" src="js/vendor.js"></script>
    </head>
 
    <body>
@@ -305,6 +308,107 @@ function printAllVendors()
        </div>
      </div>
 
+     <div class="container">
+       <div class="well well-lg">
+
+         <form class="form-horizontal" role="form" action="onVendorSubmit.php" method="POST">
+
+           <div class="form-group form-group-lg">
+             <label class="control-label col-sm-2" for="vendorName">Vendor Name:</label>
+             <div class="col-sm-10">
+               <input type="text" class="form-control" id="vendorName" name="vendorName" value='<?php echo $_vendor->s_VendorName; ?>' >
+             </div>
+           </div>
+
+           <br>
+           <H3><u>Address/Location</u></H3>
+           <!-- Address/Location -->
+           <div class="form-group">
+             <label class="control-label col-sm-2" for="address">Address:</label>
+             <div class="col-sm-10">
+               <input type="password" class="form-control" id="address" name="address" value='<?php echo $_vendor->s_Address; ?>' >
+             </div>
+           </div>
+
+           <div class="form-group">
+             <label class="control-label col-sm-2" for="city">City:</label>
+             <div class="col-sm-10">
+               <input type="password" class="form-control" id="city" name="city" value='<?php echo $_vendor->s_City; ?>' >
+             </div>
+           </div>
+
+           <div class="form-group">
+             <label class="control-label col-sm-2" for="state">State:</label>
+             <div class="col-sm-10">
+               <input type="password" class="form-control" id="state" name="state" value='<?php echo $_vendor->s_State; ?>' >
+             </div>
+           </div>
+
+           <div class="form-group">
+             <label class="control-label col-sm-2" for="zip">Zip:</label>
+             <div class="col-sm-10">
+               <input type="password" class="form-control" id="zip" name="zip" value='<?php echo $_vendor->s_Zip; ?>' >
+             </div>
+           </div>
+
+           <div class="form-group">
+             <label class="control-label col-sm-2" for="country">Country:</label>
+             <div class="col-sm-10">
+               <input type="password" class="form-control" id="country" name="country" value='<?php echo $_vendor->s_Country; ?>' >
+             </div>
+           </div>
+           <br>
+           <!-- UCR Info -->
+           <H3><u>UCR Specific Information</u></H3>
+           <div class="form-group">
+             <label class="control-label col-sm-2" for="ucrAccountID">UCR Account ID:</label>
+             <div class="col-sm-10">
+               <input type="password" class="form-control" id="ucrAccountID" name="ucrAccountID" value='<?php echo $_vendor->s_UCRAccountID; ?>' >
+             </div>
+           </div>
+           <br>
+           <!-- Contact info -->
+           <H3><u>Contact Info</u></H3>
+           <div class="form-group">
+             <label class="control-label col-sm-2" for="poc">POC:</label>
+             <div class="col-sm-10">
+               <input type="password" class="form-control" id="poc" name="poc" value='<?php echo $_vendor->s_POC; ?>' >
+             </div>
+           </div>
+
+           <div class="form-group">
+             <label class="control-label col-sm-2" for="phoneNumber">Phone Number:</label>
+             <div class="col-sm-10">
+               <input type="password" class="form-control" id="phoneNumber" name="phoneNumber" value='<?php echo $_vendor->s_PhoneNumber; ?>' >
+             </div>
+           </div>
+
+           <div class="form-group">
+             <label class="control-label col-sm-2" for="faxNumber">Fax Number:</label>
+             <div class="col-sm-10">
+               <input type="password" class="form-control" id="faxNumber" name="faxNumber" value='<?php echo $_vendor->s_FaxNumber; ?>' >
+             </div>
+           </div>
+
+           <div class="form-group">
+             <label class="control-label col-sm-2" for="internet">Internet:</label>
+             <div class="col-sm-10">
+               <input type="password" class="form-control" id="internet" name="internet" value='<?php echo $_vendor->s_Internet; ?>' >
+             </div>
+           </div>
+         </form>
+
+         <div class="form-group form-group-lg">
+           <div class="col-sm-offset-2 col-sm-10">
+             <button type="button" class="btn btn-success" onclick="updateVendor(this, <?php echo $_vendor->i_VendorID; ?>)">Update</button>
+           </div>
+         </div>
+       </form>
+
+       </div>
+     </div>
+
+
    </body>
 </html>
 
@@ -323,7 +427,9 @@ function printAllVendors()
   // Get the vendorID
   $_vid = $_GET['vid'];
 
-
+  $_vendor = new Vendor();
+  $_vendor->i_VendorID = $_vid;
+  $_vendor->fromDatabase();
 ?>
 
 <!DOCTYPE html>
@@ -332,6 +438,7 @@ function printAllVendors()
      <?php printHeaderInfo(); ?>
      <title>ePinkies2 Vendors</title>
      <script type="text/javascript" src="js/functions.js"></script>
+     <script type="text/javascript" src="js/vendor.js"></script>
    </head>
 
    <body>
@@ -353,6 +460,99 @@ function printAllVendors()
          <a href="./home.php" class="btn btn-success" role="button"><span class="glyphicon glyphicon-home"></span> Back to Home</a>
          <!-- Back to the list button. -->
          <a href="./vendor.php?reason=list" class="btn btn-info" role="button"><span class="glyphicon glyphicon-list-alt"></span> List of Vendor</a>
+
+       </div>
+     </div>
+
+     <div class="container">
+       <div class="well well-lg">
+
+         <form class="form-horizontal" role="form" action="" method="POST">
+
+           <div class="form-group form-group-lg">
+             <label class="control-label col-sm-2" for="vendorName">Vendor Name:</label>
+             <div class="col-sm-10">
+               <input type="text" class="form-control" id="vendorName" name="vendorName" value='<?php echo $_vendor->s_VendorName; ?>' readonly>
+             </div>
+           </div>
+
+           <br>
+           <H3><u>Address/Location</u></H3>
+           <!-- Address/Location -->
+           <div class="form-group">
+             <label class="control-label col-sm-2" for="address">Address:</label>
+             <div class="col-sm-10">
+               <input type="password" class="form-control" id="address" name="address" value='<?php echo $_vendor->s_Address; ?>' readonly>
+             </div>
+           </div>
+
+           <div class="form-group">
+             <label class="control-label col-sm-2" for="city">City:</label>
+             <div class="col-sm-10">
+               <input type="password" class="form-control" id="city" name="city" value='<?php echo $_vendor->s_City; ?>' readonly>
+             </div>
+           </div>
+
+           <div class="form-group">
+             <label class="control-label col-sm-2" for="state">State:</label>
+             <div class="col-sm-10">
+               <input type="password" class="form-control" id="state" name="state" value='<?php echo $_vendor->s_State; ?>' readonly>
+             </div>
+           </div>
+
+           <div class="form-group">
+             <label class="control-label col-sm-2" for="zip">Zip:</label>
+             <div class="col-sm-10">
+               <input type="password" class="form-control" id="zip" name="zip" value='<?php echo $_vendor->s_Zip; ?>' readonly>
+             </div>
+           </div>
+
+           <div class="form-group">
+             <label class="control-label col-sm-2" for="country">Country:</label>
+             <div class="col-sm-10">
+               <input type="password" class="form-control" id="country" name="country" value='<?php echo $_vendor->s_Country; ?>' readonly>
+             </div>
+           </div>
+           <br>
+           <!-- UCR Info -->
+           <H3><u>UCR Specific Information</u></H3>
+           <div class="form-group">
+             <label class="control-label col-sm-2" for="ucrAccountID">UCR Account ID:</label>
+             <div class="col-sm-10">
+               <input type="password" class="form-control" id="ucrAccountID" name="ucrAccountID" value='<?php echo $_vendor->s_UCRAccountID; ?>' readonly>
+             </div>
+           </div>
+           <br>
+           <!-- Contact info -->
+           <H3><u>Contact Info</u></H3>
+           <div class="form-group">
+             <label class="control-label col-sm-2" for="poc">POC:</label>
+             <div class="col-sm-10">
+               <input type="password" class="form-control" id="poc" name="poc" value='<?php echo $_vendor->s_POC; ?>' readonly>
+             </div>
+           </div>
+
+           <div class="form-group">
+             <label class="control-label col-sm-2" for="phoneNumber">Phone Number:</label>
+             <div class="col-sm-10">
+               <input type="password" class="form-control" id="phoneNumber" name="phoneNumber" value='<?php echo $_vendor->s_PhoneNumber; ?>' readonly>
+             </div>
+           </div>
+
+           <div class="form-group">
+             <label class="control-label col-sm-2" for="faxNumber">Fax Number:</label>
+             <div class="col-sm-10">
+               <input type="password" class="form-control" id="faxNumber" name="faxNumber" value='<?php echo $_vendor->s_FaxNumber; ?>' readonly>
+             </div>
+           </div>
+
+           <div class="form-group">
+             <label class="control-label col-sm-2" for="internet">Internet:</label>
+             <div class="col-sm-10">
+               <input type="password" class="form-control" id="internet" name="internet" value='<?php echo $_vendor->s_Internet; ?>' readonly>
+             </div>
+           </div>
+         </form>
 
        </div>
      </div>
