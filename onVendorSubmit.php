@@ -4,7 +4,7 @@ include_once 'includes/sessionFunctions.php';
 include_once 'includes/vendor_object.php';
 secureSessionStart();
 
-if(!isset($_POST['vendorname']))
+if(!isset($_POST['vendorName']) || $_POST['vendorName'] == '')
 {
   onError("Vendor Submission Error!", "No Vendor name set! Can not update in database without vendor name");
 }
@@ -15,7 +15,9 @@ if(isset($_POST['vendorID']))
   $_vendor->i_VendorID = $_POST['vendorID'];
 }
 
-$_vendor->s_VendorName = $_POST['vendorname'];
+$_vendor->s_VendorName = $_POST['vendorName'];
+
+echo $_vendor->s_VendorName;
 
 $_vendor->s_Address = $_POST['address'];
 $_vendor->s_City = $_POST['city'];
@@ -30,9 +32,9 @@ $_vendor->s_PhoneNumber = $_POST['phoneNumber'];
 $_vendor->s_FaxNumber = $_POST['faxNumber'];
 $_vendor->s_Internet = $_POST['internet'];
 
-$_vendor->toDatabase();
+//$_vendor->toDatabase();
 
 // All done, redirect to the vendor list page.
-header("Location: ./vendor.php?reason=list");
+//header("Location: ./vendor.php?reason=list");
 
 ?>
