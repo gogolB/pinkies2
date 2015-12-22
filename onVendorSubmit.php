@@ -30,9 +30,9 @@ $_vendor->s_PhoneNumber = $_POST['phoneNumber'];
 $_vendor->s_FaxNumber = $_POST['faxNumber'];
 $_vendor->s_Internet = $_POST['internet'];
 
-//$_vendor->toDatabase();
+$_vendor->toDatabase();
 
 // All done, redirect to the vendor list page.
-//header("Location: ./vendor.php?reason=list");
+header("Location: ./vendor.php?reason=list");
 
 ?>
