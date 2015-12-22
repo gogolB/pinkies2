@@ -47,21 +47,24 @@ class Vendor
       // Connect to the database.
       $_db = getMysqli();
       // SQL query to run.
-      $_sql = 'SELECT VendorID FROM Vendors WHERE VendorName='.$s_VendorName.' LIMIT 1';
+      $statment = $_db->prepare("SELECT VendorID FROM Vendors WHERE VendorName = ?");
+      $statement->bind_param('s', $s_VendorName);
+      $statement->execute();
 
-      if(!$_result = $_db->query($_sql))
+      if(!$statement->errno)
       {
-        $_tmp = $_db->error;
+        $_tmp = $statement->errno;
+        $statement->close();
         $_db->close();
-        onError("Database Error in Vendor",'There was an error running the query [' . $_tmp . ']  The SQL statment was: '.$_sql);
+        onError("Database Error in Vendor",'There was an error running the query [' . $_tmp . ']');
       }
       else
       {
 
-        if($_result->num_rows > 0)
+        if($statement->num_rows > 0)
         {
           // It exists in the database, we just need to update it.
-          $i_VendorID = $_result['VendorID'];
+          $statement->bind_result($i_VendorID);
           updateInDatabase();
         }
         else
@@ -86,35 +89,27 @@ class Vendor
       // Connect to the database.
       $_db = getMysqli();
       // SQL query to run.
-      $_sql = "SELECT 1 FROM Vendors WHERE VendorID=".$i_VendorID;
+      $statment = $_db->prepare("SELECT * FROM Vendors WHERE VendorID = ?");
+      $statement->bind_param('i', $i_VendorID);
+      $statement->execute();
 
-      if(!$_result = $_db->query($_sql))
+      if(!$statement->errno)
       {
+        $_tmp = $statement->errno;
+        $statement->close();
         $_db->close();
-        onError("Database Error in Vendor",'There was an error running the query [' . $_db->error . ']. Could not load vendor from database.');
+        onError("Database Error in Vendor",'There was an error running the query [' . $_tmp . '] Could not fetch vendor.');
       }
       else
       {
 
-        if($_result->num_rows > 0)
+        if($statement->num_rows > 0)
         {
           // It exists in the database! Populate all the variables.
-          $s_VendorName= $_result['VendorName'];
+          $statement->bind_result($s_VendorName, $s_Address, $s_City, $s_State, $s_Zip, $s_UCRAccountID, $s_POC, $s_POC, $s_PhoneNumber, $s_PhoneNumber, $s_FaxNumber, $s_Internet);
 
-          $s_Address= $_result['Address'];
-          $s_City= $_result['City'];
-          $s_State= $_result['State'];
-          $s_Zip= $_result['Zip'];
-          $s_Country= $_result['Country'];
-
-          $s_UCRAccountID= $_result['UCRAccountID'];
-
-          $s_POC= $_result['POC'];
-          $s_PhoneNumber= $_result['PhoneNumber'];
-          $s_FaxNumber= $_result['FaxNumber'];
-          $s_Internet= $_result['Internet'];
-
-          $_result->free();
+          $statement->free_results();
+          $state->close();
         }
         else
         {
