@@ -40,16 +40,16 @@ class Vendor
     {
       // It doesn't have a vendor ID. Doesn't mean it doesn't exist in the
       // database. Need to do a search by name.
-      if(strlen($s_VendorName) == 0)
+      if(strlen($this->s_VendorName) == 0)
       {
-        onError("Vendor Object",'No valid vendor name set! Vendor name is: '.$s_VendorName);
+        onError("Vendor Object",'No valid vendor name set! Vendor name is: '.$this->s_VendorName);
       }
 
       // Connect to the database.
       $_db = getMysqli();
       // SQL query to run.
       $statement = $_db->prepare("SELECT VendorID FROM Vendors WHERE VendorName = ?");
-      $statement->bind_param('s', $s_VendorName);
+      $statement->bind_param('s', $this->s_VendorName);
       $statement->execute();
 
       if($statement->errno != 0)
@@ -65,7 +65,7 @@ class Vendor
         if($statement->num_rows > 0)
         {
           // It exists in the database, we just need to update it.
-          $statement->bind_result($i_VendorID);
+          $statement->bind_result($this->i_VendorID);
           $this->updateInDatabase();
         }
         else
@@ -91,7 +91,7 @@ class Vendor
       $_db = getMysqli();
       // SQL query to run.
       $statment = $_db->prepare("SELECT * FROM Vendors WHERE VendorID = ?");
-      $statement->bind_param('i', $i_VendorID);
+      $statement->bind_param('i', $this->i_VendorID);
       $statement->execute();
 
       if($statement->errno != 0)
@@ -107,7 +107,7 @@ class Vendor
         if($statement->num_rows > 0)
         {
           // It exists in the database! Populate all the variables.
-          $statement->bind_result($s_VendorName, $s_Address, $s_City, $s_State, $s_Zip, $s_UCRAccountID, $s_POC, $s_POC, $s_PhoneNumber, $s_PhoneNumber, $s_FaxNumber, $s_Internet);
+          $statement->bind_result($this->s_VendorName, $this->s_Address, $this->s_City, $this->s_State, $this->s_Zip, $this->s_UCRAccountID, $this->s_POC, $this->s_PhoneNumber, $this->s_PhoneNumber, $this->s_FaxNumber, $this->s_Internet);
 
           $statement->free_results();
           $state->close();
@@ -115,7 +115,7 @@ class Vendor
         else
         {
           $_db->close();
-          onError("Vendor not Found",'Could not find the vendor with the given vendorid of '.$i_VendorID);
+          onError("Vendor not Found",'Could not find the vendor with the given vendorid of '.$this->i_VendorID);
         }
       }
 
@@ -130,7 +130,7 @@ class Vendor
     $_sql = "UPDATE Vendors SET VendorName=?, Address=?, City=?, State=?, Zip=?, Country=?, UCRAccountID=?, POC=?, PhoneNumber=?, FaxNumber=?, Internet=? WHERE VendorID=?";
     $_stmt = $_db->prepare($_sql);
 
-    $_stmt->bind_param('sssssssssssd', $s_VendorName, $s_Address, $s_City, $s_State, $s_Zip, $s_Country, $s_UCRAccountID, $s_POC, $s_POC, $s_PhoneNumber, $s_FaxNumber, $s_Internet, $i_VendorID);
+    $_stmt->bind_param('sssssssssssd', $this->s_VendorName, $this->s_Address, $this->s_City, $this->s_State, $this->s_Zip, $this->s_Country, $this->s_UCRAccountID, $this->s_POC, $this->s_PhoneNumber, $this->s_FaxNumber, $this->s_Internet, $this->i_VendorID);
     $_stmt->execute();
 
     if ($_stmt->errno != 0)
@@ -151,7 +151,7 @@ class Vendor
     $_sql = "INSERT INTO Vendors (VendorName, Address, City, State, Zip, Country, UCRAccountID, POC, PhoneNumber, FaxNumber, Internet) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
     $_stmt = $_db->prepare($_sql);
 
-    $_stmt->bind_param('sssssssssss', $this->$s_VendorName, $this->$s_Address, $this->$s_City, $this->$s_State, $this->$s_Zip, $this->$s_Country, $this->$s_UCRAccountID, $this->$s_POC, $this->$s_POC, $this->$s_PhoneNumber, $this->$s_FaxNumber, $this->$s_Internet);
+    $_stmt->bind_param('sssssssssss', $this->s_VendorName, $this->s_Address, $this->s_City, $this->s_State, $this->s_Zip, $this->s_Country, $this->s_UCRAccountID, $this->s_POC, $this->s_PhoneNumber, $this->s_FaxNumber, $this->s_Internet);
     $_stmt->execute();
 
     if ($_stmt->errno)
