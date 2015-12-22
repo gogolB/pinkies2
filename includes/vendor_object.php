@@ -39,11 +39,15 @@ class Vendor
     {
       // It doesn't have a vendor ID. Doesn't mean it doesn't exist in the
       // database. Need to do a search by name.
+      if($s_VendorName == '')
+      {
+        onError("Vendor Object",'No valid vendor name set!');
+      }
 
       // Connect to the database.
       $_db = getMysqli();
       // SQL query to run.
-      $_sql = "SELECT 1 FROM Vendors WHERE VendorName=".$s_VendorName;
+      $_sql = 'SELECT 1 FROM Vendors WHERE VendorName='.$s_VendorName;
 
       if(!$_result = $_db->query($_sql))
       {
