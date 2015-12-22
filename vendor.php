@@ -161,8 +161,7 @@ function printAllVendors()
            </div>
 
            <br><br>
-           <H3>Address/Location</H3>
-           <hr>
+           <H3><u>Address/Location</u></H3>
            <!-- Address/Location -->
            <div class="form-group">
              <label class="control-label col-sm-2" for="address">Address:</label>
@@ -200,8 +199,7 @@ function printAllVendors()
            </div>
            <br>
            <!-- UCR Info -->
-           <H3>UCR Specific Information </H3>
-           <hr>
+           <H3><u>UCR Specific Information</u></H3>
            <div class="form-group">
              <label class="control-label col-sm-2" for="ucrAccountID">UCR Account ID:</label>
              <div class="col-sm-10">
@@ -210,8 +208,7 @@ function printAllVendors()
            </div>
            <br>
            <!-- Contact info -->
-           <H3>Contact Info</H3>
-           <hr>
+           <H3><u>Contact Info</u></H3>
            <div class="form-group">
              <label class="control-label col-sm-2" for="poc">POC:</label>
              <div class="col-sm-10">
