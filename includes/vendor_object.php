@@ -47,7 +47,7 @@ class Vendor
       // Connect to the database.
       $_db = getMysqli();
       // SQL query to run.
-      $statment = $_db->prepare("SELECT VendorID FROM Vendors WHERE VendorName = ?");
+      $statement = $_db->prepare("SELECT VendorID FROM Vendors WHERE VendorName = ?");
       $statement->bind_param('s', $s_VendorName);
       $statement->execute();
 
