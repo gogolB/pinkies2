@@ -149,7 +149,7 @@ function printAllVendors()
 
      <!-- Form to add a new Vendor.-->
      <div class="container">
-       <div class="well">
+       <div class="well well-lg">
 
          <form class="form-horizontal" role="form" action="" method="POST">
 
