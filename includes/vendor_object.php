@@ -123,7 +123,7 @@ class Vendor
   }
 
   // Update this object in the database, requied that the VendorID be set.
-  private function updateInDatabase()
+  public function updateInDatabase()
   {
     $_db = getMysqli();
     $_sql = "UPDATE Vendors SET VendorName=?, Address=?, City=?, State=?, Zip=?, Country=?, UCRAccountID=?, POC=?, PhoneNumber=?, FaxNumber=?, Internet=? WHERE VendorID=?";
@@ -144,7 +144,7 @@ class Vendor
   }
 
   // We are adding a new Vendor.
-  private function addNewVendor()
+  public function addNewVendor()
   {
     $_db = getMysqli();
     $_sql = "INSERT INTO Vendors (VendorName, Address, City, State, Zip, Country, UCRAccountID, POC, PhoneNumber, FaxNumber, Internet) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
