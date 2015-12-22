@@ -81,7 +81,7 @@ class Vendor
 
   public function fromDatabase()
   {
-    if($i_VendorID < 0)
+    if($this->i_VendorID < 0)
     {
       onError("Vendor, no VendorID set", "Could not run a search in the database because no vendorID was set.");
     }
@@ -103,12 +103,12 @@ class Vendor
       }
       else
       {
-
+        $statement->store_result();
         if($statement->num_rows > 0)
         {
           // It exists in the database! Populate all the variables.
           $statement->bind_result($this->s_VendorName, $this->s_Address, $this->s_City, $this->s_State, $this->s_Zip, $this->s_UCRAccountID, $this->s_POC, $this->s_PhoneNumber, $this->s_PhoneNumber, $this->s_FaxNumber, $this->s_Internet);
-
+          $statement->fetch();
           $statement->free_results();
           $state->close();
         }
