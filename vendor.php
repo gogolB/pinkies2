@@ -34,11 +34,11 @@ function printAllVendors()
                 <td>";
     if(isAdmin())
     {
-        $_value = $_value."<a href=''./vendor.php?reason=edit&vid='.$i_VendorID.' class='btn btn-info' role='button'><span class='glyphicon glyphicon-pencil'></span></a>"
+        $_value = $_value."<a href=''./vendor.php?reason=edit&vid='.$i_VendorID.' class='btn btn-info' role='button'><span class='glyphicon glyphicon-pencil'></span></a>";
     }
     else
     {
-        $_value = $_value."<a href=''./vendor.php?reason=view&vid='.$i_VendorID.' class='btn btn-info' role='button'><span class='glyphicon glyphicon-search'></span></a>"
+        $_value = $_value."<a href=''./vendor.php?reason=view&vid='.$i_VendorID.' class='btn btn-info' role='button'><span class='glyphicon glyphicon-search'></span></a>";
     }
     $_value = $_value."</td></tr>";
     echo $_value;
