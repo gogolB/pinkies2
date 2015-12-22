@@ -43,7 +43,7 @@ function getMysqli()
   {
     onError("Unable to connect to database.", $_db->connect_error);
   }
-  return $_db
+  return $_db;
 }
 
 // prints out all the nice header info.
