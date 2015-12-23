@@ -19,5 +19,5 @@ function updateFund(form, fundID)
   input.setAttribute("value", fundID);
   form.appendChild(input);
 
-  submitNewVendor(form);
+  submitNewFund(form);
 }
