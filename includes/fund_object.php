@@ -56,6 +56,7 @@ class Fund
           else
           {
               // Its new, we can add it to the database.
+              onError("tidy_parse_string", "TEsting");
               $this->addFund();
           }
 

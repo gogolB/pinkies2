@@ -63,6 +63,14 @@ function isSelected($f)
     }
 }
 
+function isNotSelected($f)
+{
+    if(!$f->b_Active)
+    {
+        echo "default";
+    }
+}
+
 ?>
 <?php if($s_reason == 'list') :?>
 <!DOCTYPE html>
@@ -369,7 +377,7 @@ function isSelected($f)
              <label class="control-label col-sm-2" for="active">Active:</label>
              <select class="form-control" id="active", name="active">
                <option value="1" <?php isSelected($_fund);?> >Yes</option>
-               <option value='0' <?php isSelected($_fund);?> >No</option>
+               <option value='0' <?php isNotSelected($_fund);?> >No</option>
              </select>
            </div>
 
@@ -494,9 +502,9 @@ function isSelected($f)
 
            <div class="form-group">
              <label class="control-label col-sm-2" for="active">Active:</label>
-             <select class="form-control" id="active", name="active" readonly>
+             <select class="form-control" id="active", name="active" disabled>
                <option value="1" <?php isSelected($_fund);?> >Yes</option>
-               <option value='0' <?php isSelected($_fund);?> >No</option>
+               <option value='0' <?php isNotSelected($_fund);?> >No</option>
              </select>
            </div>
          </form>
