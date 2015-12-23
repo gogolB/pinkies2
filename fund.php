@@ -375,7 +375,7 @@ function isSelected($f)
 
            <div class="form-group form-group-lg">
              <div class="col-sm-offset-2 col-sm-10">
-               <button type="button" class="btn btn-info" onclick="updatefund(this.form, <?php echo $_fund->i_FundID; ?>)">Update/Change</button>
+               <button type="button" class="btn btn-info" onclick="updateFund(this.form, <?php echo $_fund->i_FundID; ?>)">Update/Change</button>
              </div>
            </div>
          </form>

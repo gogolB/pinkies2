@@ -11,7 +11,7 @@ function submitNewFund(form)
   form.submit();
 }
 
-function updatefund(form, fundID)
+function updateFund(form, fundID)
 {
   var input = document.createElement("input");
   input.setAttribute("type", "hidden");
