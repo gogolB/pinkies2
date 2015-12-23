@@ -22,6 +22,7 @@ class Fund
   // Send a fund object to the database.
   public function toDatabase()
   {
+      onError("ENTERED", "ENTERED");
       if($this->i_FundID > 0)
       {
           // This fund object already exists. We just need to update it.
