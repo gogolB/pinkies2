@@ -61,4 +61,36 @@ function getName()
 {
   return $_SESSION['Name'];
 }
+
+// -----------------------------------------------------------------------------
+// Permissions table: Shows who has access to what.
+// -----------------------------------------------------------------------------
+
+// Returns true if this current session can view the list of vendors.
+function canViewVendors()
+{
+    return isUser() || isSuper() || isTrans() || isAdmin();
+}
+
+// Returns true if this current session is allowed to edit the list of vendors,
+// including adding and updating a vendor.
+function canEditVendors()
+{
+    return isAdmin();
+}
+
+// Returns true if this current session can view the list of funds.
+function canViewFunds()
+{
+    return isUser() || isSuper() || isTrans() || isAdmin();
+}
+// Returns true if this current session is allowed to edit the list of funds
+// including adding and updating a fund.
+function canEditFunds()
+{
+    return isAdmin();
+}
+
+
+
 ?>

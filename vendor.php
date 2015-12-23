@@ -32,7 +32,7 @@ function printAllVendors()
                   ".$s_VendorName."
                 </td>
                 <td>";
-    if(isAdmin())
+    if(canEditVendors())
     {
         $_value = $_value."<a href='./vendor.php?reason=edit&vid=".$i_VendorID."' class='btn btn-info' role='button'><span class='glyphicon glyphicon-pencil'></span> Update/Change</a> ";
     }
@@ -75,7 +75,7 @@ function printAllVendors()
          </H2>
 
          <!-- Only avaliable to those who can create new Vendors.-->
-         <?php if(isAdmin()): ?>
+         <?php if(canEditVendors()): ?>
            <a href="./vendor.php?reason=add" class="btn btn-success" role="button"><span class="glyphicon glyphicon-plus"></span> Add a new Vendor</a>
          <?php endif; ?>
 
@@ -112,7 +112,7 @@ function printAllVendors()
   // ---------------------------------------------------------------------------
 
   // Security Check. Make sure that this person is allowed to add a new vendor.
-  if(!isAdmin())
+  if(!canEditVendors())
   {
     header("Location: ./vendor.php?reason=list");
   }
@@ -268,7 +268,7 @@ function printAllVendors()
     $_vid = $_GET['vid'];
 
     // Security Check. Make sure that this person is allowed to edit a vendor.
-    if(!isAdmin())
+    if(!canEditVendors())
     {
       header("Location: ./vendor.php?reason=view&vid=".$_vid);
     }

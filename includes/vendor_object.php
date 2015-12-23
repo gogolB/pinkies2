@@ -73,7 +73,7 @@ class Vendor
           // It doesn't exist in the database, we need to add it.
           $this->addNewVendor();
         }
-      }
+
       $statement->free_result();
       $_db->close();
     }
