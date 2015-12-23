@@ -24,7 +24,9 @@ $_fund->s_ProjectCode = $_POST['projectCode'];
 $_fund->s_Balance = $_POST['balance'];
 $_fund->b_Active = $_POST['active'];
 
-$_fund->toDatabase();
+
+var_dump($_fund);
+//$_fund->toDatabase();
 
 // All done, redirect to the vendor list page.
 //header("Location: ./fund.php?reason=list");
