@@ -494,7 +494,7 @@ function isSelected($f)
 
            <div class="form-group">
              <label class="control-label col-sm-2" for="active">Active:</label>
-             <select class="form-control" id="active", name="active">
+             <select class="form-control" id="active", name="active" readonly>
                <option value="1" <?php isSelected($_fund);?> >Yes</option>
                <option value='0' <?php isSelected($_fund);?> >No</option>
              </select>
