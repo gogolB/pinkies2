@@ -49,6 +49,7 @@ class Fund
           // Checking for repeats.
           if($statement->num_rows > 0)
           {
+              onError("tidy_parse_string", "TEsting Update");
               // Its a repeat, we just need to update the fund.
               $statement->bind_result($this->i_FundID);
               $this->updateFund();
