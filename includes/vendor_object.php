@@ -78,6 +78,7 @@ class Vendor
       $_db->close();
     }
   }
+}
 
   public function fromDatabase()
   {
