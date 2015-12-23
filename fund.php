@@ -79,7 +79,7 @@ function isNotSelected($f)
      <?php printHeaderInfo(); ?>
      <title>ePinkies2 Funds</title>
      <script type="text/javascript" src="js/functions.js"></script>
-     <script type="text/javascript" src="js/vendor.js"></script>
+     <script type="text/javascript" src="js/fund.js"></script>
    </head>
 
    <body>
@@ -97,7 +97,7 @@ function isNotSelected($f)
            Welcome the List of Funds avaliable to ePinkies2.
          </H2>
 
-         <!-- Only avaliable to those who can create new Vendors.-->
+         <!-- Only avaliable to those who can create new Funds.-->
          <?php if(canEditFunds()): ?>
            <a href="./fund.php?reason=add" class="btn btn-success" role="button"><span class="glyphicon glyphicon-plus"></span> Add a new Fund</a>
          <?php endif; ?>
@@ -108,7 +108,7 @@ function isNotSelected($f)
        </div>
      </div>
 
-     <!-- The list of Vendors -->
+     <!-- The list of Funds -->
      <div class="container">
        <div class="well">
          <table class="table table-hover">
@@ -133,11 +133,11 @@ function isNotSelected($f)
 <?php elseif($s_reason == 'add') :?>
 <?php
   // ---------------------------------------------------------------------------
-  // Here the user can add a new vendor to ePinkies2.
+  // Here the user can add a new Fund to ePinkies2.
   // ---------------------------------------------------------------------------
 
-  // Security Check. Make sure that this person is allowed to add a new vendor.
-  if(!canEditVendors())
+  // Security Check. Make sure that this person is allowed to add a new Fund.
+  if(!canEditFundss())
   {
     header("Location: ./fund.php?reason=list");
   }
@@ -146,7 +146,7 @@ function isNotSelected($f)
 <html>
    <head>
      <?php printHeaderInfo(); ?>
-     <title>ePinkies2 Vendors</title>
+     <title>ePinkies2 Funds</title>
      <script type="text/javascript" src="js/functions.js"></script>
      <script type="text/javascript" src="js/fund.js"></script>
    </head>
@@ -163,13 +163,13 @@ function isNotSelected($f)
      <div class="container">
        <div class="well">
          <H2>
-           Adding a new Vendor to ePinkies2.
+           Adding a new Funds to ePinkies2.
          </H2>
 
          <!-- Back to Home button. -->
          <a href="./home.php" class="btn btn-success" role="button"><span class="glyphicon glyphicon-home"></span> Back to Home</a>
          <!-- Back to the list button. -->
-         <a href="./fund.php?reason=list" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-list-alt"></span> List of Vendors</a>
+         <a href="./fund.php?reason=list" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-list-alt"></span> List of Funds</a>
 
        </div>
      </div>
@@ -244,7 +244,7 @@ function isNotSelected($f)
 
            <div class="form-group form-group-lg">
              <div class="col-sm-offset-2 col-sm-10">
-               <button type="button" class="btn btn-success" onclick="submitNewFund(this.form)">Add new Vendor</button>
+               <button type="button" class="btn btn-success" onclick="submitNewFund(this.form)">Add new Fund</button>
              </div>
            </div>
          </form>
@@ -258,7 +258,7 @@ function isNotSelected($f)
 <?php elseif($s_reason == 'edit') :?>
 <?php
     // -------------------------------------------------------------------------
-    // The user can edit a vendor here.
+    // The user can edit a Funds here.
     // -------------------------------------------------------------------------
 
     // Error catching.
@@ -267,11 +267,11 @@ function isNotSelected($f)
       header("Location: ./fund.php?reason=list");
     }
 
-    // Get the vendorID
+    // Get the FundID
     $_fid = $_GET['fid'];
 
-    // Security Check. Make sure that this person is allowed to edit a vendor.
-    if(!canEditVendors())
+    // Security Check. Make sure that this person is allowed to edit a Fund.
+    if(!canEditFunds())
     {
       header("Location: ./fund.php?reason=view&fid=".$_fid);
     }
@@ -285,9 +285,9 @@ function isNotSelected($f)
 <html>
    <head>
      <?php printHeaderInfo(); ?>
-     <title>ePinkies2 Vendors</title>
+     <title>ePinkies2 Funds</title>
      <script type="text/javascript" src="js/functions.js"></script>
-     <script type="text/javascript" src="js/vendor.js"></script>
+     <script type="text/javascript" src="js/fund.js"></script>
    </head>
 
    <body>
@@ -393,7 +393,7 @@ function isNotSelected($f)
 <?php elseif($s_reason == 'view') :?>
 <?php
   // ---------------------------------------------------------------------------
-  // The user can view all the variables associated with a single vendor.
+  // The user can view all the variables associated with a single Fund.
   // ---------------------------------------------------------------------------
 
   // Error catching.
@@ -402,7 +402,7 @@ function isNotSelected($f)
     header("Location: ./fund.php?reason=list");
   }
 
-  // Get the vendorID
+  // Get the Funds
   $_fid = $_GET['fid'];
 
   $_fund = new Fund();
@@ -414,9 +414,9 @@ function isNotSelected($f)
 <html>
    <head>
      <?php printHeaderInfo(); ?>
-     <title>ePinkies2 Vendors</title>
+     <title>ePinkies2 Fund</title>
      <script type="text/javascript" src="js/functions.js"></script>
-     <script type="text/javascript" src="js/vendor.js"></script>
+     <script type="text/javascript" src="js/fund.js"></script>
    </head>
 
    <body>
@@ -431,13 +431,13 @@ function isNotSelected($f)
      <div class="container">
        <div class="well">
          <H2>
-           Viewing a Vendor.
+           Viewing a Fund.
          </H2>
 
          <!-- Back to Home button. -->
          <a href="./home.php" class="btn btn-success" role="button"><span class="glyphicon glyphicon-home"></span> Back to Home</a>
          <!-- Back to the list button. -->
-         <a href="./fund.php?reason=list" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-list-alt"></span> List of Vendors</a>
+         <a href="./fund.php?reason=list" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-list-alt"></span> List of Funds</a>
 
        </div>
      </div>
