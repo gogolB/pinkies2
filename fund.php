@@ -365,7 +365,7 @@ function isNotSelected($f)
              <label class="control-label col-sm-2" for="balance">Balance:</label>
              <div class="input-group">
                <span class="input-group-addon">$</span>
-               <input type="text" class="form-control" id="balance" name="balance">
+               <input type="text" class="form-control" id="balance" name="balance" value="<?php echo $_fund->s_Balance; ?>">
              </div>
            </div>
 
@@ -493,7 +493,7 @@ function isNotSelected($f)
              <label class="control-label col-sm-2" for="balance">Balance:</label>
              <div class="input-group">
                <span class="input-group-addon">$</span>
-               <input type="text" class="form-control" id="balance" name="balance">
+               <input type="text" class="form-control" id="balance" name="balance" value="<?php echo $_fund->s_ProjectCode; ?>" readonly>
              </div>
            </div>
 
