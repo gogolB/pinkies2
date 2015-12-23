@@ -100,9 +100,9 @@
         <div class="well">
           <H3>Manage Funds</H3>
           <?php if(canEditFunds()): ?>
-            <a href="#" class="btn btn-success" role="button"><span class="glyphicon glyphicon-plus"></span> Add a new Fund</a>
+            <a href="./fund.php?reason=add" class="btn btn-success" role="button"><span class="glyphicon glyphicon-plus"></span> Add a new Fund</a>
           <?php endif; ?>
-          <a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-list-alt"></span> View all Funds</a>
+          <a href="./fund.php?reason=list" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-list-alt"></span> View all Funds</a>
         </div>
       </div>
     <?php endif; ?>

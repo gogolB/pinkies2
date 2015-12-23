@@ -76,13 +76,40 @@ class Fund
       }
 
       // We have a proper fund ID, conduct a search.
+      // Connect to the database.
+      $_db = getMysqli();
+      // SQL query to run.
+      $statement = $_db->prepare("SELECT * FROM Funds WHERE FundID=?");
+      $statement->bind_param('i', $this->i_FundID);
+      $statement->execute();
 
-      if(we dont have a result!)
+      // Error running the statment.
+      if($statement->errno != 0)
       {
+        $_tmp = $statement->error;
+        $statement->close();
+        $_db->close();
+        onError("Fund::fromDatabase()",'There was an error running the query [' . $_tmp . '] Could not fetch Fund.');
+      }
+
+
+      $statement->store_result();
+      if($statement->num_rows <= 0)
+      {
+          $statement->free_result();
+          $statement->close();
+          $_db->close();
           onError("Fund::fromDatabase()","Failed to find a fund with the given fund id of: ".$this->i_FundID);
       }
       // We have a result, lets bind the result to the variables.
-      
+      $statement->bind_result($throwaway, $this->s_FundName, $this->s_Activity, $this->s_Fund, $this->s_Function, $this->s_CostCenter, $this->s_ProjectCode,$this->s_Balance, $this->s_Active, $this->s_Timestamp);
+      $statement->fetch();
+
+      // Cleanup.
+      $statement->free_result();
+      $statement->close();
+      $_db->close();
+
   }
 
   // Actual code to update a fund in the database.
@@ -102,6 +129,21 @@ class Fund
       }
 
       // Everything all good, lets update the table.
+      $_db = getMysqli();
+      $_sql = "UPDATE Funds SET FundName=?, Activity=?, Fund=?, Function=?, CostCenter=?, ProjectCode=?, Balance=?, Active=? WHERE FundID=?";
+      $_stmt = $_db->prepare($_sql);
+
+      $_stmt->bind_param('ssssssssssii', $this->s_FundName, $this->s_Activity, $this->s_Fund, $this->s_Function, $this->s_CostCenter, $this->s_ProjectCode, $this->s_Balance, $this->b_Active, $this->i_FundID);
+      $_stmt->execute();
+
+      if ($_stmt->errno)
+      {
+        onError("Error in Fund::updateFund()", $_stmt->error);
+      }
+
+      $_stmt->close();
+      // Close up the database connection.
+      $_db->close();
   }
 
   // Actual code to add a fund to the database.
@@ -115,6 +157,21 @@ class Fund
       }
 
       // Everything all good, lets insert in to the table.
+      $_db = getMysqli();
+      $_sql = "INSERT INTO Funds (FundName, Activity, Fund, Function, CostCenter, ProjectCode, Balance, Active) VALUES (?,?,?,?,?,?,?,?)";
+      $_stmt = $_db->prepare($_sql);
+
+      $_stmt->bind_param('ssssssssssi', $this->s_FundName, $this->s_Activity, $this->s_Fund, $this->s_Function, $this->s_CostCenter, $this->s_ProjectCode, $this->s_Balance, $this->b_Active);
+      $_stmt->execute();
+
+      if ($_stmt->errno)
+      {
+        onError("Error in Fund::addFund()", $_stmt->error);
+      }
+
+      $_stmt->close();
+      // Close up the database connection.
+      $_db->close();
   }
 
 }
