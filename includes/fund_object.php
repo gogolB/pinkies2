@@ -22,7 +22,6 @@ class Fund
   // Send a fund object to the database.
   public function toDatabase()
   {
-      onError("ENTERED", "ENTERED");
       if($this->i_FundID > 0)
       {
           // This fund object already exists. We just need to update it.
@@ -50,7 +49,6 @@ class Fund
           // Checking for repeats.
           if($statement->num_rows > 0)
           {
-              onError("tidy_parse_string", "TEsting Update");
               // Its a repeat, we just need to update the fund.
               $statement->bind_result($this->i_FundID);
               $this->updateFund();
@@ -58,7 +56,6 @@ class Fund
           else
           {
               // Its new, we can add it to the database.
-              onError("tidy_parse_string", "TEsting");
               $this->addFund();
           }
 
