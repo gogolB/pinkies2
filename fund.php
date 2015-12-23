@@ -369,14 +369,6 @@ function isNotSelected($f)
              </div>
            </div>
 
-
-           <div class="form-group">
-             <label class="control-label col-sm-2" for="active">Active:</label>
-             <div class="col-sm-10">
-               <input type="text" class="form-control" id="active" name="active" value="<?php echo $_fund->b_Active; ?>">
-             </div>
-           </div>
-
            <div class="form-group">
              <label class="control-label col-sm-2" for="active">Active:</label>
              <select class="form-control" id="active", name="active">
