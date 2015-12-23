@@ -27,6 +27,6 @@ $_fund->b_Active = $_POST['active'];
 $_fund->toDatabase();
 
 // All done, redirect to the vendor list page.
-//header("Location: ./fund.php?reason=list");
+header("Location: ./fund.php?reason=list");
 
 ?>
