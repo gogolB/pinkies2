@@ -61,11 +61,12 @@ class Vendor
       }
       else
       {
-
+        $statement->store_result();
         if($statement->num_rows > 0)
         {
           // It exists in the database, we just need to update it.
           $statement->bind_result($this->i_VendorID);
+          $statement->fetch();
           $this->updateInDatabase();
         }
         else
