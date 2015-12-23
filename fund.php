@@ -401,7 +401,7 @@ function isSelected($f)
   // Get the vendorID
   $_fid = $_GET['fid'];
 
-  $_fund = new Vendor();
+  $_fund = new Fund();
   $_fund->i_FundID = $_fid;
   $_fund->fromDatabase();
 ?>
