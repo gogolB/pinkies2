@@ -45,12 +45,13 @@ class Fund
             $_db->close();
             onError("Fund::toDatabase()",'There was an error running the query [' . $_tmp . '] when we were searching for repeats.');
           }
-
+          $statement->store_result();
           // Checking for repeats.
           if($statement->num_rows > 0)
           {
               // Its a repeat, we just need to update the fund.
               $statement->bind_result($this->i_FundID);
+              $statement->fetch();
               $this->updateFund();
           }
           else
