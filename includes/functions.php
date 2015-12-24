@@ -1,7 +1,7 @@
 <?php
 include_once 'defines.php';
 // -----------------------------------------------------------------------------
-// Here are all the helper functions used throughout ePinkies 2.
+// Here are all the helper generic functions used throughout ePinkies 2.
 // -----------------------------------------------------------------------------
 
 // Starts a secure session

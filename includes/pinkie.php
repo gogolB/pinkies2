@@ -20,12 +20,14 @@ class Pinkie
     public $i_PinkieID = -1;
 
     // Header.
+    public $s_Title = '';
     public $s_SubmissionTimeStamp = '';
     public $s_ReferenceNumber = '';
 
     // Objects
     // An array of PurchaseObject.
     public $a_Objects = array();
+    public $d_Total = 0.0;
 
     public $d_ShippingFreight = 0.0;
 
@@ -51,7 +53,9 @@ class Pinkie
 
     public $s_Priority = '';
 
-    public $s_status = '';
+    public $s_Submitter = '';
+    public $s_SubmittedFor = '';
+    public $s_Status = '';
 
     // attachements
     // An array of Attachement
@@ -115,6 +119,119 @@ class Pinkie
         {
             $_f->i_PinkieID = $this->i_PinkieID;
         }
+    }
+
+    public function calculateTotal()
+    {
+      foreach ($this->a_Objects as $_ob)
+      {
+        $this->d_Total += $_ob->i_Quantity * $_ob->d_UnitPrice;
+      }
+    }
+
+    //**************************************************************************
+    // Database FUNCTIONS
+    //**************************************************************************
+
+    public function toDatabase()
+    {
+        $this->calculateTotal();
+
+        if($this->i_PinkieID > 0)
+        {
+            $this->update();
+        }
+        else
+        {
+            $this->addNew();
+        }
+    }
+
+    public function fromDatabase()
+    {
+
+    }
+
+    function update()
+    {
+      // Everything all good, lets update the table.
+      $_db = getMysqli();
+      $_sql = "UPDATE Submitted_By SET Submitter=?, SubmittedFor=?, Title=?, Status=?, Total=? WHERE PinkieID=?";
+      $_stmt = $_db->prepare($_sql);
+
+      $_stmt->bind_param('ssssdi', $this->s_Submitter, $this->s_SubmittedFor, $this->s_Title, $this->s_Status, $this->d_Total, $this->i_PinkieID);
+      $_stmt->execute();
+
+      if ($_stmt->errno)
+      {
+        onError("Pinkie::update()", $_stmt->error);
+      }
+
+      $_stmt->close();
+      // Close up the database connection.
+      $_db->close();
+
+      // Update all the other objects, assumes that the pinkieID of each of
+      // those has been set previously.
+
+      foreach ($this->a_Objects as $_ob)
+      {
+        $_ob->toDatabase();
+      }
+
+      foreach ($this->$a_Expenses as $_e)
+      {
+          $_e->toDatabase();
+      }
+
+      foreach ($this->$a_Attachments as $_f)
+      {
+          $_f->toDatabase();
+      }
+    }
+
+    function addNew()
+    {
+      // Everything all good, lets insert in to the table.
+      $_db = getMysqli();
+      $_sql = "INSERT INTO Submitted_By (Submitter, SubmittedFor, Title, Status, Total) VALUES (?,?,?,?,?)";
+      $_stmt = $_db->prepare($_sql);
+
+      $_stmt->bind_param('ssssd', $this->s_Submitter, $this->s_SubmittedFor, $this->s_Title, $this->s_Status, $this->d_Total);
+      $_stmt->execute();
+
+      if ($_stmt->errno)
+      {
+        onError("Pinkie::addNew()", $_stmt->error);
+      }
+
+      // Get the pinkie id of the thing we just inserted.
+      $this->i_PinkieID = $_db->insert_id;
+      $_stmt->close();
+      // Close up the database connection.
+      $_db->close();
+
+      // Now we need to submit all the other stuff.
+      // Probably not the most efficient way to do it, runs O(2n), could be O(n)
+      $this->updateObjects();
+      $this->updateExpenses();
+      $this->updateAttachements();
+
+      foreach ($this->a_Objects as $_ob)
+      {
+        $_ob->toDatabase();
+      }
+
+      foreach ($this->$a_Expenses as $_e)
+      {
+          $_e->toDatabase();
+      }
+
+      foreach ($this->$a_Attachments as $_f)
+      {
+          $_f->toDatabase();
+      }
+
     }
 
 }
