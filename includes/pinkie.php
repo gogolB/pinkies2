@@ -67,7 +67,7 @@ class Pinkie
         $_ob = new PurchaseObject($this->i_PinkieID);
         $_ob->i_Quantity = $i_Quantity;
         $_ob->s_StockNumber = $s_StockNumber;
-        $_ob->s_Descripton = $s_Descripton;
+        $_ob->s_Description = $s_Descripton;
         $_ob->s_BC = $s_BC;
         $_ob->s_AccountNumber = $s_AccountNumber;
         $_ob->d_UnitPrice = $d_UnitPrice;
@@ -125,17 +125,122 @@ class Pinkie
 //------------------------------------------------------------------------------
 class PinkieExpense
 {
-    public $f_Fund;
-    public $d_amount;
-    public $i_PinkieID;
-    public $i_ExpenseID;
+    public $f_FundID = - 1;
+    public $d_Amount = 0.0;
+    public $i_PinkieID = -1;
+    public $i_ExpenseID = -1;
 
     // Default constructor.
     public function __construct($i_PID, $f_F, $d_amt)
     {
         $this->i_PinkieID = $i_PID;
-        $this->d_amount = $d_amt;
-        $this->f_Fund = $f_F;
+        $this->$d_Amount = $d_amt;
+        $this->f_FundID = $f_F;
+    }
+
+    public function toDatabase()
+    {
+        if($this->i_PinkieID < 0)
+        {
+            onError("PinkieExpense::toDatabase()", "Failed to add expense because no pinkieID was set.");
+        }
+
+        if($this->f_FundID < 0)
+        {
+            onError("PinkieExpense::toDatabase()", "Failed to add expense because no FundID was set.");
+        }
+
+
+        if($this->i_ExpenseID > 0)
+        {
+            $this->update();
+        }
+        else
+        {
+            $this->addNew();
+        }
+    }
+
+    public function fromDatabase()
+    {
+        if($this->f_FundID < 0)
+        {
+            onError("PinkieExpense::fromDatabase()", "Failed to load expense because no ExpenseID was set.");
+        }
+
+        // Connect to the database.
+        $_db = getMysqli();
+        // SQL query to run.
+        $statement = $_db->prepare("SELECT * FROM Expenses WHERE ExpenseID=?");
+        $statement->bind_param('i', $this->i_ExpenseID);
+        $statement->execute();
+
+        // Error running the statment.
+        if($statement->errno != 0)
+        {
+          $_tmp = $statement->error;
+          $statement->close();
+          $_db->close();
+          onError("PinkieExpense::fromDatabase()",'There was an error running the query [' . $_tmp . '] Could not fetch Expense.');
+        }
+
+
+        $statement->store_result();
+        if($statement->num_rows <= 0)
+        {
+            $statement->free_result();
+            $statement->close();
+            $_db->close();
+            onError("PinkieExpense::fromDatabase()","Failed to find a Expense with the given ExpenseID of: ".$this->i_ExpenseID);
+        }
+        // We have a result, lets bind the result to the variables.
+        $statement->bind_result($throwaway, $this->i_PinkieID, $this->d_Amount, $this->i_FundID);
+        $statement->fetch();
+
+        // Cleanup.
+        $statement->free_result();
+        $statement->close();
+        $_db->close();
+    }
+
+    function update()
+    {
+      // Everything all good, lets update the table.
+      $_db = getMysqli();
+      $_sql = "UPDATE Expenses SET PinkieID=?, Amount=?, FundID=? WHERE ExpenseID=?";
+      $_stmt = $_db->prepare($_sql);
+
+      $_stmt->bind_param('idii', $this->i_PinkieID, $this->$d_Amount, $this->i_FundID, $this->i_ExpenseID);
+      $_stmt->execute();
+
+      if ($_stmt->errno)
+      {
+        onError("PinkieExpense::update()", $_stmt->error);
+      }
+
+      $_stmt->close();
+      // Close up the database connection.
+      $_db->close();
+    }
+
+    function addNew()
+    {
+      // Everything all good, lets insert in to the table.
+      $_db = getMysqli();
+      $_sql = "INSERT INTO Expenses (PinkieID, Amount, FundID) VALUES (?,?,?)";
+      $_stmt = $_db->prepare($_sql);
+
+      $_stmt->bind_param('idi', $this->i_PinkieID, $this->d_Amount, $this->i_FundID);
+      $_stmt->execute();
+
+      if ($_stmt->errno)
+      {
+        onError("PinkieExpense::addNew()", $_stmt->error);
+      }
+
+      $_stmt->close();
+      // Close up the database connection.
+      $_db->close();
     }
 }
 ?>
