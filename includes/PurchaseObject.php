@@ -65,17 +65,86 @@ class PurchaseObject
 
     public function fromDatabase()
     {
+      // Check if a file ID has been set.
+      if($this->i_FileID < 0)
+      {
+          onError("PurchaseObject::fromDatabase()", "Failed to load attachment from database because no ObjectID was set.");
+      }
 
+      // Everything is all good, load it from the database.
+      // Connect to the database.
+      $_db = getMysqli();
+      // SQL query to run.
+      $statement = $_db->prepare("SELECT * FROM Objects WHERE ObjectID=?");
+      $statement->bind_param('i', $this->i_ObjectID);
+      $statement->execute();
+
+      // Error running the statment.
+      if($statement->errno != 0)
+      {
+        $_tmp = $statement->error;
+        $statement->close();
+        $_db->close();
+        onError("PurchaseObject::fromDatabase()",'There was an error running the query [' . $_tmp . '] Could not fetch Object.');
+      }
+
+
+      $statement->store_result();
+      if($statement->num_rows <= 0)
+      {
+          $statement->free_result();
+          $statement->close();
+          $_db->close();
+          onError("PurchaseObject::fromDatabase()","Failed to find a Object with the given ObjectID of: ".$this->i_ObjectID);
+      }
+      // We have a result, lets bind the result to the variables.
+      $statement->bind_result($throwaway, $this->i_PinkieID, $this->i_Quantity, $this->s_StockNumber, $this->s_Description, $this->s_BC, $this->s_AccountNumber, $this->d_UnitPrice);
+      $statement->fetch();
+
+      // Cleanup.
+      $statement->free_result();
+      $statement->close();
+      $_db->close();
     }
 
     function update()
     {
+      // Everything all good, lets update the table.
+      $_db = getMysqli();
+      $_sql = "UPDATE Objects SET PinkieID=?, Quantity=?, StockNumber=?, Description=?, BC=?, AccountNumber=?, UnitPrice=? WHERE ObjectID=?";
+      $_stmt = $_db->prepare($_sql);
 
+      $_stmt->bind_param('iissssdi', $this->i_PinkieID, $this->i_Quantity, $this->s_StockNumber, $this->s_Description, $this->s_BC, $this->s_AccountNumber, $this->d_UnitPrice, $this->i_ObjectID);
+      $_stmt->execute();
+
+      if ($_stmt->errno)
+      {
+        onError("PurchaseObject::update()", $_stmt->error);
+      }
+
+      $_stmt->close();
+      // Close up the database connection.
+      $_db->close();
     }
 
     function addNew()
     {
+      // Everything all good, lets insert in to the table.
+      $_db = getMysqli();
+      $_sql = "INSERT INTO Objects (PinkieID, Quantity, StockNumber, Description, BC, AccountNumber, UnitPrice) VALUES (?,?,?,?,?,?,?)";
+      $_stmt = $_db->prepare($_sql);
 
+      $_stmt->bind_param('iissssd', $this->i_PinkieID, $this->i_Quantity, $this->s_StockNumber, $this->s_Description, $this->s_BC, $this->s_AccountNumber, $this->d_UnitPrice);
+      $_stmt->execute();
+
+      if ($_stmt->errno)
+      {
+        onError("PurchaseObject::addNew()", $_stmt->error);
+      }
+
+      $_stmt->close();
+      // Close up the database connection.
+      $_db->close();
     }
 }
 ?>

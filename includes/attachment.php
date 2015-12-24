@@ -60,7 +60,7 @@ class Attachement
         $_db = getMysqli();
         // SQL query to run.
         $statement = $_db->prepare("SELECT * FROM Attachments WHERE AttachmentID=?");
-        $statement->bind_param('i', $this->i_FundID);
+        $statement->bind_param('i', $this->i_FileID);
         $statement->execute();
 
         // Error running the statment.
