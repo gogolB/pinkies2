@@ -149,6 +149,50 @@ class Pinkie
 
     public function fromDatabase()
     {
+      // Check if a file ID has been set.
+      if($this->i_PinkieID < 0)
+      {
+          onError("Pinkie::fromDatabase()", "Failed to load Pinkie from database because no PinkieID was set.");
+      }
+
+      // Everything is all good, load it from the database.
+      // Connect to the database.
+      $_db = getMysqli();
+      // SQL query to run.
+      $statement = $_db->prepare("SELECT * FROM Submitted_By WHERE PinkieID=?");
+      $statement->bind_param('i', $this->PinkieID);
+      $statement->execute();
+
+      // Error running the statment.
+      if($statement->errno != 0)
+      {
+        $_tmp = $statement->error;
+        $statement->close();
+        $_db->close();
+        onError("Pinkie::fromDatabase()",'There was an error running the query [' . $_tmp . '] Could not fetch Pinkie.');
+      }
+
+      $statement->store_result();
+      if($statement->num_rows <= 0)
+      {
+          $statement->free_result();
+          $statement->close();
+          $_db->close();
+          onError("Pinkie::fromDatabase()","Failed to find a Pinkie with the given PinkieID of: ".$this->i_PinkieID);
+      }
+      // We have a result, lets bind the result to the variables.
+      $statement->bind_result($throwaway, $this->s_SubmissionTimeStamp, $this->s_Submitter, $this->s_SubmittedFor, $this->s_Title, $this->s_Status, $this->d_Total);
+      $statement->fetch();
+
+      // Cleanup.
+      $statement->free_result();
+      $statement->close();
+      $_db->close();
+
+      // Now we need to load all the children that are attached to this pinkie.
+      $this->getObjects();
+      $this->getExpenses();
+      $this->getAttachments();
 
     }
 
@@ -173,7 +217,6 @@ class Pinkie
 
       // Update all the other objects, assumes that the pinkieID of each of
       // those has been set previously.
-
       foreach ($this->a_Objects as $_ob)
       {
         $_ob->toDatabase();
@@ -232,6 +275,138 @@ class Pinkie
           $_f->toDatabase();
       }
 
+    }
+
+    function getObjects()
+    {
+      // Everything is all good, load it from the database.
+      // Connect to the database.
+      $_db = getMysqli();
+      // SQL query to run.
+      $statement = $_db->prepare("SELECT ObjectID FROM Objects WHERE PinkieID=?");
+      $statement->bind_param('i', $this->PinkieID);
+      $statement->execute();
+
+      // Error running the statment.
+      if($statement->errno != 0)
+      {
+        $_tmp = $statement->error;
+        $statement->close();
+        $_db->close();
+        onError("Pinkie::getObjects()",'There was an error running the query [' . $_tmp . '] Could not fetch Objects.');
+      }
+
+      $statement->store_result();
+      if($statement->num_rows <= 0)
+      {
+          $statement->free_result();
+          $statement->close();
+          $_db->close();
+          return;
+      }
+
+      // We have a results.
+      $statement->bind_result($_tempObjectID);
+      while($statement->fetch())
+      {
+          $_o = new PurchaseObject($this->i_PinkieID);
+          $_o->i_ObjectID = $_tempObjectID;
+          $_o->fromDatabase();
+          array_push($this->a_Objects, $_o);
+      }
+
+      // Cleanup.
+      $statement->free_result();
+      $statement->close();
+      $_db->close();
+    }
+
+    function getExpenses()
+    {
+      // Everything is all good, load it from the database.
+      // Connect to the database.
+      $_db = getMysqli();
+      // SQL query to run.
+      $statement = $_db->prepare("SELECT ExpenseID FROM Expenses WHERE PinkieID=?");
+      $statement->bind_param('i', $this->PinkieID);
+      $statement->execute();
+
+      // Error running the statment.
+      if($statement->errno != 0)
+      {
+        $_tmp = $statement->error;
+        $statement->close();
+        $_db->close();
+        onError("Pinkie::getExpenses()",'There was an error running the query [' . $_tmp . '] Could not fetch Expenses.');
+      }
+
+      $statement->store_result();
+      if($statement->num_rows <= 0)
+      {
+          $statement->free_result();
+          $statement->close();
+          $_db->close();
+          return;
+      }
+
+      // We have a results.
+      $statement->bind_result($_tempExpenseID);
+      while($statement->fetch())
+      {
+          $_e = new PinkieExpense($this->i_PinkieID);
+          $_e->i_ExpenseID = $_tempExpenseID;
+          $_e->fromDatabase();
+          array_push($this->a_Expenses, $_e);
+      }
+
+      // Cleanup.
+      $statement->free_result();
+      $statement->close();
+      $_db->close();
+    }
+
+    function getAttachments()
+    {
+      // Everything is all good, load it from the database.
+      // Connect to the database.
+      $_db = getMysqli();
+      // SQL query to run.
+      $statement = $_db->prepare("SELECT AttachmentID FROM Attachements WHERE PinkieID=?");
+      $statement->bind_param('i', $this->PinkieID);
+      $statement->execute();
+
+      // Error running the statment.
+      if($statement->errno != 0)
+      {
+        $_tmp = $statement->error;
+        $statement->close();
+        $_db->close();
+        onError("Pinkie::getAttachments()",'There was an error running the query [' . $_tmp . '] Could not fetch Attachements.');
+      }
+
+      $statement->store_result();
+      if($statement->num_rows <= 0)
+      {
+          $statement->free_result();
+          $statement->close();
+          $_db->close();
+          return;
+      }
+
+      // We have a results.
+      $statement->bind_result($_tempAttachementID);
+      while($statement->fetch())
+      {
+          $_f = new Attachement($this->i_PinkieID);
+          $_f->i_FileID = $_tempAttachementID;
+          $_f->fromDatabase();
+          array_push($this->a_Attachments, $_f);
+      }
+
+      // Cleanup.
+      $statement->free_result();
+      $statement->close();
+      $_db->close();
     }
 
 }
