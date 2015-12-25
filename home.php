@@ -54,7 +54,7 @@
             <H3>Start a New Pinkie</H3>
 
             <!-- Form for starting a new pinkie. -->
-            <form class="form-horizontal" role="form" action="" method="POST">
+            <form class="form-horizontal" role="form" action="newpinkie.php" method="POST">
               <div class="form-group form-group-lg">
                 <label class="control-label col-sm-2" for="title">Title:</label>
                 <div class="col-sm-10">
@@ -63,7 +63,7 @@
               </div>
               <div class="form-group form-group-lg">
                 <div class="col-sm-offset-2 col-sm-10">
-                  <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Start a New Pinkie</button>
+                  <button type="button" class="btn btn-success" onclick="onStartNewPinkie(this.form)"><span class="glyphicon glyphicon-plus"></span> Start a New Pinkie</button>
                 </div>
               </div>
             </form>
