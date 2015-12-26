@@ -167,7 +167,7 @@ if(isset($_POST['title']))
             </div>
           </div>
 
-          <div class="form-group col-sm-offset-2">
+          <div class="form-group col-sm-offset-2 col-sm-10">
             <textarea class="form-control" rows="2" id="justificationText" name="justificationText"></textarea>
           </div>
 
@@ -242,28 +242,10 @@ if(isset($_POST['title']))
         <div class="well">
           <H2>Attachments</H2>
           <div class="form-group form-group-lg">
-            <label class="control-label">Select File</label>
-            <input id="iattachment" name="attachment[]" type="file" class="file-loading">
-            <script>
-              $(document).on('ready', function() {
-                $("attachment").fileinput({
-                  maxFileCount: 1,
-                  allowedFileTypes: ["image", "video"]
-                });
-              });
-            </script>
-          </div>
-
-          <div name="moreFiles">
-
-          </div>
-
-          <div class="form-group form-group-lg">
-            <div class="col-sm-offset-10 col-sm-2">
-              <button type="button" class="btn btn-success" onclick=""><span class="glyphicon glyphicon-plus"></span> Add Attachement</button>
-            </div>
+              <input id="attachment" name="attachment[]" type="file" class="file" multiple data-show-upload="false" data-show-caption="true">
           </div>
         </div>
+        
       </div>
 
     </form>
