@@ -218,7 +218,7 @@ if(isset($_POST['title']))
             </div>
           </div>
 
-          <div name="moreObjects">
+          <div id="moreObjects">
 
           </div>
 
@@ -311,7 +311,7 @@ if(isset($_POST['title']))
             </div>
           </div>
 
-          <div name="moreFunds">
+          <div id="moreFunds">
 
           </div>
 
