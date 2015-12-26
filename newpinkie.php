@@ -135,10 +135,134 @@ if(isset($_POST['title']))
 
           </div>
 
+          <div class="form-group form-group-lg">
+            <div class="col-sm-offset-10 col-sm-2">
+              <button type="button" class="btn btn-success" onclick=""><span class="glyphicon glyphicon-plus"></span> Add another Object</button>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      
+      <!-- Vendors and justification -->
+      <div class="container">
+        <div class="well">
+
+
+
+
+
+
+          <div class="form-group form-group-lg">
+            <label class="control-label col-sm-2" for="justification">Justification:</label>
+            <div class="col-sm-10">
+              <select class="form-control" id="justification" name="justification">
+                  <option selected="selected">Instruction</option>
+                  <option>Research</option>
+                  <option>Fabrication</option>
+                  <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <textarea class="form-control" rows="2" id="justificationText" name="justificationText"></textarea>
+          </div>
+
+          <div class="form-group form-group-lg">
+            <label class="control-label col-sm-2" for="equipmentLocation">EquipmentLocation:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="equipmentLocation" name="equipmentLocation" >
+            </div>
+          </div>
+
+          <div class="form-group form-group-lg">
+            <label class="control-label col-sm-2" for="ucrPropertyNumber">UCR Property Number:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="ucrPropertyNumber" name="ucrPropertyNumber">
+            </div>
+          </div>
+
+          <div class="form-group form-group-lg">
+            <label class="control-label col-sm-2" for="classInstructed">Class Instructed:</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="classInstructed" name="classInstructed">
+            </div>
+
+            <label class="control-label col-sm-2" for="quote">Quote:</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="quote" name="quote">
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Funds -->
+      <div class="container">
+        <div class="well">
+
+          <div class="form-group form-group-lg">
+            <H4 class="col-sm-8">Fund</H4>
+            <H4 class="col-sm-4">Amount</H4>
+          </div>
+
+          <div class="form-group form-group-lg">
+            <div class="col-sm-8">
+              <select class="form-control" id="fund[]" name="fund[]">
+                  <option selected="selected">--</option>
+                  <!-- TODO Populate with all the funds. -->
+              </select>
+            </div>
+            <div class="col-sm-4">
+              <div class="input-group">
+                <span class="input-group-addon">$</span>
+                <input type="text" class="form-control" id="amount[]" name="amount[]" placeholder="Amount">
+              </div>
+            </div>
+          </div>
+
+          <div name="moreFunds">
+
+          </div>
+
+          <div class="form-group form-group-lg">
+            <div class="col-sm-offset-10 col-sm-2">
+              <button type="button" class="btn btn-success" onclick=""><span class="glyphicon glyphicon-plus"></span> Add Fund</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Attachements -->
+      <div class="container">
+        <div class="well">
+          <H2>Attachments</H2>
+          <div class="form-group form-group-lg">
+            <label class="control-label">Select File</label>
+            <input id="input-41" name="input41[]" type="file" class="file-loading">
+            <script>
+              $(document).on('ready', function() {
+                $("#input-41").fileinput({
+                  maxFileCount: 1,
+                  allowedFileTypes: ["image", "video"]
+                });
+              });
+            </script>
+          </div>
+
+          <div name="moreFiles">
+
+          </div>
+
+          <div class="form-group form-group-lg">
+            <div class="col-sm-offset-10 col-sm-2">
+              <button type="button" class="btn btn-success" onclick=""><span class="glyphicon glyphicon-plus"></span> Add Attachement</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </form>
 
