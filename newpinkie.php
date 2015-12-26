@@ -103,6 +103,40 @@ if(isset($_POST['title']))
         }
       }
 
+      function removeAObject()
+      {
+        if(currentObject > minObject)
+        {
+          cnt = currentObject-1;
+          element = document.getElementById('PurchaseObject'+cnt);
+          element.parentNode.removeChild(element);
+          currentObject--;
+          return false;
+        }
+        else
+        {
+          alert('Minimum '+minObject+' objects are required.');
+          return false;
+        }
+      }
+
+      function removeAFund()
+      {
+        if(currentFund > minFunds)
+        {
+          cnt = currentFund-1;
+          element = document.getElementById('Expense'+cnt);
+          element.parentNode.removeChild(element);
+          currentFund--;
+          return false;
+        }
+        else
+        {
+          alert('Minimum '+minFunds+' funds are required.');
+          return false;
+        }
+      }
+
     </script>
   </HEAD>
   <body>
@@ -223,8 +257,9 @@ if(isset($_POST['title']))
           </div>
 
           <div class="form-group form-group-lg">
-            <div class="col-sm-offset-10 col-sm-2">
+            <div class="col-sm-offset-8 col-sm-4">
               <button type="button" class="btn btn-success" onclick="addAObject();"><span class="glyphicon glyphicon-plus"></span> Add another Object</button>
+              <button type="button" class="btn btn-primary" onclick="removeAObject();"><span class="glyphicon glyphicon-minus"></span> Remove a Object</button>
             </div>
           </div>
 
@@ -316,8 +351,9 @@ if(isset($_POST['title']))
           </div>
 
           <div class="form-group form-group-lg">
-            <div class="col-sm-offset-10 col-sm-2">
-              <button type="button" class="btn btn-success" onclick="addAFund()"><span class="glyphicon glyphicon-plus"></span> Add Fund</button>
+            <div class="col-sm-offset-8 col-sm-4">
+              <button type="button" class="btn btn-success" onclick="addAFund()"><span class="glyphicon glyphicon-plus"></span> Add another Fund</button>
+              <button type="button" class="btn btn-primary" onclick="removeAFund()"><span class="glyphicon glyphicon-minus"></span> Remove a Fund</button>
             </div>
           </div>
 
