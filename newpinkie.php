@@ -153,6 +153,9 @@ if(isset($_POST['title']))
           Welcome <?php echo(getName());?> to ePinkies2.
         </H2>
         <H4>Here you will be able to to start a new pinkie object.</H4>
+
+        <!-- Back to Home button. -->
+        <a href="./home.php" class="btn btn-success" role="button"><span class="glyphicon glyphicon-home"></span> Back to Home</a>
       </div>
     </div>
 
@@ -376,7 +379,15 @@ if(isset($_POST['title']))
               </script>
           </div>
         </div>
+      </div>
 
+      <!-- Submit -->
+      <div class="container">
+        <div class="well">
+          <div class="col-sm-offset-10 col-sm-2">
+            <button type="button" class="btn btn-success" onclick=""><span class="glyphicon glyphicon-indent-left"></span> Submit this pinkie</button>
+          </div>
+        </div>
       </div>
 
     </form>
