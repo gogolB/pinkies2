@@ -17,6 +17,8 @@ if(isset($_POST['title']))
     <?php printHeaderInfo(); ?>
     <title>New Pinkie</title>
     <script type="text/javascript" src="js/pinkie.js"></script>
+    <link href="./css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="./js/fileinput.min.js" type="text/javascript"></script>
   </HEAD>
   <body>
     <div class="jumbotron text-center">
