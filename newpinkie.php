@@ -16,7 +16,7 @@ if(isset($_POST['title']))
   <HEAD>
     <?php printHeaderInfo(); ?>
     <title>New Pinkie</title>
-    <script type="text/javascript" src="js/pinkie.js"></script>
+    <script type="text/javascript" src="./js/pinkie.js"></script>
     <link href="./css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
     <script src="./js/plugins/canvas-to-blob.min.js" type="text/javascript"></script>
     <script src="./js/fileinput.min.js" type="text/javascript"></script>
