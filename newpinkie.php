@@ -100,11 +100,11 @@ if(isset($_POST['title']))
         <div class="well">
 
           <div class="form-group form-group-lg">
-            <H4 class="col-sm-1">Quantity</H4>
-            <H4 class="col-sm-2">Stock Number</H4>
-            <H4 class="col-sm-5">Description</H4>
-            <H4 class="col-sm-2">Unit Price</H4>
-            <H4 class="col-sm-2">Total Price</H4>
+            <H3 class="col-sm-1"><u>Quantity</u></H3>
+            <H3 class="col-sm-2"><u>Stock Number</u></H3>
+            <H3 class="col-sm-5"><u>Description</u></H3>
+            <H3 class="col-sm-2"><u>Unit Price</u></H3>
+            <H3 class="col-sm-2"><u>Total Price</u></H3>
           </div>
 
           <div class="form-group form-group-lg">
@@ -165,12 +165,12 @@ if(isset($_POST['title']))
             </div>
           </div>
 
-          <div class="form-group">
+          <div class="form-group col-sm-offset-2">
             <textarea class="form-control" rows="2" id="justificationText" name="justificationText"></textarea>
           </div>
 
           <div class="form-group form-group-lg">
-            <label class="control-label col-sm-2" for="equipmentLocation">EquipmentLocation:</label>
+            <label class="control-label col-sm-2" for="equipmentLocation">Equipment Location:</label>
             <div class="col-sm-10">
               <input type="text" class="form-control" id="equipmentLocation" name="equipmentLocation" >
             </div>
@@ -203,8 +203,8 @@ if(isset($_POST['title']))
         <div class="well">
 
           <div class="form-group form-group-lg">
-            <H4 class="col-sm-8">Fund</H4>
-            <H4 class="col-sm-4">Amount</H4>
+            <H3 class="col-sm-8"><u>Fund</u></H3>
+            <H3 class="col-sm-4"><u>Amount</u></H3>
           </div>
 
           <div class="form-group form-group-lg">
@@ -241,10 +241,10 @@ if(isset($_POST['title']))
           <H2>Attachments</H2>
           <div class="form-group form-group-lg">
             <label class="control-label">Select File</label>
-            <input id="input-41" name="input41[]" type="file" class="file-loading">
+            <input id="iattachment" name="attachment[]" type="file" class="file-loading">
             <script>
               $(document).on('ready', function() {
-                $("#input-41").fileinput({
+                $("attachment").fileinput({
                   maxFileCount: 1,
                   allowedFileTypes: ["image", "video"]
                 });
