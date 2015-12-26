@@ -72,7 +72,7 @@ if(isset($_POST['title']))
             <div class="col-sm-10">
               <select class="form-control" id="action" name="action">
                   <option>Reimbursement</option>
-                  <option default>Purchase</option>
+                  <option selected="selected" >Purchase</option>
                   <option>Payment Request</option>
                   <option>Quote</option>
               </select>
@@ -85,7 +85,7 @@ if(isset($_POST['title']))
               <select class="form-control" id="priority" name="priority">
                   <option>Expedite</option>
                   <option>Urgent</option>
-                  <option default>Routine</option>
+                  <option selected="selected" >Routine</option>
                   <option>Cancel</option>
                   <option>Hold</option>
               </select>

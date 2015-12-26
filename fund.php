@@ -59,7 +59,7 @@ function isSelected($f)
 {
     if($f->b_Active)
     {
-        echo "default";
+        echo 'selected="selected"';
     }
 }
 
@@ -67,7 +67,7 @@ function isNotSelected($f)
 {
     if(!$f->b_Active)
     {
-        echo "default";
+        echo 'selected="selected"';
     }
 }
 
@@ -137,7 +137,7 @@ function isNotSelected($f)
   // ---------------------------------------------------------------------------
 
   // Security Check. Make sure that this person is allowed to add a new Fund.
-  if(!canEditFundss())
+  if(!canEditFunds())
   {
     header("Location: ./fund.php?reason=list");
   }
