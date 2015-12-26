@@ -242,15 +242,15 @@ if(isset($_POST['title']))
         <div class="well">
           <H2>Attachments</H2>
           <div class="form-group">
-              <input id="attachment" name="attachment[]" type="file" class="file" multiple data-show-upload="true" data-show-caption="true">
+              <input id="attachment" name="attachment[]" type="file" class="file-loading" multiple >
               <script>
                 $(document).on('ready', function() {
                   $("#attachment").fileinput({
-                      maxFileCount: 5,
-                      allowedFileExtensions: ["jpg", "png", "pdf"]
-                    });
+                    maxFileCount: 10,
+                    allowedFileExtensions: ["jpg", "pdf", "png", "txt"]
                   });
-                </script>
+                });
+              </script>
           </div>
         </div>
 
