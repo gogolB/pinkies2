@@ -9,7 +9,7 @@ function addAObject()
         div.id = 'PurchaseObject'+ currentObject;
         div.innerHTML = addObjectInput;
         document.getElementById('moreObjects').appendChild(div);
-        currentObject++;
+        currentObject++; 
         return false;
   }
   else
