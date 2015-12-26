@@ -20,5 +20,10 @@ define('RejectedByAdmin', 'Admin Deny');
 define('DispatchedToTrans', 'Dispatched');
 define('Done', 'Done');
 
+// Pinkie max limits.
+define('MAX_OBJECTS', 10);
+define('MAX_FUNDS', 5);
+define('MAX_ATTACHMENTS', 5);
+
 
 ?>

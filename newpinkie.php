@@ -249,7 +249,7 @@ if(isset($_POST['title']))
               <script>
                 $(document).on('ready', function() {
                   $("#attachment").fileinput({
-                    maxFileCount: 5,
+                    maxFileCount: <?php echo MAX_ATTACHMENTS; ?>,
                     allowedFileExtensions: ["jpg", "pdf", "png"]
                   });
                 });
