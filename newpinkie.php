@@ -36,6 +36,7 @@ if(isset($_POST['title']))
     </div>
 
     <form class="form-horizontal" role="form" action="#" method="POST" name="newPinkieForm">
+
       <!-- Title, who you are submitting to, who is submitting it. -->
       <div class="container">
         <div class="well">
@@ -64,6 +65,46 @@ if(isset($_POST['title']))
                   <option>4</option>
               </select>
             </div>
+          </div>
+
+          <div class="form-group form-group-lg">
+            <label class="control-label col-sm-2" for="action">Action:</label>
+            <div class="col-sm-10">
+              <select class="form-control" id="action" name="action">
+                  <option>Reimbursement</option>
+                  <option default>Purchase</option>
+                  <option>Payment Request</option>
+                  <option>Quote</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group form-group-lg">
+            <label class="control-label col-sm-2" for="priority">Priority:</label>
+            <div class="col-sm-10">
+              <select class="form-control" id="priority" name="priority">
+                  <option>Expedite</option>
+                  <option>Urgent</option>
+                  <option default>Routine</option>
+                  <option>Cancel</option>
+                  <option>Hold</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Purchase Objects -->
+      <div class="container">
+        <div class="well">
+
+          <div class="form-group form-group-lg">
+            <H4 class="col-sm-1">Quantity</H4>
+            <H4 class="col-sm-2">Stock Number</H4>
+            <H4 class="col-sm-5">Description</H4>
+            <H4 class="col-sm-2">Unit Price</H4>
+            <H4 class="col-sm-2">Total Price</H4>
           </div>
 
         </div>
