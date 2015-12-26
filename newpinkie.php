@@ -99,7 +99,7 @@ if(isset($_POST['title']))
         }
         else
         {
-          alert("Too many objects with this Pinkie.");
+          alert("Too many funds with this Pinkie.");
         }
       }
 
