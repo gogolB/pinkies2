@@ -173,7 +173,7 @@ if(isset($_POST['title']))
           </div>
 
           <div class="form-group form-group-lg">
-            <label class="control-label col-sm-2" for="submittedBy">Submitted By:</label>
+            <label class="control-label col-sm-2" for="submittedBy">Requested By:</label>
             <div class="col-sm-10">
               <input type="text" class="form-control" id="submittedBy" name="submittedBy" placeholder="Submitter" value="<?php echo getName(); ?>" readonly>
             </div>
@@ -213,6 +213,13 @@ if(isset($_POST['title']))
                   <option>Cancel</option>
                   <option>Hold</option>
               </select>
+            </div>
+          </div>
+
+          <div class="form-group form-group-lg">
+            <label class="control-label col-sm-2" for="referenceNumber">Reference Number:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="referenceNumber" name="referenceNumber">
             </div>
           </div>
 
@@ -273,10 +280,15 @@ if(isset($_POST['title']))
       <div class="container">
         <div class="well">
 
-
-
-
-
+          <div class="form-group form-group-lg">
+            <label class="control-label col-sm-2" for="vendor">Vendor:</label>
+            <div class="col-sm-10">
+              <select class="form-control" id="vendor" name="vendor">
+                  <option selected="selected">--</option>
+                  <!-- Populate with vendors. -->
+              </select>
+            </div>
+          </div>
 
           <div class="form-group form-group-lg">
             <label class="control-label col-sm-2" for="justification">Justification:</label>
@@ -385,7 +397,7 @@ if(isset($_POST['title']))
       <div class="container">
         <div class="well">
           <div class="col-sm-offset-10 col-sm-2">
-            <button type="button" class="btn btn-success" onclick=""><span class="glyphicon glyphicon-indent-left"></span> Submit this pinkie</button>
+            <button type="button" class="btn btn-success" onclick=""><span class="glyphicon glyphicon-indent-left"></span> Submit this Pinkie</button>
           </div>
         </div>
       </div>
