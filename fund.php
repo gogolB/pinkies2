@@ -57,7 +57,7 @@ function printAllFunds()
 
 function isSelected($f)
 {
-    if($f->b_Active != '0')
+    if($f->b_Active == TRUE)
     {
         echo 'selected="selected"';
     }
@@ -65,7 +65,7 @@ function isSelected($f)
 
 function isNotSelected($f)
 {
-    if($f->b_Active == '0')
+    if($f->b_Active == FALSE)
     {
         echo 'selected="selected"';
     }
