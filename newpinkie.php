@@ -20,6 +20,55 @@ if(isset($_POST['title']))
     <link href="./css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
     <script src="./js/plugins/canvas-to-blob.min.js" type="text/javascript"></script>
     <script src="./js/fileinput.min.js" type="text/javascript"></script>
+    <script>
+      var addObjectInput = '          <div class="form-group form-group-lg">
+                  <div class="col-sm-1">
+                    <input type="text" class="form-control" id="quantity[]" name="quantity[]" placeholder="Quantity">
+                  </div>
+                  <div class="col-sm-2">
+                    <input type="text" class="form-control" id="stockNumber[]" name="stockNumber[]" placeholder="Stock Number">
+                  </div>
+                  <div class="col-sm-5">
+                    <input type="text" class="form-control" id="description[]" name="description[]" placeholder="Description">
+                  </div>
+                  <div class="col-sm-2">
+                    <div class="input-group">
+                      <span class="input-group-addon">$</span>
+                      <input type="text" class="form-control" id="unitPrice[]" name="unitPrice[]" placeholder="Unit Price">
+                    </div>
+                  </div>
+                  <div class="col-sm-2">
+                    <div class="input-group">
+                      <span class="input-group-addon">$</span>
+                      <input type="text" class="form-control" id="totalPrice[]" name="totalPrice[]" placeholder="Total" readonly>
+                    </div>
+                  </div>
+                </div>';
+
+      var addFundInput = '          <div class="form-group form-group-lg">
+                  <div class="col-sm-8">
+                    <select class="form-control" id="fund[]" name="fund[]">
+                        <option selected="selected">--</option>
+                        <!-- TODO Populate with all the funds. -->
+                    </select>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="input-group">
+                      <span class="input-group-addon">$</span>
+                      <input type="text" class="form-control" id="amount[]" name="amount[]" placeholder="Amount">
+                    </div>
+                  </div>
+                </div>';
+
+      var maxObject = <?php echo MAX_OBJECTS; ?>;
+      var minObject = 1;
+      var currentObject = minObject;
+
+      var maxFunds = <?php echo MAX_FUNDS; ?>;
+      var minFunds = 1;
+      var currentFund = minFunds;
+
+    </script>
   </HEAD>
   <body>
     <div class="jumbotron text-center">
@@ -140,7 +189,7 @@ if(isset($_POST['title']))
 
           <div class="form-group form-group-lg">
             <div class="col-sm-offset-10 col-sm-2">
-              <button type="button" class="btn btn-success" onclick=""><span class="glyphicon glyphicon-plus"></span> Add another Object</button>
+              <button type="button" class="btn btn-success" onclick="addAObject();"><span class="glyphicon glyphicon-plus"></span> Add another Object</button>
             </div>
           </div>
 
@@ -233,7 +282,7 @@ if(isset($_POST['title']))
 
           <div class="form-group form-group-lg">
             <div class="col-sm-offset-10 col-sm-2">
-              <button type="button" class="btn btn-success" onclick=""><span class="glyphicon glyphicon-plus"></span> Add Fund</button>
+              <button type="button" class="btn btn-success" onclick="addAFund"><span class="glyphicon glyphicon-plus"></span> Add Fund</button>
             </div>
           </div>
 
