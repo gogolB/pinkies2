@@ -167,8 +167,10 @@ if(isset($_POST['title']))
             </div>
           </div>
 
-          <div class="form-group col-sm-offset-2 col-sm-10">
-            <textarea class="form-control" rows="2" id="justificationText" name="justificationText"></textarea>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <textarea class="form-control" rows="2" id="justificationText" name="justificationText"></textarea>
+            </div>
           </div>
 
           <div class="form-group form-group-lg">
@@ -247,7 +249,7 @@ if(isset($_POST['title']))
                 $(document).on('ready', function() {
                   $("#attachment").fileinput({
                     maxFileCount: 10,
-                    allowedFileExtensions: ["jpg", "pdf", "png", "txt"]
+                    allowedFileExtensions: ["jpg", "pdf", "png"]
                   });
                 });
               </script>
