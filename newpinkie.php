@@ -10,6 +10,36 @@ if(isset($_POST['title']))
 {
   $s_PinkieTitle  = $_POST['title'];
 }
+
+function printVendors()
+{
+    $_db = getMysqli();
+    $_stmt = $_db->prepare("SELECT VendorName, VendorID FROM Vendors");
+    $_stmt->execute();
+    $_stmt->bind_result($s_VendorName, $i_VendorID);
+    while($_stmt->fetch())
+    {
+        echo '<option value="'.$i_VendorID.'">'.$s_VendorName.'</option>';
+    }
+    $_stmt->free_result();
+    $_db->close();
+}
+
+function printFunds()
+{
+  $_db = getMysqli();
+  $_stmt = $_db->prepare("SELECT FundName, FundID FROM Funds WHERE Active=1");
+  $_stmt->execute();
+  $_stmt->bind_result($s_FundName, $i_FundID);
+  while($_stmt->fetch())
+  {
+      echo '<option value="'.$i_FundID.'">'.$s_FundName.'</option>';
+  }
+  $_stmt->free_result();
+  $_db->close();
+
+}
+
 ?>
 <!DOCTYPE html>
 <HTML>
@@ -48,8 +78,8 @@ if(isset($_POST['title']))
       var addFundInput = '          <div class="form-group form-group-lg">\
                   <div class="col-sm-8">\
                     <select class="form-control" id="fund[]" name="fund[]">\
-                        <option selected="selected">--</option>\
-                        <!-- TODO Populate with all the funds. -->\
+                        <option selected="selected" value="">--</option>\
+                        <?php printFunds(); ?>\
                     </select>\
                   </div>\
                   <div class="col-sm-4">\
@@ -284,8 +314,8 @@ if(isset($_POST['title']))
             <label class="control-label col-sm-2" for="vendor">Vendor:</label>
             <div class="col-sm-10">
               <select class="form-control" id="vendor" name="vendor">
-                  <option selected="selected">--</option>
-                  <!-- Populate with vendors. -->
+                  <option selected="selected" value="">--</option>
+                  <?php printVendors(); ?>
               </select>
             </div>
           </div>
@@ -349,8 +379,8 @@ if(isset($_POST['title']))
           <div class="form-group form-group-lg">
             <div class="col-sm-8">
               <select class="form-control" id="fund[]" name="fund[]">
-                  <option selected="selected">--</option>
-                  <!-- TODO Populate with all the funds. -->
+                  <option selected="selected" value="">--</option>
+                  <?php printFunds(); ?>
               </select>
             </div>
             <div class="col-sm-4">
@@ -396,8 +426,10 @@ if(isset($_POST['title']))
       <!-- Submit -->
       <div class="container">
         <div class="well">
-          <div class="col-sm-offset-10 col-sm-2">
-            <button type="button" class="btn btn-success" onclick=""><span class="glyphicon glyphicon-indent-left"></span> Submit this Pinkie</button>
+          <div class="form-group form-group-lg">
+            <div class="col-sm-offset-10 col-sm-2">
+              <button type="button" class="btn btn-success" onclick="onSubmit(this.form);"><span class="glyphicon glyphicon-indent-left"></span> Submit this Pinkie</button>
+            </div>
           </div>
         </div>
       </div>
