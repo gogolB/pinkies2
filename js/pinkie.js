@@ -21,7 +21,7 @@ function attachStatus(form, status)
 
 function checkForm(form)
 {
-  var subTotal = calculateSubTotal();
+  var subTotal = calculateSubTotal(form);
 }
 
 // Calculates and sets the subtotal.
