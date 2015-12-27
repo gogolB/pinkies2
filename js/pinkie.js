@@ -21,17 +21,17 @@ function attachStatus(form, status)
 
 function checkForm(form)
 {
-  var subTotal = calculateSubTotal(form);
+  var subT = calculateSubTotal(form);
 }
 
 // Calculates and sets the subtotal.
 function calculateSubTotal(form)
 {
-  var subTotal = 0.0;
+  var subTotal = 0;
   if(!form.elements['quantity[]'].length)
   {
     var objectTotal = parseInt(form.elements['quantity[]'].value) * parseFloat(form.elements['unitPrice[]'].value);
-    alert(objectTotal);
+    objectTotal = objectTotal.toFixed(2);
     form.elements['totalPrice[]'].value = objectTotal;
     subtotal = objectTotal;
   }
@@ -42,12 +42,17 @@ function calculateSubTotal(form)
       subtotal += calculateObjectTotal(form, i);
     }
   }
-  form.elements['subtotal'].value = subtotal;
+  form.elements['subtotal'].value = subtotal.toFixed(2);
   return subTotal;
 }
 
-function calculateTax(form)
+// Calculates and sets the tax, set at 8%.
+function calculateTax(form, subTotal)
 {
+    var salesTax = 0.08; // Sales tax in riverside.
+    var tax = (subTotal * salesTax).toFixed(2)
+    form.elements['tax'].value = tax;
+    return tax;
 
 }
 
@@ -63,7 +68,16 @@ function calculateObjectTotal(form, i)
 
 function calculateTotal(form)
 {
-
+    var SubTotal = parseFloat(form.elements['subtotal'].value);
+    var Tax = parseFloat(form.elements['tax'].value);
+    var Shipping = 0;
+    if(form.elements['shipping'].value != null || form.elements['shipping'].value != '')
+    {
+      Shipping = parseFloat(form.elements['shipping'].value);
+    }
+    var Total = (SubTotal + Tax + Shipping).toFixed(2);
+    form.elements['total'].value = Total;
+    return Total;
 }
 
 function calculateTotalExpenses()
