@@ -22,6 +22,8 @@ function attachStatus(form, status)
 function checkForm(form)
 {
   var subT = calculateSubTotal(form);
+  var t = calculateTax(form, subT);
+  var tot = calculateTotal(form);
 }
 
 // Calculates and sets the subtotal.
@@ -39,7 +41,7 @@ function calculateSubTotal(form)
   {
     for(var i = 0; i < form.elements['quantity[]'].length; i++)
     {
-      subtotal += calculateObjectTotal(form, i);
+      subtotal += parseFloat(calculateObjectTotal(form, i));
     }
   }
   form.elements['subtotal'].value = parseFloat(subtotal).toFixed(2);
@@ -61,7 +63,6 @@ function calculateTax(form, subTotal)
 function calculateObjectTotal(form, i)
 {
   var objectTotal = parseInt(form.elements['quantity[]'][i].value) * parseFloat(form.elements['unitPrice[]'][i].value);
-  alert(objectTotal);
   form.elements['totalPrice[]'][i].value = objectTotal;
   return objectTotal;
 }
