@@ -100,7 +100,7 @@ function calculateTotalExpenses(form)
     return Expense;
 }
 
-function updateForm()
+function onObjectChange()
 {
   var form = document.getElementsByTagName("form")[0];
   var subT = calculateSubTotal(form);
