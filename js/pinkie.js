@@ -27,14 +27,12 @@ function checkForm(form)
 // Calculates and sets the subtotal.
 function calculateSubTotal(form)
 {
-  alert(form);
   var subTotal = 0.0;
   for(var i; i < form.elements['quantity[]'].length; i++)
   {
       subtotal += calculateObjectTotal(form, i);
   }
   form.elements['subtotal'].value = subtotal;
-  alert("subtotal is " + subtotal);
   return subTotal;
 }
 
@@ -48,6 +46,7 @@ function calculateTax(form)
 function calculateObjectTotal(form, i)
 {
   var objectTotal = parseInt(form.elements['quantity[]'][i].value) * parseFloat(form.elements['unitPrice[]'][i].value);
+  alert(objectTotal);
   form.elements['totalPrice[]'][i].value = objectTotal;
   return objectTotal;
 }
