@@ -3,7 +3,10 @@
 //------------------------------------------------------------------------------
 function onNewSubmit(form)
 {
-    attachStatus(form, "PendingSuperApproval");
+    if(checkform())
+    {
+      attachStatus(form, "PendingSuperApproval");
+    }
 }
 
 function attachStatus(form, status)
@@ -13,4 +16,39 @@ function attachStatus(form, status)
   input.setAttribute("name", "status");
   input.setAttribute("value", status);
   form.appendChild(input);
+}
+
+function checkForm()
+{
+
+}
+
+function calculateSubTotal()
+{
+
+}
+
+function calculateTax()
+{
+
+}
+
+function calculateObjectTotal()
+{
+
+}
+
+function calculateTotal()
+{
+
+}
+
+function calculateTotalExpenses()
+{
+
+}
+
+function updateForm()
+{
+
 }

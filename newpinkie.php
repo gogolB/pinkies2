@@ -271,6 +271,34 @@ if(isset($_POST['title']))
             </div>
           </div>
 
+          <div class="form-group form-group-lg">
+            <label class="control-label col-sm-2" for="subtotal">Subtotal:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="subtotal" name="subtotal" readonly>
+            </div>
+          </div>
+
+          <div class="form-group form-group-lg">
+            <label class="control-label col-sm-2" for="tax">Tax:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="tax" name="tax" readonly>
+            </div>
+          </div>
+
+          <div class="form-group form-group-lg">
+            <label class="control-label col-sm-2" for="shipping">Shipping Frieght:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="shipping" name="shipping">
+            </div>
+          </div>
+
+          <div class="form-group form-group-lg">
+            <label class="control-label col-sm-2" for="total">Total:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="total" name="total" readonly>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -367,6 +395,13 @@ if(isset($_POST['title']))
             <div class="col-sm-offset-8 col-sm-4">
               <button type="button" class="btn btn-success" onclick="addAFund()"><span class="glyphicon glyphicon-plus"></span> Add another Fund</button>
               <button type="button" class="btn btn-primary" onclick="removeAFund()"><span class="glyphicon glyphicon-minus"></span> Remove a Fund</button>
+            </div>
+          </div>
+
+          <div class="form-group form-group-lg">
+            <label class="control-label col-sm-2" for="totalExpense">Total Expense:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="totalExpense" name="totalExpense" readonly>
             </div>
           </div>
 
