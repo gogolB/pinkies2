@@ -33,7 +33,7 @@ function calculateSubTotal(form)
   {
       subtotal += calculateObjectTotal(form, i);
   }
-  form.elements.['subtotal'].value = subtotal;
+  form.elements['subtotal'].value = subtotal;
   alert("subtotal is " + subtotal);
   return subTotal;
 }
@@ -47,8 +47,8 @@ function calculateTax(form)
 // the unit amount. Then sets the appropriate value.
 function calculateObjectTotal(form, i)
 {
-  var objectTotal = form.elements.['quantity[]'][i].value * form.elements.['unitPrice[]'][i].value;
-  form.elements.['totalPrice[]'][i].value = objectTotal;
+  var objectTotal = parseInt(form.elements['quantity[]'][i].value) * parseFloat(form.elements['unitPrice[]'][i].value);
+  form.elements['totalPrice[]'][i].value = objectTotal;
   return objectTotal;
 }
 
