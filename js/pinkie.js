@@ -4,7 +4,6 @@
 function onNewSubmit()
 {
     var form = document.getElementsByTagName("form")[0];
-    alert(form);
     if(checkForm(form))
     {
       attachStatus(form, "PendingSuperApproval");
@@ -28,12 +27,13 @@ function checkForm(form)
 // Calculates and sets the subtotal.
 function calculateSubTotal(form)
 {
+  alert(form);
   var subTotal = 0.0;
-  for(var i; i < form['quantity[]'].length; i++)
+  for(var i; i < form.elements['quantity[]'].length; i++)
   {
       subtotal += calculateObjectTotal(form, i);
   }
-  form['subtotal'].value = subtotal;
+  form.elements.['subtotal'].value = subtotal;
   alert("subtotal is " + subtotal);
   return subTotal;
 }
@@ -47,8 +47,8 @@ function calculateTax(form)
 // the unit amount. Then sets the appropriate value.
 function calculateObjectTotal(form, i)
 {
-  var objectTotal = form['quantity[]'][i].value * form['unitPrice[]'][i].value;
-  form['totalPrice[]'][i].value = objectTotal;
+  var objectTotal = form.elements.['quantity[]'][i].value * form.elements.['unitPrice[]'][i].value;
+  form.elements.['totalPrice[]'][i].value = objectTotal;
   return objectTotal;
 }
 
