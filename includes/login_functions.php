@@ -39,6 +39,7 @@
   {
     $_SESSION['Access'] = "ADMIN";
     $_SESSION['Name'] = "Pinkies Devlopment Admin";
+    $_SESSION['SubmitTo'] = array("Pinkies Devlopment Transactor|PinkiesTrans");
   }
 
   // Sets the Supervisor permissions.
@@ -46,6 +47,7 @@
   {
     $_SESSION['Access'] = "SUPER";
     $_SESSION['Name'] = "Pinkies Devlopment Supervisor";
+    $_SESSION['SubmitTo'] = array("Pinkies Devlopment Admin|PinkiesAdmin");
   }
 
   // Sets the Transactor permissions.
@@ -53,12 +55,14 @@
   {
     $_SESSION['Access'] = "TRANS";
     $_SESSION['Name'] = "Pinkies Devlopment Transactor";
+    $_SESSION['SubmitTo'] = array("Pinkies Devlopment Admin|PinkiesAdmin");
   }
 
-  // Sets the User permissions. 
+  // Sets the User permissions.
   function setUserPermissions()
   {
     $_SESSION['Access'] = "USER";
     $_SESSION['Name'] = "Pinkies Devlopment User";
+    $_SESSION['SubmitTo'] = array("Pinkies Devlopment Admin|PinkiesAdmin", "Pinkies Devlopment Supervisor|PinkiesSuper");
   }
  ?>

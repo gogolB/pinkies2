@@ -40,6 +40,18 @@ function printFunds()
 
 }
 
+function printSubmitTo()
+{
+    $a_SubmitToArray = getSubmitTo();
+    for ($i = 0; $i < $count; $i++)
+    {
+      $var = $a_SubmitToArray[$i];
+      $parts = explode("|", $var);
+      echo "<option value='".$parts[1]."'>".$parts[0]."</option>";
+    }
+}
+
+
 ?>
 <!DOCTYPE html>
 <HTML>
@@ -210,13 +222,10 @@ function printFunds()
           </div>
 
           <div class="form-group form-group-lg">
-            <label class="control-label col-sm-2" for="submitTo">Submitted To:</label>
+            <label class="control-label col-sm-2" for="submitTo">Submit To:</label>
             <div class="col-sm-10">
               <select class="form-control" id="submitTo" name="submitTo">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
+                <?php printSubmitTo(); ?>
               </select>
             </div>
           </div>
@@ -428,7 +437,7 @@ function printFunds()
         <div class="well">
           <div class="form-group form-group-lg">
             <div class="col-sm-offset-10 col-sm-2">
-              <button type="button" class="btn btn-success" onclick="onSubmit(this.form);"><span class="glyphicon glyphicon-indent-left"></span> Submit this Pinkie</button>
+              <button type="button" class="btn btn-success" onclick="onNewSubmit(this.form);"><span class="glyphicon glyphicon-indent-left"></span> Submit this Pinkie</button>
             </div>
           </div>
         </div>

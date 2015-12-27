@@ -62,6 +62,12 @@ function getName()
   return $_SESSION['Name'];
 }
 
+// Gets the array of people you can submit to.
+function getSubmitTo()
+{
+    return $_SESSION['SubmitTo'];
+}
+
 // -----------------------------------------------------------------------------
 // Permissions table: Shows who has access to what.
 // -----------------------------------------------------------------------------
@@ -90,7 +96,6 @@ function canEditFunds()
 {
     return isAdmin();
 }
-
 
 
 ?>
