@@ -46,6 +46,7 @@ function printFunds()
 function printSubmitTo()
 {
     $a_SubmitToArray = getSubmitTo();
+    $count = count($a_SubmitToArray);
     for ($i = 0; $i < $count; $i++)
     {
       $var = $a_SubmitToArray[$i];
