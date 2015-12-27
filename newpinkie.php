@@ -138,6 +138,8 @@ if(isset($_POST['title']))
         }
       }
 
+      $('#newPinkieForm').change(updateForm());
+
     </script>
   </HEAD>
   <body>
@@ -160,7 +162,7 @@ if(isset($_POST['title']))
       </div>
     </div>
 
-    <form class="form-horizontal" role="form" action="#" method="POST" name="newPinkieForm">
+    <form class="form-horizontal" role="form" action="#" method="POST" name="newPinkieForm" id="newPinkieForm">
 
       <!-- Title, who you are submitting to, who is submitting it. -->
       <div class="container">
