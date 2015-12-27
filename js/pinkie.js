@@ -98,13 +98,13 @@ function calculateTotalExpenses(form)
     var Expense = 0.0;
     if(!form.elements['amount[]'].length)
     {
-        Expense = parseFloat(form.elements['amount[]']).toFixed(2);
+        Expense = parseFloat(form.elements['amount[]'].value).toFixed(2);
     }
     else
     {
         for(var i = 0; i < form.elements['amount[]'].length; i++)
         {
-          Expense += parseFloat(form.elements['amount[]'][i]).toFixed(2);
+          Expense += parseFloat(form.elements['amount[]'][i].value).toFixed(2);
         }
     }
     form.elements['totalExpense'].value = parseFloat(Expense).toFixed(2);
