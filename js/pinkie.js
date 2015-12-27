@@ -98,7 +98,7 @@ function calculateTotalExpenses(form)
     var Expense = 0.0;
     if(!form.elements['amount[]'].length)
     {
-        Expense = parseFloat(form.elements['amount[]'].length).toFixed(2);
+        Expense = parseFloat(form.elements['amount[]']).toFixed(2);
     }
     else
     {
@@ -107,7 +107,7 @@ function calculateTotalExpenses(form)
           Expense += parseFloat(form.elements['amount[]'][i]).toFixed(2);
         }
     }
-    form.elements['totalExpense'].value = Expense;
+    form.elements['totalExpense'].value = parseFloat(Expense).toFixed(2);
     return Expense;
 }
 
@@ -117,4 +117,14 @@ function onObjectChange()
   var subT = calculateSubTotal(form);
   var t = calculateTax(form, subT);
   var tot = calculateTotal(form);
+}
+
+function onShippingChange()
+{
+  var tot = calculateTotal(form);
+}
+
+function onExpenseChange()
+{
+    var exp = calculateTotalExpenses(form);
 }

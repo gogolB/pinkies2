@@ -56,7 +56,7 @@ if(isset($_POST['title']))
                   <div class="col-sm-4">\
                     <div class="input-group">\
                       <span class="input-group-addon">$</span>\
-                      <input type="text" class="form-control" id="amount[]" name="amount[]" placeholder="Amount">\
+                      <input type="text" class="form-control" id="amount[]" name="amount[]" placeholder="Amount" onchange="onExpenseChange();">\
                     </div>\
                   </div>\
                 </div>';
@@ -296,7 +296,7 @@ if(isset($_POST['title']))
             <div class="col-sm-10">
               <div class="input-group">
                 <span class="input-group-addon">$</span>
-                <input type="text" class="form-control" id="shipping" name="shipping">
+                <input type="text" class="form-control" id="shipping" name="shipping" onchange="onShippingChange()">
               </div>
             </div>
           </div>
@@ -394,7 +394,7 @@ if(isset($_POST['title']))
             <div class="col-sm-4">
               <div class="input-group">
                 <span class="input-group-addon">$</span>
-                <input type="text" class="form-control" id="amount[]" name="amount[]" placeholder="Amount">
+                <input type="text" class="form-control" id="amount[]" name="amount[]" placeholder="Amount" onchange="onExpenseChange();">
               </div>
             </div>
           </div>
