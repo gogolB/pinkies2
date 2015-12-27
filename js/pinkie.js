@@ -33,6 +33,12 @@ function calculateSubTotal(form)
   var sub_total = 0.0;
   if(!form.elements['quantity[]'].length)
   {
+    if(form.elements['quantity[]'][i].value == '' || form.elements['unitPrice[]'][i].value)
+    {
+      form.elements['totalPrice[]'][i].value = '--';
+      sub_total =  0.0;
+      return;
+    }
     var objectTotal = parseInt(form.elements['quantity[]'].value) * parseFloat(form.elements['unitPrice[]'].value);
     objectTotal = parseFloat(objectTotal).toFixed(2);
     form.elements['totalPrice[]'].value = objectTotal;
