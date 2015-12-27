@@ -121,10 +121,12 @@ function onObjectChange()
 
 function onShippingChange()
 {
+  var form = document.getElementsByTagName("form")[0];
   var tot = calculateTotal(form);
 }
 
 function onExpenseChange()
 {
+    var form = document.getElementsByTagName("form")[0];
     var exp = calculateTotalExpenses(form);
 }
