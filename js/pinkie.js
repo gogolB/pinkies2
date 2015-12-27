@@ -3,7 +3,7 @@
 //------------------------------------------------------------------------------
 function onNewSubmit(form)
 {
-    if(checkform(form))
+    if(checkForm(form))
     {
       attachStatus(form, "PendingSuperApproval");
     }
