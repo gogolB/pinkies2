@@ -29,23 +29,23 @@ function checkForm(form)
 // Calculates and sets the subtotal.
 function calculateSubTotal(form)
 {
-  var subTotal = 0;
+  var sub_total = 0.0;
   if(!form.elements['quantity[]'].length)
   {
     var objectTotal = parseInt(form.elements['quantity[]'].value) * parseFloat(form.elements['unitPrice[]'].value);
     objectTotal = parseFloat(objectTotal).toFixed(2);
     form.elements['totalPrice[]'].value = objectTotal;
-    subtotal = objectTotal;
+    sub_total = objectTotal;
   }
   else
   {
     for(var i = 0; i < form.elements['quantity[]'].length; i++)
     {
-      subtotal += parseFloat(calculateObjectTotal(form, i));
+      sub_total += parseFloat(calculateObjectTotal(form, i));
     }
   }
-  form.elements['subtotal'].value = parseFloat(subtotal).toFixed(2);
-  return subTotal;
+  form.elements['subtotal'].value = parseFloat(sub_total).toFixed(2);
+  return sub_total;
 }
 
 // Calculates and sets the tax, set at 8%.
@@ -63,7 +63,7 @@ function calculateTax(form, subTotal)
 function calculateObjectTotal(form, i)
 {
   var objectTotal = parseInt(form.elements['quantity[]'][i].value) * parseFloat(form.elements['unitPrice[]'][i].value);
-  form.elements['totalPrice[]'][i].value = objectTotal;
+  form.elements['totalPrice[]'][i].value = parseFloat(objectTotal).toFixed(2);
   return objectTotal;
 }
 
