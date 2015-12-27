@@ -3,7 +3,7 @@
 //------------------------------------------------------------------------------
 function onNewSubmit(form)
 {
-    if(checkform())
+    if(checkform(form))
     {
       attachStatus(form, "PendingSuperApproval");
     }
@@ -18,27 +18,39 @@ function attachStatus(form, status)
   form.appendChild(input);
 }
 
-function checkForm()
+function checkForm(form)
+{
+  var subTotal = calculateSubTotal();
+}
+
+// Calculates and sets the subtotal.
+function calculateSubTotal(form)
+{
+  var subTotal = 0.0;
+  for(var i; i < form['quantity[]'].length; i++)
+  {
+      subtotal += calculateObjectTotal(form, i);
+  }
+  form['subtotal'].value = subtotal;
+  alert("subtotal is " + subtotal);
+  return subTotal;
+}
+
+function calculateTax(form)
 {
 
 }
 
-function calculateSubTotal()
+// This calculates the total per object, basically multiplies the quantity and
+// the unit amount. Then sets the appropriate value.
+function calculateObjectTotal(form, i)
 {
-
+  var objectTotal = form['quantity[]'][i].value * form['unitPrice[]'][i].value;
+  form['totalPrice[]'][i].value = objectTotal;
+  return objectTotal;
 }
 
-function calculateTax()
-{
-
-}
-
-function calculateObjectTotal()
-{
-
-}
-
-function calculateTotal()
+function calculateTotal(form)
 {
 
 }
