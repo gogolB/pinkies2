@@ -28,11 +28,12 @@ function checkForm(form)
 function calculateSubTotal(form)
 {
   var subTotal = 0.0;
+  alert("Total number of objects: " + form.elements['quantity[]'].length);
   for(var i; i < form.elements['quantity[]'].length; i++)
   {
       subtotal += calculateObjectTotal(form, i);
   }
-  form.elements['subtotal'].value = subtotal;
+  //form.elements['subtotal'].value = subtotal;
   return subTotal;
 }
 
