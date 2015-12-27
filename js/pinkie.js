@@ -28,12 +28,21 @@ function checkForm(form)
 function calculateSubTotal(form)
 {
   var subTotal = 0.0;
-  alert("Total number of objects: " + form.elements['quantity[]'].length);
-  for(var i; i < form.elements['quantity[]'].length; i++)
+  if(!form.elements['quantity[]'].length)
   {
-      subtotal += calculateObjectTotal(form, i);
+    var objectTotal = parseInt(form.elements['quantity[]'].value) * parseFloat(form.elements['unitPrice[]'].value);
+    alert(objectTotal);
+    form.elements['totalPrice[]'].value = objectTotal;
+    subtotal = objectTotal;
   }
-  //form.elements['subtotal'].value = subtotal;
+  else
+  {
+    for(var i = 0; i < form.elements['quantity[]'].length; i++)
+    {
+      subtotal += calculateObjectTotal(form, i);
+    }
+  }
+  form.elements['subtotal'].value = subtotal;
   return subTotal;
 }
 
