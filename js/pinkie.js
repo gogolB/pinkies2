@@ -102,6 +102,7 @@ function calculateTotalExpenses(form)
 
 function updateForm()
 {
+  var form = document.getElementsByTagName("form")[0];
   var subT = calculateSubTotal(form);
   var t = calculateTax(form, subT);
   var tot = calculateTotal(form);
