@@ -24,6 +24,7 @@ function checkForm(form)
   var subT = calculateSubTotal(form);
   var t = calculateTax(form, subT);
   var tot = calculateTotal(form);
+  var exp = calculateTotalExpenses(form);
 }
 
 // Calculates and sets the subtotal.
@@ -71,8 +72,8 @@ function calculateTotal(form)
 {
     var SubTotal = parseFloat(form.elements['subtotal'].value);
     var Tax = parseFloat(form.elements['tax'].value);
-    var Shipping = 0;
-    if(form.elements['shipping'].value != null || form.elements['shipping'].value != '')
+    var Shipping = 0.0;
+    if(form.elements['shipping'].value != '')
     {
       Shipping = parseFloat(form.elements['shipping'].value);
     }
@@ -81,12 +82,28 @@ function calculateTotal(form)
     return Total;
 }
 
-function calculateTotalExpenses()
+function calculateTotalExpenses(form)
 {
-
+    var Expense = 0.0;
+    if(!form.elements['amount[]'].length)
+    {
+        Expense = parseFloat(form.elements['amount[]'].length).toFixed(2);
+    }
+    else
+    {
+        for(var i = 0; i < form.elements['amount[]'].length; i++)
+        {
+          Expense += parseFloat(form.elements['amount[]'][i]).toFixed(2);
+        }
+    }
+    form.elements['totalExpense'].value = Expense;
+    return Expense;
 }
 
 function updateForm()
 {
-
+  var subT = calculateSubTotal(form);
+  var t = calculateTax(form, subT);
+  var tot = calculateTotal(form);
+  var exp = calculateTotalExpenses(form);
 }

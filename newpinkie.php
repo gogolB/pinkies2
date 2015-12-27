@@ -292,7 +292,7 @@ if(isset($_POST['title']))
           </div>
 
           <div class="form-group form-group-lg">
-            <label class="control-label col-sm-2" for="shipping">Shipping Frieght:</label>
+            <label class="control-label col-sm-2" for="shipping">Shipping Freight:</label>
             <div class="col-sm-10">
               <div class="input-group">
                 <span class="input-group-addon">$</span>
