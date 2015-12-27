@@ -52,7 +52,7 @@ function printHeaderInfo()
   echo '
       <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
       <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-      
+
       <!-- Latest compiled and minified CSS -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -66,6 +66,49 @@ function printHeaderInfo()
 
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" type="text/css" href="styles.css">';
+}
+
+// Prints all the vendors as <option value='vendorID'>VendorName</option>
+function printVendors()
+{
+    $_db = getMysqli();
+    $_stmt = $_db->prepare("SELECT VendorName, VendorID FROM Vendors");
+    $_stmt->execute();
+    $_stmt->bind_result($s_VendorName, $i_VendorID);
+    while($_stmt->fetch())
+    {
+        echo '<option value="'.$i_VendorID.'">'.$s_VendorName.'</option>';
+    }
+    $_stmt->free_result();
+    $_db->close();
+}
+
+// Prints all the Funds as <option value='FundID'>FundName</option>
+function printFunds()
+{
+  $_db = getMysqli();
+  $_stmt = $_db->prepare("SELECT FundName, FundID FROM Funds WHERE Active=1");
+  $_stmt->execute();
+  $_stmt->bind_result($s_FundName, $i_FundID);
+  while($_stmt->fetch())
+  {
+      echo '<option value="'.$i_FundID.'">'.$s_FundName.'</option>';
+  }
+  $_stmt->free_result();
+  $_db->close();
+
+}
+
+// Prints all the submitto array as <option value='UserName'>Proper Name of User</option>
+function printSubmitTo()
+{
+    $a_SubmitToArray = getSubmitTo();
+    for ($i = 0; $i < $count; $i++)
+    {
+      $var = $a_SubmitToArray[$i];
+      $parts = explode("|", $var);
+      echo "<option value='".$parts[1]."'>".$parts[0]."</option>";
+    }
 }
 
 ?>

@@ -11,47 +11,6 @@ if(isset($_POST['title']))
   $s_PinkieTitle  = $_POST['title'];
 }
 
-function printVendors()
-{
-    $_db = getMysqli();
-    $_stmt = $_db->prepare("SELECT VendorName, VendorID FROM Vendors");
-    $_stmt->execute();
-    $_stmt->bind_result($s_VendorName, $i_VendorID);
-    while($_stmt->fetch())
-    {
-        echo '<option value="'.$i_VendorID.'">'.$s_VendorName.'</option>';
-    }
-    $_stmt->free_result();
-    $_db->close();
-}
-
-function printFunds()
-{
-  $_db = getMysqli();
-  $_stmt = $_db->prepare("SELECT FundName, FundID FROM Funds WHERE Active=1");
-  $_stmt->execute();
-  $_stmt->bind_result($s_FundName, $i_FundID);
-  while($_stmt->fetch())
-  {
-      echo '<option value="'.$i_FundID.'">'.$s_FundName.'</option>';
-  }
-  $_stmt->free_result();
-  $_db->close();
-
-}
-
-function printSubmitTo()
-{
-    $a_SubmitToArray = getSubmitTo();
-    for ($i = 0; $i < $count; $i++)
-    {
-      $var = $a_SubmitToArray[$i];
-      $parts = explode("|", $var);
-      echo "<option value='".$parts[1]."'>".$parts[0]."</option>";
-    }
-}
-
-
 ?>
 <!DOCTYPE html>
 <HTML>
