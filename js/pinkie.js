@@ -3,7 +3,7 @@
 //------------------------------------------------------------------------------
 function onNewSubmit()
 {
-    var form = document.form['newPinkieForm'];
+    var form = document.getElementsByTagName("form")[0];
     alert(form);
     if(checkForm(form))
     {
