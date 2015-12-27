@@ -1,8 +1,10 @@
 //------------------------------------------------------------------------------
 // Here are all the supporting functions for a pinkie object.
 //------------------------------------------------------------------------------
-function onNewSubmit(form)
+function onNewSubmit()
 {
+    var form = document.form['newPinkieForm'];
+    alert(form);
     if(checkForm(form))
     {
       attachStatus(form, "PendingSuperApproval");

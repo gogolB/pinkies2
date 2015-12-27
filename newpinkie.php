@@ -431,7 +431,7 @@ if(isset($_POST['title']))
         <div class="well">
           <div class="form-group form-group-lg">
             <div class="col-sm-offset-10 col-sm-2">
-              <button type="button" class="btn btn-success" onclick="onNewSubmit(this.form);"><span class="glyphicon glyphicon-indent-left"></span> Submit this Pinkie</button>
+              <button type="button" class="btn btn-success" onclick="onNewSubmit();"><span class="glyphicon glyphicon-indent-left"></span> Submit this Pinkie</button>
             </div>
           </div>
         </div>
