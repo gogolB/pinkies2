@@ -3,7 +3,7 @@ include_once 'functions.php';
 include_once 'fund_object.php';
 include_once 'vendor_object.php';
 include_once 'PurchaseObject.php';
-include_once 'attachement.php';
+include_once 'attachment.php';
 secureSessionStart();
 
 // -----------------------------------------------------------------------------
