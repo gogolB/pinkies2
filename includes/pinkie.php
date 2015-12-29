@@ -144,6 +144,7 @@ class Pinkie
         {
             $this->addNew();
         }
+        echo "Added to database<br>";
     }
 
     public function fromDatabase()
