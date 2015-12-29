@@ -234,7 +234,7 @@ function printAllFilesTable()
             <div class="col-sm-10">
               <div class="input-group">
                 <span class="input-group-addon">$</span>
-                <input type="text" class="form-control" id="subtotal" name="subtotal" readonly>
+                <input type="text" class="form-control" id="subtotal" name="subtotal" readonly value="<?php printf("%.2f",$_pinkie->getSubtotal()); ?>">
               </div>
             </div>
           </div>

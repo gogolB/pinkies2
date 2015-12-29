@@ -120,6 +120,15 @@ class Pinkie
         }
     }
 
+    public function getSubtotal()
+    {
+        $subtotal = 0.0
+        foreach($this->a_Objects as $_ob)
+        {
+              $subtotal += $_ob->i_Quantity * $_ob->d_UnitPrice;
+        }
+    }
+
     //**************************************************************************
     // Database FUNCTIONS
     //**************************************************************************
@@ -336,7 +345,7 @@ class Pinkie
           $_o->i_ObjectID = (int)$_tempObjectID;
           $_o->fromDatabase();
           array_push($this->a_Objects, $_o);
-          onError("Pinkie::getObjects()",'FOUND a Object associated with the PID of: '.$this->i_PinkieID.' And the object ID of '.$_tempObjectID);
+          onError("Pinkie::getObjects()",'FOUND a Object associated with the PID of: '.$this->i_PinkieID.' And the object ID of '.$_tempObjectID.'Array length is '.count($this->a_Objects));
       }
 
       // Cleanup.
