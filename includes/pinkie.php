@@ -308,7 +308,7 @@ class Pinkie
       $_db = getMysqli();
       // SQL query to run.
       $statement = $_db->prepare("SELECT ObjectID FROM Objects WHERE PinkieID=?");
-      $statement->bind_param('i', $this->PinkieID);
+      $statement->bind_param('i', $this->i_PinkieID);
       $statement->execute();
 
       // Error running the statment.
@@ -352,7 +352,7 @@ class Pinkie
       $_db = getMysqli();
       // SQL query to run.
       $statement = $_db->prepare("SELECT ExpenseID FROM Expenses WHERE PinkieID=?");
-      $statement->bind_param('i', $this->PinkieID);
+      $statement->bind_param('i', $this->i_PinkieID);
       $statement->execute();
 
       // Error running the statment.
@@ -396,7 +396,7 @@ class Pinkie
       $_db = getMysqli();
       // SQL query to run.
       $statement = $_db->prepare("SELECT AttachmentID FROM Attachements WHERE PinkieID=?");
-      $statement->bind_param('i', $this->PinkieID);
+      $statement->bind_param('i', $this->i_PinkieID);
       $statement->execute();
 
       // Error running the statment.
@@ -448,7 +448,7 @@ function getPinkieInfo()
   $_db = getMysqli();
   // SQL query to run.
   $statement = $_db->prepare("SELECT * FROM PinkieInformation WHERE PinkieID=?");
-  $statement->bind_param('i', $this->PinkieID);
+  $statement->bind_param('i', $this->i_PinkieID);
   $statement->execute();
 
   // Error running the statment.
