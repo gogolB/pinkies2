@@ -58,7 +58,8 @@ foreach ($_fund as $key => $f)
 }
 
 //------------------------------------------------------------------------------
-
+// Please note that if the number of files excedes the max supported by the file
+// system it will fail to create a folder.
 // Attachments.
 for($i=0; $i<count($_FILES['attachment']['name']); $i++)
 {
@@ -85,12 +86,12 @@ for($i=0; $i<count($_FILES['attachment']['name']); $i++)
     $d = $todayh['mday'];
     $m = $todayh['mon'];
     $y = $todayh['year'];
-    $newFilePath =  PATH_PREFIX."$d-$m-$y/". $_FILES['attachment']['name'][$i];
+    $newFilePath =  PATH_PREFIX."$d-$m-$y/".$_SESSION['Username']."/". $_FILES['attachment']['name'][$i];
 
     // Make the folder if it doesn't exist.
-    if (!is_dir(PATH_PREFIX."$d-$m-$y/") && !mkdir(PATH_PREFIX."$d-$m-$y/"))
+    if (!is_dir(PATH_PREFIX."$d-$m-$y/".$_SESSION['Username']."/") && !mkdir(PATH_PREFIX."$d-$m-$y/".$_SESSION['Username']."/"))
     {
-      onError("onSubmitPinkie failed", "Error creating folder: ".PATH_PREFIX."$d-$m-$y/");
+      onError("onSubmitPinkie failed", "Error creating folder: ".PATH_PREFIX."$d-$m-$y/".$_SESSION['Username']."/");
     }
 
     //Upload the file into the temp dir
