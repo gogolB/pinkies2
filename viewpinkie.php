@@ -81,16 +81,16 @@ function printFundsTable()
       $_fund = new Fund();
       $_fund->i_FundID = $_e->f_FundID;
       $_fund->fromDatabase();
-      echo '<tr>
-              <td>'.$_fund->s_FundName.'</td>
-              <td>'.$_e->d_Amount.'</td>
-              <td>'.$_fund->s_Activity.'</td>
-              <td>'.$_fund->s_Fund.'</td>
-              <td>'.$_fund->s_Function.'</td>
-              <td>'.$_fund->s_CostCenter.'</td>
-              <td>'.$_fund->s_ProjectCode.'</td>
-              <td>'.$_fund->$s_Balance.'</td>
-            </tr>';
+      printf('<tr>
+                    <td>%s</td>
+                    <td>%.2f</td>
+                    <td>%s</td>
+                    <td>%s</td>
+                    <td>%s</td>
+                    <td>%s</td>
+                    <td>%s</td>
+                    <td>%.2f</td>
+                  </tr>', $_fund->s_FundName, $_e->d_Amount, $_fund->s_Activity, $_fund->s_Fund, $_fund->s_Function, $_fund->s_CostCenter, $_fund->s_ProjectCode,$_fund->$s_Balance);
   }
 }
 

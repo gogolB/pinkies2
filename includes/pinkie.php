@@ -317,16 +317,15 @@ class Pinkie
       }
 
       $statement->store_result();
-      if($statement->num_rows <= 0)
+      if($statement->num_rows == 0)
       {
           $statement->free_result();
           $statement->close();
-          if(SQL_NO_RESULTS_BREAK)
+          $_db->close();
+          if(TRUE)
           {
               onError("Pinkie::getObjects()",'Could not find any objects associated with the PID of: '.$this->i_PinkieID);
           }
-          $_db->close();
-          return;
       }
 
       // We have a results.
@@ -334,7 +333,7 @@ class Pinkie
       while($statement->fetch())
       {
           $_o = new PurchaseObject($this->i_PinkieID);
-          $_o->i_ObjectID = $_tempObjectID;
+          $_o->i_ObjectID = (int)$_tempObjectID;
           $_o->fromDatabase();
           array_push($this->a_Objects, $_o);
       }
@@ -383,7 +382,7 @@ class Pinkie
       while($statement->fetch())
       {
           $_e = new PinkieExpense($this->i_PinkieID, 0, 0);
-          $_e->i_ExpenseID = $_tempExpenseID;
+          $_e->i_ExpenseID = (int)$_tempExpenseID;
           $_e->fromDatabase();
           array_push($this->a_Expenses, $_e);
       }
@@ -432,7 +431,7 @@ class Pinkie
       while($statement->fetch())
       {
           $_f = new Attachement($this->i_PinkieID);
-          $_f->i_FileID = $_tempAttachementID;
+          $_f->i_FileID = (int)$_tempAttachementID;
           $_f->fromDatabase();
           array_push($this->a_Attachments, $_f);
       }
