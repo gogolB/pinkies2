@@ -114,6 +114,6 @@ for($i=0; $i<count($_FILES['attachment']['name']); $i++)
 // push it to the database.
 //var_dump($_pinkie);
 $_pinkie->toDatabase();
-
+header("Location: ./home.php");
 
 ?>

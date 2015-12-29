@@ -7,9 +7,9 @@ secureSessionStart();
 // The user can review a pinkie here.
 //------------------------------------------------------------------------------
 $i_PinkieID = -1;
-if(isset($_POST['pid']))
+if(isset($_GET['pid']))
 {
-  $i_PinkieID  = $_POST['pid'];
+  $i_PinkieID  = $_GET['pid'];
 }
 
 if($i_PinkieID < 0)
