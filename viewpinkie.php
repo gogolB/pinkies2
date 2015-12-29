@@ -368,7 +368,7 @@ function printAllFilesTable()
 
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-              <textarea class="form-control" rows="2" id="justificationText" name="justificationText" value="<?php echo $_pinkie->s_JustificationText; ?>" readonly></textarea>
+              <textarea class="form-control" rows="2" id="justificationText" name="justificationText" readonly><?php echo $_pinkie->s_JustificationText; ?></textarea>
             </div>
           </div>
 
@@ -408,7 +408,7 @@ function printAllFilesTable()
             <table class="table table-bordered table-hover table-condensed">
               <thead>
                 <tr>
-                  <th>FilePath</th>
+                  <th>File Path</th>
                   <th>View</th>
                 </tr>
               </thead>
@@ -423,6 +423,12 @@ function printAllFilesTable()
       <!-- Approve or Reject -->
       <div class="container">
         <div class="well">
+          <div class="form-group form-group-lg">
+            <div class="col-sm-offset-8 col-sm-4">
+              <button type="button" class="btn btn-success" onclick=""><span class="glyphicon glyphicon-indent-left"></span> Approve this Pinkie</button>
+              <button type="button" class="btn btn-danger" onclick=""><span class="glyphicon glyphicon-indent-right"></span> Reject this Pinkie</button>
+            </div>
+          </div>
         </div>
       </div>
 
