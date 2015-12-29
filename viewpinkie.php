@@ -9,7 +9,7 @@ secureSessionStart();
 $i_PinkieID = -1;
 if(isset($_GET['pid']))
 {
-  $i_PinkieID  = $_GET['pid'];
+  $i_PinkieID  = (int)$_GET['pid'];
 }
 
 if($i_PinkieID < 0)

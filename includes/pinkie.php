@@ -172,7 +172,7 @@ class Pinkie
       }
 
       $statement->store_result();
-      if($statement->num_rows <= 0)
+      if($statement->num_rows == 0)
       {
           $statement->free_result();
           $statement->close();
