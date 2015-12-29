@@ -112,4 +112,11 @@ function printSubmitTo()
     }
 }
 
+// If the value == the Selection Text, then selected is printed. Used for multi
+// option selection windows.
+function isSelected($value, $selectionText)
+{
+  echo 'selected="selected"';
+}
+
 ?>
