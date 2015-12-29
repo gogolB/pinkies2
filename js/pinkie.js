@@ -7,6 +7,7 @@ function onNewSubmit()
     if(checkForm(form))
     {
       attachStatus(form, "PendingSuperApproval");
+      form.submit();
     }
 }
 
@@ -21,10 +22,24 @@ function attachStatus(form, status)
 
 function checkForm(form)
 {
+  // Check all the fields.
+  // Check all the objects.
+  // Check the stuff at the bottom.
+
+
+  // Check to make sure all the money value lines up.
   var subT = calculateSubTotal(form);
   var t = calculateTax(form, subT);
   var tot = calculateTotal(form);
   var exp = calculateTotalExpenses(form);
+  if(tot == 'NaN' || exp == 'Nan')
+  {
+    return false;
+  }
+  else
+  {
+    return parseFloat(tot) == parseFloat(exp);
+  }
 }
 
 // Calculates and sets the subtotal.

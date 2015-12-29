@@ -23,6 +23,11 @@ class Pinkie
     public $s_Title = '';
     public $s_SubmissionTimeStamp = '';
     public $s_ReferenceNumber = '';
+    public $s_Submitter = '';
+    public $s_SubmittedFor = '';
+    public $s_Status = '';
+    public $s_Priority = '';
+    public $s_Action = '';
 
     // Objects
     // An array of PurchaseObject.
@@ -35,6 +40,8 @@ class Pinkie
     public $s_DelieveryLocation = '';
 
     public $v_Vendor = null;
+
+    public $s_EquipmentType = '';
 
     // An array of pinkie expenses.
     public $a_Expenses = array();
@@ -49,15 +56,7 @@ class Pinkie
     public $s_EquipmentLocation = '';
     public $s_UCRPropertyTag = '';
 
-    public $s_EquipmentType = '';
-
-    public $s_Priority = '';
-
-    public $s_Submitter = '';
-    public $s_SubmittedFor = '';
-    public $s_Status = '';
-
-    // attachements
+    // Attachements
     // An array of Attachement
     public $a_Attachments = array();
 
@@ -193,6 +192,7 @@ class Pinkie
       $this->getObjects();
       $this->getExpenses();
       $this->getAttachments();
+      $this->getPinkieInfo();
 
     }
 
@@ -212,6 +212,19 @@ class Pinkie
       }
 
       $_stmt->close();
+
+      $_sql = "UPDATE PinkieInformation SET VendorID=?, Justification=?, JustificationText=?, EquipmentLocation=?, UCRPropertyNumber=?, ClassInstructed=?, Quote=?, Action=?, Priority=?, ReferenceNumber=?, EquipmentType=?, ShippingFreight=? WHERE PinkieID=?";
+      $_stmt = $_db->prepare($_sql);
+      $_stmt->bind_param('issssssssssdi', $this->v_Vendor, $this->s_Justification, $this->s_JustificationText, $this->s_EquipmentLocation, $this->s_UCRPropertyTag, $this->s_classInstructed, $this->s_Quote, $this->s_Action, $this->s_Priority, $this->s_ReferenceNumber, $this->s_EquipmentType, $this->d_ShippingFreight, $this->i_PinkieID);
+
+      $_stmt->execute();
+
+      if ($_stmt->errno)
+      {
+        onError("Pinkie::update() Extra Info", $_stmt->error);
+      }
+      $_stmt->close();
+
       // Close up the database connection.
       $_db->close();
 
@@ -250,6 +263,17 @@ class Pinkie
 
       // Get the pinkie id of the thing we just inserted.
       $this->i_PinkieID = $_db->insert_id;
+      $_stmt->close();
+      $_sql = "INSERT INTO PinkieInformation (PinkieID, VendorID, Justification, JustificationText, EquipmentLocation, UCRPropertyNumber, ClassInstructed, Quote, Action, Priority, ReferenceNumber, EquipmentType, ShippingFreight) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+      $_stmt = $_db->prepare($_sql);
+      $_stmt->bind_param('iissssssssssd', $this->i_PinkieID, $this->v_Vendor, $this->s_Justification, $this->s_JustificationText, $this->s_EquipmentLocation, $this->s_UCRPropertyTag, $this->s_classInstructed, $this->s_Quote, $this->s_Action, $this->s_Priority, $this->s_ReferenceNumber, $this->s_EquipmentType, $this->d_ShippingFreight);
+
+      $_stmt->execute();
+
+      if ($_stmt->errno)
+      {
+        onError("Pinkie::addNew() Extra Info", $_stmt->error);
+      }
       $_stmt->close();
       // Close up the database connection.
       $_db->close();
@@ -409,6 +433,49 @@ class Pinkie
       $_db->close();
     }
 
+}
+
+function getPinkieInfo()
+{
+  // Check if a file ID has been set.
+  if($this->i_PinkieID < 0)
+  {
+      onError("Pinkie::getPinkieInfo()", "Failed to load Pinkie from database because no PinkieID was set.");
+  }
+
+  // Everything is all good, load it from the database.
+  // Connect to the database.
+  $_db = getMysqli();
+  // SQL query to run.
+  $statement = $_db->prepare("SELECT * FROM PinkieInformation WHERE PinkieID=?");
+  $statement->bind_param('i', $this->PinkieID);
+  $statement->execute();
+
+  // Error running the statment.
+  if($statement->errno != 0)
+  {
+    $_tmp = $statement->error;
+    $statement->close();
+    $_db->close();
+    onError("Pinkie::getPinkieInfo()",'There was an error running the query [' . $_tmp . '] Could not fetch Pinkie.');
+  }
+
+  $statement->store_result();
+  if($statement->num_rows <= 0)
+  {
+      $statement->free_result();
+      $statement->close();
+      $_db->close();
+      onError("Pinkie::getPinkieInfo()","Failed to find a Pinkie with the given PinkieID of: ".$this->i_PinkieID);
+  }
+  // We have a result, lets bind the result to the variables.
+  $statement->bind_result($this->i_PinkieID, $this->v_Vendor, $this->s_Justification, $this->s_JustificationText, $this->s_EquipmentLocation, $this->s_UCRPropertyTag, $this->s_classInstructed, $this->s_Quote, $this->s_Action, $this->s_Priority, $this->s_ReferenceNumber, $this->s_EquipmentType, $this->d_ShippingFreight);
+  $statement->fetch();
+
+  // Cleanup.
+  $statement->free_result();
+  $statement->close();
+  $_db->close();
 }
 
 //------------------------------------------------------------------------------

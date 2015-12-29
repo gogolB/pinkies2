@@ -160,7 +160,7 @@ if(isset($_POST['title']))
       </div>
     </div>
 
-    <form class="form-horizontal" role="form" action="#" method="POST" name="newPinkieForm" id="newPinkieForm">
+    <form class="form-horizontal" role="form" action="onPinkieSubmit.php" method="POST" name="newPinkieForm" id="newPinkieForm">
 
       <!-- Title, who you are submitting to, who is submitting it. -->
       <div class="container">
@@ -193,10 +193,10 @@ if(isset($_POST['title']))
             <label class="control-label col-sm-2" for="action">Action:</label>
             <div class="col-sm-10">
               <select class="form-control" id="action" name="action">
-                  <option>Reimbursement</option>
-                  <option selected="selected" >Purchase</option>
-                  <option>Payment Request</option>
-                  <option>Quote</option>
+                  <option value="Reimbursement">Reimbursement</option>
+                  <option selected="selected" value="Purchase">Purchase</option>
+                  <option value="Payment Request">Payment Request</option>
+                  <option value="Quote">Quote</option>
               </select>
             </div>
           </div>
@@ -205,11 +205,11 @@ if(isset($_POST['title']))
             <label class="control-label col-sm-2" for="priority">Priority:</label>
             <div class="col-sm-10">
               <select class="form-control" id="priority" name="priority">
-                  <option>Expedite</option>
-                  <option>Urgent</option>
-                  <option selected="selected" >Routine</option>
-                  <option>Cancel</option>
-                  <option>Hold</option>
+                  <option value="Expedite">Expedite</option>
+                  <option value="Urgent">Urgent</option>
+                  <option selected="selected" value="Routine">Routine</option>
+                  <option value="Cancel">Cancel</option>
+                  <option value="Hold">Hold</option>
               </select>
             </div>
           </div>
@@ -311,6 +311,24 @@ if(isset($_POST['title']))
             </div>
           </div>
 
+          <div class="form-group form-group-lg">
+            <label class="control-label col-sm-2" for="typeOfPurchase">What is this:</label>
+            <div class="col-sm-10">
+              <select class="form-control" id="typeOfPurchase" name="typeOfPurchase">
+                  <option selected="selected" value="Computer Software/Hardware">Computer Software/Hardware</option>
+                  <option value="Chemical">Chemical</option>
+                  <option value="Other">Other (Please Describe Below)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group form-group-lg">
+            <label class="control-label col-sm-2" for="typeOfPurchaseOther">Please Describe:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="typeOfPurchaseOther" name="typeOfPurchaseOther">
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -332,10 +350,10 @@ if(isset($_POST['title']))
             <label class="control-label col-sm-2" for="justification">Justification:</label>
             <div class="col-sm-10">
               <select class="form-control" id="justification" name="justification">
-                  <option selected="selected">Instruction</option>
-                  <option>Research</option>
-                  <option>Fabrication</option>
-                  <option>Other</option>
+                  <option selected="selected" value="Instruction">Instruction</option>
+                  <option value="Research">Research</option>
+                  <option value="Fabrication">Fabrication</option>
+                  <option value="Other">Other</option>
               </select>
             </div>
           </div>
