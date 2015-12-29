@@ -19,6 +19,7 @@ define('RejectedBySuper', 'Super Deny');
 define('RejectedByAdmin', 'Admin Deny');
 define('DispatchedToTrans', 'Dispatched');
 define('Done', 'Done');
+define('Archived', 'Archived'); // This means it will not show up in regular searches.
 
 // Pinkie max limits.
 define('MAX_OBJECTS', 10);

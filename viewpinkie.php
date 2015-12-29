@@ -61,7 +61,35 @@ function printObjectsTable()
 // Prints all the funds associated with this pinkie.
 function printFundsTable()
 {
-
+  if(count($_pinkie->a_Objects) == 0)
+  {
+    echo '<tr>
+            <td>No Funds attached to this Pinkie!</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>';
+      return;
+  }
+  $_fund = 0;
+  foreach ($_pinkie->a_Expenses as $_e)
+  {
+      $_fund = new Fund();
+      $_fund->i_FundID = $_e->f_FundID;
+      $_fund->fromDatabase();
+      echo '<tr>
+              <td>'.$_fund->s_FundName.'</td>
+              <td>'.$_fund->s_Activity.'</td>
+              <td>'.$_fund->s_Fund.'</td>
+              <td>'.$_fund->s_Function.'</td>
+              <td>'.$_fund->s_CostCenter.'</td>
+              <td>'.$_fund->s_ProjectCode.'</td>
+              <td>'.$_fund->$s_Balance.'</td>
+            </tr>';
+  }
 }
 
 function printAllFilesTable()
@@ -90,7 +118,7 @@ function printAllFilesTable()
         <H2>
           Welcome <?php echo(getName());?> to ePinkies2.
         </H2>
-        <H4>Here you will be able view a pinkie object. Then if it is submitted to you, you can approve it and send it to the next person.</H4>
+        <H4>Here you will be able view a pinkie object. Then if it is submitted to you, you can approve it and send it to the next person. If you reject it, it will go back to the previous person from you.</H4>
 
         <!-- Back to Home button. -->
         <a href="./home.php" class="btn btn-success" role="button"><span class="glyphicon glyphicon-home"></span> Back to Home</a>
@@ -177,16 +205,37 @@ function printAllFilesTable()
                 </tr>
               </thead>
               <tbody>
-                <?php printObjectsTable() ?>
+                <?php printObjectsTable(); ?>
               </tbody>
             </table>
           </div>
+
         </div>
       </div>
 
       <!-- Funds -->
       <div class="container">
         <div class="well">
+
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover table-condensed">
+              <thead>
+                <tr>
+                  <th>Fund Name</th>
+                  <th>Acivity</th>
+                  <th>Fund</th>
+                  <th>Function</th>
+                  <th>Cost Center</th>
+                  <th>Project Code</th>
+                  <th>Balance</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php printFundsTable(); ?>
+              </tbody>
+            </table>
+          </div>
+
         </div>
       </div>
 
@@ -335,6 +384,25 @@ function printAllFilesTable()
       <div class="container">
         <div class="well">
           <H2>Attachments</H2>
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover table-condensed">
+              <thead>
+                <tr>
+                  <th>FilePath</th>
+                  <th>View</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php printFundsTable(); ?>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Approve or Reject -->
+      <div class="container">
+        <div class="well">
         </div>
       </div>
 
