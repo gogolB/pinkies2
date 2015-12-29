@@ -236,12 +236,12 @@ class Pinkie
         $_ob->toDatabase();
       }
 
-      foreach ($this->$a_Expenses as $_e)
+      foreach ($this->a_Expenses as $_e)
       {
           $_e->toDatabase();
       }
 
-      foreach ($this->$a_Attachments as $_f)
+      foreach ($this->a_Attachments as $_f)
       {
           $_f->toDatabase();
       }
@@ -290,12 +290,12 @@ class Pinkie
         $_ob->toDatabase();
       }
 
-      foreach ($this->$a_Expenses as $_e)
+      foreach ($this->a_Expenses as $_e)
       {
           $_e->toDatabase();
       }
 
-      foreach ($this->$a_Attachments as $_f)
+      foreach ($this->a_Attachments as $_f)
       {
           $_f->toDatabase();
       }
@@ -570,7 +570,7 @@ class PinkieExpense
       $_sql = "UPDATE Expenses SET PinkieID=?, Amount=?, FundID=? WHERE ExpenseID=?";
       $_stmt = $_db->prepare((string)$_sql);
 
-      $_stmt->bind_param('idii', $this->i_PinkieID, $this->$d_Amount, $this->i_FundID, $this->i_ExpenseID);
+      $_stmt->bind_param('idii', $this->i_PinkieID, $this->d_Amount, $this->i_FundID, $this->i_ExpenseID);
       $_stmt->execute();
 
       if ($_stmt->errno)
