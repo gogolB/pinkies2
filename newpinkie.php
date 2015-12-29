@@ -451,7 +451,7 @@ if(isset($_POST['title']))
                 $(document).on('ready', function() {
                   $("#attachment").fileinput({
                     maxFileCount: <?php echo MAX_ATTACHMENTS; ?>,
-                    allowedFileExtensions: ["jpg", "pdf", "png"]
+                    allowedFileExtensions: ["jpg", "pdf", "png", "jpeg"]
                   });
                 });
               </script>

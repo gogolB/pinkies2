@@ -229,6 +229,46 @@ function printAllFilesTable()
             </table>
           </div>
 
+          <div class="form-group form-group-lg">
+            <label class="control-label col-sm-2" for="subtotal">Subtotal:</label>
+            <div class="col-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon">$</span>
+                <input type="text" class="form-control" id="subtotal" name="subtotal" readonly>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group form-group-lg">
+            <label class="control-label col-sm-2" for="tax">Tax:</label>
+            <div class="col-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon">$</span>
+                <input type="text" class="form-control" id="tax" name="tax" readonly>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group form-group-lg">
+            <label class="control-label col-sm-2" for="shipping">Shipping Freight:</label>
+            <div class="col-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon">$</span>
+                <input type="text" class="form-control" id="shipping" name="shipping" onchange="onShippingChange()" value="<?php printf("%.2f",$_pinkie->d_ShippingFreight); ?>" readonly>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group form-group-lg">
+            <label class="control-label col-sm-2" for="total">Total:</label>
+            <div class="col-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon">$</span>
+                <input type="text" class="form-control" id="total" name="total" readonly value="<?php printf("%.2f",$_pinkie->d_Total); ?>>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 

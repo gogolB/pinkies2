@@ -120,15 +120,6 @@ class Pinkie
         }
     }
 
-    // Calculates the total for this pinkie.
-    public function calculateTotal()
-    {
-      foreach ($this->a_Objects as $_ob)
-      {
-        $this->d_Total += $_ob->i_Quantity * $_ob->d_UnitPrice;
-      }
-    }
-
     //**************************************************************************
     // Database FUNCTIONS
     //**************************************************************************
@@ -136,7 +127,6 @@ class Pinkie
     // Puts the pinki in the database.
     public function toDatabase()
     {
-        $this->calculateTotal();
 
         if($this->i_PinkieID > 0)
         {
@@ -331,6 +321,10 @@ class Pinkie
       {
           $statement->free_result();
           $statement->close();
+          if(SQL_NO_RESULTS_BREAK)
+          {
+              onError("Pinkie::getObjects()",'Could not find any objects associated with the PID of: '.$this->i_PinkieID);
+          }
           $_db->close();
           return;
       }
@@ -377,6 +371,10 @@ class Pinkie
           $statement->free_result();
           $statement->close();
           $_db->close();
+          if(SQL_NO_RESULTS_BREAK)
+          {
+              onError("Pinkie::getExpenses()",'Could not find any expenses associated with the PID of: '.$this->i_PinkieID);
+          }
           return;
       }
 
@@ -422,6 +420,10 @@ class Pinkie
           $statement->free_result();
           $statement->close();
           $_db->close();
+          if(SQL_NO_RESULTS_BREAK)
+          {
+              onError("Pinkie::getAttachments()",'Could not find any attachments associated with the PID of: '.$this->i_PinkieID);
+          }
           return;
       }
 
