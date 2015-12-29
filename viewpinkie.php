@@ -31,6 +31,7 @@ $_vendor->fromDatabase();
 // Prints all the objects associated with this pinkie.
 function printObjectsTable()
 {
+    global $_pinkie;
     if(count($_pinkie->a_Objects) == 0)
     {
       echo '<tr>
@@ -61,6 +62,7 @@ function printObjectsTable()
 // Prints all the funds associated with this pinkie.
 function printFundsTable()
 {
+  global $_pinkie;
   if(count($_pinkie->a_Expenses) == 0)
   {
     echo '<tr>
@@ -96,6 +98,7 @@ function printFundsTable()
 
 function printAllFilesTable()
 {
+  global $_pinkie;
   if(count($_pinkie->a_Attachments) == 0)
   {
     echo '<tr>
