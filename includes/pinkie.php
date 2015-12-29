@@ -192,7 +192,7 @@ class Pinkie
       $this->getObjects();
       $this->getExpenses();
       $this->getAttachments();
-      $this->getPinkieInfo();
+      $this->getPinkieInformation();
 
     }
 
@@ -435,12 +435,12 @@ class Pinkie
 
 }
 
-function getPinkieInfo()
+function getPinkieInformation()
 {
   // Check if a file ID has been set.
   if($this->i_PinkieID < 0)
   {
-      onError("Pinkie::getPinkieInfo()", "Failed to load Pinkie from database because no PinkieID was set.");
+      onError("Pinkie::getPinkieInformation()", "Failed to load Pinkie from database because no PinkieID was set.");
   }
 
   // Everything is all good, load it from the database.
@@ -457,7 +457,7 @@ function getPinkieInfo()
     $_tmp = $statement->error;
     $statement->close();
     $_db->close();
-    onError("Pinkie::getPinkieInfo()",'There was an error running the query [' . $_tmp . '] Could not fetch Pinkie.');
+    onError("Pinkie::getPinkieInformation()",'There was an error running the query [' . $_tmp . '] Could not fetch Pinkie.');
   }
 
   $statement->store_result();
@@ -466,7 +466,7 @@ function getPinkieInfo()
       $statement->free_result();
       $statement->close();
       $_db->close();
-      onError("Pinkie::getPinkieInfo()","Failed to find a Pinkie with the given PinkieID of: ".$this->i_PinkieID);
+      onError("Pinkie::getPinkieInformation()","Failed to find a Pinkie with the given PinkieID of: ".$this->i_PinkieID);
   }
   // We have a result, lets bind the result to the variables.
   $statement->bind_result($this->i_PinkieID, $this->v_Vendor, $this->s_Justification, $this->s_JustificationText, $this->s_EquipmentLocation, $this->s_UCRPropertyTag, $this->s_classInstructed, $this->s_Quote, $this->s_Action, $this->s_Priority, $this->s_ReferenceNumber, $this->s_EquipmentType, $this->d_ShippingFreight);
