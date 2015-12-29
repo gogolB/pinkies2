@@ -92,7 +92,7 @@ function printFundsTable()
                     <td>%s</td>
                     <td>%s</td>
                     <td>%.2f</td>
-                  </tr>', $_fund->s_FundName, $_e->d_Amount, $_fund->s_Activity, $_fund->s_Fund, $_fund->s_Function, $_fund->s_CostCenter, $_fund->s_ProjectCode,$_fund->$s_Balance);
+                  </tr>', $_fund->s_FundName, $_e->d_Amount, $_fund->s_Activity, $_fund->s_Fund, $_fund->s_Function, $_fund->s_CostCenter, $_fund->s_ProjectCode,$_fund->s_Balance);
   }
 }
 
@@ -237,7 +237,7 @@ function printAllFilesTable()
             <div class="col-sm-10">
               <div class="input-group">
                 <span class="input-group-addon">$</span>
-                <input type="text" class="form-control" id="subtotal" name="subtotal" readonly value="<?php printf("%.2f",$_pinkie->getSubtotal()); ?>">
+                <input type="text" class="form-control" id="subtotal" name="subtotal" readonly value="<?php printf("%.2f",$GLOBALS['_pinkie']->getSubtotal()); ?>">
               </div>
             </div>
           </div>
