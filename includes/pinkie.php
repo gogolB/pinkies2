@@ -96,7 +96,7 @@ class Pinkie
     // Updates all the expenses with the current PinkieID
     public function updateExpenses()
     {
-        foreach ($this->$a_Expenses as $_e)
+        foreach ($this->a_Expenses as $_e)
         {
             $_e->i_PinkieID = $this->i_PinkieID;
         }
@@ -114,7 +114,7 @@ class Pinkie
     // Updates all the attachments with the current PinkieID.
     public function updateAttachements()
     {
-        foreach ($this->$a_Attachments as $_f)
+        foreach ($this->a_Attachments as $_f)
         {
             $_f->i_PinkieID = $this->i_PinkieID;
         }
