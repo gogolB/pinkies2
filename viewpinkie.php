@@ -31,37 +31,30 @@ $_vendor->fromDatabase();
 // Prints all the objects associated with this pinkie.
 function printObjectsTable()
 {
+    if(count($_pinkie->a_Objects) == 0)
+    {
+      echo '<tr>
+              <td></td>
+              <td></td>
+              <td> No Objects attached to this Pinkie!</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>';
+        return;
+    }
     foreach ($_pinkie->a_Objects as $_obj)
     {
-        echo '<div class="form-group form-group-lg">
-          <div class="col-sm-1">
-            <input type="text" class="form-control" id="quantity[]" name="quantity[]" placeholder="Quantity" readonly value='.$_obj->i_Quantity.'>
-          </div>
-          <div class="col-sm-2">
-            <input type="text" class="form-control" id="stockNumber[]" name="stockNumber[]" placeholder="Stock Number" readonly value='.$_obj->s_StockNumber.'>
-          </div>
-          <div class="col-sm-3">
-            <input type="text" class="form-control" id="description[]" name="description[]" placeholder="Description" readonly value='.$_obj->s_Description.'>
-          </div>
-          <div class="col-sm-1">
-            <input type="text" class="form-control" id="bc[]" name="bc[]" placeholder="BC" readonly value='.$_obj->s_BC.'>
-          </div>
-          <div class="col-sm-1">
-            <input type="text" class="form-control" id="accountNumber[]" name="accountNumber[]" placeholder="Account Number" readonly value='.$_obj->s_AccountNumber.'>
-          </div>
-          <div class="col-sm-2">
-            <div class="input-group">
-              <span class="input-group-addon">$</span>
-              <input type="text" class="form-control" id="unitPrice[]" name="unitPrice[]" placeholder="Unit Price" readonly value='.$_obj->d_UnitPrice.'>
-            </div>
-          </div>
-          <div class="col-sm-2">
-            <div class="input-group">
-              <span class="input-group-addon">$</span>
-              <input type="text" class="form-control" id="totalPrice[]" name="totalPrice[]" placeholder="Total" readonly value='.$_obj->i_Quantity * $_obj->d_UnitPrice.'>
-            </div>
-          </div>
-        </div>';
+        echo '<tr>
+                <td>'.$_obj->i_Quantity.'</td>
+                <td>'.$_obj->s_StockNumber.'</td>
+                <td>'.$_obj->s_Descripton.'</td>
+                <td>'.$_obj->s_BC.'</td>
+                <td>'.$_obj->s_AccountNumber.'</td>
+                <td>'.$_obj->d_UnitPrice.'</td>
+                <td>'.$_obj->i_Quantity * $_obj->d_UnitPrice.'</td>
+              </tr>';
     }
 }
 
@@ -169,18 +162,26 @@ function printAllFilesTable()
       <!-- Purchase Orders-->
       <div class="container">
         <div class="well">
-          <div class="form-group form-group-lg">
-            <H3 class="col-sm-1"><u>Quantity</u></H3>
-            <H3 class="col-sm-2"><u>Stock Number</u></H3>
-            <H3 class="col-sm-3"><u>Description</u></H3>
-            <H3 class="col-sm-1"><u>BC</u></H3>
-            <H3 class="col-sm-1"><u>Account Number</u></H3>
-            <H3 class="col-sm-2"><u>Unit Price</u></H3>
-            <H3 class="col-sm-2"><u>Total Price</u></H3>
+
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover table-condensed">
+              <thead>
+                <tr>
+                  <th>Quantity</th>
+                  <th>Stock Number</th>
+                  <th>Description</th>
+                  <th>BC</th>
+                  <th>Account Number</th>
+                  <th>Unit Price</th>
+                  <th>Total Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php printObjectsTable() ?>
+              </tbody>
+            </table>
           </div>
         </div>
-
-        <?php printObjectsTable() ?>
       </div>
 
       <!-- Funds -->
