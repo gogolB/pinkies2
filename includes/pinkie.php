@@ -377,7 +377,7 @@ class Pinkie
       $statement->bind_result($_tempExpenseID);
       while($statement->fetch())
       {
-          $_e = new PinkieExpense($this->i_PinkieID);
+          $_e = new PinkieExpense($this->i_PinkieID, 0, 0);
           $_e->i_ExpenseID = $_tempExpenseID;
           $_e->fromDatabase();
           array_push($this->a_Expenses, $_e);
@@ -395,7 +395,7 @@ class Pinkie
       // Connect to the database.
       $_db = getMysqli();
       // SQL query to run.
-      $statement = $_db->prepare("SELECT AttachmentID FROM Attachements WHERE PinkieID=?");
+      $statement = $_db->prepare("SELECT AttachmentID FROM Attachments WHERE PinkieID=?");
       $statement->bind_param('i', $this->i_PinkieID);
       $statement->execute();
 
@@ -405,7 +405,7 @@ class Pinkie
         $_tmp = $statement->error;
         $statement->close();
         $_db->close();
-        onError("Pinkie::getAttachments()",'There was an error running the query [' . $_tmp . '] Could not fetch Attachements.');
+        onError("Pinkie::getAttachments()",'There was an error running the query [' . $_tmp . '] Could not fetch Attachments.');
       }
 
       $statement->store_result();
