@@ -443,7 +443,7 @@ if(isset($_POST['title']))
         <div class="well">
           <H2>Attachments</H2>
           <div class="form-group">
-              <input id="attachment" name="attachment" type="file" class="file-loading" multiple data-show-upload="false" data-show-caption="true">
+              <input id="attachment" name="attachment[]" type="file" class="file-loading" multiple data-show-upload="false" data-show-caption="true">
               <script>
                 $(document).on('ready', function() {
                   $("#attachment").fileinput({

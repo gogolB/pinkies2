@@ -59,8 +59,16 @@ foreach ($_fund as $key => $f)
 //------------------------------------------------------------------------------
 
 // Attachments.
+if(isset($_FILES['attachment'])){
+  echo "hasfiles <br>";
+}
+else
+{
+  echo "hasNOfiles <br>";
+}
 for($i=0; $i<count($_FILES['attachment']['name']); $i++)
 {
+  echo "hasfiles <br>";
   //Get the temp file path
   $tmpFilePath = $_FILES['attachment']['tmp_name'][$i];
 
