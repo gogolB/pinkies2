@@ -66,7 +66,7 @@ class PurchaseObject
     public function fromDatabase()
     {
       // Check if a file ID has been set.
-      if($this->i_FileID < 0)
+      if($this->i_ObjectID < 0)
       {
           onError("PurchaseObject::fromDatabase()", "Failed to load attachment from database because no ObjectID was set.");
       }
