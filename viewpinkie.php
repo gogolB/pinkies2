@@ -61,7 +61,7 @@ function printObjectsTable()
 // Prints all the funds associated with this pinkie.
 function printFundsTable()
 {
-  if(count($_pinkie->a_Objects) == 0)
+  if(count($_pinkie->a_Expenses) == 0)
   {
     echo '<tr>
             <td>No Funds attached to this Pinkie!</td>
@@ -71,7 +71,8 @@ function printFundsTable()
             <td></td>
             <td></td>
             <td></td>
-          </tr>';
+            <td></td>
+            </tr>';
       return;
   }
   $_fund = 0;
@@ -82,6 +83,7 @@ function printFundsTable()
       $_fund->fromDatabase();
       echo '<tr>
               <td>'.$_fund->s_FundName.'</td>
+              <td>'.$_e->d_Amount.'</td>
               <td>'.$_fund->s_Activity.'</td>
               <td>'.$_fund->s_Fund.'</td>
               <td>'.$_fund->s_Function.'</td>
@@ -94,7 +96,24 @@ function printFundsTable()
 
 function printAllFilesTable()
 {
-
+  if(count($_pinkie->a_Attachments) == 0)
+  {
+    echo '<tr>
+            <td>No Files attached to this Pinkie!</td>
+            <td></td>
+          </tr>';
+      return;
+  }
+  $_fund = 0;
+  foreach ($_pinkie->a_Attachments as $_f)
+  {
+      echo '<tr>
+              <td>'.$_f->s_FilePath.'</td>
+              <td><form method="get" action="'.$_f->s_FilePath.'">
+                  <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-download-alt"></span> Download!</button>
+                  </form></td>
+            </tr>';
+  }
 }
 ?>
 <!DOCTYPE html>
@@ -222,12 +241,13 @@ function printAllFilesTable()
               <thead>
                 <tr>
                   <th>Fund Name</th>
+                  <th>Expense Amount</th>
                   <th>Acivity</th>
                   <th>Fund</th>
                   <th>Function</th>
                   <th>Cost Center</th>
                   <th>Project Code</th>
-                  <th>Balance</th>
+                  <th>Balance In Fund</th>
                 </tr>
               </thead>
               <tbody>
@@ -393,7 +413,7 @@ function printAllFilesTable()
                 </tr>
               </thead>
               <tbody>
-                <?php printFundsTable(); ?>
+                <?php printAllFilesTable(); ?>
               </tbody>
             </table>
           </div>
