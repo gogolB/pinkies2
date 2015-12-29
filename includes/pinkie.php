@@ -333,7 +333,6 @@ class Pinkie
       $statement->bind_result($_tempObjectID);
       while($statement->fetch())
       {
-        onError("Pinkie::getObjects()",'Could not find any objects associated with the PID of: '.$this->i_PinkieID);
           $_o = new PurchaseObject($this->i_PinkieID);
           $_o->i_ObjectID = $_tempObjectID;
           $_o->fromDatabase();
