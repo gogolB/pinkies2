@@ -22,6 +22,28 @@ if($i_PinkieID < 0)
 $_pinkie = new Pinkie();
 $_pinkie->i_PinkieID = (int)$i_PinkieID;
 $_pinkie->fromDatabase();
+
+// Load the Vendor associated with this pinkie.
+$_vendor = new Vendor();
+$_vendor->i_VendorID = $_pinkie->v_Vendor;
+$_vendor->fromDatabase();
+
+// Prints all the objects associated with this pinkie.
+function printObjectsTable()
+{
+
+}
+
+// Prints all the funds associated with this pinkie.
+function printFundsTable()
+{
+
+}
+
+function printAllFilesTable()
+{
+
+}
 ?>
 <!DOCTYPE html>
 <HTML>
@@ -81,7 +103,7 @@ $_pinkie->fromDatabase();
           <div class="form-group form-group-lg">
             <label class="control-label col-sm-2" for="action">Action:</label>
             <div class="col-sm-10">
-              <select class="form-control" id="action" name="action">
+              <select class="form-control" id="action" name="action" readonly>
                   <option value="Reimbursement" <?php isSelected($_pinkie->s_Action, "Reimbursement"); ?> >Reimbursement</option>
                   <option value="Purchase" <?php isSelected($_pinkie->s_Action, "Purchase"); ?>>Purchase</option>
                   <option value="Payment Request" <?php isSelected($_pinkie->s_Action, "Payment Request"); ?> >Payment Request</option>
@@ -93,7 +115,7 @@ $_pinkie->fromDatabase();
           <div class="form-group form-group-lg">
             <label class="control-label col-sm-2" for="priority">Priority:</label>
             <div class="col-sm-10">
-              <select class="form-control" id="priority" name="priority">
+              <select class="form-control" id="priority" name="priority" readonly>
                   <option value="Expedite" <?php isSelected($_pinkie->s_Priority, "Expedite"); ?> >Expedite</option>
                   <option value="Urgent" <?php isSelected($_pinkie->s_Priority, "Urgent"); ?>>Urgent</option>
                   <option value="Routine" <?php isSelected($_pinkie->s_Priority, "Routine"); ?>>Routine</option>
@@ -110,6 +132,165 @@ $_pinkie->fromDatabase();
             </div>
           </div>
 
+        </div>
+      </div>
+
+      <!-- Purchase Orders-->
+      <div class="container">
+        <div class="well">
+        </div>
+      </div>
+
+      <!-- Funds -->
+      <div class="container">
+        <div class="well">
+        </div>
+      </div>
+
+      <!-- Vendor Info -->
+      <div class="container">
+        <div class="well">
+
+          <div class="form-group form-group-lg">
+            <label class="control-label col-sm-2" for="vendorName">Vendor Name:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="vendorName" name="vendorName" value='<?php echo $_vendor->s_VendorName; ?>' readonly>
+            </div>
+          </div>
+
+          <br>
+          <H3><u>Address/Location</u></H3>
+          <!-- Address/Location -->
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="address">Address:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="address" name="address" value='<?php echo $_vendor->s_Address; ?>' readonly>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="city">City:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="city" name="city" value='<?php echo $_vendor->s_City; ?>' readonly>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="state">State:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="state" name="state" value='<?php echo $_vendor->s_State; ?>' readonly>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="zip">Zip:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="zip" name="zip" value='<?php echo $_vendor->s_Zip; ?>' readonly>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="country">Country:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="country" name="country" value='<?php echo $_vendor->s_Country; ?>' readonly>
+            </div>
+          </div>
+          <br>
+          <!-- UCR Info -->
+          <H3><u>UCR Specific Information</u></H3>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="ucrAccountID">UCR Account ID:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="ucrAccountID" name="ucrAccountID" value='<?php echo $_vendor->s_UCRAccountID; ?>' readonly>
+            </div>
+          </div>
+          <br>
+          <!-- Contact info -->
+          <H3><u>Contact Info</u></H3>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="poc">POC:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="poc" name="poc" value='<?php echo $_vendor->s_POC; ?>' readonly>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="phoneNumber">Phone Number:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" value='<?php echo $_vendor->s_PhoneNumber; ?>' readonly>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="faxNumber">Fax Number:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="faxNumber" name="faxNumber" value='<?php echo $_vendor->s_FaxNumber; ?>' readonly>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="internet">Internet:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="internet" name="internet" value='<?php echo $_vendor->s_Internet; ?>' readonly>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Justification and Extra Info -->
+      <div class="container">
+        <div class="well">
+          <div class="form-group form-group-lg">
+            <label class="control-label col-sm-2" for="justification">Justification:</label>
+            <div class="col-sm-10">
+              <select class="form-control" id="justification" name="justification" readonly>
+                  <option value="Instruction" <?php isSelected($_pinkie->s_Justification, "Instruction"); ?> >Instruction</option>
+                  <option value="Research" <?php isSelected($_pinkie->s_Justification, "Research"); ?> >Research</option>
+                  <option value="Fabrication" <?php isSelected($_pinkie->s_Justification, "Fabrication"); ?> >Fabrication</option>
+                  <option value="Other" <?php isSelected($_pinkie->s_Justification, "Other"); ?> >Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <textarea class="form-control" rows="2" id="justificationText" name="justificationText" value="<?php echo $_pinkie->s_JustificationText; ?>" readonly></textarea>
+            </div>
+          </div>
+
+          <div class="form-group form-group-lg">
+            <label class="control-label col-sm-2" for="equipmentLocation">Equipment Location:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="equipmentLocation" name="equipmentLocation"  value="<?php echo $_pinkie->s_EquipmentLocation; ?>" readonly>
+            </div>
+          </div>
+
+          <div class="form-group form-group-lg">
+            <label class="control-label col-sm-2" for="ucrPropertyNumber">UCR Property Number:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="ucrPropertyNumber" name="ucrPropertyNumber" value="<?php echo $_pinkie->s_UCRPropertyTag; ?>" readonly>
+            </div>
+          </div>
+
+          <div class="form-group form-group-lg">
+            <label class="control-label col-sm-2" for="classInstructed">Class Instructed:</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="classInstructed" name="classInstructed" value="<?php echo $_pinkie->s_classInstructed; ?>" readonly>
+            </div>
+
+            <label class="control-label col-sm-2" for="quote">Quote:</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="quote" name="quote" value="<?php echo $_pinkie->s_Quote; ?>" readonly>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Files -->
+      <div class="container">
+        <div class="well">
+          <H2>Attachments</H2>
         </div>
       </div>
 
