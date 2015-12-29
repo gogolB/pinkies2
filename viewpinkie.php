@@ -112,9 +112,7 @@ function printAllFilesTable()
   {
       echo '<tr>
               <td>'.$_f->s_FilePath.'</td>
-              <td><form method="get" action="'.$_f->s_FilePath.'">
-                  <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-download-alt"></span> Download!</button>
-                  </form></td>
+              <td><a href="'.$_f->s_FilePath.'" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-download-alt"></span> Download</a></td>
             </tr>';
   }
 }
