@@ -93,7 +93,7 @@
     if($statement->num_rows <= 0)
     {
         echo '<tr>
-                <td> No more Pinkies to process for you!</td>
+                <td> No Pinkies submitted by you!</td>
                 <td></td>
                 <td></td>
                 <td></td>
