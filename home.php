@@ -24,6 +24,60 @@
   include_once 'includes/functions.php';
   include_once 'includes/sessionFunctions.php';
   secureSessionStart();
+
+
+  function printSubmittedToYouTable()
+  {
+      $_db = getMysqli();
+      $statement = $_db->prepare("SELECT * FROM Submitted_By WHERE SubmittedFor=?");
+      $statement->bind_param('s', $_SESSION['Username']);
+      $statement->execute();
+
+      // Error running the statement.
+      if($statement->errno != 0)
+      {
+        $_tmp = $statement->error;
+        $statement->close();
+        $_db->close();
+        onError("Home::printSubmittedToYouTable()",'There was an error running the query [' . $_tmp . '] Could not fetch Pinkies submitted to: '.$_SESSION['Username']);
+      }
+
+      $statement->store_result();
+      if($statement->num_rows <= 0)
+      {
+          echo '<tr>
+                  <td> No more Pinkies to process for you!</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>';
+          return;
+      }
+      // We have a result, lets bind the result to the variables.
+      $statement->bind_result($pinkieID, $timestamp, $submitterUser, $submittedFor, $title, $status, $totalvalue);
+      while($statement->fetch())
+      {
+          printf('<tr>
+                  <td>%s</td>
+                  <td>%s</td>
+                  <td>%s</td>
+                  <td>%.2f</td>
+                  <td><a href="./viewpinkie.php?pid=%d"</td>
+                </tr>', $title, $submitterUser, $timestamp, $totalvalue, $pinkieID);
+      }
+
+      // Cleanup.
+      $statement->free_result();
+      $statement->close();
+      $_db->close();
+  }
+
+  function printSubmittedByYouTable()
+  {
+
+  }
+
  ?>
  <!DOCTYPE html>
  <html>
@@ -77,6 +131,45 @@
       <div class="container">
         <div class="well">
           <H3>Review Pinkies</H3>
+          <!-- Everyone but a user can have a pinkie submitted to them. -->
+          <?php if(isTrans() || isSuper() || isAdmin()): ?>
+            <H4><u>Pinkies Submitted To You</u></H4>
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover table-condensed">
+                <thead>
+                  <tr>
+                    <th>Pinkie Title</th>
+                    <th>Submitted By</th>
+                    <th>Timestamp</th>
+                    <th>Total</th>
+                    <th>Options</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php printSubmittedToYouTable(); ?>
+                </tbody>
+              </table>
+            </div>
+          <?php endif; ?>
+
+          <H4><u>Pinkies Submitted By You</u></H4>
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover table-condensed">
+              <thead>
+                <tr>
+                  <th>Pinkie Title</th>
+                  <th>Submitted To</th>
+                  <th>Timestamp</th>
+                  <th>Total</th>
+                  <th>Options</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php printSubmittedByYouTable(); ?>
+              </tbody>
+            </table>
+          </div>
+
         </div>
       </div>
     <?php endif; ?>

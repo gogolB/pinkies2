@@ -47,15 +47,15 @@ function printObjectsTable()
     }
     foreach ($_pinkie->a_Objects as $_obj)
     {
-        echo '<tr>
-                <td>'.$_obj->i_Quantity.'</td>
-                <td>'.$_obj->s_StockNumber.'</td>
-                <td>'.$_obj->s_Descripton.'</td>
-                <td>'.$_obj->s_BC.'</td>
-                <td>'.$_obj->s_AccountNumber.'</td>
-                <td>'.$_obj->d_UnitPrice.'</td>
-                <td>'.$_obj->i_Quantity * $_obj->d_UnitPrice.'</td>
-              </tr>';
+      printf('<tr>
+                <td>%d</td>
+                <td>%s</td>
+                <td>%s</td>
+                <td>%s</td>
+                <td>%s</td>
+                <td>%.2f</td>
+                <td>%.2f</td>
+              </tr>', $_obj->i_Quantity, $_obj->s_StockNumber, $_obj->s_Descripton, $_obj->s_BC, $_obj->s_AccountNumber, $_obj->d_UnitPrice, $_obj->i_Quantity * $_obj->d_UnitPrice);
     }
 }
 
