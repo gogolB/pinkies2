@@ -127,6 +127,7 @@ class Pinkie
         {
               $subtotal += $_ob->i_Quantity * $_ob->d_UnitPrice;
         }
+        return $subtotal;
     }
 
     //**************************************************************************
