@@ -69,7 +69,7 @@ if(isset($_POST['title']))
       var minFunds = 1;
       var currentFund = minFunds;
 
-
+      // Adds a object to the display.
       function addAObject()
       {
         if(currentObject < maxObject)
@@ -87,6 +87,7 @@ if(isset($_POST['title']))
         }
       }
 
+      // Adds a fund to the display.
       function addAFund()
       {
         if(currentFund < maxFunds)
@@ -104,6 +105,7 @@ if(isset($_POST['title']))
         }
       }
 
+      // Removes an object from the display.
       function removeAObject()
       {
         if(currentObject > minObject)
@@ -121,6 +123,7 @@ if(isset($_POST['title']))
         }
       }
 
+      // Removes a Fund from the display.
       function removeAFund()
       {
         if(currentFund > minFunds)

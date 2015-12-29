@@ -120,6 +120,7 @@ class Pinkie
         }
     }
 
+    // Calculates the total for this pinkie.
     public function calculateTotal()
     {
       foreach ($this->a_Objects as $_ob)
@@ -132,6 +133,7 @@ class Pinkie
     // Database FUNCTIONS
     //**************************************************************************
 
+    // Puts the pinki in the database.
     public function toDatabase()
     {
         $this->calculateTotal();
@@ -146,6 +148,7 @@ class Pinkie
         }
     }
 
+    // Loads the pinkie from the database.
     public function fromDatabase()
     {
       // Check if a file ID has been set.
@@ -196,6 +199,7 @@ class Pinkie
 
     }
 
+    // Updates this pinkie in the database.
     function update()
     {
       // Everything all good, lets update the table.
@@ -246,6 +250,7 @@ class Pinkie
       }
     }
 
+    // Adds a brand new pinkie to the database.
     function addNew()
     {
       // Everything all good, lets insert in to the table.
@@ -301,6 +306,7 @@ class Pinkie
 
     }
 
+    // Gets all the objects associated with this pinkie.
     function getObjects()
     {
       // Everything is all good, load it from the database.
@@ -345,6 +351,7 @@ class Pinkie
       $_db->close();
     }
 
+    // Gets all the expenses associated with this pinkie.
     function getExpenses()
     {
       // Everything is all good, load it from the database.
@@ -389,6 +396,7 @@ class Pinkie
       $_db->close();
     }
 
+    // Gets all the attachments associated with this pinkie.
     function getAttachments()
     {
       // Everything is all good, load it from the database.
@@ -433,6 +441,7 @@ class Pinkie
       $_db->close();
     }
 
+    // Gets all the other info associated with a pinkie.
     function getPinkieInformation()
     {
       // Check if a file ID has been set.
