@@ -75,7 +75,49 @@
 
   function printSubmittedByYouTable()
   {
+    $_db = getMysqli();
+    $statement = $_db->prepare("SELECT * FROM Submitted_By WHERE Submitter=?");
+    $statement->bind_param('s', $_SESSION['Username']);
+    $statement->execute();
 
+    // Error running the statement.
+    if($statement->errno != 0)
+    {
+      $_tmp = $statement->error;
+      $statement->close();
+      $_db->close();
+      onError("Home::printSubmittedToYouTable()",'There was an error running the query [' . $_tmp . '] Could not fetch Pinkies submitted to: '.$_SESSION['Username']);
+    }
+
+    $statement->store_result();
+    if($statement->num_rows <= 0)
+    {
+        echo '<tr>
+                <td> No more Pinkies to process for you!</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>';
+        return;
+    }
+    // We have a result, lets bind the result to the variables.
+    $statement->bind_result($pinkieID, $timestamp, $submitterUser, $submittedFor, $title, $status, $totalvalue);
+    while($statement->fetch())
+    {
+        printf('<tr>
+                <td>%s</td>
+                <td>%s</td>
+                <td>%s</td>
+                <td>%.2f</td>
+                <td><a href="./viewpinkie.php?pid=%d" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-search"></span> View</a></td>
+              </tr>', $title, $submittedFor, $timestamp, $totalvalue, $pinkieID);
+    }
+
+    // Cleanup.
+    $statement->free_result();
+    $statement->close();
+    $_db->close();
   }
 
  ?>
