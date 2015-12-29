@@ -433,49 +433,49 @@ class Pinkie
       $_db->close();
     }
 
-}
+    function getPinkieInformation()
+    {
+      // Check if a file ID has been set.
+      if($this->i_PinkieID < 0)
+      {
+          onError("Pinkie::getPinkieInformation()", "Failed to load Pinkie from database because no PinkieID was set.");
+      }
 
-function getPinkieInformation()
-{
-  // Check if a file ID has been set.
-  if($this->i_PinkieID < 0)
-  {
-      onError("Pinkie::getPinkieInformation()", "Failed to load Pinkie from database because no PinkieID was set.");
-  }
+      // Everything is all good, load it from the database.
+      // Connect to the database.
+      $_db = getMysqli();
+      // SQL query to run.
+      $statement = $_db->prepare("SELECT * FROM PinkieInformation WHERE PinkieID=?");
+      $statement->bind_param('i', $this->i_PinkieID);
+      $statement->execute();
 
-  // Everything is all good, load it from the database.
-  // Connect to the database.
-  $_db = getMysqli();
-  // SQL query to run.
-  $statement = $_db->prepare("SELECT * FROM PinkieInformation WHERE PinkieID=?");
-  $statement->bind_param('i', $this->i_PinkieID);
-  $statement->execute();
+      // Error running the statment.
+      if($statement->errno != 0)
+      {
+        $_tmp = $statement->error;
+        $statement->close();
+        $_db->close();
+        onError("Pinkie::getPinkieInformation()",'There was an error running the query [' . $_tmp . '] Could not fetch Pinkie.');
+      }
 
-  // Error running the statment.
-  if($statement->errno != 0)
-  {
-    $_tmp = $statement->error;
-    $statement->close();
-    $_db->close();
-    onError("Pinkie::getPinkieInformation()",'There was an error running the query [' . $_tmp . '] Could not fetch Pinkie.');
-  }
+      $statement->store_result();
+      if($statement->num_rows <= 0)
+      {
+          $statement->free_result();
+          $statement->close();
+          $_db->close();
+          onError("Pinkie::getPinkieInformation()","Failed to find a Pinkie with the given PinkieID of: ".$this->i_PinkieID);
+      }
+      // We have a result, lets bind the result to the variables.
+      $statement->bind_result($this->i_PinkieID, $this->v_Vendor, $this->s_Justification, $this->s_JustificationText, $this->s_EquipmentLocation, $this->s_UCRPropertyTag, $this->s_classInstructed, $this->s_Quote, $this->s_Action, $this->s_Priority, $this->s_ReferenceNumber, $this->s_EquipmentType, $this->d_ShippingFreight);
+      $statement->fetch();
 
-  $statement->store_result();
-  if($statement->num_rows <= 0)
-  {
+      // Cleanup.
       $statement->free_result();
       $statement->close();
       $_db->close();
-      onError("Pinkie::getPinkieInformation()","Failed to find a Pinkie with the given PinkieID of: ".$this->i_PinkieID);
-  }
-  // We have a result, lets bind the result to the variables.
-  $statement->bind_result($this->i_PinkieID, $this->v_Vendor, $this->s_Justification, $this->s_JustificationText, $this->s_EquipmentLocation, $this->s_UCRPropertyTag, $this->s_classInstructed, $this->s_Quote, $this->s_Action, $this->s_Priority, $this->s_ReferenceNumber, $this->s_EquipmentType, $this->d_ShippingFreight);
-  $statement->fetch();
+    }
 
-  // Cleanup.
-  $statement->free_result();
-  $statement->close();
-  $_db->close();
 }
 
 //------------------------------------------------------------------------------
