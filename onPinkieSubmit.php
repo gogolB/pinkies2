@@ -16,10 +16,10 @@ $_pinkie->s_Priority  = $_POST['priority'];
 $_pinkie->s_ReferenceNumber = $_POST['referenceNumber'];
 
 // Purchase Objects.
-$_quantity = $_POST['quantity[]'];
-$_stockNumber = $_POST['stockNumber[]'];
-$_description = $_POST['description[]'];
-$_unitPrice = $_POST['unitPrice[]'];
+$_quantity = $_POST['quantity'];
+$_stockNumber = $_POST['stockNumber'];
+$_description = $_POST['description'];
+$_unitPrice = $_POST['unitPrice'];
 // add each of the objects to the pinkie.
 foreach($_quantity as $key=>$q)
 {
@@ -43,8 +43,8 @@ $_pinkie->s_classInstructed = $_POST['classInstructed'];
 $_pinkie->s_Quote = $_POST['quote'];
 
 // Funds
-$_fund = $_POST['fund[]'];
-$_amt = $_POST['amount[]'];
+$_fund = $_POST['fund'];
+$_amt = $_POST['amount'];
 // Add them to the pinkie.
 foreach ($_fund as $key => $f)
 {
