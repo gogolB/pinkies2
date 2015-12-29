@@ -130,7 +130,7 @@ class Vendor
   {
     $_db = getMysqli();
     $_sql = "UPDATE Vendors SET VendorName=?, Address=?, City=?, State=?, Zip=?, Country=?, UCRAccountID=?, POC=?, PhoneNumber=?, FaxNumber=?, Internet=? WHERE VendorID=?";
-    $_stmt = $_db->prepare($_sql);
+    $_stmt = $_db->prepare((string)$_sql);
 
     $_stmt->bind_param('sssssssssssd', $this->s_VendorName, $this->s_Address, $this->s_City, $this->s_State, $this->s_Zip, $this->s_Country, $this->s_UCRAccountID, $this->s_POC, $this->s_PhoneNumber, $this->s_FaxNumber, $this->s_Internet, $this->i_VendorID);
     $_stmt->execute();
@@ -151,7 +151,7 @@ class Vendor
   {
     $_db = getMysqli();
     $_sql = "INSERT INTO Vendors (VendorName, Address, City, State, Zip, Country, UCRAccountID, POC, PhoneNumber, FaxNumber, Internet) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
-    $_stmt = $_db->prepare($_sql);
+    $_stmt = $_db->prepare((string)$_sql);
 
     $_stmt->bind_param('sssssssssss', $this->s_VendorName, $this->s_Address, $this->s_City, $this->s_State, $this->s_Zip, $this->s_Country, $this->s_UCRAccountID, $this->s_POC, $this->s_PhoneNumber, $this->s_FaxNumber, $this->s_Internet);
     $_stmt->execute();

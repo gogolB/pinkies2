@@ -202,7 +202,7 @@ class Pinkie
       // Everything all good, lets update the table.
       $_db = getMysqli();
       $_sql = "UPDATE Submitted_By SET Submitter=?, SubmittedFor=?, Title=?, Status=?, Total=? WHERE PinkieID=?";
-      $_stmt = $_db->prepare($_sql);
+      $_stmt = $_db->prepare((string)$_sql);
 
       $_stmt->bind_param('ssssdi', $this->s_Submitter, $this->s_SubmittedFor, $this->s_Title, $this->s_Status, $this->d_Total, $this->i_PinkieID);
       $_stmt->execute();
@@ -215,7 +215,7 @@ class Pinkie
       $_stmt->close();
 
       $_sql = "UPDATE PinkieInformation SET VendorID=?, Justification=?, JustificationText=?, EquipmentLocation=?, UCRPropertyNumber=?, ClassInstructed=?, Quote=?, Action=?, Priority=?, ReferenceNumber=?, EquipmentType=?, ShippingFreight=? WHERE PinkieID=?";
-      $_stmt = $_db->prepare($_sql);
+      $_stmt = $_db->prepare((string)$_sql);
       $_stmt->bind_param('issssssssssdi', $this->v_Vendor, $this->s_Justification, $this->s_JustificationText, $this->s_EquipmentLocation, $this->s_UCRPropertyTag, $this->s_classInstructed, $this->s_Quote, $this->s_Action, $this->s_Priority, $this->s_ReferenceNumber, $this->s_EquipmentType, $this->d_ShippingFreight, $this->i_PinkieID);
 
       $_stmt->execute();
@@ -252,7 +252,7 @@ class Pinkie
       // Everything all good, lets insert in to the table.
       $_db = getMysqli();
       $_sql = "INSERT INTO Submitted_By (Submitter, SubmittedFor, Title, Status, Total) VALUES (?,?,?,?,?)";
-      $_stmt = $_db->prepare($_sql);
+      $_stmt = $_db->prepare((string)$_sql);
 
       $_stmt->bind_param('ssssd', $this->s_Submitter, $this->s_SubmittedFor, $this->s_Title, $this->s_Status, $this->d_Total);
       $_stmt->execute();
@@ -266,7 +266,7 @@ class Pinkie
       $this->i_PinkieID = $_db->insert_id;
       $_stmt->close();
       $_sql = "INSERT INTO PinkieInformation (PinkieID, VendorID, Justification, JustificationText, EquipmentLocation, UCRPropertyNumber, ClassInstructed, Quote, Action, Priority, ReferenceNumber, EquipmentType, ShippingFreight) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
-      $_stmt = $_db->prepare($_sql);
+      $_stmt = $_db->prepare((string)$_sql);
       $_stmt->bind_param('iissssssssssd', $this->i_PinkieID, $this->v_Vendor, $this->s_Justification, $this->s_JustificationText, $this->s_EquipmentLocation, $this->s_UCRPropertyTag, $this->s_classInstructed, $this->s_Quote, $this->s_Action, $this->s_Priority, $this->s_ReferenceNumber, $this->s_EquipmentType, $this->d_ShippingFreight);
 
       $_stmt->execute();
@@ -568,7 +568,7 @@ class PinkieExpense
       // Everything all good, lets update the table.
       $_db = getMysqli();
       $_sql = "UPDATE Expenses SET PinkieID=?, Amount=?, FundID=? WHERE ExpenseID=?";
-      $_stmt = $_db->prepare($_sql);
+      $_stmt = $_db->prepare((string)$_sql);
 
       $_stmt->bind_param('idii', $this->i_PinkieID, $this->$d_Amount, $this->i_FundID, $this->i_ExpenseID);
       $_stmt->execute();
@@ -588,7 +588,7 @@ class PinkieExpense
       // Everything all good, lets insert in to the table.
       $_db = getMysqli();
       $_sql = "INSERT INTO Expenses (PinkieID, Amount, FundID) VALUES (?,?,?)";
-      $_stmt = $_db->prepare($_sql);
+      $_stmt = $_db->prepare((string)$_sql);
 
       $_stmt->bind_param('idi', $this->i_PinkieID, $this->d_Amount, $this->i_FundID);
       $_stmt->execute();

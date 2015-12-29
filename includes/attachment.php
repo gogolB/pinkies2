@@ -96,7 +96,7 @@ class Attachement
       // Everything all good, lets update the table.
       $_db = getMysqli();
       $_sql = "UPDATE Attachments SET PinkieID=?, FilePath=? WHERE AttachmentID=?";
-      $_stmt = $_db->prepare($_sql);
+      $_stmt = $_db->prepare((string)$_sql);
 
       $_stmt->bind_param('isi', $this->i_PinkieID, $this->s_FilePath, $this->i_FileID);
       $_stmt->execute();
@@ -116,7 +116,7 @@ class Attachement
       // Everything all good, lets insert in to the table.
       $_db = getMysqli();
       $_sql = "INSERT INTO Attachments (PinkieID, FilePath) VALUES (?,?)";
-      $_stmt = $_db->prepare($_sql);
+      $_stmt = $_db->prepare((string)$_sql);
 
       $_stmt->bind_param('is', $this->i_PinkieID, $this->s_FilePath);
       $_stmt->execute();

@@ -132,7 +132,7 @@ class Fund
       // Everything all good, lets update the table.
       $_db = getMysqli();
       $_sql = "UPDATE Funds SET FundName=?, Activity=?, Fund=?, Function=?, CostCenter=?, ProjectCode=?, Balance=?, Active=? WHERE FundID=?";
-      $_stmt = $_db->prepare($_sql);
+      $_stmt = $_db->prepare((string)$_sql);
 
       $_stmt->bind_param('sssssssii', $this->s_FundName, $this->s_Activity, $this->s_Fund, $this->s_Function, $this->s_CostCenter, $this->s_ProjectCode, $this->s_Balance, $this->b_Active, $this->i_FundID);
       $_stmt->execute();
@@ -160,7 +160,7 @@ class Fund
       // Everything all good, lets insert in to the table.
       $_db = getMysqli();
       $_sql = "INSERT INTO Funds (FundName, Activity, Fund, Function, CostCenter, ProjectCode, Balance, Active) VALUES (?,?,?,?,?,?,?,?)";
-      $_stmt = $_db->prepare($_sql);
+      $_stmt = $_db->prepare((string)$_sql);
 
       $_stmt->bind_param('sssssssi', $this->s_FundName, $this->s_Activity, $this->s_Fund, $this->s_Function, $this->s_CostCenter, $this->s_ProjectCode, $this->s_Balance, $this->b_Active);
       $_stmt->execute();

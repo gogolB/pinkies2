@@ -112,7 +112,7 @@ class PurchaseObject
       // Everything all good, lets update the table.
       $_db = getMysqli();
       $_sql = "UPDATE Objects SET PinkieID=?, Quantity=?, StockNumber=?, Description=?, BC=?, AccountNumber=?, UnitPrice=? WHERE ObjectID=?";
-      $_stmt = $_db->prepare($_sql);
+      $_stmt = $_db->prepare((string)$_sql);
 
       $_stmt->bind_param('iissssdi', $this->i_PinkieID, $this->i_Quantity, $this->s_StockNumber, $this->s_Description, $this->s_BC, $this->s_AccountNumber, $this->d_UnitPrice, $this->i_ObjectID);
       $_stmt->execute();
@@ -132,7 +132,7 @@ class PurchaseObject
       // Everything all good, lets insert in to the table.
       $_db = getMysqli();
       $_sql = "INSERT INTO Objects (PinkieID, Quantity, StockNumber, Description, BC, AccountNumber, UnitPrice) VALUES (?,?,?,?,?,?,?)";
-      $_stmt = $_db->prepare($_sql);
+      $_stmt = $_db->prepare((string)$_sql);
 
       $_stmt->bind_param('iissssd', $this->i_PinkieID, $this->i_Quantity, $this->s_StockNumber, $this->s_Description, $this->s_BC, $this->s_AccountNumber, $this->d_UnitPrice);
       $_stmt->execute();
