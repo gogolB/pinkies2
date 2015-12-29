@@ -120,6 +120,7 @@ class Pinkie
         }
     }
 
+    // Gets the subtotal.
     public function getSubtotal()
     {
         $subtotal = 0.0;
@@ -128,6 +129,16 @@ class Pinkie
               $subtotal += $_ob->i_Quantity * $_ob->d_UnitPrice;
         }
         return $subtotal;
+    }
+
+    public function getTotalExpense()
+    {
+      $totalExpense = 0.0;
+      foreach($this->a_Expenses as $_e)
+      {
+            $totalExpense += $_e->d_Amount;
+      }
+      return $totalExpense;
     }
 
     //**************************************************************************

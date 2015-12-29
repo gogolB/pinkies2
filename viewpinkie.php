@@ -53,8 +53,8 @@ function printObjectsTable()
                 <td>%s</td>
                 <td>%s</td>
                 <td>%s</td>
-                <td>%.2f</td>
-                <td>%.2f</td>
+                <td>$%.2f</td>
+                <td>$%.2f</td>
               </tr>', $_obj->i_Quantity, $_obj->s_StockNumber, $_obj->s_Descripton, $_obj->s_BC, $_obj->s_AccountNumber, $_obj->d_UnitPrice, $_obj->i_Quantity * $_obj->d_UnitPrice);
     }
 }
@@ -85,13 +85,13 @@ function printFundsTable()
       $_fund->fromDatabase();
       printf('<tr>
                     <td>%s</td>
-                    <td>%.2f</td>
+                    <td>$%.2f</td>
                     <td>%s</td>
                     <td>%s</td>
                     <td>%s</td>
                     <td>%s</td>
                     <td>%s</td>
-                    <td>%.2f</td>
+                    <td>$%.2f</td>
                   </tr>', $_fund->s_FundName, $_e->d_Amount, $_fund->s_Activity, $_fund->s_Fund, $_fund->s_Function, $_fund->s_CostCenter, $_fund->s_ProjectCode,$_fund->s_Balance);
   }
 }
@@ -265,7 +265,7 @@ function printAllFilesTable()
             <div class="col-sm-10">
               <div class="input-group">
                 <span class="input-group-addon">$</span>
-                <input type="text" class="form-control" id="total" name="total" readonly value="<?php printf("%.2f",$_pinkie->d_Total); ?>">
+                <input type="text" class="form-control" id="total" name="total" readonly value="<?php printf("%.2f"$GLOBALS['_pinkie']->getTotalExpense()); ?>">
               </div>
             </div>
           </div>
@@ -295,6 +295,16 @@ function printAllFilesTable()
                 <?php printFundsTable(); ?>
               </tbody>
             </table>
+          </div>
+
+          <div class="form-group form-group-lg">
+            <label class="control-label col-sm-2" for="totalExpense">Total Expense:</label>
+            <div class="col-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon">$</span>
+                <input type="text" class="form-control" id="totalExpense" name="totalExpense" readonly value="<?php printf("%.2f",$_pinkie->d_Total); ?>">
+              </div>
+            </div>
           </div>
 
         </div>
