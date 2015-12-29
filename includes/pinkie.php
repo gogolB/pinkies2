@@ -493,7 +493,7 @@ class PinkieExpense
     public function __construct($i_PID, $f_F, $d_amt)
     {
         $this->i_PinkieID = $i_PID;
-        $this->$d_Amount = $d_amt;
+        $this->d_Amount = $d_amt;
         $this->f_FundID = $f_F;
     }
 
