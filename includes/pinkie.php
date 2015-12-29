@@ -122,7 +122,7 @@ class Pinkie
 
     public function getSubtotal()
     {
-        $subtotal = 0.0
+        $subtotal = 0.0;
         foreach($this->a_Objects as $_ob)
         {
               $subtotal += $_ob->i_Quantity * $_ob->d_UnitPrice;
