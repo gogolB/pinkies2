@@ -4,6 +4,7 @@ include_once 'includes/sessionFunctions.php';
 include_once 'includes/pinkie.php';
 secureSessionStart();
 
+// TODO Needs to have serverside validation of variables. Especially the files.
 
 $_pinkie = new Pinkie();
 
@@ -14,6 +15,8 @@ $_pinkie->s_SubmittedFor = $_POST['submitTo'];
 $_pinkie->s_Action = $_POST['action'];
 $_pinkie->s_Priority  = $_POST['priority'];
 $_pinkie->s_ReferenceNumber = $_POST['referenceNumber'];
+
+//------------------------------------------------------------------------------
 
 // Purchase Objects.
 $_quantity = $_POST['quantity'];
@@ -33,6 +36,8 @@ if($_POST['typeOfPurchase'] == 'Other')
   $_pinkie->s_EquipmentType = $_POST['typeOfPurchaseOther'];
 }
 
+//------------------------------------------------------------------------------
+
 // Vendors and Justification.
 $_pinkie->v_Vendor = $_POST['vendor'];
 $_pinkie->s_Justification=$_POST['justification'];
@@ -51,7 +56,58 @@ foreach ($_fund as $key => $f)
     $_pinkie->addExpense(floatval($_amt[$key]), $f);
 }
 
+//------------------------------------------------------------------------------
+
 // Attachments.
+for($i=0; $i<count($_FILES['attachment']['name']); $i++)
+{
+  //Get the temp file path
+  $tmpFilePath = $_FILES['attachment']['tmp_name'][$i];
+
+  //Make sure we have a filepath
+  if ($tmpFilePath != ""){
+    //Setup our new file path
+    //-----------------------------
+    $now = time();
+    $num = date("w");
+    if ($num == 0)
+    {
+      $sub = 6;
+    }
+    else
+    {
+      $sub = ($num-1);
+    }
+    $WeekMon  = mktime(0, 0, 0, date("m", $now)  , date("d", $now)-$sub, date("Y", $now));    //monday week begin calculation
+    $todayh = getdate($WeekMon); //monday week begin reconvert
+
+    $d = $todayh['mday'];
+    $m = $todayh['mon'];
+    $y = $todayh['year'];
+    $newFilePath =  PATH_PREFIX."$d-$m-$y/". $_FILES['attachment']['name'][$i];
+
+    // Make the folder if it doesn't exist.
+    if (!is_dir(PATH_PREFIX."$d-$m-$y/") && !mkdir(PATH_PREFIX."$d-$m-$y/"))
+    {
+      onError("onSubmitPinkie failed", "Error creating folder: ".PATH_PREFIX."$d-$m-$y/");
+    }
+
+    //Upload the file into the temp dir
+    if(move_uploaded_file($tmpFilePath, $newFilePath))
+    {
+
+      //Handle other code here
+      $_pinkie->addAttachment($newFilePath);
+
+    }
+    else
+    {
+        onError("onSubmitPinkie","Failed to submit pinkie because file upload failed. Path was: ".$newFilePath);
+    }
+  }
+}
+
+//------------------------------------------------------------------------------
 
 // push it to the database.
 var_dump($_pinkie);

@@ -25,5 +25,7 @@ define('MAX_OBJECTS', 10);
 define('MAX_FUNDS', 5);
 define('MAX_ATTACHMENTS', 5);
 
+// Pinkie File Upload location.
+define('PATH_PREFIX', '/pinkies/');
 
 ?>
