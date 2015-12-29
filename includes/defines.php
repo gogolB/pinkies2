@@ -11,11 +11,11 @@ define('DB_PASS', 'epinkie2');
 
 // Defines for Pinkie Status.
 define('InProgress', 'In Progress');
-define('PendingSuperApproval', 'Waiting for Super');
-define('ApprovedBySuper', 'Super Approved');
-define('PendingAdminApproval', 'Waiting for Admin');
+define('PendingSuperApproval', 'Waiting for Supervisor Approval');
+define('ApprovedBySuper', 'Supervisor Approved');
+define('PendingAdminApproval', 'Waiting for Admin Approval');
 define('ApprovedByAdmin', 'Admin Approved');
-define('RejectedBySuper', 'Super Deny');
+define('RejectedBySuper', 'Supervisor Deny');
 define('RejectedByAdmin', 'Admin Deny');
 define('DispatchedToTrans', 'Dispatched');
 define('Done', 'Done');
@@ -31,7 +31,7 @@ define('PATH_PREFIX', '/pinkies/');
 
 
 // Pinkies Debug stuff
-define('DEBUG', TRUE);    
+define('DEBUG', TRUE);
 define('SQL_NO_RESULTS_BREAK',TRUE);
 
 ?>

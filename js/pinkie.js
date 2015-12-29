@@ -6,7 +6,7 @@ function onNewSubmit()
     var form = document.getElementsByTagName("form")[0];
     if(checkForm(form))
     {
-      attachStatus(form, "PendingSuperApproval");
+      attachStatus(form, "Waiting for Supervisor Approval");
       form.submit();
     }
 }
