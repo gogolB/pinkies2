@@ -201,7 +201,7 @@ class Pinkie
     {
       // Everything all good, lets update the table.
       $_db = getMysqli();
-      $_sql = "UPDATE Submitted_By SET Submitter=?, SubmittedFor=?, Title=?, Status=?, Total=? WHERE PinkieID=?";
+      $_sql = "UPDATE Submitted_By SET Submitter=?, SubmittedFor=?, Title=?, Status=?, TotalValue=? WHERE PinkieID=?";
       $_stmt = $_db->prepare((string)$_sql);
 
       $_stmt->bind_param('ssssdi', $this->s_Submitter, $this->s_SubmittedFor, $this->s_Title, $this->s_Status, $this->d_Total, $this->i_PinkieID);
@@ -251,7 +251,7 @@ class Pinkie
     {
       // Everything all good, lets insert in to the table.
       $_db = getMysqli();
-      $_sql = "INSERT INTO Submitted_By (Submitter, SubmittedFor, Title, Status, Total) VALUES (?,?,?,?,?)";
+      $_sql = "INSERT INTO Submitted_By (Submitter, SubmittedFor, Title, Status, TotalValue) VALUES (?,?,?,?,?)";
       $_stmt = $_db->prepare((string)$_sql);
 
       $_stmt->bind_param('ssssd', $this->s_Submitter, $this->s_SubmittedFor, $this->s_Title, $this->s_Status, $this->d_Total);
