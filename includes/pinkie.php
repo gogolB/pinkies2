@@ -484,7 +484,7 @@ function getPinkieInfo()
 //------------------------------------------------------------------------------
 class PinkieExpense
 {
-    public $f_FundID = - 1;
+    public $f_FundID = -1;
     public $d_Amount = 0.0;
     public $i_PinkieID = -1;
     public $i_ExpenseID = -1;
@@ -553,7 +553,7 @@ class PinkieExpense
             onError("PinkieExpense::fromDatabase()","Failed to find a Expense with the given ExpenseID of: ".$this->i_ExpenseID);
         }
         // We have a result, lets bind the result to the variables.
-        $statement->bind_result($throwaway, $this->i_PinkieID, $this->d_Amount, $this->i_FundID);
+        $statement->bind_result($throwaway, $this->i_PinkieID, $this->d_Amount, $this->f_FundID);
         $statement->fetch();
 
         // Cleanup.
@@ -569,7 +569,7 @@ class PinkieExpense
       $_sql = "UPDATE Expenses SET PinkieID=?, Amount=?, FundID=? WHERE ExpenseID=?";
       $_stmt = $_db->prepare((string)$_sql);
 
-      $_stmt->bind_param('idii', $this->i_PinkieID, $this->d_Amount, $this->i_FundID, $this->i_ExpenseID);
+      $_stmt->bind_param('idii', $this->i_PinkieID, $this->d_Amount, $this->f_FundID, $this->i_ExpenseID);
       $_stmt->execute();
 
       if ($_stmt->errno)
@@ -589,7 +589,7 @@ class PinkieExpense
       $_sql = "INSERT INTO Expenses (PinkieID, Amount, FundID) VALUES (?,?,?)";
       $_stmt = $_db->prepare((string)$_sql);
 
-      $_stmt->bind_param('idi', $this->i_PinkieID, $this->d_Amount, $this->i_FundID);
+      $_stmt->bind_param('idi', $this->i_PinkieID, $this->d_Amount, $this->f_FundID);
       $_stmt->execute();
 
       if ($_stmt->errno)
