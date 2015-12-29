@@ -9,7 +9,7 @@ secureSessionStart();
 $i_PinkieID = -1;
 if(isset($_GET['pid']))
 {
-  $i_PinkieID  = (int)$_GET['pid'];
+  $i_PinkieID  = $_GET['pid'];
 }
 
 if($i_PinkieID < 0)
@@ -20,6 +20,6 @@ if($i_PinkieID < 0)
 
 // Load the pinkie from the pinkie database.
 $_pinkie = new Pinkie();
-$_pinkie->i_PinkieID = $i_PinkieID;
+$_pinkie->i_PinkieID = (int)$i_PinkieID;
 $_pinkie->fromDatabase();
 ?>
