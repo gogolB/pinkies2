@@ -265,7 +265,7 @@ function printAllFilesTable()
             <div class="col-sm-10">
               <div class="input-group">
                 <span class="input-group-addon">$</span>
-                <input type="text" class="form-control" id="total" name="total" readonly value="<?php printf("%.2f"$GLOBALS['_pinkie']->getTotalExpense()); ?>">
+                <input type="text" class="form-control" id="total" name="total" readonly value="<?php printf("%.2f",$GLOBALS['_pinkie']->getTotalExpense()); ?>">
               </div>
             </div>
           </div>
