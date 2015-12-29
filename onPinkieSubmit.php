@@ -15,6 +15,7 @@ $_pinkie->s_SubmittedFor = $_POST['submitTo'];
 $_pinkie->s_Action = $_POST['action'];
 $_pinkie->s_Priority  = $_POST['priority'];
 $_pinkie->s_ReferenceNumber = $_POST['referenceNumber'];
+$_pinkie->s_Status = $_POST['status'];
 
 //------------------------------------------------------------------------------
 

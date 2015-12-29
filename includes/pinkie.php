@@ -90,7 +90,7 @@ class Pinkie
     public function addExpense($d_amt, $f_fund)
     {
         $_exp = new PinkieExpense($this->i_PinkieID, $f_fund, $d_amt);
-        array_push($a_Expenses, $_exp);
+        array_push($this->a_Expenses, $_exp);
     }
 
     // Updates all the expenses with the current PinkieID
@@ -108,7 +108,7 @@ class Pinkie
         $_att = new Attachement($this->i_PinkieID);
         $_att->s_FilePath = $s_filePath;
 
-        array_push($a_Attachments, $_att);
+        array_push($this->a_Attachments, $_att);
     }
 
     // Updates all the attachments with the current PinkieID.
@@ -144,7 +144,6 @@ class Pinkie
         {
             $this->addNew();
         }
-        echo "Added to database<br>";
     }
 
     public function fromDatabase()
@@ -597,7 +596,6 @@ class PinkieExpense
       {
         onError("PinkieExpense::addNew()", $_stmt->error);
       }
-
       $_stmt->close();
       // Close up the database connection.
       $_db->close();
