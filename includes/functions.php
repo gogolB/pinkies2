@@ -114,11 +114,16 @@ function printSubmitTo()
 
 // If the value == the Selection Text, then selected is printed. Used for multi
 // option selection windows, to select the correct one. Only works for strings.
+// Disables all other inputs.
 function isSelected($value, $selectionText)
 {
   if(strcmp($value, $selectionText) == 0)
   {
     echo 'selected="selected"';
+  }
+  else
+  {
+    echo 'disabled="disabled"';
   }
 }
 

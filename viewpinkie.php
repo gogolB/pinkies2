@@ -31,7 +31,38 @@ $_vendor->fromDatabase();
 // Prints all the objects associated with this pinkie.
 function printObjectsTable()
 {
-
+    foreach ($_pinkie->a_Objects as $_obj)
+    {
+        echo '<div class="form-group form-group-lg">
+          <div class="col-sm-1">
+            <input type="text" class="form-control" id="quantity[]" name="quantity[]" placeholder="Quantity" readonly value='.$_obj->i_Quantity.'>
+          </div>
+          <div class="col-sm-2">
+            <input type="text" class="form-control" id="stockNumber[]" name="stockNumber[]" placeholder="Stock Number" readonly value='.$_obj->s_StockNumber.'>
+          </div>
+          <div class="col-sm-3">
+            <input type="text" class="form-control" id="description[]" name="description[]" placeholder="Description" readonly value='.$_obj->s_Description.'>
+          </div>
+          <div class="col-sm-1">
+            <input type="text" class="form-control" id="bc[]" name="bc[]" placeholder="BC" readonly value='.$_obj->s_BC.'>
+          </div>
+          <div class="col-sm-1">
+            <input type="text" class="form-control" id="accountNumber[]" name="accountNumber[]" placeholder="Account Number" readonly value='.$_obj->s_AccountNumber.'>
+          </div>
+          <div class="col-sm-2">
+            <div class="input-group">
+              <span class="input-group-addon">$</span>
+              <input type="text" class="form-control" id="unitPrice[]" name="unitPrice[]" placeholder="Unit Price" readonly value='.$_obj->d_UnitPrice.'>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div class="input-group">
+              <span class="input-group-addon">$</span>
+              <input type="text" class="form-control" id="totalPrice[]" name="totalPrice[]" placeholder="Total" readonly value='.$_obj->i_Quantity * $_obj->d_UnitPrice.'>
+            </div>
+          </div>
+        </div>';
+    }
 }
 
 // Prints all the funds associated with this pinkie.
@@ -105,9 +136,9 @@ function printAllFilesTable()
             <div class="col-sm-10">
               <select class="form-control" id="action" name="action" readonly>
                   <option value="Reimbursement" <?php isSelected($_pinkie->s_Action, "Reimbursement"); ?> >Reimbursement</option>
-                  <option value="Purchase" <?php isSelected($_pinkie->s_Action, "Purchase"); ?>>Purchase</option>
+                  <option value="Purchase" <?php isSelected($_pinkie->s_Action, "Purchase"); ?> >Purchase</option>
                   <option value="Payment Request" <?php isSelected($_pinkie->s_Action, "Payment Request"); ?> >Payment Request</option>
-                  <option value="Quote" <?php isSelected($_pinkie->s_Action, "Quote"); ?>>Quote</option>
+                  <option value="Quote" <?php isSelected($_pinkie->s_Action, "Quote"); ?> >Quote</option>
               </select>
             </div>
           </div>
@@ -117,10 +148,10 @@ function printAllFilesTable()
             <div class="col-sm-10">
               <select class="form-control" id="priority" name="priority" readonly>
                   <option value="Expedite" <?php isSelected($_pinkie->s_Priority, "Expedite"); ?> >Expedite</option>
-                  <option value="Urgent" <?php isSelected($_pinkie->s_Priority, "Urgent"); ?>>Urgent</option>
-                  <option value="Routine" <?php isSelected($_pinkie->s_Priority, "Routine"); ?>>Routine</option>
-                  <option value="Cancel" <?php isSelected($_pinkie->s_Priority, "Cancel"); ?>>Cancel</option>
-                  <option value="Hold" <?php isSelected($_pinkie->s_Priority, "Hold"); ?>>Hold</option>
+                  <option value="Urgent" <?php isSelected($_pinkie->s_Priority, "Urgent"); ?> >Urgent</option>
+                  <option value="Routine" <?php isSelected($_pinkie->s_Priority, "Routine"); ?> >Routine</option>
+                  <option value="Cancel" <?php isSelected($_pinkie->s_Priority, "Cancel"); ?> >Cancel</option>
+                  <option value="Hold" <?php isSelected($_pinkie->s_Priority, "Hold"); ?> >Hold</option>
               </select>
             </div>
           </div>
@@ -138,7 +169,18 @@ function printAllFilesTable()
       <!-- Purchase Orders-->
       <div class="container">
         <div class="well">
+          <div class="form-group form-group-lg">
+            <H3 class="col-sm-1"><u>Quantity</u></H3>
+            <H3 class="col-sm-2"><u>Stock Number</u></H3>
+            <H3 class="col-sm-3"><u>Description</u></H3>
+            <H3 class="col-sm-1"><u>BC</u></H3>
+            <H3 class="col-sm-1"><u>Account Number</u></H3>
+            <H3 class="col-sm-2"><u>Unit Price</u></H3>
+            <H3 class="col-sm-2"><u>Total Price</u></H3>
+          </div>
         </div>
+
+        <?php printObjectsTable() ?>
       </div>
 
       <!-- Funds -->
@@ -150,7 +192,8 @@ function printAllFilesTable()
       <!-- Vendor Info -->
       <div class="container">
         <div class="well">
-
+          <H2><u><b>Vendor Information</b></u></H2>
+          <!-- From here this is all a direct copy from viewVendor on the vendor.php page. -->
           <div class="form-group form-group-lg">
             <label class="control-label col-sm-2" for="vendorName">Vendor Name:</label>
             <div class="col-sm-10">
@@ -160,7 +203,7 @@ function printAllFilesTable()
 
           <br>
           <H3><u>Address/Location</u></H3>
-          <!-- Address/Location -->
+          <!-- Vendor Address/Location -->
           <div class="form-group">
             <label class="control-label col-sm-2" for="address">Address:</label>
             <div class="col-sm-10">
@@ -196,7 +239,7 @@ function printAllFilesTable()
             </div>
           </div>
           <br>
-          <!-- UCR Info -->
+          <!-- Vendor UCR Info -->
           <H3><u>UCR Specific Information</u></H3>
           <div class="form-group">
             <label class="control-label col-sm-2" for="ucrAccountID">UCR Account ID:</label>
@@ -205,7 +248,7 @@ function printAllFilesTable()
             </div>
           </div>
           <br>
-          <!-- Contact info -->
+          <!-- Vendor Contact info -->
           <H3><u>Contact Info</u></H3>
           <div class="form-group">
             <label class="control-label col-sm-2" for="poc">POC:</label>
