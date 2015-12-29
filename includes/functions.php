@@ -116,7 +116,7 @@ function printSubmitTo()
 // option selection windows, to select the correct one. Only works for strings.
 function isSelected($value, $selectionText)
 {
-  if(strcmp($value, $selectionText))
+  if(strcmp($value, $selectionText) == 0)
   {
     echo 'selected="selected"';
   }
