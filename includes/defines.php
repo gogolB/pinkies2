@@ -31,7 +31,7 @@ define('PATH_PREFIX', '/pinkies/');
 
 
 // Pinkies Debug stuff
-define('DEBUG', 1);     // GLOBAL if Not set, all debug statements will not work.
-define('SQL_NO_RESULTS_BREAK', DEBUG && 1);
+define('DEBUG', TRUE);    
+define('SQL_NO_RESULTS_BREAK',TRUE);
 
 ?>
