@@ -159,7 +159,7 @@ class Pinkie
       $_db = getMysqli();
       // SQL query to run.
       $statement = $_db->prepare("SELECT * FROM Submitted_By WHERE PinkieID=?");
-      $statement->bind_param('i', $this->PinkieID);
+      $statement->bind_param('i', $this->i_PinkieID);
       $statement->execute();
 
       // Error running the statment.
