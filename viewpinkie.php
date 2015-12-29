@@ -55,7 +55,7 @@ function printObjectsTable()
                 <td>%s</td>
                 <td>$%.2f</td>
                 <td>$%.2f</td>
-              </tr>', $_obj->i_Quantity, $_obj->s_StockNumber, $_obj->s_Descripton, $_obj->s_BC, $_obj->s_AccountNumber, $_obj->d_UnitPrice, $_obj->i_Quantity * $_obj->d_UnitPrice);
+              </tr>', $_obj->i_Quantity, $_obj->s_StockNumber, $_obj->s_Description, $_obj->s_BC, $_obj->s_AccountNumber, $_obj->d_UnitPrice, $_obj->i_Quantity * $_obj->d_UnitPrice);
     }
 }
 
