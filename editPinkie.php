@@ -34,7 +34,7 @@ function printObjectsTable()
     global $_pinkie;
     foreach ($_pinkie->a_Objects as $_obj)
     {
-      printf('<div class="row table-responsive"><div class="form-group form-group-lg">
+      printf('<div class="row"><div class="form-group form-group-lg">
         <div class="col-sm-1">
           <input type="text" class="form-control" id="quantity[]" name="quantity[]" placeholder="Quantity" value="%d" readonly>
         </div>
@@ -47,7 +47,7 @@ function printObjectsTable()
         <div class="col-sm-1">
           <input type="text" class="form-control" id="bc[]" name="bc[]" placeholder="BC" value="%s">
         </div>
-        <div class="col-sm-1">
+        <div class="col-sm-2">
           <input type="text" class="form-control" id="accountNumber[]" name="accountNumber[]" placeholder="Account Number" value="%s">
         </div>
         <div class="col-sm-2">
@@ -228,18 +228,19 @@ function printAllFilesTable()
       <!-- Purchase Orders-->
       <div class="container">
         <div class="well">
-
+          <div class="table-responsive">
             <div class="row">
               <H3 class="col-sm-1"><u>Quantity</u></H3>
               <H3 class="col-sm-2"><u>Stock Number</u></H3>
               <H3 class="col-sm-3"><u>Description</u></H3>
               <H3 class="col-sm-1"><u>BC</u></H3>
-              <H3 class="col-sm-1"><u>Account Number</u></H3>
+              <H3 class="col-sm-2"><u>Account Number</u></H3>
               <H3 class="col-sm-2"><u>Unit Price</u></H3>
               <H3 class="col-sm-2"><u>Total Price</u></H3>
             </div>
 
             <?php printObjectsTable(); ?>
+          </div>
 
           <div class="form-group form-group-lg">
             <label class="control-label col-sm-2" for="subtotal">Subtotal:</label>
