@@ -26,7 +26,7 @@
       if($statement->num_rows <= 0)
       {
           echo '<tr>
-                  <td> No more Pinkies to process for you!</td>
+                  <td> No more Pinkies for you!</td>
                   <td></td>
                   <td></td>
                   <td></td>
@@ -43,9 +43,10 @@
                   <td>%s</td>
                   <td>%s</td>
                   <td>%.2f</td>
+                  <td>%s</td>
                   <td><a href="./viewpinkie.php?pid=%d" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-search"></span> View</a>
                       <a href="./editPinkie.php?pid=%d" class="btn btn-info" role="button"><span class="glyphicon glyphicon-pencil"></span> Edit</a></td>
-                </tr>', $title, $submitterUser, $timestamp, $totalvalue, $pinkieID, $pinkieID);
+                </tr>', $title, $submitterUser, $timestamp, $totalvalue, $status, $pinkieID, $pinkieID);
       }
 
       // Cleanup.
@@ -80,6 +81,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
+                <td></td>
               </tr>';
         return;
     }
@@ -92,8 +94,9 @@
                 <td>%s</td>
                 <td>%s</td>
                 <td>%.2f</td>
+                <td>%s</td>
                 <td><a href="./viewpinkie.php?pid=%d" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-search"></span> View</a></td>
-              </tr>', $title, $submittedFor, $timestamp, $totalvalue, $pinkieID);
+              </tr>', $title, $submittedFor, $timestamp, $totalvalue, $status, $pinkieID);
     }
 
     // Cleanup.
@@ -139,6 +142,7 @@
                    <th>Submitted By</th>
                    <th>Timestamp</th>
                    <th>Total</th>
+                   <th>Status</th>
                    <th>Options</th>
                  </tr>
                </thead>
@@ -162,6 +166,7 @@
                    <th>Submitted To</th>
                    <th>Timestamp</th>
                    <th>Total</th>
+                   <th>Status</th>
                    <th>Options</th>
                  </tr>
                </thead>
