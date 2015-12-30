@@ -166,6 +166,6 @@ function onCancel(pinkieID)
 function onEdit(pinkieID)
 {
   var form = document.getElementsByTagName("form")[0];
-  attachPinkieID(pinkieID);
+  attachPinkieID(form, pinkieID);
   form.submit();
 }

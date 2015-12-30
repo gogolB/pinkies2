@@ -4,8 +4,8 @@ include_once 'includes/sessionFunctions.php';
 include_once 'includes/pinkie.php';
 secureSessionStart();
 
-// TODO Needs to have serverside validation of variables. 
-if(!isset['pinkieID'])
+// TODO Needs to have serverside validation of variables.
+if(!isset($_POST['pinkieID']))
 {
   onError('onPinkieEdit', "Failed to update pinkie because no pinkie ID was set.");
 }
