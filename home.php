@@ -30,7 +30,7 @@
   function printSubmittedToYouTable()
   {
       $_db = getMysqli();
-      $statement = $_db->prepare("SELECT * FROM Submitted_By WHERE SubmittedFor=? && Status!=? && Status !=? && Status !=?");
+      $statement = $_db->prepare("SELECT * FROM Submitted_By WHERE SubmittedFor=? && Status!=? && Status!=? && Status!=?");
       $a = Archived;
       $c = Cancelled;
       $d = Done;
@@ -82,7 +82,7 @@
   function printSubmittedByYouTable()
   {
     $_db = getMysqli();
-    $statement = $_db->prepare("SELECT * FROM Submitted_By WHERE Submitter=? && Status!=? && Status !=? $$ Status!=?");
+    $statement = $_db->prepare("SELECT * FROM Submitted_By WHERE Submitter=? && Status!=? && Status !=? && Status!=?");
     $a = Archived;
     $c = Cancelled;
     $d = Done;
