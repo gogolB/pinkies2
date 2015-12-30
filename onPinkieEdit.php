@@ -33,6 +33,6 @@ foreach($_quantity as $key=>$q)
 //------------------------------------------------------------------------------
 
 // push it to the database.
-//header("Location: ./home.php");
+header("Location: ./home.php");
 
 ?>
