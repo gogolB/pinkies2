@@ -66,7 +66,7 @@
                   <td>%.2f</td>
                   <td><a href="./viewpinkie.php?pid=%d" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-search"></span> View</a>
                       <a href="./editpinkie.php?pid=%d" class="btn btn-info" role="button"><span class="glyphicon glyphicon-pencil"></span> Edit</a></td>
-                </tr>', $title, $submitterUser, $timestamp, $totalvalue, $pinkieID);
+                </tr>', $title, $submitterUser, $timestamp, $totalvalue, $pinkieID, $pinkieID);
       }
 
       // Cleanup.
