@@ -26,7 +26,7 @@ foreach($_quantity as $key=>$q)
   $_o->fromDatabase();
   $_o->s_BC = $_bc[$q];
   $_o->s_AccountNumber = $_accountNumber[$q];
-  $_o->toDatabase();
+  //$_o->toDatabase();
   var_dump($_o);
 }
 
