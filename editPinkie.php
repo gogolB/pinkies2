@@ -34,7 +34,7 @@ function printObjectsTable()
     global $_pinkie;
     foreach ($_pinkie->a_Objects as $_obj)
     {
-      printf('<div class="form-group form-group-lg">
+      printf('<div class="row"><div class="form-group form-group-lg">
         <div class="col-sm-1">
           <input type="text" class="form-control" id="quantity[]" name="quantity[]" placeholder="Quantity" value="%d" readonly>
         </div>
@@ -62,6 +62,7 @@ function printObjectsTable()
             <input type="text" class="form-control" id="totalPrice[]" name="totalPrice[]" placeholder="Total" value="%.2f" readonly>
           </div>
         </div>
+      </div>
       </div>
       <input type="hidden" id="objectID[]" name="objectID[]" value="%d">', $_obj->i_Quantity, $_obj->s_StockNumber, $_obj->s_Description, $_obj->s_BC, $_obj->s_AccountNumber, $_obj->d_UnitPrice, $_obj->d_UnitPrice*$_obj->i_Quantity, $_obj->i_ObjectID);
     }
@@ -230,7 +231,7 @@ function printAllFilesTable()
 
           <div class="table-responsive">
 
-            <div class="form-group form-group-lg">
+            <div class="row">
               <H3 class="col-sm-1"><u>Quantity</u></H3>
               <H3 class="col-sm-2"><u>Stock Number</u></H3>
               <H3 class="col-sm-3"><u>Description</u></H3>
