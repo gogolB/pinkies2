@@ -14,7 +14,7 @@ function attachPinkieID(form, pinkieID)
 function onApprove(pinkieID)
 {
     var form = document.getElementsByTagName("form")[0];
-    attachPinkieID(pinkieID);
+    attachPinkieID(form, pinkieID);
     attachStatus("Admin Approved");
     form.submit();
 }
