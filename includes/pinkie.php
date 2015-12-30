@@ -141,6 +141,11 @@ class Pinkie
       return $totalExpense;
     }
 
+    public function getTax()
+    {
+      return $this->getSubtotal() * 0.08;
+    }
+
     //**************************************************************************
     // Database FUNCTIONS
     //**************************************************************************

@@ -26,3 +26,12 @@ function onReject(pinkieID)
   attachStatus("Admin Deny");
   form.submit();
 }
+
+function attachStatus(form, status)
+{
+  var input = document.createElement("input");
+  input.setAttribute("type", "hidden");
+  input.setAttribute("name", "status");
+  input.setAttribute("value", status);
+  form.appendChild(input);
+}

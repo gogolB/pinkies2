@@ -26,11 +26,12 @@
   secureSessionStart();
 
 
+  // Shows all pinkies not arcived or Cancelled.
   function printSubmittedToYouTable()
   {
       $_db = getMysqli();
-      $statement = $_db->prepare("SELECT * FROM Submitted_By WHERE SubmittedFor=?");
-      $statement->bind_param('s', $_SESSION['Username']);
+      $statement = $_db->prepare("SELECT * FROM Submitted_By WHERE SubmittedFor=? && Status!=? && Status !=? && Status !=?");
+      $statement->bind_param('ssss', $_SESSION['Username'], Archived, Cancelled, Done);
       $statement->execute();
 
       // Error running the statement.
@@ -73,11 +74,12 @@
       $_db->close();
   }
 
+  // Only shows all pinkies not cancelled, archived or done.
   function printSubmittedByYouTable()
   {
     $_db = getMysqli();
-    $statement = $_db->prepare("SELECT * FROM Submitted_By WHERE Submitter=?");
-    $statement->bind_param('s', $_SESSION['Username']);
+    $statement = $_db->prepare("SELECT * FROM Submitted_By WHERE Submitter=? && Status!=? && Status !=? $$ Status!=?");
+    $statement->bind_param('ssss', $_SESSION['Username'], Archived, Cancelled, Done);
     $statement->execute();
 
     // Error running the statement.

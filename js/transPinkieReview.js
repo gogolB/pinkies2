@@ -1,7 +1,3 @@
-// -----------------------------------------------------------------------------
-// The functions specifically for a supervisor to use are here.
-// -----------------------------------------------------------------------------
-
 function attachPinkieID(form, pinkieID)
 {
   var input = document.createElement("input");
@@ -11,20 +7,12 @@ function attachPinkieID(form, pinkieID)
   form.appendChild(input);
 }
 
-function onApprove(pinkieID)
+function onDone(pinkieID)
 {
     var form = document.getElementsByTagName("form")[0];
     attachPinkieID(pinkieID);
-    attachStatus("Supervisor Approved");
+    attachStatus("Done");
     form.submit();
-}
-
-function onReject(pinkieID)
-{
-  var form = document.getElementsByTagName("form")[0];
-  attachPinkieID(pinkieID);
-  attachStatus("Supervisor Deny");
-  form.submit();
 }
 
 function attachStatus(form, status)

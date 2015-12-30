@@ -145,3 +145,20 @@ function onExpenseChange()
     var form = document.getElementsByTagName("form")[0];
     var exp = calculateTotalExpenses(form);
 }
+
+function attachPinkieID(form, pinkieID)
+{
+  var input = document.createElement("input");
+  input.setAttribute("type", "hidden");
+  input.setAttribute("name", "pinkieID");
+  input.setAttribute("value", pinkieID);
+  form.appendChild(input);
+}
+
+function onCancel(pinkieID)
+{
+  var form = document.getElementsByTagName("form")[0];
+  attachPinkieID(pinkieID);
+  attachStatus("Cancelled");
+  form.submit();
+}

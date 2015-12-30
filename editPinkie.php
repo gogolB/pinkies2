@@ -147,24 +147,13 @@ function printAllFilesTable()
         <H2>
           Welcome <?php echo(getName());?> to ePinkies2.
         </H2>
-        <H4>Here you will be able view a pinkie object. Then if it is submitted to you, you can approve it and send it to the next person. If you reject it, it will go back to the previous person from you.</H4>
+        <H4>Here you will be able edit a pinkie object. You many <b><u><i>NOT</i></u></b> modify the pinkie except for adding a BC or an account number to the objects.</H4>
 
         <!-- Back to Home button. -->
         <a href="./home.php" class="btn btn-success" role="button"><span class="glyphicon glyphicon-home"></span> Back to Home</a>
       </div>
     </div>
-    <?php if(isUser()) :?>
-      <form class="form-horizontal" role="form" action="onUserSubmit.php" method="POST" name="viewPinkieForm" id="viewPinkieForm" >
-    <?php endif; ?>
-    <?php if(isSuper()) :?>
-      <form class="form-horizontal" role="form" action="onSuperSubmit.php" method="POST" name="viewPinkieForm" id="viewPinkieForm" >
-    <?php endif; ?>
-    <?php if(isAdmin()) :?>
-      <form class="form-horizontal" role="form" action="onAdminSubmit.php" method="POST" name="viewPinkieForm" id="viewPinkieForm" >
-    <?php endif; ?>
-    <?php if(isTrans()) :?>
-      <form class="form-horizontal" role="form" action="onTransSubmit.php" method="POST" name="viewPinkieForm" id="viewPinkieForm" >
-    <?php endif; ?>
+      <form class="form-horizontal" role="form" action="onPinkieEdit.php" method="POST" name="editPinkieForm" id="editPinkieForm" >
       <!-- Title, who you are submitting to, who is submitting it. -->
       <div class="container">
         <div class="well">
@@ -184,11 +173,7 @@ function printAllFilesTable()
           </div>
 
           <div class="form-group form-group-lg">
-            <?php if(isAdmin()) : ?>
-              <label class="control-label col-sm-2" for="submitTo">Dispatch To:</label>
-            <?php else : ?>
               <label class="control-label col-sm-2" for="submitTo">Submit To:</label>
-            <?php endif; ?>
             <div class="col-sm-10">
               <select class="form-control" id="submitTo" name="submitTo">
                 <?php printSubmitTo(); ?>
@@ -496,28 +481,15 @@ function printAllFilesTable()
       </div>
 
       <!-- Approve or Reject -->
-      <?php if(strcmp($_pinkie->s_SubmittedFor == $_SESSION['Username']) == 0) :?>
       <div class="container">
         <div class="well">
           <div class="form-group form-group-lg">
             <div class="col-sm-offset-8 col-sm-4">
-              <?php if(isSuper()) :?>
-                <button type="button" class="btn btn-success" onclick="onApprove(<?php echo $_pinkie->i_PinkieID; ?>)"><span class="glyphicon glyphicon-indent-left"></span> Approve this Pinkie</button>
-                <button type="button" class="btn btn-danger" onclick="onReject(<?php echo $_pinkie->i_PinkieID; ?>)"><span class="glyphicon glyphicon-indent-right"></span> Reject this Pinkie</button>
-              <?php endif;?>
-              <?php if(isAdmin()) :?>
-                <button type="button" class="btn btn-success" onclick="onApprove(<?php echo $_pinkie->i_PinkieID; ?>)"><span class="glyphicon glyphicon-indent-left"></span> Dispatch this Pinkie</button>
-                <button type="button" class="btn btn-danger" onclick="onReject(<?php echo $_pinkie->i_PinkieID; ?>)"><span class="glyphicon glyphicon-indent-right"></span> Reject this Pinkie</button>
-              <?php endif;?>
-              <?php if(isTrans()) :?>
-                <button type="button" class="btn btn-success" onclick="onDone(<?php echo $_pinkie->i_PinkieID; ?>)"><span class="glyphicon glyphicon-ok-sign"></span> Done</button>
-              <?php endif;?>
-                <button type="button" class="btn btn-danger" onclick="onCancel(<?php echo $_pinkie->i_PinkieID; ?>)"><span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+                <button type="button" class="btn btn-success" onclick="onEdit(<?php echo $_pinkie->i_PinkieID; ?>)"><span class="glyphicon glyphicon-saved"></span> Update</button>
             </div>
           </div>
         </div>
       </div>
-    <?php endif; ?>
 
     </form>
 

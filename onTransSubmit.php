@@ -13,18 +13,8 @@ $_pinkie = new Pinkie();
 $_pinkie->i_PinkieID = (int)$_POST['pinkieID'];
 $_pinkie->fromDatabase();
 
-if(strcmp($_POST['status'], ApprovedByAdmin) == 0)
+if(strcmp($_POST['status'], Done) == 0)
 {
-  $_pinkie->s_Submitter = $_SESSION['Username'];
-  $_pinkie->s_SubmittedFor = $_POST['submitTo'];
-  $_pinkie->s_Status = Dispatched;
-  $_pinkie->toDatabase();
-}
-else if(strcmp($_POST['status'], RejectedByAdmin) == 0)
-{
-  $_tmp = $_pinkie->s_Submitter;
-  $_pinkie->s_Submitter = $_POST['submitTo'];
-  $_pinkie->s_SubmittedFor = $tmp;
   $_pinkie->s_Status = $_POST['status'];
   $_pinkie->toDatabase();
 }

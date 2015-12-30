@@ -28,5 +28,12 @@ else if(strcmp($_POST['status'], RejectedBySuper) == 0)
   $_pinkie->s_Status = $_POST['status'];
   $_pinkie->toDatabase();
 }
+else if(strcmp($_POST['status'], Cancelled) == 0)
+{
+  $_pinkie->s_Status = $_POST['status'];
+  $_pinkie->toDatabase();
+}
+
+header("Location: ./home.php");
 
 ?>
