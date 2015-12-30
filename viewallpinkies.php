@@ -10,7 +10,7 @@
   {
       $_db = getMysqli();
       $statement = $_db->prepare("SELECT * FROM Submitted_By WHERE SubmittedFor=? ");
-      $statement->bind_param('ssss', $_SESSION['Username']);
+      $statement->bind_param('s', $_SESSION['Username']);
       $statement->execute();
 
       // Error running the statement.
@@ -60,7 +60,7 @@
   {
     $_db = getMysqli();
     $statement = $_db->prepare("SELECT * FROM Submitted_By WHERE Submitter=?");
-    $statement->bind_param('ssss', $_SESSION['Username']);
+    $statement->bind_param('s', $_SESSION['Username']);
     $statement->execute();
 
     // Error running the statement.
