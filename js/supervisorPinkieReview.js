@@ -15,7 +15,7 @@ function onApprove(pinkieID)
 {
     var form = document.getElementsByTagName("form")[0];
     attachPinkieID(form, pinkieID);
-    attachStatus("Supervisor Approved");
+    attachStatus(form, "Supervisor Approved");
     form.submit();
 }
 
@@ -23,7 +23,7 @@ function onReject(pinkieID)
 {
   var form = document.getElementsByTagName("form")[0];
   attachPinkieID(form, pinkieID);
-  attachStatus("Supervisor Deny");
+  attachStatus(form, "Supervisor Deny");
   form.submit();
 }
 
