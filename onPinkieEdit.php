@@ -23,7 +23,7 @@ foreach($_quantity as $key=>$q)
 {
   $_o = new PurchaseObject($_POST['pinkieID']);
   $_o->i_ObjectID = (int)$_objectID[$q];
-  $_o->fromDatabase();
+  //$_o->fromDatabase();
   $_o->s_BC = $_bc[$q];
   $_o->s_AccountNumber = $_accountNumber[$q];
   //$_o->toDatabase();
