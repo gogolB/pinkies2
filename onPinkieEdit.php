@@ -27,12 +27,13 @@ foreach($_quantity as $key=>$q)
   $_o->s_BC = $_bc[$q];
   $_o->s_AccountNumber = $_accountNumber[$q];
   $_o->toDatabase();
+  var_dump($_o);
 }
 
 
 //------------------------------------------------------------------------------
 
 // push it to the database.
-header("Location: ./home.php");
+//header("Location: ./home.php");
 
 ?>
