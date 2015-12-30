@@ -32,30 +32,38 @@ $_vendor->fromDatabase();
 function printObjectsTable()
 {
     global $_pinkie;
-    if(count($_pinkie->a_Objects) == 0)
-    {
-      echo '<tr>
-              <td></td>
-              <td></td>
-              <td> No Objects attached to this Pinkie!</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>';
-        return;
-    }
     foreach ($_pinkie->a_Objects as $_obj)
     {
-      printf('<tr>
-                <td>%d</td>
-                <td>%s</td>
-                <td>%s</td>
-                <td>%s</td>
-                <td>%s</td>
-                <td>$%.2f</td>
-                <td>$%.2f</td>
-              </tr>', $_obj->i_Quantity, $_obj->s_StockNumber, $_obj->s_Description, $_obj->s_BC, $_obj->s_AccountNumber, $_obj->d_UnitPrice, $_obj->i_Quantity * $_obj->d_UnitPrice);
+      printf('<div class="form-group form-group-lg">
+        <div class="col-sm-1">
+          <input type="text" class="form-control" id="quantity[]" name="quantity[]" placeholder="Quantity" value="%d" readonly>
+        </div>
+        <div class="col-sm-2">
+          <input type="text" class="form-control" id="stockNumber[]" name="stockNumber[]" placeholder="Stock Number" value="%s" readonly>
+        </div>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" id="description[]" name="description[]" placeholder="Description" value="%s" readonly>
+        </div>
+        <div class="col-sm-1">
+          <input type="text" class="form-control" id="bc[]" name="bc[]" placeholder="BC" value="%s" readonly>
+        </div>
+        <div class="col-sm-2">
+          <input type="text" class="form-control" id="accountNumber[]" name="accountNumber[]" placeholder="Account Number" value="%s" readonly>
+        </div>
+        <div class="col-sm-1">
+          <div class="input-group">
+            <span class="input-group-addon">$</span>
+            <input type="text" class="form-control" id="unitPrice[]" name="unitPrice[]" placeholder="Unit Price" value="%.2f" readonly>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="input-group">
+            <span class="input-group-addon">$</span>
+            <input type="text" class="form-control" id="totalPrice[]" name="totalPrice[]" placeholder="Total" value="%.2f" readonly>
+          </div>
+        </div>
+      </div>
+      <input type="hidden" id="objectID[]" name="objectID[]" value="%d">', $_obj->i_Quantity, $_obj->s_StockNumber, $_obj->s_Description, $_obj->s_BC, $_obj->s_AccountNumber, $_obj->d_UnitPrice, $_obj->d_UnitPrice*$_obj->i_Quantity, $_obj->i_ObjectID);
     }
 }
 
@@ -221,23 +229,18 @@ function printAllFilesTable()
         <div class="well">
 
           <div class="table-responsive">
-            <table class="table table-bordered table-hover table-condensed">
-              <thead>
-                <tr>
-                  <th>Quantity</th>
-                  <th>Stock Number</th>
-                  <th>Description</th>
-                  <th>BC</th>
-                  <th>Account Number</th>
-                  <th>Unit Price</th>
-                  <th>Total Price</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php printObjectsTable(); ?>
-              </tbody>
-            </table>
-          </div>
+
+            <div class="form-group form-group-lg">
+              <H3 class="col-sm-1"><u>Quantity</u></H3>
+              <H3 class="col-sm-2"><u>Stock Number</u></H3>
+              <H3 class="col-sm-3"><u>Description</u></H3>
+              <H3 class="col-sm-1"><u>BC</u></H3>
+              <H3 class="col-sm-2"><u>Account Number</u></H3>
+              <H3 class="col-sm-1"><u>Unit Price</u></H3>
+              <H3 class="col-sm-2"><u>Total Price</u></H3>
+            </div>
+
+            <?php printObjectsTable(); ?>
 
           <div class="form-group form-group-lg">
             <label class="control-label col-sm-2" for="subtotal">Subtotal:</label>

@@ -162,3 +162,10 @@ function onCancel(pinkieID)
   attachStatus("Cancelled");
   form.submit();
 }
+
+function onEdit()
+{
+  var form = document.getElementsByTagName("form")[0];
+  attachPinkieID(pinkieID);
+  form.submit();
+}
