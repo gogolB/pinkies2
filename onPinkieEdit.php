@@ -22,14 +22,11 @@ $_accountNumber = $_POST['accountNumber'];
 foreach($_quantity as $key=>$q)
 {
   $_o = new PurchaseObject($_POST['pinkieID']);
-  $_o->i_ObjectID = intval($_objectID[$q]);
-  //$_o->fromDatabase();
-  $_o->s_BC = $_bc[$q];
-  $_o->s_AccountNumber = $_accountNumber[$q];
-  //$_o->toDatabase();
-  var_dump($_o);
-  echo "<br>";
-  var_dump($_POST);
+  $_o->i_ObjectID = intval($_objectID[$key]);
+  $_o->fromDatabase();
+  $_o->s_BC = $_bc[$key];
+  $_o->s_AccountNumber = $_accountNumber[$key];
+  $_o->toDatabase();
 }
 
 
