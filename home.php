@@ -31,7 +31,7 @@
   {
       $_db = getMysqli();
       $statement = $_db->prepare("SELECT * FROM Submitted_By WHERE SubmittedFor=? && Status!=? && Status !=? && Status !=?");
-      $statement->bind_param('ssss', $_SESSION['Username'], Archived, Cancelled, Done);
+      $statement->bind_param('ssss', $_SESSION['Username'], 'Archived', 'Cancelled', 'Done');
       $statement->execute();
 
       // Error running the statement.
@@ -80,7 +80,7 @@
   {
     $_db = getMysqli();
     $statement = $_db->prepare("SELECT * FROM Submitted_By WHERE Submitter=? && Status!=? && Status !=? $$ Status!=?");
-    $statement->bind_param('ssss', $_SESSION['Username'], Archived, Cancelled, Done);
+    $statement->bind_param('ssss', $_SESSION['Username'], 'Archived', 'Cancelled', 'Done');
     $statement->execute();
 
     // Error running the statement.
