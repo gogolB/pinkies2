@@ -158,8 +158,8 @@ function attachPinkieID(form, pinkieID)
 function onCancel(pinkieID)
 {
   var form = document.getElementsByTagName("form")[0];
-  attachPinkieID(pinkieID);
-  attachStatus("Cancelled");
+  attachPinkieID(form, pinkieID);
+  attachStatus(form, "Cancelled");
   form.submit();
 }
 

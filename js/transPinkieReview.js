@@ -10,8 +10,8 @@ function attachPinkieID(form, pinkieID)
 function onDone(pinkieID)
 {
     var form = document.getElementsByTagName("form")[0];
-    attachPinkieID(pinkieID);
-    attachStatus("Done");
+    attachPinkieID(form, pinkieID);
+    attachStatus(form, "Done");
     form.submit();
 }
 

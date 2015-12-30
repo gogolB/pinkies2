@@ -512,7 +512,7 @@ function printAllFilesTable()
               <?php if(isTrans()) :?>
                 <button type="button" class="btn btn-success" onclick="onDone(<?php echo $_pinkie->i_PinkieID; ?>)"><span class="glyphicon glyphicon-ok-sign"></span> Done</button>
               <?php endif;?>
-                <button type="button" class="btn btn-danger" onclick="onCancel(<?php echo $_pinkie->i_PinkieID; ?>)"><span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+                <button type="button" class="btn btn-danger" onclick="onCancel(<?php echo $_pinkie->i_PinkieID; ?>)"><span class="glyphicon glyphicon-remove-sign"></span> Cancel this pinkie</button>
             </div>
           </div>
         </div>
