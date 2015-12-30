@@ -45,12 +45,12 @@ function printObjectsTable()
           <input type="text" class="form-control" id="description[]" name="description[]" placeholder="Description" value="%s" readonly>
         </div>
         <div class="col-sm-1">
-          <input type="text" class="form-control" id="bc[]" name="bc[]" placeholder="BC" value="%s" readonly>
-        </div>
-        <div class="col-sm-2">
-          <input type="text" class="form-control" id="accountNumber[]" name="accountNumber[]" placeholder="Account Number" value="%s" readonly>
+          <input type="text" class="form-control" id="bc[]" name="bc[]" placeholder="BC" value="%s">
         </div>
         <div class="col-sm-1">
+          <input type="text" class="form-control" id="accountNumber[]" name="accountNumber[]" placeholder="Account Number" value="%s">
+        </div>
+        <div class="col-sm-2">
           <div class="input-group">
             <span class="input-group-addon">$</span>
             <input type="text" class="form-control" id="unitPrice[]" name="unitPrice[]" placeholder="Unit Price" value="%.2f" readonly>
@@ -235,8 +235,8 @@ function printAllFilesTable()
               <H3 class="col-sm-2"><u>Stock Number</u></H3>
               <H3 class="col-sm-3"><u>Description</u></H3>
               <H3 class="col-sm-1"><u>BC</u></H3>
-              <H3 class="col-sm-2"><u>Account Number</u></H3>
-              <H3 class="col-sm-1"><u>Unit Price</u></H3>
+              <H3 class="col-sm-1"><u>Account Number</u></H3>
+              <H3 class="col-sm-2"><u>Unit Price</u></H3>
               <H3 class="col-sm-2"><u>Total Price</u></H3>
             </div>
 
