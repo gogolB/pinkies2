@@ -128,6 +128,8 @@
              Welcome <?php echo(getName());?> to ePinkies2.
            </H2>
            <h4>Here you will be able to view any and every pinkie you have ever submitted or has been submitted to you.</h4>
+           <!-- Back to Home button. -->
+           <a href="./home.php" class="btn btn-success" role="button"><span class="glyphicon glyphicon-home"></span> Back to Home</a>
          </div>
        </div>
 
