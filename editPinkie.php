@@ -34,7 +34,7 @@ function printObjectsTable()
     global $_pinkie;
     foreach ($_pinkie->a_Objects as $_obj)
     {
-      printf('<div class="row"><div class="form-group form-group-lg">
+      printf('<div class="row table-responsive"><div class="form-group form-group-lg">
         <div class="col-sm-1">
           <input type="text" class="form-control" id="quantity[]" name="quantity[]" placeholder="Quantity" value="%d" readonly>
         </div>
@@ -228,8 +228,6 @@ function printAllFilesTable()
       <!-- Purchase Orders-->
       <div class="container">
         <div class="well">
-
-          <div class="table-responsive">
 
             <div class="row">
               <H3 class="col-sm-1"><u>Quantity</u></H3>
