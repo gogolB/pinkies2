@@ -221,10 +221,10 @@
             </table>
           </div>
 
-          <div class="col-sm-offset-10 col-sm-2">
+          <div class="col-sm-offset-10">
             <a href="./viewallpinkies.php" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-search"></span> View All pinkies</a>
           </div>
-          
+
         </div>
       </div>
     <?php endif; ?>
