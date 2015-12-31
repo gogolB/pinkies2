@@ -567,7 +567,7 @@ function printLogsTable()
         <div class="well">
           <div class="form-group form-group-lg">
             <div class="col-sm-offset-8 col-sm-4">
-              <?php if(strcmp($_pinkie->s_Status, 'Done') != 0 || strcmp($_pinkie->s_Status, 'Cancelled') != 0) :?>
+              <?php if(strcmp($GLOBALS['_pinkie']->s_Status, 'Done') != 0 || strcmp($GLOBALS['_pinkie']->s_Status, 'Cancelled') != 0) :?>
                 <?php if(isSuper()) :?>
                   <button type="button" class="btn btn-success" onclick="onApprove(<?php echo $_pinkie->i_PinkieID; ?>)"><span class="glyphicon glyphicon-indent-left"></span> Approve this Pinkie</button>
                   <button type="button" class="btn btn-danger" onclick="onReject(<?php echo $_pinkie->i_PinkieID; ?>)"><span class="glyphicon glyphicon-indent-right"></span> Reject this Pinkie</button>
