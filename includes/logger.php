@@ -1,6 +1,10 @@
 <?php
 include_once 'functions.php';
-
+//
+// This is the logger system used by ePinkies2. This allows for a history per
+// pinkie to be generated. A pinkie can now be tracked from birth to when it is
+// marked as done.
+//
 
 function l_log($pinkieID, $user, $msg, $lvl)
 {

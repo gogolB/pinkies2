@@ -115,7 +115,7 @@ for($i=0; $i<count($_FILES['attachment']['name']); $i++)
 // push it to the database.
 //var_dump($_pinkie);
 $_pinkie->toDatabase();
-logGeneral($_pinkie->i_PinkieID, $_SESSION['Username'], "Pinkie was created.");
+logGeneral($_pinkie->i_PinkieID, $_SESSION['Username'], "Pinkie was created by: ".getName());
 header("Location: ./home.php");
 
 ?>

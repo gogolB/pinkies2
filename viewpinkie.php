@@ -116,6 +116,71 @@ function printAllFilesTable()
             </tr>';
   }
 }
+
+function printLogsTable()
+{
+  global $_pinkie;
+  $_db = getMysqli();
+  $statement = $_db->prepare("SELECT * FROM LOG WHERE PinkieID=?");
+  $statement->bind_param('i', $_pinkie->i_PinkieID);
+  $statement->execute();
+
+  // Error running the statment.
+  if($statement->errno != 0)
+  {
+    $_tmp = $statement->error;
+    $statement->close();
+    $_db->close();
+    onError("viewPinkie.php::printLogsTable()",'There was an error running the query [' . $_tmp . '] Could not fetch the logs.');
+  }
+
+
+  $statement->store_result();
+  if($statement->num_rows <= 0)
+  {
+    echo '<tr>
+            <td>No Files attached to this Pinkie!</td>
+            <td></td>
+          </tr>';
+    $statement->free_result();
+    $statement->close();
+    $_db->close();
+    return;
+  }
+  // We have a result, lets bind the result to the variables.
+  $statement->bind_result($logID, $pinkieID, $user, $timestamp, $lvl, $msg);
+  while($statement->fetch())
+  {
+    echo '<tr>
+            <td>'.$msg.'</td>
+            <td>'.$timestamp.'</td>
+          </tr>';
+  }
+
+  // Cleanup.
+  $statement->free_result();
+  $statement->close();
+  $_db->close();
+
+
+  if(count($_pinkie->a_Attachments) == 0)
+  {
+    echo '<tr>
+            <td>No logs attached to this Pinkie!</td>
+            <td></td>
+          </tr>';
+      return;
+  }
+  $_fund = 0;
+  foreach ($_pinkie->a_Attachments as $_f)
+  {
+      echo '<tr>
+              <td>'.$_f->s_FilePath.'</td>
+              <td><a href="'.$_f->s_FilePath.'" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-download-alt"></span> Download</a></td>
+            </tr>';
+  }
+}
+
 ?>
 <!DOCTYPE html>
 <HTML>
@@ -492,6 +557,28 @@ function printAllFilesTable()
               </tbody>
             </table>
           </div>
+        </div>
+      </div>
+
+      <!-- Log history -->
+      <div class="container">
+        <div class="well">
+
+          <H2>History of this pinkie</H2>
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover table-condensed">
+              <thead>
+                <tr>
+                  <th>Message</th>
+                  <th>Timestamp</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php printLogsTable(); ?>
+              </tbody>
+            </table>
+          </div>
+
         </div>
       </div>
 
