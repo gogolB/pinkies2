@@ -562,7 +562,7 @@ function printLogsTable()
       </div>
 
       <!-- Approve or Reject -->
-      <?php if(strcmp($_pinkie->s_SubmittedFor == $_SESSION['Username']) == 0) :?>
+      <?php if(strcmp($_pinkie->s_SubmittedFor, $_SESSION['Username']) == 0) :?>
       <div class="container no-print">
         <div class="well">
           <div class="form-group form-group-lg">
