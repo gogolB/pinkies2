@@ -28,4 +28,9 @@
     aside h2 {
       font-size: 18pt;
     }
+
+    well
+    {
+      border: 0 !important;
+    }
 }
