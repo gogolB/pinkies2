@@ -37,6 +37,12 @@ else if(strcmp($_POST['status'], Cancelled) == 0)
   $_pinkie->toDatabase();
   logGeneral($_pinkie->i_PinkieID, $_SESSION['Username'], "Pinkie was cancelled by: ".getName());
 }
+else if(strcmp($_POST['status'], Archived) == 0)
+{
+  $_pinkie->s_Status = $_POST['status'];
+  $_pinkie->toDatabase();
+  logWarning($_pinkie->i_PinkieID, $_SESSION['Username'], "Pinkie was archived by: ".getName());
+}
 
 header("Location: ./home.php");
 

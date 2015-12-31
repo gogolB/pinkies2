@@ -96,6 +96,7 @@ function printFundsTable()
   }
 }
 
+//
 function printAllFilesTable()
 {
   global $_pinkie;
@@ -117,6 +118,8 @@ function printAllFilesTable()
   }
 }
 
+// Prints all the logs associated with this pinkie. Gives us a bit of history
+// behind this pinkie.
 function printLogsTable()
 {
   global $_pinkie;
@@ -161,24 +164,6 @@ function printLogsTable()
   $statement->free_result();
   $statement->close();
   $_db->close();
-
-
-  if(count($_pinkie->a_Attachments) == 0)
-  {
-    echo '<tr>
-            <td>No logs attached to this Pinkie!</td>
-            <td></td>
-          </tr>';
-      return;
-  }
-  $_fund = 0;
-  foreach ($_pinkie->a_Attachments as $_f)
-  {
-      echo '<tr>
-              <td>'.$_f->s_FilePath.'</td>
-              <td><a href="'.$_f->s_FilePath.'" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-download-alt"></span> Download</a></td>
-            </tr>';
-  }
 }
 
 ?>
@@ -588,16 +573,20 @@ function printLogsTable()
         <div class="well">
           <div class="form-group form-group-lg">
             <div class="col-sm-offset-8 col-sm-4">
-              <?php if(isSuper()) :?>
-                <button type="button" class="btn btn-success" onclick="onApprove(<?php echo $_pinkie->i_PinkieID; ?>)"><span class="glyphicon glyphicon-indent-left"></span> Approve this Pinkie</button>
-                <button type="button" class="btn btn-danger" onclick="onReject(<?php echo $_pinkie->i_PinkieID; ?>)"><span class="glyphicon glyphicon-indent-right"></span> Reject this Pinkie</button>
-            <?php elseif(isAdmin()) :?>
-                <button type="button" class="btn btn-success" onclick="onApprove(<?php echo $_pinkie->i_PinkieID; ?>)"><span class="glyphicon glyphicon-indent-left"></span> Dispatch this Pinkie</button>
-                <button type="button" class="btn btn-danger" onclick="onReject(<?php echo $_pinkie->i_PinkieID; ?>)"><span class="glyphicon glyphicon-indent-right"></span> Reject this Pinkie</button>
-            <?php elseif(isTrans()) :?>
-                <button type="button" class="btn btn-success" onclick="onDone(<?php echo $_pinkie->i_PinkieID; ?>)"><span class="glyphicon glyphicon-ok-sign"></span> Done</button>
-              <?php endif;?>
+              <?php if(strcmp($_pinkie->s_Status, Done) != 0 || strcmp($_pinkie->s_Status, Cancelled) != 0) :?>
+                <?php if(isSuper()) :?>
+                  <button type="button" class="btn btn-success" onclick="onApprove(<?php echo $_pinkie->i_PinkieID; ?>)"><span class="glyphicon glyphicon-indent-left"></span> Approve this Pinkie</button>
+                  <button type="button" class="btn btn-danger" onclick="onReject(<?php echo $_pinkie->i_PinkieID; ?>)"><span class="glyphicon glyphicon-indent-right"></span> Reject this Pinkie</button>
+                <?php elseif(isAdmin()) :?>
+                  <button type="button" class="btn btn-success" onclick="onApprove(<?php echo $_pinkie->i_PinkieID; ?>)"><span class="glyphicon glyphicon-indent-left"></span> Dispatch this Pinkie</button>
+                  <button type="button" class="btn btn-danger" onclick="onReject(<?php echo $_pinkie->i_PinkieID; ?>)"><span class="glyphicon glyphicon-indent-right"></span> Reject this Pinkie</button>
+                <?php elseif(isTrans()) :?>
+                  <button type="button" class="btn btn-success" onclick="onDone(<?php echo $_pinkie->i_PinkieID; ?>)"><span class="glyphicon glyphicon-ok-sign"></span> Done</button>
+                <?php endif;?>
                 <button type="button" class="btn btn-danger" onclick="onCancel(<?php echo $_pinkie->i_PinkieID; ?>)"><span class="glyphicon glyphicon-remove-sign"></span> Cancel this pinkie</button>
+              <?php else: ?>
+                <button type="button" class="btn btn-warning" onclick="onArchive(<?php echo $_pinkie->i_PinkieID; ?>)"><span class="glyphicon glyphicon-folder-close"></span> Archive this pinkie</button>
+              <?php endif; ?>
             </div>
           </div>
         </div>

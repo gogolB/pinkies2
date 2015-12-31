@@ -169,3 +169,11 @@ function onEdit(pinkieID)
   attachPinkieID(form, pinkieID);
   form.submit();
 }
+
+function onArchive(pinkieID)
+{
+  var form = document.getElementsByTagName("form")[0];
+  attachPinkieID(form, pinkieID);
+  attachStatus(form, "Archived");
+  form.submit();
+}
