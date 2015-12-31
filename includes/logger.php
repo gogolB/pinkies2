@@ -14,7 +14,7 @@ function _log($pinkieID, $user, $msg, $lvl)
 
   if ($_stmt->errno)
   {
-    onError("Error in Logger::log()", $_stmt->error);
+    onError("Error in Logger.php::log()", $_stmt->error);
   }
 
   $_stmt->close();
