@@ -193,7 +193,7 @@ function printLogsTable()
     </div>
 
     <!-- Header Container -->
-    <div class="container hidden-print">
+    <div class="container no-Print">
       <div class="well">
         <H2>
           Welcome <?php echo(getName());?> to ePinkies2.
@@ -217,7 +217,7 @@ function printLogsTable()
       <form class="form-horizontal" role="form" action="onTransSubmit.php" method="POST" name="viewPinkieForm" id="viewPinkieForm" >
     <?php endif; ?>
       <!-- Title, who you are submitting to, who is submitting it. -->
-      <div class="container visible-print-inline">
+      <div class="container ">
         <div class="well">
 
           <div class="form-group form-group-lg">
@@ -234,7 +234,7 @@ function printLogsTable()
             </div>
           </div>
 
-          <div class="form-group form-group-lg hidden-print">
+          <div class="form-group form-group-lg no-print">
             <?php if(isAdmin()) : ?>
               <label class="control-label col-sm-2" for="submitTo">Dispatch To:</label>
             <?php else : ?>
@@ -283,7 +283,7 @@ function printLogsTable()
       </div>
 
       <!-- Purchase Orders-->
-      <div class="container visible-print">
+      <div class="container">
         <div class="well">
 
           <div class="table-responsive">
@@ -349,7 +349,7 @@ function printLogsTable()
       </div>
 
       <!-- Funds -->
-      <div class="container visible-print">
+      <div class="container">
         <div class="well">
 
           <div class="table-responsive">
@@ -386,7 +386,7 @@ function printLogsTable()
       </div>
 
       <!-- Vendor Info -->
-      <div class="container visible-print-inline-block">
+      <div class="container">
         <div class="well">
           <H2><u><b>Vendor Information</b></u></H2>
           <!-- From here this is all a direct copy from viewVendor on the vendor.php page. -->
@@ -478,7 +478,7 @@ function printLogsTable()
       </div>
 
       <!-- Justification and Extra Info -->
-      <div class="container visible-print-block">
+      <div class="container">
         <div class="well">
           <div class="form-group form-group-lg">
             <label class="control-label col-sm-2" for="justification">Justification:</label>
@@ -547,7 +547,7 @@ function printLogsTable()
       </div>
 
       <!-- Log history -->
-      <div class="container visible-print">
+      <div class="container">
         <div class="well">
 
           <H2>History of this pinkie</H2>
@@ -570,7 +570,7 @@ function printLogsTable()
 
       <!-- Approve or Reject -->
       <?php if(strcmp($_pinkie->s_SubmittedFor == $_SESSION['Username']) == 0) :?>
-      <div class="container hidden-print">
+      <div class="container no-print">
         <div class="well">
           <div class="form-group form-group-lg">
             <div class="col-sm-offset-8 col-sm-4">
