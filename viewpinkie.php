@@ -402,37 +402,33 @@ function printLogsTable()
           <!-- Vendor Address/Location -->
           <div class="form-group">
             <label class="control-label col-sm-2" for="address">Address:</label>
-            <div class="col-sm-10">
+            <div class="col-sm-5">
               <input type="text" class="form-control" id="address" name="address" value='<?php echo $_vendor->s_Address; ?>' readonly>
             </div>
-          </div>
 
-          <div class="form-group">
             <label class="control-label col-sm-2" for="city">City:</label>
-            <div class="col-sm-10">
+            <div class="col-sm-3">
               <input type="text" class="form-control" id="city" name="city" value='<?php echo $_vendor->s_City; ?>' readonly>
             </div>
           </div>
 
           <div class="form-group">
             <label class="control-label col-sm-2" for="state">State:</label>
-            <div class="col-sm-10">
+            <div class="col-sm-2">
               <input type="text" class="form-control" id="state" name="state" value='<?php echo $_vendor->s_State; ?>' readonly>
             </div>
-          </div>
 
-          <div class="form-group">
             <label class="control-label col-sm-2" for="zip">Zip:</label>
-            <div class="col-sm-10">
+            <div class="col-sm-2">
               <input type="text" class="form-control" id="zip" name="zip" value='<?php echo $_vendor->s_Zip; ?>' readonly>
             </div>
-          </div>
 
-          <div class="form-group">
             <label class="control-label col-sm-2" for="country">Country:</label>
-            <div class="col-sm-10">
+            <div class="col-sm-2">
               <input type="text" class="form-control" id="country" name="country" value='<?php echo $_vendor->s_Country; ?>' readonly>
             </div>
+          </div>
+
           </div>
           <br>
           <!-- Vendor UCR Info -->
