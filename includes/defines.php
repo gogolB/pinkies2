@@ -32,7 +32,7 @@ define('PATH_PREFIX', '/pinkies/');
 
 
 // Pinkies Debug stuff
-define('DEBUG', TRUE);
-define('SQL_NO_RESULTS_BREAK',TRUE);
+define('DEBUG', FALSE);
+define('SQL_NO_RESULTS_BREAK',FALSE);
 
 ?>
