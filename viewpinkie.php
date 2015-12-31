@@ -249,7 +249,7 @@ function printLogsTable()
 
           <div class="form-group form-group-lg">
             <label class="control-label col-sm-2" for="action">Action:</label>
-            <div class="col-sm-10">
+            <div class="col-sm-4">
               <select class="form-control" id="action" name="action" readonly>
                   <option value="Reimbursement" <?php isSelected($_pinkie->s_Action, "Reimbursement"); ?> >Reimbursement</option>
                   <option value="Purchase" <?php isSelected($_pinkie->s_Action, "Purchase"); ?> >Purchase</option>
@@ -257,11 +257,9 @@ function printLogsTable()
                   <option value="Quote" <?php isSelected($_pinkie->s_Action, "Quote"); ?> >Quote</option>
               </select>
             </div>
-          </div>
 
-          <div class="form-group form-group-lg">
             <label class="control-label col-sm-2" for="priority">Priority:</label>
-            <div class="col-sm-10">
+            <div class="col-sm-4">
               <select class="form-control" id="priority" name="priority" readonly>
                   <option value="Expedite" <?php isSelected($_pinkie->s_Priority, "Expedite"); ?> >Expedite</option>
                   <option value="Urgent" <?php isSelected($_pinkie->s_Priority, "Urgent"); ?> >Urgent</option>
@@ -270,6 +268,7 @@ function printLogsTable()
                   <option value="Hold" <?php isSelected($_pinkie->s_Priority, "Hold"); ?> >Hold</option>
               </select>
             </div>
+
           </div>
 
           <div class="form-group form-group-lg">
