@@ -194,7 +194,7 @@ function printLogsTable()
     </div>
 
     <!-- Header Container -->
-    <div class="container">
+    <div class="container no-print">
       <div class="well">
         <H2>
           Welcome <?php echo(getName());?> to ePinkies2.
@@ -571,7 +571,7 @@ function printLogsTable()
 
       <!-- Approve or Reject -->
       <?php if(strcmp($_pinkie->s_SubmittedFor == $_SESSION['Username']) == 0) :?>
-      <div class="container">
+      <div class="container no-print">
         <div class="well">
           <div class="form-group form-group-lg">
             <div class="col-sm-offset-8 col-sm-4">
