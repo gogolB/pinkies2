@@ -588,6 +588,7 @@ function printLogsTable()
               <?php else: ?>
                 <button type="button" class="btn btn-warning" onclick="onArchive(<?php echo $_pinkie->i_PinkieID; ?>)"><span class="glyphicon glyphicon-folder-close"></span> Archive this pinkie</button>
               <?php endif; ?>
+              <button type="button" class="btn btn-info" onclick="window.print();"><span class="glyphicon glyphicon-print"></span> Print this pinkie</button>
             </div>
           </div>
         </div>
