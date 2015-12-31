@@ -2,6 +2,7 @@
 include_once 'includes/functions.php';
 include_once 'includes/sessionFunctions.php';
 include_once 'includes/pinkie.php';
+include_once 'includes/logger.php';
 secureSessionStart();
 
 // TODO Needs to have serverside validation of variables. Especially the files.
@@ -114,6 +115,7 @@ for($i=0; $i<count($_FILES['attachment']['name']); $i++)
 // push it to the database.
 //var_dump($_pinkie);
 $_pinkie->toDatabase();
+logGeneral($_pinkie->i_PinkieID, $_SESSION['Username'], "Pinkie was created.");
 header("Location: ./home.php");
 
 ?>

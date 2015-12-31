@@ -2,7 +2,7 @@
 include_once 'functions.php';
 
 
-function log($pinkieID, $user, $msg, $lvl)
+function _log($pinkieID, $user, $msg, $lvl)
 {
   $_db = getMysqli();
 
@@ -24,21 +24,21 @@ function log($pinkieID, $user, $msg, $lvl)
 
 function logGeneral($pinkieID, $user, $msg)
 {
-  log($pinkieID, $user, $msg, "General");
+  _log($pinkieID, $user, $msg, "General");
 }
 
 function logWarning($pinkieID, $user, $msg)
 {
-  log($pinkieID, $user, $msg, "Warning");
+  _log($pinkieID, $user, $msg, "Warning");
 }
 
 function logDanger($pinkieID, $user, $msg)
 {
-  log($pinkieID, $user, $msg, "Danger");
+  _log($pinkieID, $user, $msg, "Danger");
 }
 
 function logError($pinkieID, $user, $msg)
 {
-  log($pinkieID, $user, $msg, "Error");
+  _log($pinkieID, $user, $msg, "Error");
 }
 ?>
