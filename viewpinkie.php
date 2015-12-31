@@ -429,7 +429,6 @@ function printLogsTable()
             </div>
           </div>
 
-          </div>
           <br>
           <!-- Vendor UCR Info -->
           <H3><u>UCR Specific Information</u></H3>
@@ -451,16 +450,15 @@ function printLogsTable()
 
           <div class="form-group">
             <label class="control-label col-sm-2" for="phoneNumber">Phone Number:</label>
-            <div class="col-sm-10">
+            <div class="col-sm-4">
               <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" value='<?php echo $_vendor->s_PhoneNumber; ?>' readonly>
             </div>
-          </div>
 
-          <div class="form-group">
             <label class="control-label col-sm-2" for="faxNumber">Fax Number:</label>
-            <div class="col-sm-10">
+            <div class="col-sm-4">
               <input type="text" class="form-control" id="faxNumber" name="faxNumber" value='<?php echo $_vendor->s_FaxNumber; ?>' readonly>
             </div>
+
           </div>
 
           <div class="form-group">
