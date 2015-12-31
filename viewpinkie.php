@@ -121,7 +121,7 @@ function printLogsTable()
 {
   global $_pinkie;
   $_db = getMysqli();
-  $statement = $_db->prepare("SELECT * FROM LOG WHERE PinkieID=?");
+  $statement = $_db->prepare("SELECT * FROM Log WHERE PinkieID=?");
   $statement->bind_param('i', $_pinkie->i_PinkieID);
   $statement->execute();
 
