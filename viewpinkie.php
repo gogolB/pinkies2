@@ -171,7 +171,6 @@ function printLogsTable()
 <HTML>
   <HEAD>
     <?php printHeaderInfo(); ?>
-    <title>New Pinkie</title>
     <script type="text/javascript" src="./js/pinkie.js"></script>
     <?php if(isSuper()): ?>
       <script type="text/javascript" src="./js/supervisorPinkieReview.js"></script>

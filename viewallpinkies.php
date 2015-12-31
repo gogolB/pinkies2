@@ -161,7 +161,7 @@
   <html>
      <head>
        <?php printHeaderInfo(); ?>
-       <title>ePinkies2 Home</title>
+       <title>View All Pinkies</title>
        <script type="text/javascript" src="js/functions.js"></script>
      </head>
 
