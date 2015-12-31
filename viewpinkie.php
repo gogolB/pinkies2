@@ -182,6 +182,8 @@ function printLogsTable()
     <?php if(isTrans()): ?>
       <script type="text/javascript" src="./js/transPinkieReview.js"></script>
     <?php endif; ?>
+    <link rel="stylesheet" type="text/css" href="./css/print.css" media="print" />
+    <title>View Pinkie</title>
   </HEAD>
   <BODY>
 
