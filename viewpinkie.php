@@ -193,7 +193,7 @@ function printLogsTable()
     </div>
 
     <!-- Header Container -->
-    <div class="container no-Print">
+    <div class="container no-print">
       <div class="well">
         <H2>
           Welcome <?php echo(getName());?> to ePinkies2.
