@@ -19,7 +19,7 @@
         $_tmp = $statement->error;
         $statement->close();
         $_db->close();
-        onError("Home::printSubmittedToYouTable()",'There was an error running the query [' . $_tmp . '] Could not fetch Pinkies submitted to: '.$_SESSION['Username']);
+        onError("ViewAllPinkies.php::printSubmittedToYouTable()",'There was an error running the query [' . $_tmp . '] Could not fetch Pinkies submitted to: '.$_SESSION['Username']);
       }
 
       $statement->store_result();
@@ -69,7 +69,7 @@
       $_tmp = $statement->error;
       $statement->close();
       $_db->close();
-      onError("Home::printSubmittedToYouTable()",'There was an error running the query [' . $_tmp . '] Could not fetch Pinkies submitted to: '.$_SESSION['Username']);
+      onError("ViewAllPinkies.php::printSubmittedToYouTable()",'There was an error running the query [' . $_tmp . '] Could not fetch Pinkies submitted to: '.$_SESSION['Username']);
     }
 
     $statement->store_result();
@@ -118,7 +118,7 @@
       $_tmp = $statement->error;
       $statement->close();
       $_db->close();
-      onError("ViewAllPinkies::printAllOthersTable()",'There was an error running the query [' . $_tmp . '] Could not fetch Pinkies submitted to: '.$_SESSION['Username']);
+      onError("ViewAllPinkies.php::printAllOthersTable()",'There was an error running the query [' . $_tmp . '] Could not fetch Pinkies submitted to: '.$_SESSION['Username']);
     }
 
     $statement->store_result();
