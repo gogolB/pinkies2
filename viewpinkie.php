@@ -193,7 +193,7 @@ function printLogsTable()
     </div>
 
     <!-- Header Container -->
-    <div class="container no-print">
+    <div class="container hidden-print">
       <div class="well">
         <H2>
           Welcome <?php echo(getName());?> to ePinkies2.
@@ -234,7 +234,7 @@ function printLogsTable()
             </div>
           </div>
 
-          <div class="form-group form-group-lg">
+          <div class="form-group form-group-lg no-print">
             <?php if(isAdmin()) : ?>
               <label class="control-label col-sm-2" for="submitTo">Dispatch To:</label>
             <?php else : ?>
@@ -527,7 +527,7 @@ function printLogsTable()
       </div>
 
       <!-- Files -->
-      <div class="container">
+      <div class="container no-print">
         <div class="well">
           <H2>Attachments</H2>
           <div class="table-responsive">
