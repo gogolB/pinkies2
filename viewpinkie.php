@@ -591,12 +591,10 @@ function printLogsTable()
               <?php if(isSuper()) :?>
                 <button type="button" class="btn btn-success" onclick="onApprove(<?php echo $_pinkie->i_PinkieID; ?>)"><span class="glyphicon glyphicon-indent-left"></span> Approve this Pinkie</button>
                 <button type="button" class="btn btn-danger" onclick="onReject(<?php echo $_pinkie->i_PinkieID; ?>)"><span class="glyphicon glyphicon-indent-right"></span> Reject this Pinkie</button>
-              <?php endif;?>
-              <?php if(isAdmin()) :?>
+            <?php elseif(isAdmin()) :?>
                 <button type="button" class="btn btn-success" onclick="onApprove(<?php echo $_pinkie->i_PinkieID; ?>)"><span class="glyphicon glyphicon-indent-left"></span> Dispatch this Pinkie</button>
                 <button type="button" class="btn btn-danger" onclick="onReject(<?php echo $_pinkie->i_PinkieID; ?>)"><span class="glyphicon glyphicon-indent-right"></span> Reject this Pinkie</button>
-              <?php endif;?>
-              <?php if(isTrans()) :?>
+            <?php elseif(isTrans()) :?>
                 <button type="button" class="btn btn-success" onclick="onDone(<?php echo $_pinkie->i_PinkieID; ?>)"><span class="glyphicon glyphicon-ok-sign"></span> Done</button>
               <?php endif;?>
                 <button type="button" class="btn btn-danger" onclick="onCancel(<?php echo $_pinkie->i_PinkieID; ?>)"><span class="glyphicon glyphicon-remove-sign"></span> Cancel this pinkie</button>
