@@ -10,11 +10,11 @@ function redirect( url )
 
 function onStartNewPinkie(form)
 {
-  if(form["title"].value == "" ||form["title"].value == null )
-  {
-    alert("You must have a Title for this Pinkie!");
-    return false;
-  }
+  // if(form["title"].value == "" ||form["title"].value == null )
+  // {
+  //   alert("You must have a Title for this Pinkie!");
+  //   return false;
+  // }
   form.submit();
 }
 
