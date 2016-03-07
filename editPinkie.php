@@ -36,13 +36,13 @@ function printObjectsTable()
     {
       printf('<div class="row no-gutter"><div class="form-group form-group-lg">
         <div class="col-sm-1">
-          <input type="text" class="form-control" id="quantity[]" name="quantity[]" placeholder="Quantity" value="%d" readonly>
+          <input type="text" class="form-control" id="quantity[]" name="quantity[]" placeholder="Quantity" value="%d" >
         </div>
         <div class="col-sm-2">
-          <input type="text" class="form-control" id="stockNumber[]" name="stockNumber[]" placeholder="Stock Number" value="%s" readonly>
+          <input type="text" class="form-control" id="stockNumber[]" name="stockNumber[]" placeholder="Stock Number" value="%s" >
         </div>
         <div class="col-sm-3">
-          <input type="text" class="form-control" id="description[]" name="description[]" placeholder="Description" value="%s" readonly>
+          <input type="text" class="form-control" id="description[]" name="description[]" placeholder="Description" value="%s" >
         </div>
         <div class="col-sm-1">
           <input type="text" class="form-control" id="bc[]" name="bc[]" placeholder="BC" value="%s">
@@ -53,7 +53,7 @@ function printObjectsTable()
         <div class="col-sm-2">
           <div class="input-group">
             <span class="input-group-addon">$</span>
-            <input type="text" class="form-control" id="unitPrice[]" name="unitPrice[]" placeholder="Unit Price" value="%.2f" readonly>
+            <input type="text" class="form-control" id="unitPrice[]" name="unitPrice[]" placeholder="Unit Price" value="%.2f" >
           </div>
         </div>
         <div class="col-sm-2">
@@ -479,6 +479,18 @@ function printAllFilesTable()
                 <?php printAllFilesTable(); ?>
               </tbody>
             </table>
+          </div>
+          <H2>Add more Files</H2>
+          <div class="form-group">
+              <input id="attachment" name="attachment[]" type="file" class="file-loading" multiple data-show-upload="false" data-show-caption="true">
+              <script>
+                $(document).on('ready', function() {
+                  $("#attachment").fileinput({
+                    maxFileCount: <?php echo MAX_ATTACHMENTS; ?>,
+                    allowedFileExtensions: ["jpg", "pdf", "png", "jpeg"]
+                  });
+                });
+              </script>
           </div>
         </div>
       </div>

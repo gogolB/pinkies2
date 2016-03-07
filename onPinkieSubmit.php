@@ -61,6 +61,7 @@ foreach ($_fund as $key => $f)
 //------------------------------------------------------------------------------
 // Please note that if the number of files excedes the max supported by the file
 // system it will fail to create a folder.
+//------------------------------------------------------------------------------
 // Attachments.
 for($i=0; $i<count($_FILES['attachment']['name']); $i++)
 {
