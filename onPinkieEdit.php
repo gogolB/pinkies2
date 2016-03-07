@@ -29,10 +29,14 @@ $_pinkie->s_Status = $_POST['status'];
 
 // Purchase Objects.
 $_objectID = $_POST['objectID'];
+
+// Old Stuff
 $_quantity = $_POST['quantity'];
 $_stockNumber = $_POST['stockNumber'];
 $_description = $_POST['description'];
 $_unitPrice = $_POST['unitPrice'];
+
+// New stuff
 $_bc = $_POST['bc'];
 $_accountNumber = $_POST['accountNumber'];
 // Add each of the objects to the pinkie.
@@ -41,8 +45,14 @@ foreach($_quantity as $key=>$q)
   $_o = new PurchaseObject($_POST['pinkieID']);
   $_o->i_ObjectID = intval($_objectID[$key]);
   $_o->fromDatabase();
+  // Update all the new stuff.
   $_o->s_BC = $_bc[$key];
   $_o->s_AccountNumber = $_accountNumber[$key];
+  // Update all the old stuff.
+  $_o->i_Quantity = $_quantity[$key];
+  $_o->s_StockNumber = $_stockNumber[$key];
+  $_o->s_Description = $_description[$key];
+  $_o->d_UnitPrice = $_unitPrice[$key];
   // Push the object to the database.
   $_o->toDatabase();
 }
