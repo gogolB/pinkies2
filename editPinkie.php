@@ -136,10 +136,22 @@ function printAllFilesTable()
     <script type="text/javascript" src="./js/pinkieEdit.js"></script>
     <script type="text/javascript">
     $(function() {
-        $('#fundTable').on('contextmenu', 'tr', function(e) {
-            e.preventDefault();
-            alert(this.id);
-        });
+        $('#fundTable tbody').contextMenu({
+          selector: 'tr',
+          callback:function(key, options) {
+            var m = "clicked: " + key + " on " + $(this).text();
+            window.console && console.log(m) || alert(m);
+        },
+        items: {
+            "edit": {name: "Edit", icon: "edit"},
+            "cut": {name: "Cut", icon: "cut"},
+            "copy": {name: "Copy", icon: "copy"},
+            "paste": {name: "Paste", icon: "paste"},
+            "delete": {name: "Delete", icon: "delete"},
+            "sep1": "---------",
+            "quit": {name: "Quit", icon: function($element, key, item){ return 'context-menu-icon context-menu-icon-quit'; }}
+        }
+    });
     });
     </script>
 
