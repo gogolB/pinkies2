@@ -101,7 +101,7 @@ function printFundsTable()
                     <td>%s</td>
                     <td>%s</td>
                     <td>$%.2f</td>
-                  </tr>', $_e->$i_ExpenseID, $_fund->s_FundName, $_e->d_Amount, $_fund->s_Activity, $_fund->s_Fund, $_fund->s_Function, $_fund->s_CostCenter, $_fund->s_ProjectCode,$_fund->s_Balance);
+                  </tr>', $_e->i_ExpenseID, $_fund->s_FundName, $_e->d_Amount, $_fund->s_Activity, $_fund->s_Fund, $_fund->s_Function, $_fund->s_CostCenter, $_fund->s_ProjectCode,$_fund->s_Balance);
   }
 }
 
