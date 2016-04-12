@@ -146,7 +146,7 @@ function printAllFilesTable()
         },
         items: {
             "edit": {name: "Edit", icon: "edit"},
-            "delete": {name: "Delete", icon: "delete"},
+            "delete": {name: "Delete", icon: "delete", callback: clicky},
             'add':{name: "Add", icon:"add"}
         }
     });

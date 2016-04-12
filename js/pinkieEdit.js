@@ -1,5 +1,4 @@
-$('#fundTable tbody tr').mousedown(function(e){
-
-    if(e.button==2) alert($(this).attr('id'));
-
- });
+function clicky()
+{
+    alert("You clicked delete");
+}
