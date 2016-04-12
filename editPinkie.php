@@ -288,7 +288,7 @@ function printAllFilesTable()
       <!-- Funds -->
       <div class="container">
         <div class="well">
-
+          <H2><u><b>Funds</b></u></H2>
           <div class="table-responsive">
             <table class="table table-bordered table-hover table-condensed">
               <thead>
@@ -310,12 +310,12 @@ function printAllFilesTable()
           </div>
 
           <div class='form-group form-group-lg'>
+            <H2><u><b>Add a Fund</b></u></H2>
             <div class="row">
-
               <div class="col-md-5">
                 <input type="text" class="form-control" id="newFund" name="newFund">
               </div>
-
+              
               <div class="col-md-5">
                 <div class="input-group">
                   <span class="input-group-addon">$</span>
