@@ -136,7 +136,7 @@ function printAllFilesTable()
     <script type="text/javascript" src="./js/pinkieEdit.js"></script>
     <script type="text/javascript">
     $(function() {
-        $('#fundTable tbody').contextMenu({
+        $('#fundTable').contextMenu({
           selector: 'tr',
           callback:function(key, options) {
             var m = "clicked: " + key + " on " + $(this).text();
