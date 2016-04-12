@@ -312,7 +312,7 @@ function printAllFilesTable()
           <div class='form-group form-group-lg'>
             <div class="row">
 
-              <div class="col-md-6">
+              <div class="col-md-5">
                 <input type="text" class="form-control" id="newFund" name="newFund">
               </div>
 
