@@ -132,6 +132,7 @@ function printAllFilesTable()
     <?php printHeaderInfo(); ?>
     <title>New Pinkie</title>
     <script type="text/javascript" src="./js/pinkie.js"></script>
+    <script type="text/javascript" src="./js/pinkieEdit.js"></script>
     <?php if(isSuper()): ?>
       <script type="text/javascript" src="./js/supervisorPinkieReview.js"></script>
     <?php endif; ?>
@@ -290,7 +291,7 @@ function printAllFilesTable()
         <div class="well">
           <H2><u><b>Funds</b></u></H2>
           <div class="table-responsive">
-            <table class="table table-bordered table-hover table-condensed">
+            <table class="table table-bordered table-hover table-condensed" id="fundTable" name="fundTable">
               <thead>
                 <tr>
                   <th>Fund Name</th>
@@ -315,7 +316,7 @@ function printAllFilesTable()
               <div class="col-md-5">
                 <input type="text" class="form-control" id="newFund" name="newFund">
               </div>
-              
+
               <div class="col-md-5">
                 <div class="input-group">
                   <span class="input-group-addon">$</span>
