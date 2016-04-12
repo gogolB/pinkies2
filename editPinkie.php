@@ -131,6 +131,7 @@ function printAllFilesTable()
   <HEAD>
     <?php printHeaderInfo(); ?>
     <title>New Pinkie</title>
+    <link rel="stylesheet" type="text/css" href="./css/editPinkieExpenseRightClickMenu.css">';
     <script type="text/javascript" src="./js/pinkie.js"></script>
     <script type="text/javascript" src="./js/pinkieEdit.js"></script>
     <script type="text/javascript">
@@ -538,6 +539,26 @@ function printAllFilesTable()
       </div>
 
     </form>
+
+    <nav class="context-menu">
+      <ul class="context-menu__items">
+        <li class="context-menu__item">
+          <a href="#" class="context-menu__link">
+            <i class="fa fa-eye"></i> View Task
+          </a>
+        </li>
+        <li class="context-menu__item">
+          <a href="#" class="context-menu__link">
+            <i class="fa fa-edit"></i> Edit Task
+          </a>
+        </li>
+        <li class="context-menu__item">
+          <a href="#" class="context-menu__link">
+            <i class="fa fa-times"></i> Delete Task
+          </a>
+        </li>
+      </ul>
+    </nav>
 
   </BODY>
 </HTML>
