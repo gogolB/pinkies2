@@ -131,9 +131,11 @@ function printAllFilesTable()
   <HEAD>
     <?php printHeaderInfo(); ?>
     <title>New Pinkie</title>
-    <link rel="stylesheet" type="text/css" href="./css/editPinkieExpenseRightClickMenu.css">';
+    <link rel="stylesheet" type="text/css" href="./css/jquery.contextMenu.css">';
     <script type="text/javascript" src="./js/pinkie.js"></script>
     <script type="text/javascript" src="./js/pinkieEdit.js"></script>
+    <script type="text/javascript" src="./js/jquery.ui.position.js"></script>
+    <script type="text/javascript" src="./js/jquery.contextMenu.js"></script>
     <script type="text/javascript">
     $(function() {
         $('#fundTable').contextMenu({
