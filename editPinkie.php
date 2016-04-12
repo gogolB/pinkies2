@@ -133,6 +133,14 @@ function printAllFilesTable()
     <title>New Pinkie</title>
     <script type="text/javascript" src="./js/pinkie.js"></script>
     <script type="text/javascript" src="./js/pinkieEdit.js"></script>
+    <script type="text/javascript">
+      $('#fundTable tbody tr').mousedown(function(e){
+
+        if(e.button==2) alert($(this).attr('id'));
+
+      });
+    </script>
+
     <?php if(isSuper()): ?>
       <script type="text/javascript" src="./js/supervisorPinkieReview.js"></script>
     <?php endif; ?>
