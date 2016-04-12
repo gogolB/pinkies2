@@ -134,11 +134,12 @@ function printAllFilesTable()
     <script type="text/javascript" src="./js/pinkie.js"></script>
     <script type="text/javascript" src="./js/pinkieEdit.js"></script>
     <script type="text/javascript">
-      $('#fundTable tbody tr').mousedown(function(e){
-
-        if(e.button==2) alert($(this).attr('id'));
-
-      });
+    $(function() {
+        $('#fundTable').on('contextmenu', 'tr', function(e) {
+            e.preventDefault();
+            alert(this.id);
+        });
+    });
     </script>
 
     <?php if(isSuper()): ?>
