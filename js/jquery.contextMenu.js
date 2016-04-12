@@ -213,7 +213,7 @@
                 }
             },
             // offset to add to zIndex
-            zIndex: 1,
+            zIndex: 10,
             // show hide animation settings
             animation: {
                 duration: 50,
@@ -521,7 +521,7 @@
 					} else {
 						if (target.offsetParent !== null && target.offsetParent !== undefined) {
 							getZIndexOfTriggerTarget(target.offsetParent);
-						} 
+						}
 						else if (target.parentElement !== null && target.parentElement !== undefined) {
 							getZIndexOfTriggerTarget(target.parentElement);
 						}
