@@ -295,7 +295,7 @@ function printAllFilesTable()
                 <tr>
                   <th>Fund Name</th>
                   <th>Expense Amount</th>
-                  <th>Acivity</th>
+                  <th>Activity</th>
                   <th>Fund</th>
                   <th>Function</th>
                   <th>Cost Center</th>
@@ -307,6 +307,27 @@ function printAllFilesTable()
                 <?php printFundsTable(); ?>
               </tbody>
             </table>
+          </div>
+
+          <div class='form-group form-group-lg'>
+            <div class="row">
+
+              <div class="col-md-6">
+                <input type="text" class="form-control" id="newFund" name="newFund">
+              </div>
+
+              <div class="col-md-5">
+                <div class="input-group">
+                  <span class="input-group-addon">$</span>
+                  <input type="text" class="form-control" id="total" name="total">
+                </div>
+              </div>
+
+              <div class="col-md-1">
+                  <button type="button" class="btn btn-success" onclick="onStartNewPinkie(this.form)"><span class="glyphicon glyphicon-plus"></span> Add Fund</button>
+              </div>
+            </div>
+
           </div>
 
           <div class="form-group form-group-lg">
