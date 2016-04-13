@@ -136,22 +136,10 @@ function printAllFilesTable()
     <script type="text/javascript" src="./js/pinkieEdit.js"></script>
     <script type="text/javascript" src="./js/jquery.ui.position.js"></script>
     <script type="text/javascript" src="./js/jquery.contextMenu.js"></script>
-    <script type="text/javascript">
-    $(function() {
-        $('#fundTable').contextMenu({
-          selector: 'tr',
-          callback:function(key, options) {
-            var m = "clicked: " + key + " on " + $(this).text();
-            window.console && console.log(m) || alert(m);
-        },
-        items: {
-            "edit": {name: "Edit", icon: "edit"},
-            "delete": {name: "Delete", icon: "delete", callback: clicky},
-            'add':{name: "Add", icon:"add"}
-        }
-    });
-    });
-    </script>
+    <link href="./css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="./js/plugins/canvas-to-blob.min.js" type="text/javascript"></script>
+    <script src="./js/fileinput.min.js" type="text/javascript"></script>
+
 
     <?php if(isSuper()): ?>
       <script type="text/javascript" src="./js/supervisorPinkieReview.js"></script>
