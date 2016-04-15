@@ -550,12 +550,12 @@ function printAllFilesTable()
       </div>
 
       <div class="modal-body">
-        <div class='form-group form-group-lg'>
-            <div class="col-md-5">
+        <div class="form-group">
+            <div class="col-md-12">
               <input type="text" class="form-control" id="newFund" name="newFund">
             </div>
 
-            <div class="col-md-5">
+            <div class="col-md-12">
               <div class="input-group">
                 <span class="input-group-addon">$</span>
                 <input type="text" class="form-control" id="total" name="total">
@@ -571,7 +571,7 @@ function printAllFilesTable()
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
-      
+
     </div>
 
   </div>
