@@ -551,11 +551,13 @@ function printAllFilesTable()
 
       <div class="modal-body">
         <div class="form-group">
-            <div class="col-md-12">
+            <div class="col-md-12 container-fluid">
+              <h4>Fund Name</h4>
               <input type="text" class="form-control" id="newFund" name="newFund">
             </div>
 
-            <div class="col-md-12">
+            <div class="col-md-12 container-fluid">
+              <h4>Amount</h4>
               <div class="input-group">
                 <span class="input-group-addon">$</span>
                 <input type="text" class="form-control" id="total" name="total">
