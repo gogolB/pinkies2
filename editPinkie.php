@@ -318,27 +318,6 @@ function printAllFilesTable()
             </table>
           </div>
 
-          <div class='form-group form-group-lg'>
-            <H2><u><b>Add a Fund</b></u></H2>
-            <div class="row">
-              <div class="col-md-5">
-                <input type="text" class="form-control" id="newFund" name="newFund">
-              </div>
-
-              <div class="col-md-5">
-                <div class="input-group">
-                  <span class="input-group-addon">$</span>
-                  <input type="text" class="form-control" id="total" name="total">
-                </div>
-              </div>
-
-              <div class="col-md-1">
-                  <button type="button" class="btn btn-success" onclick="onStartNewPinkie(this.form)"><span class="glyphicon glyphicon-plus"></span> Add Fund</button>
-              </div>
-            </div>
-
-          </div>
-
           <div class="form-group form-group-lg">
             <label class="control-label col-sm-2" for="totalExpense">Total Expense:</label>
             <div class="col-sm-10">
@@ -564,16 +543,35 @@ function printAllFilesTable()
 
     <!-- Modal content-->
     <div class="modal-content">
+
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
+        <h4 class="modal-title">Add a Fund</h4>
       </div>
+
       <div class="modal-body">
-        <p>Some text in the modal.</p>
+        <div class='form-group form-group-lg'>
+            <div class="col-md-5">
+              <input type="text" class="form-control" id="newFund" name="newFund">
+            </div>
+
+            <div class="col-md-5">
+              <div class="input-group">
+                <span class="input-group-addon">$</span>
+                <input type="text" class="form-control" id="total" name="total">
+              </div>
+            </div>
+
+        </div>
       </div>
+
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <div class="row">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Add this fund</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
       </div>
+      
     </div>
 
   </div>
