@@ -1,4 +1,4 @@
-function clicky()
+function addFundModal()
 {
     $('#addFundModal').modal('show');
 }
@@ -13,7 +13,7 @@ $(function() {
     items: {
         "edit": {name: "Edit", icon: "edit"},
         "delete": {name: "Delete", icon: "delete", callback: clicky},
-        'add':{name: "Add", icon:"add"}
+        'add':{name: "Add", icon:"add", callback: addFundModal}
     }
 });
 });
