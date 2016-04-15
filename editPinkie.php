@@ -559,7 +559,6 @@ function printAllFilesTable()
     </nav>
 
     <!-- Modal Windows -->
-    <!-- Modal -->
 <div id="addFundModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 

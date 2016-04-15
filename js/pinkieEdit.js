@@ -12,7 +12,7 @@ $(function() {
     },
     items: {
         "edit": {name: "Edit", icon: "edit"},
-        "delete": {name: "Delete", icon: "delete", callback: clicky},
+        "delete": {name: "Delete", icon: "delete"},
         'add':{name: "Add", icon:"add", callback: addFundModal}
     }
 });
