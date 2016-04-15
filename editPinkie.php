@@ -549,7 +549,7 @@ function printAllFilesTable()
         <h4 class="modal-title">Add a Fund</h4>
       </div>
 
-      <div class="modal-body">
+      <div class="modal-body container-fluid">
         <div class="form-group">
             <div class="col-md-12 container-fluid">
               <h4>Fund Name</h4>
