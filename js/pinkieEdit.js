@@ -1,6 +1,6 @@
 function clicky()
 {
-    alert("You clicked delete");
+    $('#addFundModal').modal('show');
 }
 
 $(function() {
