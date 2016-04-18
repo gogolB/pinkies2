@@ -153,7 +153,7 @@ function printAllFilesTable()
   </HEAD>
   <BODY>
 
-    <div class="jumbotron text-center" style="margin-top=-30px;">
+    <div class="jumbotron text-center" style="margin-top:-20px;">
       <H1>ePinkies 2</H1>
       <h2>University of California at Riverside</h2>
       <h3>Department of Electrical and Computer Engineering</h3>
@@ -569,8 +569,8 @@ function printAllFilesTable()
 
       <div class="modal-footer">
         <div class="row">
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Add this fund</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal" style="padding-right=10px;">Close</button>
+          <button type="button" class="btn btn-primary" >Add this fund</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" style="margin-right:10px;">Close</button>
         </div>
       </div>
 
