@@ -262,6 +262,7 @@ function printAllFilesTable()
           </div>
 
           <div class="form-group form-group-lg">
+            <input type="includeTax" value="">
             <label class="control-label col-sm-2" for="tax">Tax:</label>
             <div class="col-sm-10">
               <div class="input-group">
