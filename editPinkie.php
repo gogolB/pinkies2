@@ -261,8 +261,8 @@ function printAllFilesTable()
             </div>
           </div>
 
-          <div class="form-group form-group-lg checkbox">
-            <input type="includeTax" value="">
+          <div class="form-group form-group-lg">
+            <input type="checkboc" name="includeTax" id = "includeTax" value="">
             <label class="control-label col-sm-2" for="tax">Tax:</label>
             <div class="col-sm-10">
               <div class="input-group">
