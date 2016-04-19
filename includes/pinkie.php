@@ -546,7 +546,7 @@ class PinkieExpense
         }
 
 
-        if($this->i_ExpenseID > 0)
+        if($this->i_ExpenseID > 0 or fundIsInDatabase())
         {
             $this->update();
         }

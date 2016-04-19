@@ -129,10 +129,10 @@ for($i=0; $i<count($_FILES['attachment']['name']); $i++)
 }
 //------------------------------------------------------------------------------
 // push it to the database.
-//var_dump($_pinkie);
-$_pinkie->toDatabase();
+var_dump($_pinkie);
+//$_pinkie->toDatabase();
 //------------------------------------------------------------------------------
-logGeneral($_pinkie->i_PinkieID, $_SESSION['Username'], "Pinkie was edited by : ".getName());
-header("Location: ./home.php");
+//logGeneral($_pinkie->i_PinkieID, $_SESSION['Username'], "Pinkie was edited by : ".getName());
+//header("Location: ./home.php");
 
 ?>
