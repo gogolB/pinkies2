@@ -205,7 +205,7 @@ function printAllFilesTable()
           <div class="form-group form-group-lg">
             <label class="control-label col-sm-2" for="action">Action:</label>
             <div class="col-sm-10">
-              <select class="form-control" id="action" name="action" readonly>
+              <select class="form-control" id="action" name="action">
                   <option value="Reimbursement" <?php isSelected($_pinkie->s_Action, "Reimbursement"); ?> >Reimbursement</option>
                   <option value="Purchase" <?php isSelected($_pinkie->s_Action, "Purchase"); ?> >Purchase</option>
                   <option value="Payment Request" <?php isSelected($_pinkie->s_Action, "Payment Request"); ?> >Payment Request</option>
@@ -217,7 +217,7 @@ function printAllFilesTable()
           <div class="form-group form-group-lg">
             <label class="control-label col-sm-2" for="priority">Priority:</label>
             <div class="col-sm-10">
-              <select class="form-control" id="priority" name="priority" readonly>
+              <select class="form-control" id="priority" name="priority">
                   <option value="Expedite" <?php isSelected($_pinkie->s_Priority, "Expedite"); ?> >Expedite</option>
                   <option value="Urgent" <?php isSelected($_pinkie->s_Priority, "Urgent"); ?> >Urgent</option>
                   <option value="Routine" <?php isSelected($_pinkie->s_Priority, "Routine"); ?> >Routine</option>
@@ -230,7 +230,7 @@ function printAllFilesTable()
           <div class="form-group form-group-lg">
             <label class="control-label col-sm-2" for="referenceNumber">Reference Number:</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="referenceNumber" name="referenceNumber" value="<?php echo $_pinkie->s_ReferenceNumber; ?>" readonly>
+              <input type="text" class="form-control" id="referenceNumber" name="referenceNumber" value="<?php echo $_pinkie->s_ReferenceNumber; ?>">
             </div>
           </div>
 
