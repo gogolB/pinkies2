@@ -17,3 +17,8 @@ body {
   padding-right: 0;
   padding-left: 0;
 }
+
+nav#fundRightClickMenu
+{
+  display: none;
+}

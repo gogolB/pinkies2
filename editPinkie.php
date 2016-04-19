@@ -104,7 +104,7 @@ function printFundsTable()
                   </tr>', $_e->i_ExpenseID, $_fund->s_FundName, $_e->d_Amount, $_fund->s_Activity, $_fund->s_Fund, $_fund->s_Function, $_fund->s_CostCenter, $_fund->s_ProjectCode,$_fund->s_Balance);
     printf('<input type="hidden" id="expenseID[]" name="expenseID" value="%s">', $_e->i_ExpenseID);
     printf('<input type="hidden" id="fund[]" value="%s">', $_e->f_FundID);
-    printf('<input type="hidden" id="amount[]" value="%s">', $_e->d_Amount);              
+    printf('<input type="hidden" id="amount[]" value="%s">', $_e->d_Amount);
   }
 }
 
@@ -133,7 +133,7 @@ function printAllFilesTable()
 <HTML>
   <HEAD>
     <?php printHeaderInfo(); ?>
-    <title>New Pinkie</title>
+    <title>Editing Pinkie</title>
     <link rel="stylesheet" type="text/css" href="./css/jquery.contextMenu.css">';
     <script type="text/javascript" src="./js/pinkie.js"></script>
     <script type="text/javascript" src="./js/pinkieEdit.js"></script>
@@ -507,7 +507,7 @@ function printAllFilesTable()
         </div>
       </div>
 
-      <!-- Approve or Reject -->
+      <!-- Update -->
       <div class="container">
         <div class="well">
           <div class="form-group form-group-lg">
@@ -520,7 +520,7 @@ function printAllFilesTable()
 
     </form>
 
-    <nav class="context-menu">
+    <nav class="context-menu" id="fundRightClickMenu">
       <ul class="context-menu__items">
         <li class="context-menu__item">
           <a href="#" class="context-menu__link">
