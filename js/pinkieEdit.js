@@ -11,8 +11,9 @@ function editFundModal(key, options)
 function deleteFundModal(key, options)
 {
     $('#deleteFundModal').modal('show');
-    var m = "clicked: " + key + " on " + $(this).getAttribute("id");
-    window.console && console.log(m) || alert(m);
+    $("#deleteFundName").val($(this).attr("fname"));
+    $("#deleteFundTotal").val($(this).attr("amt"));
+    $("#deleteExpenseID").val($(this).attr("id"));
 }
 
 $(function() {

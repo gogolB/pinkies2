@@ -92,7 +92,7 @@ function printFundsTable()
       $_fund = new Fund();
       $_fund->i_FundID = $_e->f_FundID;
       $_fund->fromDatabase();
-      printf('<tr id="%s">
+      printf('<tr id="%s" amt="%s" fname="%s">
                     <td>%s</td>
                     <td>$%.2f</td>
                     <td>%s</td>
@@ -101,7 +101,7 @@ function printFundsTable()
                     <td>%s</td>
                     <td>%s</td>
                     <td>$%.2f</td>
-                  </tr>', $_e->i_ExpenseID, $_fund->s_FundName, $_e->d_Amount, $_fund->s_Activity, $_fund->s_Fund, $_fund->s_Function, $_fund->s_CostCenter, $_fund->s_ProjectCode,$_fund->s_Balance);
+                  </tr>', $_e->i_ExpenseID,$_e->d_Amount, $_fund->s_FundName, $_fund->s_FundName, $_e->d_Amount, $_fund->s_Activity, $_fund->s_Fund, $_fund->s_Function, $_fund->s_CostCenter, $_fund->s_ProjectCode,$_fund->s_Balance);
     printf('<input type="hidden" id="expenseID[]" name="expenseID" value="%s">', $_e->i_ExpenseID);
     printf('<input type="hidden" id="fund[]" value="%s">', $_e->f_FundID);
     printf('<input type="hidden" id="amount[]" value="%s">', $_e->d_Amount);
@@ -647,6 +647,11 @@ function printAllFilesTable()
                 <span class="input-group-addon">$</span>
                 <input type="text" class="form-control" id="deleteFundTotal" name="deleteFundTotal" disabled>
               </div>
+            </div>
+
+            <div class="col-md-12 container-fluid">
+              <h4>Expense ID (Internal)</h4>
+              <input type="text" class="form-control" id="deleteExpenseID" name="deleteExpenseID" disabled>
             </div>
 
         </div>
