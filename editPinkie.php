@@ -590,7 +590,7 @@ function printAllFilesTable()
 
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Add a Fund</h4>
+        <h4 class="modal-title">Editing this fund</h4>
       </div>
 
       <div class="modal-body container-fluid">
@@ -613,7 +613,7 @@ function printAllFilesTable()
 
       <div class="modal-footer">
         <div class="row">
-          <button type="button" class="btn btn-primary" >Add this fund</button>
+          <button type="button" class="btn btn-success" >Confirm changes</button>
           <button type="button" class="btn btn-default" data-dismiss="modal" style="margin-right:10px;">Close</button>
         </div>
       </div>
@@ -631,21 +631,21 @@ function printAllFilesTable()
 
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Add a Fund</h4>
+        <h4 class="modal-title">Are you sure you want to remove this fund?</h4>
       </div>
 
       <div class="modal-body container-fluid">
         <div class="form-group">
             <div class="col-md-12 container-fluid">
               <h4>Fund Name</h4>
-              <input type="text" class="form-control" id="newFund" name="newFund">
+              <input type="text" class="form-control" id="deleteFundName" name="deleteFundName" disabled>
             </div>
 
             <div class="col-md-12 container-fluid">
               <h4>Amount</h4>
               <div class="input-group">
                 <span class="input-group-addon">$</span>
-                <input type="text" class="form-control" id="total" name="total">
+                <input type="text" class="form-control" id="deleteFundTotal" name="deleteFundTotal" disabled>
               </div>
             </div>
 
@@ -654,7 +654,7 @@ function printAllFilesTable()
 
       <div class="modal-footer">
         <div class="row">
-          <button type="button" class="btn btn-primary" >Add this fund</button>
+          <button type="button" class="btn btn-danger" >Remove fund</button>
           <button type="button" class="btn btn-default" data-dismiss="modal" style="margin-right:10px;">Close</button>
         </div>
       </div>

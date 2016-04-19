@@ -11,7 +11,7 @@ function editFundModal(key, options)
 function deleteFundModal(key, options)
 {
     $('#deleteFundModal').modal('show');
-    var m = "clicked: " + key + " on " + $(this).text();
+    var m = "clicked: " + key + " on " + $(this).getAttribute("id");
     window.console && console.log(m) || alert(m);
 }
 
@@ -24,7 +24,7 @@ $(function() {
     },
     items: {
         "edit": {name: "Edit", icon: "edit" , callback: editFundModal},
-        "delete": {name: "Delete", icon: "delete" , callback: deleteFundModal},
+        "delete": {name: "Remove", icon: "delete" , callback: deleteFundModal},
         'add':{name: "Add", icon:"add", callback: addFundModal}
     }
 });
