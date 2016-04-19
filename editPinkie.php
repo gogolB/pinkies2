@@ -582,5 +582,87 @@ function printAllFilesTable()
   </div>
 </div>
 
+<div id="editFundModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add a Fund</h4>
+      </div>
+
+      <div class="modal-body container-fluid">
+        <div class="form-group">
+            <div class="col-md-12 container-fluid">
+              <h4>Fund Name</h4>
+              <input type="text" class="form-control" id="newFund" name="newFund">
+            </div>
+
+            <div class="col-md-12 container-fluid">
+              <h4>Amount</h4>
+              <div class="input-group">
+                <span class="input-group-addon">$</span>
+                <input type="text" class="form-control" id="total" name="total">
+              </div>
+            </div>
+
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <div class="row">
+          <button type="button" class="btn btn-primary" >Add this fund</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" style="margin-right:10px;">Close</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<div id="deleteFundModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add a Fund</h4>
+      </div>
+
+      <div class="modal-body container-fluid">
+        <div class="form-group">
+            <div class="col-md-12 container-fluid">
+              <h4>Fund Name</h4>
+              <input type="text" class="form-control" id="newFund" name="newFund">
+            </div>
+
+            <div class="col-md-12 container-fluid">
+              <h4>Amount</h4>
+              <div class="input-group">
+                <span class="input-group-addon">$</span>
+                <input type="text" class="form-control" id="total" name="total">
+              </div>
+            </div>
+
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <div class="row">
+          <button type="button" class="btn btn-primary" >Add this fund</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" style="margin-right:10px;">Close</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
   </BODY>
 </HTML>
