@@ -1,14 +1,14 @@
-function addFundModal()
+function addFundModal(key, options)
 {
     $('#addFundModal').modal('show');
 }
 
-function editFundModal()
+function editFundModal(key, options)
 {
     $('#editFundModal').modal('show');
 }
 
-function deleteFundModal()
+function deleteFundModal(key, options)
 {
     $('#deleteFundModal').modal('show');
     var m = "clicked: " + key + " on " + $(this).text();
