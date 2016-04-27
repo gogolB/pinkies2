@@ -237,7 +237,7 @@ function printAllFilesTable()
           <div class="form-group form-group-lg">
             <label class="control-label col-sm-2" for="pinkieID">Pinkie Number:</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="pinkieID" name="pinkieID" value="<?php echo $i_PinkieID; ?>">
+              <input type="text" class="form-control" id="pinkieID" name="pinkieID" value="<?php echo $i_PinkieID; ?>" readonly>
             </div>
           </div>
 
