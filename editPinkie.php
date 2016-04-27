@@ -234,6 +234,13 @@ function printAllFilesTable()
             </div>
           </div>
 
+          <div class="form-group form-group-lg">
+            <label class="control-label col-sm-2" for="pinkieID">Pinkie Number:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="pinkieID" name="pinkieID" value="<?php echo $i_PinkieID; ?>">
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -597,15 +604,20 @@ function printAllFilesTable()
         <div class="form-group">
             <div class="col-md-12 container-fluid">
               <h4>Fund Name</h4>
-              <input type="text" class="form-control" id="newFund" name="newFund">
+              <input type="text" class="form-control" id="editFund" name="editFund">
             </div>
 
             <div class="col-md-12 container-fluid">
               <h4>Amount</h4>
               <div class="input-group">
                 <span class="input-group-addon">$</span>
-                <input type="text" class="form-control" id="total" name="total">
+                <input type="text" class="form-control" id="editTotal" name="editTotal">
               </div>
+            </div>
+
+            <div class="col-md-12 container-fluid">
+              <h4>Expense ID (Internal)</h4>
+              <input type="text" class="form-control" id="editExpenseID" name="editExpenseID" disabled>
             </div>
 
         </div>

@@ -6,6 +6,9 @@ function addFundModal(key, options)
 function editFundModal(key, options)
 {
     $('#editFundModal').modal('show');
+    $('#editFund').val($(this).attr("fname"));
+    $('#editTotal').val($(this).attr("amt"));
+    $('#editExpenseID').val($(this).attr("id"));
 }
 
 function deleteFundModal(key, options)
