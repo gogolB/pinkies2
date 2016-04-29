@@ -33,12 +33,26 @@ function onDeleteFund()
 
 function onAddFund()
 {
-
+   $.ajax({
+      type: "POST",
+      url: "./includes/editPinkieExpenses.php",
+      data: "mode=add" + "&fundID=" + $('#newFund').val() + "&fundAmt=" + $('#newFundTotal').val() + "&pinkieID=" + $('#pinkieID').val(),
+      success : function(text){
+          alert(text);
+      }
+ });
 }
 
 function onEditFund()
 {
-
+   $.ajax({
+      type: "POST",
+      url: "./includes/editPinkieExpenses.php",
+      data: "mode=edit" + "&fundID=" + $('#editFund').val() + "&fundAmt=" + $('#editTotal').val() + "&expenseID=" + $('#editExpenseID').val(),
+      success : function(text){
+          alert(text);
+      }
+ });
 }
 
 $(function() {
