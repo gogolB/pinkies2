@@ -21,7 +21,14 @@ function deleteFundModal(key, options)
 
 function onDeleteFund()
 {
-
+    $.ajax({
+       type: "POST",
+       url: "./includes/editPinkieExpenses.php",
+       data: "mode=delete" + "&expenseID=" + $('#deleteExpenseID').val(),
+       success : function(text){
+           alert(text);
+       }
+   });
 }
 
 function onAddFund()
