@@ -671,7 +671,7 @@ function printAllFilesTable()
 
       <div class="modal-footer">
         <div class="row">
-          <button type="button" class="btn btn-danger" >Remove fund</button>
+          <button type="button" class="btn btn-danger" onclick="onDeleteFund()">Remove fund</button>
           <button type="button" class="btn btn-default" data-dismiss="modal" style="margin-right:10px;">Close</button>
         </div>
       </div>
