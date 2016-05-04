@@ -257,7 +257,7 @@ function printAllFilesTable()
                 </tr>
               </thead>
               <tbody>
-                <?php printFundsTable(); ?>
+                <?php printObjectsTable(); ?>
               </tbody>
             </table>
           </div>
