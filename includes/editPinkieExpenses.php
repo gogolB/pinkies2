@@ -13,7 +13,7 @@ if(strcmp($_POST['mode'], "delete") == 0) // We are in delete mode.
 
   if ($_stmt->errno)
   {
-    onError("editPinkieExpenses::Delete()", $_stmt->error);
+    onErrorInternal("editPinkieExpenses::Delete()", $_stmt->error);
   }
   $_stmt->close();
   // Close up the database connection.
@@ -33,7 +33,7 @@ if(strcmp($_POST['mode'], "edit") == 0) // We are in edit mode.
   if ($_stmt->errno)
   {
     $_stmt->close();
-    onError("editPinkieExpenses::editFetchFundID()", $_stmt->error);
+    onErrorInternal("editPinkieExpenses::editFetchFundID()", $_stmt->error);
     return;
   }
   else
@@ -51,7 +51,7 @@ if(strcmp($_POST['mode'], "edit") == 0) // We are in edit mode.
 
   if ($_stmt->errno)
   {
-    onError("editPinkieExpenses::editUpdate()", $_stmt->error);
+    onErrorInternal("editPinkieExpenses::editUpdate()", $_stmt->error);
   }
   $_stmt->close();
   // Close up the database connection.
@@ -72,7 +72,7 @@ if(strcmp($_POST['mode'], "add") == 0) // We are in add mode.
   if ($_stmt->errno)
   {
     $_stmt->close();
-    onError("editPinkieExpenses::editFetchFundID()", $_stmt->error);
+    onErrorInternal("editPinkieExpenses::editFetchFundID()", $_stmt->error);
     return;
   }
   else
@@ -89,7 +89,7 @@ if(strcmp($_POST['mode'], "add") == 0) // We are in add mode.
 
   if ($_stmt->errno)
   {
-    onError("editPinkieExpenses::editUpdate()", $_stmt->error);
+    onErrorInternal("editPinkieExpenses::editUpdate()", $_stmt->error);
   }
   $_stmt->close();
   // Close up the database connection.
