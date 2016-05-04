@@ -38,7 +38,7 @@ if(strcmp($_POST['mode'], "edit") == 0) // We are in edit mode.
   }
   else
   {
-    $stmt->bind_result($_fid);
+    $_stmt->bind_result($_fid);
     $_stmt->close();
   }
 
@@ -77,7 +77,7 @@ if(strcmp($_POST['mode'], "add") == 0) // We are in add mode.
   }
   else
   {
-    $stmt->bind_result($_fid);
+    $_stmt->bind_result($_fid);
     $_stmt->close();
   }
 
