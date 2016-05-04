@@ -24,32 +24,10 @@ if(strcmp($_POST['mode'], "delete") == 0) // We are in delete mode.
 if(strcmp($_POST['mode'], "edit") == 0) // We are in edit mode.
 {
   $_db = getMysqli();
-  // We need to get the fundID beacuse we were given the fund Name
-  $_sql = "SELECT FundID FROM Funds WHERE FundName=?";
-  $_stmt = $_db->prepare((string)$_sql);
-  $_stmt->bind_param('s', $_POST['fundName']);
-  $_stmt->execute();
-
-  if ($_stmt->errno)
-  {
-    $_stmt->close();
-    onErrorInternal("editPinkieExpenses::editFetchFundID()", $_stmt->error);
-    return;
-  }
-  if($_stmt->num_rows == 0 )
-  {
-    onErrorInternal("editPinkieExpenses::editFetchFundID()", "Failed to find a fund ID with the given fund name of".$_POST['fundName']);
-    return;
-  }
-  $_stmt->bind_result($_fid);
-  $_stmt->close();
-
-
-
   $_sql = "UPDATE Expenses SET Amount=?, FundID=? WHERE ExpenseID=?";
   $_stmt = $_db->prepare((string)$_sql);
 
-  $_stmt->bind_param('dii', $_POST['fundAmt'], $_fid, $_POST['expenseID']);
+  $_stmt->bind_param('dii', $_POST['fundAmt'], $_POST['fundID'], $_POST['expenseID']);
   $_stmt->execute();
 
   if ($_stmt->errno)
@@ -66,30 +44,10 @@ if(strcmp($_POST['mode'], "edit") == 0) // We are in edit mode.
 if(strcmp($_POST['mode'], "add") == 0) // We are in add mode.
 {
   $_db = getMysqli();
-  // We need to get the fundID beacuse we were given the fund Name
-  $_sql = "SELECT FundID FROM Funds WHERE FundName=?";
-  $_stmt = $_db->prepare((string)$_sql);
-  $_stmt->bind_param('s', $_POST['fundName']);
-  $_stmt->execute();
-
-  if ($_stmt->errno)
-  {
-    $_stmt->close();
-    onErrorInternal("editPinkieExpenses::editFetchFundID()", $_stmt->error);
-    return;
-  }
-  if($_stmt->num_rows == 0 )
-  {
-    onErrorInternal("editPinkieExpenses::editFetchFundID()", "Failed to find a fund ID with the given fund name of".$_POST['fundName']);
-    return;
-  }
-  $_stmt->bind_result($_fid);
-  $_stmt->close();
-
   $_sql = "INSERT INTO Expenses (PinkieID, Amount, FundID) Values(?,?,?)";
   $_stmt = $_db->prepare((string)$_sql);
 
-  $_stmt->bind_param('idi', $_POST['pinkieID'], $_POST['fundAmt'], $_fid);
+  $_stmt->bind_param('idi', $_POST['pinkieID'], $_POST['fundAmt'], $_POST['fundID']);
   $_stmt->execute();
 
   if ($_stmt->errno)
