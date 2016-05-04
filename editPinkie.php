@@ -46,11 +46,10 @@ function printObjectsTable()
               </tr>';
         return;
     }
-    $_fund = 0;
     foreach ($_pinkie->a_Objects as $_obj)
     {
         $_po = new PurchaseObject();
-        $_po->$i_ObjectID = $_obj->$i_ObjectID;
+        $_po->i_ObjectID = $_obj->i_ObjectID;
         $_po->fromDatabase();
         printf('<tr id="%i">
                       <td>%i</td>
