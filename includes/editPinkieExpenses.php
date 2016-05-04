@@ -36,11 +36,14 @@ if(strcmp($_POST['mode'], "edit") == 0) // We are in edit mode.
     onErrorInternal("editPinkieExpenses::editFetchFundID()", $_stmt->error);
     return;
   }
-  else
+  if($_stmt->num_rows == 0 )
   {
-    $_stmt->bind_result($_fid);
-    $_stmt->close();
+    onErrorInternal("editPinkieExpenses::editFetchFundID()", "Failed to find a fund ID with the given fund name of".$_POST['fundName']);
+    return;
   }
+  $_stmt->bind_result($_fid);
+  $_stmt->close();
+
 
 
   $_sql = "UPDATE Expenses SET Amount=?, FundID=? WHERE ExpenseID=?";
@@ -75,11 +78,13 @@ if(strcmp($_POST['mode'], "add") == 0) // We are in add mode.
     onErrorInternal("editPinkieExpenses::editFetchFundID()", $_stmt->error);
     return;
   }
-  else
+  if($_stmt->num_rows == 0 )
   {
-    $_stmt->bind_result($_fid);
-    $_stmt->close();
+    onErrorInternal("editPinkieExpenses::editFetchFundID()", "Failed to find a fund ID with the given fund name of".$_POST['fundName']);
+    return;
   }
+  $_stmt->bind_result($_fid);
+  $_stmt->close();
 
   $_sql = "INSERT INTO Expenses (PinkieID, Amount, FundID) Values(?,?,?)";
   $_stmt = $_db->prepare((string)$_sql);
