@@ -25,7 +25,14 @@ function onDeleteFund()
        type: "POST",
        url: "./includes/editPinkieExpenses.php",
        data: "mode=delete" + "&expenseID=" + $('#deleteExpenseID').val(),
-       success : function(text){
+       success : function(text)
+       {
+           if(text.localeCompare("OKAY") == 0)
+           {
+             $('#deleteFundModal').modal('hide');
+             // Need to refresh the table somehow...
+             return;
+           }
            alert(text);
        }
    });
@@ -37,8 +44,15 @@ function onAddFund()
       type: "POST",
       url: "./includes/editPinkieExpenses.php",
       data: "mode=add" + "&fundID=" + $('#newFund').val() + "&fundAmt=" + $('#newFundTotal').val() + "&pinkieID=" + $('#pinkieID').val(),
-      success : function(text){
-          alert(text);
+      success : function(text)
+      {
+         if(text.localeCompare("OKAY") == 0)
+         {
+            $('#editFundModal').modal('hide');
+            // Need to refresh the table somehow...
+            return;
+         }
+         alert(text);
       }
  });
 }
@@ -49,8 +63,15 @@ function onEditFund()
       type: "POST",
       url: "./includes/editPinkieExpenses.php",
       data: "mode=edit" + "&fundID=" + $('#editFund').val() + "&fundAmt=" + $('#editTotal').val() + "&expenseID=" + $('#editExpenseID').val(),
-      success : function(text){
-          alert(text);
+      success : function(text)
+      {
+         if(text.localeCompare("OKAY") == 0)
+         {
+            $('#addFundModal').modal('hide');
+            // Need to refresh the table somehow...
+            return;
+         }
+         alert(text);
       }
  });
 }

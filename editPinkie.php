@@ -168,7 +168,7 @@ function printAllFilesTable()
         <H2>
           Welcome <?php echo(getName());?> to ePinkies2.
         </H2>
-        <H4>Here you will be able edit a pinkie object. You many <b><u><i>NOT</i></u></b> modify the pinkie except for adding a BC or an account number to the objects.</H4>
+        <H4>Here you will be able edit a pinkie object. You may <b><u><i>NOT</i></u></b> modify the pinkie except for adding a BC or an account number to the objects.</H4>
 
         <!-- Back to Home button. -->
         <a href="./home.php" class="btn btn-success" role="button"><span class="glyphicon glyphicon-home"></span> Back to Home</a>
@@ -606,10 +606,10 @@ function printAllFilesTable()
       <div class="modal-body container-fluid">
         <div class="form-group">
             <div class="col-md-12 container-fluid">
-              <h4>Fund Name</h4>
+              <h4>Old Fund Name</h4>
               <input type="text" class="form-control" id="currentFund" name="currentFund" readonly>
 
-              <h4>Fund Name</h4>
+              <h4>New Fund Name</h4>
               <select class="form-control" id="editFund" name="editFund">
                   <option selected="selected" value="">--</option>
                   <?php printFunds(); ?>
