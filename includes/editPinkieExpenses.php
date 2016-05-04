@@ -4,10 +4,6 @@ secureSessionStart();
 
 if(strcmp($_POST['mode'], "delete") == 0) // We are in delete mode.
 {
-  // TESTING Only
-  print_r($_POST);
-  return;
-
   $_db = getMysqli();
   $_sql = "DELETE FROM Expenses WHERE ExpenseID=?";
   $_stmt = $_db->prepare((string)$_sql);
@@ -27,17 +23,78 @@ if(strcmp($_POST['mode'], "delete") == 0) // We are in delete mode.
 }
 if(strcmp($_POST['mode'], "edit") == 0) // We are in edit mode.
 {
-  print_r($_POST);
-  return;
-  echo "edit mode!";
+  $_db = getMysqli();
+  // We need to get the fundID beacuse we were given the fund Name
+  $_sql = "SELECT FundID FROM Funds WHERE FundName=?";
+  $_stmt = $_db->prepare((string)$_sql);
+  $_stmt->bind_param('s', $_POST['fundName']);
+  $_stmt->execute();
+
+  if ($_stmt->errno)
+  {
+    $_stmt->close();
+    onError("editPinkieExpenses::editFetchFundID()", $_stmt->error);
+    return;
+  }
+  else
+  {
+    $stmt->bind_result($_fid);
+    $_stmt->close();
+  }
+
+
+  $_sql = "UPDATE Expenses SET Amount=?, FundID=? WHERE ExpenseID=?";
+  $_stmt = $_db->prepare((string)$_sql);
+
+  $_stmt->bind_param('dii', $_POST['fundAmt'], $_fid, $_POST['expenseID']);
+  $_stmt->execute();
+
+  if ($_stmt->errno)
+  {
+    onError("editPinkieExpenses::editUpdate()", $_stmt->error);
+  }
+  $_stmt->close();
+  // Close up the database connection.
+  $_db->close();
+  echo "OKAY";
   return;
 
 }
 if(strcmp($_POST['mode'], "add") == 0) // We are in add mode.
 {
-  print_r($_POST);
-  return;
-  echo "add mode!";
+  $_db = getMysqli();
+  // We need to get the fundID beacuse we were given the fund Name
+  $_sql = "SELECT FundID FROM Funds WHERE FundName=?";
+  $_stmt = $_db->prepare((string)$_sql);
+  $_stmt->bind_param('s', $_POST['fundName']);
+  $_stmt->execute();
+
+  if ($_stmt->errno)
+  {
+    $_stmt->close();
+    onError("editPinkieExpenses::editFetchFundID()", $_stmt->error);
+    return;
+  }
+  else
+  {
+    $stmt->bind_result($_fid);
+    $_stmt->close();
+  }
+
+  $_sql = "INSERT INTO Expenses (PinkieID, Amount, FundID) Values(?,?,?)";
+  $_stmt = $_db->prepare((string)$_sql);
+
+  $_stmt->bind_param('iii', $_POST['pinkieID'], $_POST['fundAmt'], $_fid);
+  $_stmt->execute();
+
+  if ($_stmt->errno)
+  {
+    onError("editPinkieExpenses::editUpdate()", $_stmt->error);
+  }
+  $_stmt->close();
+  // Close up the database connection.
+  $_db->close();
+  echo "OKAY";
   return;
 }
 
