@@ -35,6 +35,11 @@ function onError($s_Title, $s_Reason)
   header("Location: ./oops.php?title=".$s_Title."&reason=".$s_Reason);
 }
 
+function onErrorInternal($s_Title, $s_Reason)
+{
+  header("Location: ../oops.php?title=".$s_Title."&reason=".$s_Reason);
+}
+
 // Returns a new Mysqli object.
 function getMysqli()
 {
