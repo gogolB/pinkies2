@@ -84,7 +84,7 @@ if(strcmp($_POST['mode'], "add") == 0) // We are in add mode.
   $_sql = "INSERT INTO Expenses (PinkieID, Amount, FundID) Values(?,?,?)";
   $_stmt = $_db->prepare((string)$_sql);
 
-  $_stmt->bind_param('iii', $_POST['pinkieID'], $_POST['fundAmt'], $_fid);
+  $_stmt->bind_param('idi', $_POST['pinkieID'], $_POST['fundAmt'], $_fid);
   $_stmt->execute();
 
   if ($_stmt->errno)
