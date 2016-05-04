@@ -59,7 +59,7 @@ function printObjectsTable()
                       <td>%s</td>
                       <td>%.2f</td>
                       <td>%.2f</td>
-                    </tr>', $_po->i_ObjectID, $_po->i_Quantity, $_po->s_StockNumber, $_po->s_Description, $_po->s_BC, $_po->s_AccountNumber, $_po->d_UnitPrice, ((float)$_po->d_UnitPrice) * ((int)$_po->i_Quantity));
+                    </tr>', (int)$_po->i_ObjectID, (int)$_po->i_Quantity, $_po->s_StockNumber, $_po->s_Description, $_po->s_BC, $_po->s_AccountNumber, $_po->d_UnitPrice, ((float)$_po->d_UnitPrice) * ((int)$_po->i_Quantity));
     }
 }
 
