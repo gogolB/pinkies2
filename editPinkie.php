@@ -97,9 +97,9 @@ function printFundsTable()
                     <td>%s</td>
                     <td>$%.2f</td>
                   </tr>', $_e->i_ExpenseID,$_e->d_Amount, $_fund->s_FundName, $_fund->s_FundName, $_e->d_Amount, $_fund->s_Activity, $_fund->s_Fund, $_fund->s_Function, $_fund->s_CostCenter, $_fund->s_ProjectCode,$_fund->s_Balance);
-    printf('<input type="hidden" id="expenseID[]" name="expenseID" value="%s">', $_e->i_ExpenseID);
-    printf('<input type="hidden" id="fund[]" value="%s">', $_e->f_FundID);
-    printf('<input type="hidden" id="amount[]" value="%s">', $_e->d_Amount);
+    // printf('<input type="hidden" id="expenseID[]" name="expenseID" value="%s">', $_e->i_ExpenseID);
+    // printf('<input type="hidden" id="fund[]" value="%s">', $_e->f_FundID);
+    // printf('<input type="hidden" id="amount[]" value="%s">', $_e->d_Amount);
   }
 }
 
@@ -242,6 +242,7 @@ function printAllFilesTable()
       <!-- Purchase Orders-->
       <div class="container">
         <div class="well">
+          <H2><u><b>Purchase Objects</b></u></H2>
           <div class="table-responsive">
             <table class="table table-bordered table-hover table-condensed" id="objectTable" name="objectTable">
               <thead>
