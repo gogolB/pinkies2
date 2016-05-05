@@ -51,8 +51,8 @@ function printObjectsTable()
         $_po = new PurchaseObject();
         $_po->i_ObjectID = $_obj->i_ObjectID;
         $_po->fromDatabase();
-        printf('<tr id="%i">
-                      <td>%i</td>
+        printf('<tr id="%d">
+                      <td>%d</td>
                       <td>%s</td>
                       <td>%s</td>
                       <td>%s</td>
