@@ -691,5 +691,149 @@ function printAllFilesTable()
   </div>
 </div>
 
+
+<!-- object editing modals -->
+<div id="addObjectModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add a Purchase Object</h4>
+      </div>
+
+      <div class="modal-body container-fluid">
+        <div class="form-group">
+            <div class="col-md-12 container-fluid">
+              <h4>Fund Name</h4>
+              <select class="form-control" id="newFund" name="newFund">
+                  <option selected="selected" value="">--</option>
+                  <?php printFunds(); ?>
+              </select>
+            </div>
+
+            <div class="col-md-12 container-fluid">
+              <h4>Amount</h4>
+              <div class="input-group">
+                <span class="input-group-addon">$</span>
+                <input type="text" class="form-control" id="newFundTotal" name="newFundTotal">
+              </div>
+            </div>
+
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <div class="row">
+          <button type="button" class="btn btn-primary" onclick="onAddFund()">Add this fund</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" style="margin-right:10px;">Close</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<div id="editObjectModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Editing this Purchase Object</h4>
+      </div>
+
+      <div class="modal-body container-fluid">
+        <div class="form-group">
+            <div class="col-md-12 container-fluid">
+              <h4>Old Fund Name</h4>
+              <input type="text" class="form-control" id="currentFund" name="currentFund" readonly>
+
+              <h4>New Fund Name</h4>
+              <select class="form-control" id="editFund" name="editFund">
+                  <option selected="selected" value="">--</option>
+                  <?php printFunds(); ?>
+              </select>
+            </div>
+
+            <div class="col-md-12 container-fluid">
+              <h4>Amount</h4>
+              <div class="input-group">
+                <span class="input-group-addon">$</span>
+                <input type="text" class="form-control" id="editTotal" name="editTotal">
+              </div>
+            </div>
+
+            <div class="col-md-12 container-fluid">
+              <h4>Expense ID (Internal)</h4>
+              <input type="text" class="form-control" id="editExpenseID" name="editExpenseID" disabled>
+            </div>
+
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <div class="row">
+          <button type="button" class="btn btn-success" onclick="onEditFund()">Confirm changes</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" style="margin-right:10px;">Close</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<div id="deleteObjectModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Are you sure you want to remove this Purchase Object?</h4>
+      </div>
+
+      <div class="modal-body container-fluid">
+        <div class="form-group">
+            <div class="col-md-12 container-fluid">
+              <h4>Fund Name</h4>
+              <input type="text" class="form-control" id="deleteFundName" name="deleteFundName" disabled>
+            </div>
+
+            <div class="col-md-12 container-fluid">
+              <h4>Amount</h4>
+              <div class="input-group">
+                <span class="input-group-addon">$</span>
+                <input type="text" class="form-control" id="deleteFundTotal" name="deleteFundTotal" disabled>
+              </div>
+            </div>
+
+            <div class="col-md-12 container-fluid">
+              <h4>Expense ID (Internal)</h4>
+              <input type="text" class="form-control" id="deleteExpenseID" name="deleteExpenseID" disabled>
+            </div>
+
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <div class="row">
+          <button type="button" class="btn btn-danger" onclick="onDeleteFund()">Remove fund</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" style="margin-right:10px;">Close</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
   </BODY>
 </HTML>

@@ -101,9 +101,27 @@ $(function() {
         window.console && console.log(m) || alert(m);
     },
     items: {
-        "edit": {name: "Edit", icon: "edit" , callback: editFundModal},
-        "delete": {name: "Remove", icon: "delete" , callback: deleteFundModal},
-        'add':{name: "Add", icon:"add", callback: addFundModal}
+        "edit": {name: "Edit", icon: "edit" , callback: editObjectModal},
+        "delete": {name: "Remove", icon: "delete" , callback: deleteObjectModal},
+        'add':{name: "Add", icon:"add", callback: addObjectModal}
     }
 });
 });
+
+
+function addObjectModal(key, options)
+{
+    $('#addObjectModal').modal('show');
+}
+
+function editObjectModal(key, options)
+{
+    $('#editObjectModal').modal('show');
+
+}
+
+function deleteObjectModal(key, options)
+{
+    $('#deleteObjectModal').modal('show');
+
+}
