@@ -765,6 +765,7 @@ function printAllFilesTable()
             <div class="col-md-12 container-fluid">
               <h4>Purchase Object Description</h4>
               <input type="text" class="form-control" id="editPurchaseObjectDescription" name="editPurchaseObjectDescription" readonly>
+            </div>
 
             <div class="col-md-12 container-fluid">
               <h4>Unit Price</h4>
@@ -776,9 +777,7 @@ function printAllFilesTable()
 
             <div class="col-md-12 container-fluid">
               <h4>Quantity</h4>
-              <div class="input-group">
-                <input type="text" class="form-control" id="editPurchaseObjectQuantity" name="editPurchaseObjectQuantity">
-              </div>
+              <input type="text" class="form-control" id="editPurchaseObjectQuantity" name="editPurchaseObjectQuantity">
             </div>
 
             <div class="col-md-12 container-fluid">
