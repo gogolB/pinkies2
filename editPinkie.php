@@ -707,18 +707,30 @@ function printAllFilesTable()
       <div class="modal-body container-fluid">
         <div class="form-group">
             <div class="col-md-12 container-fluid">
-              <h4>Fund Name</h4>
-              <select class="form-control" id="newFund" name="newFund">
-                  <option selected="selected" value="">--</option>
-                  <?php printFunds(); ?>
-              </select>
+              <h4>Purchase Object Description</h4>
+              <input type="text" class="form-control" id="newPurchaseObjectDescription" name="newPurchaseObjectDescription">
             </div>
 
             <div class="col-md-12 container-fluid">
-              <h4>Amount</h4>
+              <h4>Unit Price</h4>
               <div class="input-group">
                 <span class="input-group-addon">$</span>
-                <input type="text" class="form-control" id="newFundTotal" name="newFundTotal">
+                <input type="text" class="form-control" id="newPurchaseObjectUnitPrice" name="newPurchaseObjectUnitPrice">
+              </div>
+            </div>
+
+            <div class="col-md-12 container-fluid">
+              <h4>Quantity</h4>
+              <div class="input-group">
+                <input type="text" class="form-control" id="newPurchaseObjectQuantity" name="newPurchaseObjectQuantity">
+              </div>
+            </div>
+
+            <div class="col-md-12 container-fluid">
+              <h4>Total Price</h4>
+              <div class="input-group">
+                <span class="input-group-addon">$</span>
+                <input type="text" class="form-control" id="newPurchaseObjectUnitPrice" name="newPurchaseObjectUnitPrice" readonly>
               </div>
             </div>
 
@@ -727,7 +739,7 @@ function printAllFilesTable()
 
       <div class="modal-footer">
         <div class="row">
-          <button type="button" class="btn btn-primary" onclick="onAddFund()">Add this fund</button>
+          <button type="button" class="btn btn-primary" onclick="onAddFund()">Add this Object</button>
           <button type="button" class="btn btn-default" data-dismiss="modal" style="margin-right:10px;">Close</button>
         </div>
       </div>
@@ -751,27 +763,35 @@ function printAllFilesTable()
       <div class="modal-body container-fluid">
         <div class="form-group">
             <div class="col-md-12 container-fluid">
-              <h4>Old Fund Name</h4>
-              <input type="text" class="form-control" id="currentFund" name="currentFund" readonly>
-
-              <h4>New Fund Name</h4>
-              <select class="form-control" id="editFund" name="editFund">
-                  <option selected="selected" value="">--</option>
-                  <?php printFunds(); ?>
-              </select>
-            </div>
+              <h4>Purchase Object Description</h4>
+              <input type="text" class="form-control" id="editPurchaseObjectDescription" name="editPurchaseObjectDescription" readonly>
 
             <div class="col-md-12 container-fluid">
-              <h4>Amount</h4>
+              <h4>Unit Price</h4>
               <div class="input-group">
                 <span class="input-group-addon">$</span>
-                <input type="text" class="form-control" id="editTotal" name="editTotal">
+                <input type="text" class="form-control" id="editPurchaseObjectUnitPrice" name="editPurchaseObjectUnitPrice">
               </div>
             </div>
 
             <div class="col-md-12 container-fluid">
-              <h4>Expense ID (Internal)</h4>
-              <input type="text" class="form-control" id="editExpenseID" name="editExpenseID" disabled>
+              <h4>Quantity</h4>
+              <div class="input-group">
+                <input type="text" class="form-control" id="editPurchaseObjectQuantity" name="editPurchaseObjectQuantity">
+              </div>
+            </div>
+
+            <div class="col-md-12 container-fluid">
+              <h4>Total Price</h4>
+              <div class="input-group">
+                <span class="input-group-addon">$</span>
+                <input type="text" class="form-control" id="editPurchaseObjectTotalPrice" name="editPurchaseObjectTotalPrice">
+              </div>
+            </div>
+
+            <div class="col-md-12 container-fluid">
+              <h4>Purchase Object ID (Internal)</h4>
+              <input type="text" class="form-control" id="editPurchaseObjectID" name="editPurchaseObjectID" disabled>
             </div>
 
         </div>
@@ -803,21 +823,36 @@ function printAllFilesTable()
       <div class="modal-body container-fluid">
         <div class="form-group">
             <div class="col-md-12 container-fluid">
-              <h4>Fund Name</h4>
-              <input type="text" class="form-control" id="deleteFundName" name="deleteFundName" disabled>
+              <h4>Purchase Object Description</h4>
+              <input type="text" class="form-control" id="deletePurchaseObjectDescription" name="deletePurchaseObjectDescription" disabled>
             </div>
 
             <div class="col-md-12 container-fluid">
-              <h4>Amount</h4>
+              <h4>Unit Price</h4>
               <div class="input-group">
                 <span class="input-group-addon">$</span>
-                <input type="text" class="form-control" id="deleteFundTotal" name="deleteFundTotal" disabled>
+                <input type="text" class="form-control" id="deletePurchaseObjectUnitPrice" name="deletePurchaseObjectUnitPrice" disabled>
               </div>
             </div>
 
             <div class="col-md-12 container-fluid">
-              <h4>Expense ID (Internal)</h4>
-              <input type="text" class="form-control" id="deleteExpenseID" name="deleteExpenseID" disabled>
+              <h4>Quantity</h4>
+              <div class="input-group">
+                <input type="text" class="form-control" id="deletePurchaseObjectQuantity" name="deletePurchaseObjectQuantity" disabled>
+              </div>
+            </div>
+
+            <div class="col-md-12 container-fluid">
+              <h4>Total Price</h4>
+              <div class="input-group">
+                <span class="input-group-addon">$</span>
+                <input type="text" class="form-control" id="deletePurchaseObjectTotalPrice" name="deletePurchaseObjectTotalPrice" disabled>
+              </div>
+            </div>
+
+            <div class="col-md-12 container-fluid">
+              <h4>Purchase Object ID (Internal)</h4>
+              <input type="text" class="form-control" id="deletePurchaseObjectID" name="deletePurchaseObjectID" disabled>
             </div>
 
         </div>
@@ -825,7 +860,7 @@ function printAllFilesTable()
 
       <div class="modal-footer">
         <div class="row">
-          <button type="button" class="btn btn-danger" onclick="onDeleteFund()">Remove fund</button>
+          <button type="button" class="btn btn-danger" onclick="onDeleteObject()">Remove Object</button>
           <button type="button" class="btn btn-default" data-dismiss="modal" style="margin-right:10px;">Close</button>
         </div>
       </div>
