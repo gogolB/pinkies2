@@ -793,6 +793,21 @@ function printAllFilesTable()
               <input type="text" class="form-control" id="editPurchaseObjectID" name="editPurchaseObjectID" disabled>
             </div>
 
+            <div class="col-md-12 container-fluid">
+              <h4>Account Number</h4>
+              <input type="text" class="form-control" id="editPurchaseObjectAccountNumber" name="editPurchaseObjectAccountNumber">
+            </div>
+
+            <div class="col-md-12 container-fluid">
+              <h4>Stock Number</h4>
+              <input type="text" class="form-control" id="editPurchaseObjectStockNumber" name="editPurchaseObjectStockNumber">
+            </div>
+
+            <div class="col-md-12 container-fluid">
+              <h4>BC</h4>
+              <input type="text" class="form-control" id="editPurchaseObjectBC" name="editPurchaseObjectBC">
+            </div>
+
         </div>
       </div>
 
