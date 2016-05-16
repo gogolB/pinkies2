@@ -451,7 +451,7 @@ function printAllFilesTable()
 
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-              <textarea class="form-control" rows="2" id="justificationText" name="justificationText" readonly><?php echo $_pinkie->s_JustificationText; ?></textarea>
+              <textarea class="form-control" rows="2" id="justificationText" name="justificationText" style="resize: vertical;"readonly><?php echo $_pinkie->s_JustificationText; ?></textarea>
             </div>
           </div>
 
