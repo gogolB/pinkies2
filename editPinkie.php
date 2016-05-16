@@ -721,9 +721,7 @@ function printAllFilesTable()
 
             <div class="col-md-12 container-fluid">
               <h4>Quantity</h4>
-              <div class="input-group">
-                <input type="text" class="form-control" id="newPurchaseObjectQuantity" name="newPurchaseObjectQuantity">
-              </div>
+              <input type="text" class="form-control" id="newPurchaseObjectQuantity" name="newPurchaseObjectQuantity">
             </div>
 
             <div class="col-md-12 container-fluid">
@@ -851,9 +849,7 @@ function printAllFilesTable()
 
             <div class="col-md-12 container-fluid">
               <h4>Quantity</h4>
-              <div class="input-group">
-                <input type="text" class="form-control" id="deletePurchaseObjectQuantity" name="deletePurchaseObjectQuantity" disabled>
-              </div>
+              <input type="text" class="form-control" id="deletePurchaseObjectQuantity" name="deletePurchaseObjectQuantity" disabled>
             </div>
 
             <div class="col-md-12 container-fluid">
