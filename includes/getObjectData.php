@@ -13,6 +13,6 @@ $_o = new PurchaseObject((int)($_POST['pinkieID']));
 $_o->i_ObjectID = (int)$_POST['objectID'];
 $_o->fromDatabase();
 
-echo var_dump($_o);
+echo json_encode($_o);
 
 ?>

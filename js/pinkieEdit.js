@@ -131,8 +131,8 @@ function deleteObjectModal(key, options)
       success : function(text)
       {
          alert(text);
-         var obj = $.parseJSON(text);
-         alert(obj.count);
+         var test = $.parseJSON(text);
+         alert(test.count);
       }
  });
 
