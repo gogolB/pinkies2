@@ -131,7 +131,7 @@ function deleteObjectModal(key, options)
       success : function(text)
       {
          alert(text);
-         obj = JSON.parse(text);
+         var obj = JSON.parse(text);
          alert(obj.count);
       }
  });
