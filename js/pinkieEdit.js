@@ -137,7 +137,8 @@ function deleteObjectModal(key, options)
          $('#deletePurchaseObjectDescription').val(test.s_Description);
          $('#deletePurchaseObjectUnitPrice').val(test.d_UnitPrice);
          $('#deletePurchaseObjectQuantity').val(test.i_Quantity);
-         $('#deletePurchaseObjectTotalPrice').val(parseFloat(test.i_Quantity) * parseFloat(test.i_Quantity));
+         var total = parseFloat(test.i_Quantity) * parseFloat(test.d_UnitPrice);
+         $('#deletePurchaseObjectTotalPrice').val(total.toFixed(2));
          $('#deletePurchaseObjectID').val(test.i_ObjectID);
 
 
