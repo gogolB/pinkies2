@@ -762,7 +762,7 @@ function printAllFilesTable()
         <div class="form-group">
             <div class="col-md-12 container-fluid">
               <h4>Purchase Object Description</h4>
-              <input type="text" class="form-control" id="editPurchaseObjectDescription" name="editPurchaseObjectDescription" readonly>
+              <input type="text" class="form-control" id="editPurchaseObjectDescription" name="editPurchaseObjectDescription">
             </div>
 
             <div class="col-md-12 container-fluid">
