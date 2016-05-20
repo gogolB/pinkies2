@@ -132,7 +132,15 @@ function deleteObjectModal(key, options)
       {
          alert(text);
          var test = $.parseJSON(text);
-         alert(test.count);
+
+         // Set the values of the variables
+         $('#deletePurchaseObjectDescription').val(test.s_Description);
+         $('#deletePurchaseObjectUnitPrice').val(test.d_UnitPrice);
+         $('#deletePurchaseObjectQuantity').val(test.i_Quantity);
+         // todo set the total.
+         $('#deletePurchaseObjectID').val(test.i_ObjectID);
+
+
       }
  });
 
