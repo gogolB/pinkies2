@@ -118,19 +118,42 @@ function editObjectModal(key, options)
 {
     $('#editObjectModal').modal('show');
 
-}
-
-function deleteObjectModal(key, options)
-{
-    $('#deleteObjectModal').modal('show');
-
     $.ajax({
       type: "POST",
       url: "./includes/getObjectData.php",
       data: "pinkieID=" + $('#pinkieID').val() + "&objectID=" + $(this).attr("id"),
       success : function(text)
       {
-         alert(text);
+         var test = $.parseJSON(text);
+
+         // Set the values of the variables
+         $('#editPurchaseObjectDescription').val(test.s_Description);
+         $('#editPurchaseObjectUnitPrice').val(test.d_UnitPrice);
+         $('#editPurchaseObjectQuantity').val(test.i_Quantity);
+         var total = parseFloat(test.i_Quantity) * parseFloat(test.d_UnitPrice);
+         $('#editPurchaseObjectTotalPrice').val(total.toFixed(2));
+         $('#editPurchaseObjectID').val(test.i_ObjectID);
+         $('#editPurchaseObjectAccountNumber').val(test.s_AccountNumber);
+         $('#editPurchaseObjectStockNumber').val(test.s_StockNumber);
+         $('#editPurchaseObjectBC').val(test.s_BC);
+
+
+      }
+ });
+
+}
+
+function deleteObjectModal(key, options)
+{
+    $('#deleteObjectModal').modal('show');
+
+    // Fetch all the data from the server.
+    $.ajax({
+      type: "POST",
+      url: "./includes/getObjectData.php",
+      data: "pinkieID=" + $('#pinkieID').val() + "&objectID=" + $(this).attr("id"),
+      success : function(text)
+      {
          var test = $.parseJSON(text);
 
          // Set the values of the variables
