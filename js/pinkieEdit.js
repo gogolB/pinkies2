@@ -124,4 +124,19 @@ function deleteObjectModal(key, options)
 {
     $('#deleteObjectModal').modal('show');
 
+    $.ajax({
+      type: "POST",
+      url: "./includes/getObjectData.php",
+      data: "pinkieID=" + $('#pinkieID').val() + "&objectID=" + $(this).attr("id"),
+      success : function(text)
+      {
+         alert(text);
+      }
+ });
+
+}
+
+function onAddObject()
+{
+
 }
