@@ -175,7 +175,7 @@ function onAddObject()
    $.ajax({
      type: "POST",
      url: "./includes/editPurchaseObject.php",
-     data: "mode=add&pinkieID="+$('#pinkieID').val()+"&description="+$('newPurchaseObjectDescription').val()+"&unitPrice="+$('newPurchaseObjectUnitPrice').val()+"&quantity="+$('newPurchaseObjectQuantity').val(),
+     data: "mode=add&pinkieID="+$('#pinkieID').val()+"&description="+$('#newPurchaseObjectDescription').val()+"&unitPrice="+$('#newPurchaseObjectUnitPrice').val()+"&quantity="+$('#newPurchaseObjectQuantity').val(),
      success : function(text)
      {
         alert(text);
@@ -188,8 +188,8 @@ function onEditObject()
    $.ajax({
      type: "POST",
      url: "./includes/editPurchaseObject.php",
-     data: "mode=edit&objectID="+$('editPurchaseObjectID').val()+"&quantity="+$('editPurchaseObjectQuantity').val()+"&stockNumber="+$('editPurchaseObjectStockNumber').val()+"&description="+$('editPurchaseObjectDescription').val()+"&bc="+
-     $('editPurchaseObjectBC').val()+"&accountNumber="+$('editPurchaseObjectAccountNumber').val()+"&unitPrice="+$('editPurchaseObjectUnitPrice').val(),
+     data: "mode=edit&objectID="+$('#editPurchaseObjectID').val()+"&quantity="+$('#editPurchaseObjectQuantity').val()+"&stockNumber="+$('#editPurchaseObjectStockNumber').val()+"&description="+$('#editPurchaseObjectDescription').val()+"&bc="+
+     $('#editPurchaseObjectBC').val()+"&accountNumber="+$('#editPurchaseObjectAccountNumber').val()+"&unitPrice="+$('#editPurchaseObjectUnitPrice').val(),
      success : function(text)
      {
         alert(text);
@@ -202,7 +202,7 @@ function onDeleteObject()
    $.ajax({
      type: "POST",
      url: "./includes/editPurchaseObject.php",
-     data: "mode=delete&objectID="+$('deletePurchaseObjectID').val(),
+     data: "mode=delete&objectID="+$('#deletePurchaseObjectID').val(),
      success : function(text)
      {
         alert(text);
