@@ -728,7 +728,7 @@ function printAllFilesTable()
               <h4>Total Price</h4>
               <div class="input-group">
                 <span class="input-group-addon">$</span>
-                <input type="text" class="form-control" id="newPurchaseObjectUnitPrice" name="newPurchaseObjectUnitPrice" readonly>
+                <input type="text" class="form-control" id="newPurchaseObjectTotalPrice" name="newPurchaseObjectTotalPrice" readonly>
               </div>
             </div>
 

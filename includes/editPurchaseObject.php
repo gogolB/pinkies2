@@ -13,7 +13,7 @@ if(strcmp($_POST['mode'], "delete") == 0) // We are in delete mode.
 
   if ($_stmt->errno)
   {
-    onErrorInternal("editPurchaseObject::Delete()", $_stmt->error);
+    onErrorInternal("editPinkiePurchaseObject::Delete()", $_stmt->error);
   }
   $_stmt->close();
   // Close up the database connection.
@@ -38,7 +38,7 @@ if(strcmp($_POST['mode'], "edit") == 0) // We are in edit mode.
 
   if ($_stmt->errno)
   {
-    onErrorInternal("editPurchaseObject::editUpdate()", $_stmt->error);
+    onErrorInternal("editPinkiePurchaseObject::edit()", $_stmt->error);
   }
   $_stmt->close();
   // Close up the database connection.
@@ -57,15 +57,15 @@ if(strcmp($_POST['mode'], "add") == 0) // We are in add mode.
   }
 
   $_db = getMysqli();
-  $_sql = "INSERT INTO Expenses (PinkieID, Quantity, StockNumber, Description, BC, AccountNumber, UnitPrice) Values(?,?,?,?,?,?,?)";
+  $_sql = "INSERT INTO Expenses (PinkieID, Quantity, Description, UnitPrice) Values(?,?,?,?)";
   $_stmt = $_db->prepare((string)$_sql);
 
-  $_stmt->bind_param('iissssd', $_POST['pinkieID'], $_POST['quantity'], $_POST['stockNumber'], $_POST['description'], $_POST['bc'], $_POST['accountNumber'], $_POST['unitPrice']);
+  $_stmt->bind_param('iisd', $_POST['pinkieID'], $_POST['quantity'], $_POST['description'], $_POST['unitPrice']);
   $_stmt->execute();
 
   if ($_stmt->errno)
   {
-    onErrorInternal("editPinkieExpenses::editUpdate()", $_stmt->error);
+    onErrorInternal("editPinkiePurchaseObject::add()", $_stmt->error);
   }
   $_stmt->close();
   // Close up the database connection.
