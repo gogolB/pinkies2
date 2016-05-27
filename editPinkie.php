@@ -273,7 +273,7 @@ function printAllFilesTable()
           </div>
 
           <div class="form-group form-group-lg">
-            <label class="control-label col-sm-2" for="tax"><input type="checkbox" name="includeTax" id = "includeTax" value="" style="margin-right:10px;">Tax:</label>
+            <label class="control-label col-sm-2" for="tax"><input type="checkbox" name="includeTax" id ="includeTax" value="" style="margin-right:10px;">Tax:</label>
             <div class="col-sm-10">
               <div class="input-group">
                 <span class="input-group-addon">$</span>
@@ -440,7 +440,7 @@ function printAllFilesTable()
           <div class="form-group form-group-lg">
             <label class="control-label col-sm-2" for="justification">Justification:</label>
             <div class="col-sm-10">
-              <select class="form-control" id="justification" name="justification" readonly>
+              <select class="form-control" id="justification" name="justification">
                   <option value="Instruction" <?php isSelected($_pinkie->s_Justification, "Instruction"); ?> >Instruction</option>
                   <option value="Research" <?php isSelected($_pinkie->s_Justification, "Research"); ?> >Research</option>
                   <option value="Fabrication" <?php isSelected($_pinkie->s_Justification, "Fabrication"); ?> >Fabrication</option>
@@ -451,33 +451,33 @@ function printAllFilesTable()
 
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-              <textarea class="form-control" rows="2" id="justificationText" name="justificationText" style="resize: vertical;"readonly><?php echo $_pinkie->s_JustificationText; ?></textarea>
+              <textarea class="form-control" rows="2" id="justificationText" name="justificationText" style="resize: vertical;"><?php echo $_pinkie->s_JustificationText; ?></textarea>
             </div>
           </div>
 
           <div class="form-group form-group-lg">
             <label class="control-label col-sm-2" for="equipmentLocation">Equipment Location:</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="equipmentLocation" name="equipmentLocation"  value="<?php echo $_pinkie->s_EquipmentLocation; ?>" readonly>
+              <input type="text" class="form-control" id="equipmentLocation" name="equipmentLocation"  value="<?php echo $_pinkie->s_EquipmentLocation; ?>">
             </div>
           </div>
 
           <div class="form-group form-group-lg">
             <label class="control-label col-sm-2" for="ucrPropertyNumber">UCR Property Number:</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="ucrPropertyNumber" name="ucrPropertyNumber" value="<?php echo $_pinkie->s_UCRPropertyTag; ?>" readonly>
+              <input type="text" class="form-control" id="ucrPropertyNumber" name="ucrPropertyNumber" value="<?php echo $_pinkie->s_UCRPropertyTag; ?>">
             </div>
           </div>
 
           <div class="form-group form-group-lg">
             <label class="control-label col-sm-2" for="classInstructed">Class Instructed:</label>
             <div class="col-sm-4">
-              <input type="text" class="form-control" id="classInstructed" name="classInstructed" value="<?php echo $_pinkie->s_classInstructed; ?>" readonly>
+              <input type="text" class="form-control" id="classInstructed" name="classInstructed" value="<?php echo $_pinkie->s_classInstructed; ?>">
             </div>
 
             <label class="control-label col-sm-2" for="quote">Quote:</label>
             <div class="col-sm-4">
-              <input type="text" class="form-control" id="quote" name="quote" value="<?php echo $_pinkie->s_Quote; ?>" readonly>
+              <input type="text" class="form-control" id="quote" name="quote" value="<?php echo $_pinkie->s_Quote; ?>">
             </div>
           </div>
         </div>

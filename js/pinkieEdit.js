@@ -210,3 +210,9 @@ function onDeleteObject()
      });
 
 }
+
+// Input for tax calculation
+$( "#includeTax" ).change(function()
+{
+   alert($(this).val());
+});
