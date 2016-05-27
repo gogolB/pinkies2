@@ -217,7 +217,7 @@ $(function(){
    {
       if($('#includeTax').is(':checked'))
       {
-         subTotal = parseFloat($("s#ubTotal").val());
+         subTotal = parseFloat($("#subtotal").val());
          tax = subTotal * 0.08;// Sales tax in california.
          $("#tax").val(tax.toFixed(2));
       }
