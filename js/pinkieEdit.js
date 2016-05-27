@@ -212,7 +212,9 @@ function onDeleteObject()
 }
 
 // Input for tax calculation
-$( "#includeTax" ).change(function()
-{
-   alert($(this).val());
+$(function(){
+   $( "#includeTax:checkbox" ).on("change",function()
+   {
+      alert($(this).val());
+   });
 });
