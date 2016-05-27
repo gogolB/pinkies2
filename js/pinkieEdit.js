@@ -93,7 +93,9 @@ $(function() {
 
 
 
-$(function() {
+$(function()
+{
+   calcTotal();
     $('#objectTable').contextMenu({
       selector: 'tr',
       callback:function(key, options) {
@@ -221,8 +223,19 @@ $(function(){
          tax = subTotal * 0.08;// Sales tax in california.
          $("#tax").val(tax.toFixed(2));
       }
-      else {
+      else
+      {
          $("#tax").val("0.00");
       }
+      calcTotal();
    });
 });
+
+function calcTotal()
+{
+   subTotal = parseFloat($("#subtotal").val());
+   tax = parseFloat($("#tax").val());
+   shipping = parseFloat($("#shipping").val());
+   total = tax+shipping+subTotal;
+   $("#total").val(total.toFixed(2));
+}
