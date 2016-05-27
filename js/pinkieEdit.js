@@ -179,6 +179,7 @@ function onAddObject()
      success : function(text)
      {
         alert(text);
+     }
      });
 }
 
@@ -192,6 +193,7 @@ function onEditObject()
      success : function(text)
      {
         alert(text);
+     }
      });
 }
 
@@ -204,6 +206,7 @@ function onDeleteObject()
      success : function(text)
      {
         alert(text);
+     }
      });
 
 }
