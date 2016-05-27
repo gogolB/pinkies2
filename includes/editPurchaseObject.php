@@ -33,7 +33,7 @@ if(strcmp($_POST['mode'], "edit") == 0) // We are in edit mode.
   $_sql = "UPDATE Objects SET Quantity=?, StockNumber=?, Description=?, BC=?, AccountNumber=?, UnitPrice=? WHERE ObjectID=?";
   $_stmt = $_db->prepare((string)$_sql);
 
-  $_stmt->bind_param('issssd', $_POST['quantity'], $_POST['stockNumber'], $_POST['description'], $_POST['bc'], $_POST['accountNumber'], , $_POST['unitPrice'], , $_POST['objectID']);
+  $_stmt->bind_param('issssd', $_POST['quantity'], $_POST['stockNumber'], $_POST['description'], $_POST['bc'], $_POST['accountNumber'], $_POST['unitPrice'], $_POST['objectID']);
   $_stmt->execute();
 
   if ($_stmt->errno)
