@@ -23,6 +23,9 @@ if(strcmp($_POST['mode'], "delete") == 0) // We are in delete mode.
 }
 if(strcmp($_POST['mode'], "edit") == 0) // We are in edit mode.
 {
+
+  echo var_dump($_POST);
+  return;
   if(strlen($_POST['objectID']) == 0)
   {
     // No fundID was set.
