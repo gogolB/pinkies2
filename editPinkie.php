@@ -737,7 +737,7 @@ function printAllFilesTable()
 
       <div class="modal-footer">
         <div class="row">
-          <button type="button" class="btn btn-primary" onclick="onAddFund()">Add this Object</button>
+          <button type="button" class="btn btn-primary" onclick="onAddObject()">Add this Object</button>
           <button type="button" class="btn btn-default" data-dismiss="modal" style="margin-right:10px;">Close</button>
         </div>
       </div>
@@ -811,7 +811,7 @@ function printAllFilesTable()
 
       <div class="modal-footer">
         <div class="row">
-          <button type="button" class="btn btn-success" onclick="onEditFund()">Confirm changes</button>
+          <button type="button" class="btn btn-success" onclick="onEditObject()">Confirm changes</button>
           <button type="button" class="btn btn-default" data-dismiss="modal" style="margin-right:10px;">Close</button>
         </div>
       </div>
