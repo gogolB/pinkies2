@@ -138,8 +138,6 @@ function editObjectModal(key, options)
          $('#editPurchaseObjectAccountNumber').val(test.s_AccountNumber);
          $('#editPurchaseObjectStockNumber').val(test.s_StockNumber);
          $('#editPurchaseObjectBC').val(test.s_BC);
-
-
       }
  });
 
@@ -165,8 +163,6 @@ function deleteObjectModal(key, options)
          var total = parseFloat(test.i_Quantity) * parseFloat(test.d_UnitPrice);
          $('#deletePurchaseObjectTotalPrice').val(total.toFixed(2));
          $('#deletePurchaseObjectID').val(test.i_ObjectID);
-
-
       }
  });
 
