@@ -48,7 +48,7 @@ function printObjectsTable()
     }
     foreach ($_pinkie->a_Objects as $_obj)
     {
-        $_po = new PurchaseObject(((int)$i_PinkieID));
+        $_po = new PurchaseObject(((int)$_pinkie->i_PinkieID));
         $_po->i_ObjectID = $_obj->i_ObjectID;
         $_po->fromDatabase();
         printf('<tr id="%d">
