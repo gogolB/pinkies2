@@ -7,26 +7,29 @@ include_once 'defines.php';
 // Starts a secure session
 function secureSessionStart()
 {
-    $session_name = 'EPinkies2-Session';
-    $secure = false;
-    // This stops JavaScript being able to access the session id.
-    $httponly = true;
-    // Forces sessions to only use cookies.
-    if (ini_set('session.use_only_cookies', 1) === FALSE) {
-        onError("Failed to start a Secure Session", "Could not init a safe session. Failed to force session to use cookies only.");
-        exit();
-    }
-    // Gets current cookies params.
-    $cookieParams = session_get_cookie_params();
-    session_set_cookie_params($cookieParams["lifetime"],
-                              $cookieParams["path"],
-                              $cookieParams["domain"],
-                              $secure,
-                              $httponly);
+  if(session_id() == '' || isset($_SESSION)) {
+      // session isn't started
+      $session_name = 'EPinkies2-Session';
+      $secure = false;
+      // This stops JavaScript being able to access the session id.
+      $httponly = true;
+      // Forces sessions to only use cookies.
+      if (ini_set('session.use_only_cookies', 1) === FALSE) {
+          onError("Failed to start a Secure Session", "Could not init a safe session. Failed to force session to use cookies only.");
+          exit();
+      }
+      // Gets current cookies params.
+      $cookieParams = session_get_cookie_params();
+      session_set_cookie_params($cookieParams["lifetime"],
+                                $cookieParams["path"],
+                                $cookieParams["domain"],
+                                $secure,
+                                $httponly);
 
-    session_name($session_name);
-    session_start();                // Start the PHP session
-    session_regenerate_id(true);    // regenerated the session, delete the old one.
+      session_name($session_name);
+      session_start();                // Start the PHP session
+      session_regenerate_id(true);    // regenerated the session, delete the old one.
+  }
 }
 
 // Redirects the user to a nicer error page.
