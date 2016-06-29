@@ -1,7 +1,7 @@
 <?php
-include_once 'includes/functions.php';
-include_once 'includes/sessionFunctions.php';
-include_once 'includes/fund_object.php';
+include_once './includes/functions.php';
+include_once './includes/sessionFunctions.php';
+include_once './includes/fund_object.php';
 secureSessionStart();
 
 // Check why we are here on this page.
