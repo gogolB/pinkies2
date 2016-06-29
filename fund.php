@@ -55,7 +55,7 @@ function printAllFunds()
 }
 
 
-function isSelected($f)
+function f_isSelected($f)
 {
     if($f->b_Active == TRUE)
     {
@@ -375,7 +375,7 @@ function isNotSelected($f)
              <label class="control-label col-sm-2" for="active">Active:</label>
              <div class="col-sm-10">
              <select class="form-control" id="active", name="active">
-               <option value="1" <?php isSelected($_fund);?> >Yes</option>
+               <option value="1" <?php f_isSelected($_fund);?> >Yes</option>
                <option value='0' <?php isNotSelected($_fund);?> >No</option>
              </select>
            </div>
@@ -505,7 +505,7 @@ function isNotSelected($f)
              <label class="control-label col-sm-2" for="active">Active:</label>
              <div class="col-sm-10">
              <select class="form-control" id="active", name="active" disabled>
-               <option value="1" <?php isSelected($_fund);?> >Yes</option>
+               <option value="1" <?php f_isSelected($_fund);?> >Yes</option>
                <option value='0' <?php isNotSelected($_fund);?> >No</option>
              </select>
            </div>
