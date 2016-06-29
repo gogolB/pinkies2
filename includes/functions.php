@@ -7,7 +7,7 @@ include_once 'defines.php';
 // Starts a secure session
 function secureSessionStart()
 {
-  if(session_id() == '' || isset($_SESSION)) {
+  if(session_id() == '' || !isset($_SESSION)) {
       // session isn't started
       $session_name = 'EPinkies2-Session';
       $secure = false;
