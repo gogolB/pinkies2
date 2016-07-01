@@ -59,7 +59,7 @@
           return;
       }
       // We have a result, lets bind the result to the variables.
-      $statement->bind_result($pinkieID, $timestamp, $submitterUser, $submittedFor, $title, $status, $totalvalue);
+      $statement->bind_result($pinkieID, $timestamp, $submitterUser, $submittedFor, $title, $status, $totalvalue,$OriginalSubmitter, $SupervisorApprove, $AdminApprove, $TransProcess);
       while($statement->fetch())
       {
           printf('<tr>
@@ -111,7 +111,7 @@
         return;
     }
     // We have a result, lets bind the result to the variables.
-    $statement->bind_result($pinkieID, $timestamp, $submitterUser, $submittedFor, $title, $status, $totalvalue);
+    $statement->bind_result($pinkieID, $timestamp, $submitterUser, $submittedFor, $title, $status, $totalvalue,$OriginalSubmitter, $SupervisorApprove, $AdminApprove, $TransProcess);
     while($statement->fetch())
     {
         printf('<tr>

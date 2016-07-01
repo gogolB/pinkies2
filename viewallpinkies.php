@@ -35,7 +35,7 @@
           return;
       }
       // We have a result, lets bind the result to the variables.
-      $statement->bind_result($pinkieID, $timestamp, $submitterUser, $submittedFor, $title, $status, $totalvalue);
+      $statement->bind_result($pinkieID, $timestamp, $submitterUser, $submittedFor, $title, $status, $totalvalue, $OriginalSubmitter, $SupervisorApprove, $AdminApprove, $TransProcess);
       while($statement->fetch())
       {
           printf('<tr>
@@ -59,8 +59,8 @@
   function printSubmittedByYouTable()
   {
     $_db = getMysqli();
-    $statement = $_db->prepare("SELECT * FROM Submitted_By WHERE Submitter=?");
-    $statement->bind_param('s', $_SESSION['Username']);
+    $statement = $_db->prepare("SELECT * FROM Submitted_By WHERE Submitter=? OR OriginalSubmitter=?");
+    $statement->bind_param('ss', $_SESSION['Username'],$_SESSION['Username']);
     $statement->execute();
 
     // Error running the statement.
@@ -86,7 +86,7 @@
         return;
     }
     // We have a result, lets bind the result to the variables.
-    $statement->bind_result($pinkieID, $timestamp, $submitterUser, $submittedFor, $title, $status, $totalvalue);
+    $statement->bind_result($pinkieID, $timestamp, $submitterUser, $submittedFor, $title, $status, $totalvalue, $OriginalSubmitter, $SupervisorApprove, $AdminApprove, $TransProcess);
     while($statement->fetch())
     {
         printf('<tr>
@@ -136,7 +136,7 @@
         return;
     }
     // We have a result, lets bind the result to the variables.
-    $statement->bind_result($pinkieID, $timestamp, $submitterUser, $submittedFor, $title, $status, $totalvalue);
+    $statement->bind_result($pinkieID, $timestamp, $submitterUser, $submittedFor, $title, $status, $totalvalue,$OriginalSubmitter, $SupervisorApprove, $AdminApprove, $TransProcess);
     while($statement->fetch())
     {
         printf('<tr>
