@@ -25,6 +25,15 @@ $_pinkie->s_Priority  = $_POST['priority'];
 $_pinkie->s_ReferenceNumber = $_POST['referenceNumber'];
 $_pinkie->s_Status = $_POST['status'];
 
+if(isset($_POST['includeTax']) && $_POST['includeTax'] == '1')
+{
+  $_pinkie->b_isTaxable = TRUE;
+}
+else
+{
+  $_pinkie->b_isTaxable = FALSE;
+}
+
 //------------------------------------------------------------------------------
 
 // objects

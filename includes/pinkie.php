@@ -245,9 +245,9 @@ class Pinkie
 
       $_stmt->close();
 
-      $_sql = "UPDATE PinkieInformation SET VendorID=?, Justification=?, JustificationText=?, EquipmentLocation=?, UCRPropertyNumber=?, ClassInstructed=?, Quote=?, Action=?, Priority=?, ReferenceNumber=?, EquipmentType=?, ShippingFreight=? WHERE PinkieID=?";
+      $_sql = "UPDATE PinkieInformation SET VendorID=?, Justification=?, JustificationText=?, EquipmentLocation=?, UCRPropertyNumber=?, ClassInstructed=?, Quote=?, Action=?, Priority=?, ReferenceNumber=?, EquipmentType=?, ShippingFreight=?, IsTaxable=? WHERE PinkieID=?";
       $_stmt = $_db->prepare((string)$_sql);
-      $_stmt->bind_param('issssssssssdi', $this->v_Vendor, $this->s_Justification, $this->s_JustificationText, $this->s_EquipmentLocation, $this->s_UCRPropertyTag, $this->s_classInstructed, $this->s_Quote, $this->s_Action, $this->s_Priority, $this->s_ReferenceNumber, $this->s_EquipmentType, $this->d_ShippingFreight, $this->i_PinkieID);
+      $_stmt->bind_param('issssssssssdi', $this->v_Vendor, $this->s_Justification, $this->s_JustificationText, $this->s_EquipmentLocation, $this->s_UCRPropertyTag, $this->s_classInstructed, $this->s_Quote, $this->s_Action, $this->s_Priority, $this->s_ReferenceNumber, $this->s_EquipmentType, $this->d_ShippingFreight, $this->b_isTaxable, $this->i_PinkieID);
 
       $_stmt->execute();
 
@@ -297,9 +297,9 @@ class Pinkie
       // Get the pinkie id of the thing we just inserted.
       $this->i_PinkieID = $_db->insert_id;
       $_stmt->close();
-      $_sql = "INSERT INTO PinkieInformation (PinkieID, VendorID, Justification, JustificationText, EquipmentLocation, UCRPropertyNumber, ClassInstructed, Quote, Action, Priority, ReferenceNumber, EquipmentType, ShippingFreight) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+      $_sql = "INSERT INTO PinkieInformation (PinkieID, VendorID, Justification, JustificationText, EquipmentLocation, UCRPropertyNumber, ClassInstructed, Quote, Action, Priority, ReferenceNumber, EquipmentType, ShippingFreight, IsTaxable) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
       $_stmt = $_db->prepare((string)$_sql);
-      $_stmt->bind_param('iissssssssssd', $this->i_PinkieID, $this->v_Vendor, $this->s_Justification, $this->s_JustificationText, $this->s_EquipmentLocation, $this->s_UCRPropertyTag, $this->s_classInstructed, $this->s_Quote, $this->s_Action, $this->s_Priority, $this->s_ReferenceNumber, $this->s_EquipmentType, $this->d_ShippingFreight);
+      $_stmt->bind_param('iissssssssssd', $this->i_PinkieID, $this->v_Vendor, $this->s_Justification, $this->s_JustificationText, $this->s_EquipmentLocation, $this->s_UCRPropertyTag, $this->s_classInstructed, $this->s_Quote, $this->s_Action, $this->s_Priority, $this->s_ReferenceNumber, $this->s_EquipmentType, $this->d_ShippingFreight,$this->b_isTaxable);
 
       $_stmt->execute();
 
@@ -515,7 +515,7 @@ class Pinkie
           onError("Pinkie::getPinkieInformation()","Failed to find a Pinkie with the given PinkieID of: ".$this->i_PinkieID);
       }
       // We have a result, lets bind the result to the variables.
-      $statement->bind_result($this->i_PinkieID, $this->v_Vendor, $this->s_Justification, $this->s_JustificationText, $this->s_EquipmentLocation, $this->s_UCRPropertyTag, $this->s_classInstructed, $this->s_Quote, $this->s_Action, $this->s_Priority, $this->s_ReferenceNumber, $this->s_EquipmentType, $this->d_ShippingFreight);
+      $statement->bind_result($this->i_PinkieID, $this->v_Vendor, $this->s_Justification, $this->s_JustificationText, $this->s_EquipmentLocation, $this->s_UCRPropertyTag, $this->s_classInstructed, $this->s_Quote, $this->s_Action, $this->s_Priority, $this->s_ReferenceNumber, $this->s_EquipmentType, $this->d_ShippingFreight,$this->b_isTaxable);
       $statement->fetch();
 
       // Cleanup.
