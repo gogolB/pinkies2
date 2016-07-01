@@ -24,7 +24,7 @@ function onDeleteFund()
     $.ajax({
        type: "POST",
        url: "./includes/editPinkieExpenses.php",
-       data: "mode=delete" + "&expenseID=" + $('#deleteExpenseID').val(),
+       data: "mode=delete" + "&expenseID=" + $('#deleteExpenseID').val() + "&pinkieID=" + $('#pinkieID').val(),
        success : function(text)
        {
            if(text.localeCompare("OKAY") == 0)
@@ -62,7 +62,7 @@ function onEditFund()
    $.ajax({
       type: "POST",
       url: "./includes/editPinkieExpenses.php",
-      data: "mode=edit" + "&fundID=" + $('#editFund').val() + "&fundAmt=" + $('#editTotal').val() + "&expenseID=" + $('#editExpenseID').val(),
+      data: "mode=edit" + "&fundID=" + $('#editFund').val() + "&fundAmt=" + $('#editTotal').val() + "&expenseID=" + $('#editExpenseID').val() + "&pinkieID=" + $('#pinkieID').val(),
       success : function(text)
       {
          if(text.localeCompare("OKAY") == 0)
@@ -187,7 +187,7 @@ function onEditObject()
      type: "POST",
      url: "./includes/editPurchaseObject.php",
      data: "mode=edit&objectID="+$('#editPurchaseObjectID').val()+"&quantity="+$('#editPurchaseObjectQuantity').val()+"&stockNumber="+$('#editPurchaseObjectStockNumber').val()+"&description="+$('#editPurchaseObjectDescription').val()+"&bc="+
-     $('#editPurchaseObjectBC').val()+"&accountNumber="+$('#editPurchaseObjectAccountNumber').val()+"&unitPrice="+$('#editPurchaseObjectUnitPrice').val(),
+     $('#editPurchaseObjectBC').val()+"&accountNumber="+$('#editPurchaseObjectAccountNumber').val()+"&unitPrice="+$('#editPurchaseObjectUnitPrice').val() + "&pinkieID=" + $('#pinkieID').val(),
      success : function(text)
      {
         alert(text);
@@ -200,7 +200,7 @@ function onDeleteObject()
    $.ajax({
      type: "POST",
      url: "./includes/editPurchaseObject.php",
-     data: "mode=delete&objectID="+$('#deletePurchaseObjectID').val(),
+     data: "mode=delete&objectID="+$('#deletePurchaseObjectID').val() + "&pinkieID=" + $('#pinkieID').val(),
      success : function(text)
      {
         alert(text);

@@ -17,6 +17,7 @@ $_pinkie->fromDatabase();
 if(strcmp($_POST['status'], Done) == 0)
 {
   $_pinkie->s_Status = $_POST['status'];
+  $_pinkie->s_TransProcess = $_SESSION['Username'];
   $_pinkie->toDatabase();
   logGeneral($_pinkie->i_PinkieID, $_SESSION['Username'], "Pinkie was marked as done by Transactor: ".getName());
 }

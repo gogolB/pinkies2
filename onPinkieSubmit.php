@@ -12,6 +12,7 @@ $_pinkie = new Pinkie();
 // All the stuff at the top.
 $_pinkie->s_Title = $_POST['title'];
 $_pinkie->s_Submitter = $_SESSION['Username'];
+$_pinkie->s_OriginalSubmitter = $_SESSION['Username'];
 $_pinkie->s_SubmittedFor = $_POST['submitTo'];
 $_pinkie->s_Action = $_POST['action'];
 $_pinkie->s_Priority  = $_POST['priority'];

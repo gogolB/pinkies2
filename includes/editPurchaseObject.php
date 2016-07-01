@@ -4,6 +4,11 @@ secureSessionStart();
 
 if(strcmp($_POST['mode'], "delete") == 0) // We are in delete mode.
 {
+  if(strlen($_POST['objectID']) == 0)
+  {
+    // No fundID was set.
+    return;
+  }
   $_db = getMysqli();
   $_sql = "DELETE FROM Objects WHERE ObjectID=?";
   $_stmt = $_db->prepare((string)$_sql);
@@ -19,6 +24,7 @@ if(strcmp($_POST['mode'], "delete") == 0) // We are in delete mode.
   // Close up the database connection.
   $_db->close();
   echo "OKAY";
+  logGeneral($_POST['pinkieID'], $_SESSION['Username'], "Purchase Object was deleted by: ".getName());
   return;
 }
 if(strcmp($_POST['mode'], "edit") == 0) // We are in edit mode.
@@ -44,15 +50,16 @@ if(strcmp($_POST['mode'], "edit") == 0) // We are in edit mode.
   // Close up the database connection.
   $_db->close();
   echo "OKAY";
+  logGeneral($_POST['pinkieID'], $_SESSION['Username'], "Purchase Object was edited by: ".getName());
   return;
 
 }
 if(strcmp($_POST['mode'], "add") == 0) // We are in add mode.
 {
 
-  if(strlen($_POST['objectID']) == 0 || strlen($_POST['pinkieID']) == 0)
+  if(strlen($_POST['pinkieID']) == 0)
   {
-    // No fundID was set.
+    // No pinkieID was set.
     return;
   }
 
@@ -71,6 +78,7 @@ if(strcmp($_POST['mode'], "add") == 0) // We are in add mode.
   // Close up the database connection.
   $_db->close();
   echo "OKAY";
+  logGeneral($_POST['pinkieID'], $_SESSION['Username'], "Purcahse Object was added by: ".getName());
   return;
 }
 

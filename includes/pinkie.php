@@ -29,10 +29,16 @@ class Pinkie
     public $s_Priority = '';
     public $s_Action = '';
 
+    public $s_OriginalSubmitter='';
+    public $s_SupervisorApprove='';
+    public $s_AdminAprove='';
+    public $s_TransProcess='';
+
     // Objects
     // An array of PurchaseObject.
     public $a_Objects = array();
     public $d_Total = 0.0;
+    public $b_isTaxable = TRUE;
 
     public $d_ShippingFreight = 0.0;
 
@@ -143,7 +149,12 @@ class Pinkie
 
     public function getTax()
     {
-      return $this->getSubtotal() * 0.08;
+      if($this->b_isTaxable){
+        return $this->getSubtotal() * 0.08;
+      }
+      else {
+          return 0.0;
+      }
     }
 
     //**************************************************************************
@@ -199,7 +210,7 @@ class Pinkie
           onError("Pinkie::fromDatabase()","Failed to find a Pinkie with the given PinkieID of: ".$this->i_PinkieID);
       }
       // We have a result, lets bind the result to the variables.
-      $statement->bind_result($throwaway, $this->s_SubmissionTimeStamp, $this->s_Submitter, $this->s_SubmittedFor, $this->s_Title, $this->s_Status, $this->d_Total);
+      $statement->bind_result($throwaway, $this->s_SubmissionTimeStamp, $this->s_Submitter, $this->s_SubmittedFor, $this->s_Title, $this->s_Status, $this->d_Total, $this->s_OriginalSubmitter, $this->s_SupervisorApprove, $this->s_AdminAprove, $this->s_TransProcess);
       $statement->fetch();
 
       // Cleanup.
@@ -218,12 +229,13 @@ class Pinkie
     // Updates this pinkie in the database.
     function update()
     {
+      $this->d_Total = $this->getSubtotal() + $this->d_ShippingFreight + $this->getTax();
       // Everything all good, lets update the table.
       $_db = getMysqli();
-      $_sql = "UPDATE Submitted_By SET Submitter=?, SubmittedFor=?, Title=?, Status=?, TotalValue=? WHERE PinkieID=?";
+      $_sql = "UPDATE Submitted_By SET Submitter=?, SubmittedFor=?, Title=?, Status=?, TotalValue=?, OriginalSubmitter=?, SupervisorApprove=?, AdminApprove=?, TransProcess=? WHERE PinkieID=?";
       $_stmt = $_db->prepare((string)$_sql);
 
-      $_stmt->bind_param('ssssdi', $this->s_Submitter, $this->s_SubmittedFor, $this->s_Title, $this->s_Status, $this->d_Total, $this->i_PinkieID);
+      $_stmt->bind_param('ssssdi', $this->s_Submitter, $this->s_SubmittedFor, $this->s_Title, $this->s_Status, $this->d_Total,  $this->s_OriginalSubmitter, $this->s_SupervisorApprove, $this->s_AdminAprove, $this->s_TransProcess, $this->i_PinkieID);
       $_stmt->execute();
 
       if ($_stmt->errno)
@@ -271,10 +283,10 @@ class Pinkie
     {
       // Everything all good, lets insert in to the table.
       $_db = getMysqli();
-      $_sql = "INSERT INTO Submitted_By (Submitter, SubmittedFor, Title, Status, TotalValue) VALUES (?,?,?,?,?)";
+      $_sql = "INSERT INTO Submitted_By (Submitter, SubmittedFor, Title, Status, TotalValue, OriginalSubmitter, SupervisorApprove, AdminApprove, TransProcess) VALUES (?,?,?,?,?,?,?,?,?)";
       $_stmt = $_db->prepare((string)$_sql);
 
-      $_stmt->bind_param('ssssd', $this->s_Submitter, $this->s_SubmittedFor, $this->s_Title, $this->s_Status, $this->d_Total);
+      $_stmt->bind_param('ssssd', $this->s_Submitter, $this->s_SubmittedFor, $this->s_Title, $this->s_Status, $this->d_Total, $this->s_OriginalSubmitter, $this->s_SupervisorApprove, $this->s_AdminAprove, $this->s_TransProcess);
       $_stmt->execute();
 
       if ($_stmt->errno)

@@ -42,7 +42,7 @@ $_pinkie->s_classInstructed = $_POST['classInstructed'];
 $_pinkie->s_Quote = $_POST['quote'];
 
 // Funds
-// No need to process funds beacuse they are processed as AJAX requests on change. 
+// No need to process funds beacuse they are processed as AJAX requests on change.
 
 //------------------------------------------------------------------------------
 
@@ -97,9 +97,9 @@ for($i=0; $i<count($_FILES['attachment']['name']); $i++)
 //------------------------------------------------------------------------------
 // push it to the database.
 var_dump($_pinkie);
-//$_pinkie->toDatabase();
+$_pinkie->toDatabase();
 //------------------------------------------------------------------------------
-//logGeneral($_pinkie->i_PinkieID, $_SESSION['Username'], "Pinkie was edited by : ".getName());
-//header("Location: ./home.php");
+logGeneral($_pinkie->i_PinkieID, $_SESSION['Username'], "Pinkie was edited by : ".getName());
+header("Location: ./home.php");
 
 ?>

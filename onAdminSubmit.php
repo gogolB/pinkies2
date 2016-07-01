@@ -17,6 +17,7 @@ $_pinkie->fromDatabase();
 if(strcmp($_POST['status'], ApprovedByAdmin) == 0)
 {
   $_pinkie->s_Submitter = $_SESSION['Username'];
+  $_pinkie->s_AdminAprove = $_SESSION['Username'];
   $_pinkie->s_SubmittedFor = $_POST['submitTo'];
   $_pinkie->s_Status = Dispatched;
   $_pinkie->toDatabase();
