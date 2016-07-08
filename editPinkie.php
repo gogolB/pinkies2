@@ -565,7 +565,6 @@ function printAllFilesTable()
             <div class="col-md-12 container-fluid">
               <h4>Fund Name</h4>
               <select class="form-control chosen-select-no-results" id="newFund" name="newFund">
-                  <option selected="selected" value="">--</option>
                   <?php printFunds(); ?>
               </select>
             </div>
