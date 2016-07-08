@@ -100,7 +100,7 @@ if(isset($_POST['title']))
               div.innerHTML = addFundInput;
               document.getElementById('moreFunds').appendChild(div);
               currentFund++;
-              $('.chosen-select-no-results', this).chosen('destroy').chosen();
+              $('.chosen-select-no-results').chosen('destroy').chosen();
               return false;
         }
         else
@@ -136,7 +136,7 @@ if(isset($_POST['title']))
           element = document.getElementById('Expense'+cnt);
           element.parentNode.removeChild(element);
           currentFund--;
-          $('.chosen-select-no-results', this).chosen('destroy').chosen();
+          $('.chosen-select-no-results').chosen('destroy').chosen();
           return false;
         }
         else
