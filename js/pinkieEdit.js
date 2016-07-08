@@ -2,7 +2,7 @@ function addFundModal(key, options)
 {
     $('#addFundModal').modal('show');
     $('#addFundModal').on('shown.bs.modal', function() {
-       $('.chosen-select-no-results').chosen();
+       $('.chosen-select', this).chosen('destroy').chosen();
     });
 }
 
@@ -13,7 +13,7 @@ function editFundModal(key, options)
     $('#editTotal').val($(this).attr("amt"));
     $('#editExpenseID').val($(this).attr("id"));
     $('#editFundModal').on('shown.bs.modal', function() {
-       $('.chosen-select-no-results').chosen();
+       $('.chosen-select', this).chosen('destroy').chosen();
     });
 
 }
