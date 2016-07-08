@@ -426,9 +426,9 @@ if(isset($_POST['title']))
           </div>
 
           <div class="form-group form-group-lg">
-            <div class="col-sm-offset-8 col-sm-4 pull-right">
-              <button type="button" class="btn btn-success" onclick="addAFund()"><span class="glyphicon glyphicon-plus"></span></button>
-              <button type="button" class="btn btn-primary" onclick="removeAFund()"><span class="glyphicon glyphicon-minus"></span></button>
+            <div class="col-sm-offset-8 col-sm-4">
+              <button type="button" class="btn btn-success pull-right" onclick="addAFund()"><span class="glyphicon glyphicon-plus"></span></button>
+              <button type="button" class="btn btn-primary pull-right" onclick="removeAFund()"><span class="glyphicon glyphicon-minus"></span></button>
             </div>
           </div>
 
