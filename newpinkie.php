@@ -22,6 +22,7 @@ if(isset($_POST['title']))
     <script src="./js/plugins/canvas-to-blob.min.js" type="text/javascript"></script>
     <script src="./js/fileinput.min.js" type="text/javascript"></script>
     <script>
+      $('.chosen-select-no-results').chosen();
       var addObjectInput = '          <div class="form-group form-group-lg">\
                   <div class="col-sm-1">\
                     <input type="text" class="form-control" id="quantity[]" name="quantity[]" placeholder="Quantity" onchange="onObjectChange()">\
@@ -48,8 +49,7 @@ if(isset($_POST['title']))
 
       var addFundInput = '          <div class="form-group form-group-lg">\
                   <div class="col-sm-8">\
-                    <select class="form-control" id="fund[]" name="fund[]">\
-                        <option selected="selected" value="">--</option>\
+                    <select data-placeholder="Choose Another Fund..."class="form-control chosen-select-no-results" id="fund[]" name="fund[]">\
                         <?php printFunds(); ?>\
                     </select>\
                   </div>\
@@ -342,7 +342,7 @@ if(isset($_POST['title']))
           <div class="form-group form-group-lg">
             <label class="control-label col-sm-2" for="vendor">Vendor:</label>
             <div class="col-sm-10">
-              <select data-placeholder="Choose a fund..." class="form-control chosen-select-no-results" id="vendor" name="vendor">
+              <select data-placeholder="Choose a Vendor..." class="form-control chosen-select-no-results" id="vendor" name="vendor">
                   <?php printVendors(); ?>
               </select>
             </div>
@@ -406,8 +406,7 @@ if(isset($_POST['title']))
 
           <div class="form-group form-group-lg">
             <div class="col-sm-8">
-              <select class="form-control" id="fund[]" name="fund[]">
-                  <option selected="selected" value="">--</option>
+              <select data-placeholder="Choose a fund..."class="form-control chosen-select-no-results" id="fund[]" name="fund[]">
                   <?php printFunds(); ?>
               </select>
             </div>
