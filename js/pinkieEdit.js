@@ -1,7 +1,7 @@
 function addFundModal(key, options)
 {
     $('#addFundModal').modal('show');
-    $('.chosen-select-no-results', this).chosen();
+    $('.chosen-select-no-results').chosen();
 }
 
 function editFundModal(key, options)
@@ -10,7 +10,7 @@ function editFundModal(key, options)
     $('#currentFund').val($(this).attr("fname"));
     $('#editTotal').val($(this).attr("amt"));
     $('#editExpenseID').val($(this).attr("id"));
-    $('.chosen-select-no-results', this).chosen();
+    $('.chosen-select-no-results').chosen();
 }
 
 function deleteFundModal(key, options)
