@@ -46,7 +46,7 @@ if(isset($_POST['title']))
                   </div>\
                 </div>';
 
-      var addFundInput = '          <div class="form-group form-group-lg">\
+      var addFundInput = '          <div class="form-group">\
                   <div class="col-sm-8">\
                     <select data-placeholder="Choose Another Fund..."class="form-control chosen-select-no-results" id="fund[]" name="fund[]">\
                         <?php printFunds(); ?>\
@@ -409,7 +409,7 @@ if(isset($_POST['title']))
             <H3 class="col-sm-4"><u>Amount</u></H3>
           </div>
 
-          <div class="form-group form-group-lg">
+          <div class="form-group ">
             <div class="col-sm-8">
               <select data-placeholder="Choose a fund..."class="form-control chosen-select-no-results" id="fund[]" name="fund[]">
                   <?php printFunds(); ?>
