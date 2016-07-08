@@ -22,7 +22,6 @@ if(isset($_POST['title']))
     <script src="./js/plugins/canvas-to-blob.min.js" type="text/javascript"></script>
     <script src="./js/fileinput.min.js" type="text/javascript"></script>
     <script>
-      $('.chosen-select-no-results').chosen();
       var addObjectInput = '          <div class="form-group form-group-lg">\
                   <div class="col-sm-1">\
                     <input type="text" class="form-control" id="quantity[]" name="quantity[]" placeholder="Quantity" onchange="onObjectChange()">\
@@ -68,6 +67,10 @@ if(isset($_POST['title']))
       var maxFunds = <?php echo MAX_FUNDS; ?>;
       var minFunds = 1;
       var currentFund = minFunds;
+
+      $(window).load(function(){
+        $(".chosen-select-no-results").chosen()
+      });
 
       // Adds a object to the display.
       function addAObject()
