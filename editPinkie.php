@@ -610,7 +610,7 @@ function printAllFilesTable()
               <input type="text" class="form-control" id="currentFund" name="currentFund" readonly>
 
               <h4>New Fund Name</h4>
-              <select data-placeholder="Choose a Country..." class="form-control chosen-select-no-results" id="editFund" name="editFund">
+              <select data-placeholder="Choose a fund..." class="form-control chosen-select-no-results" id="editFund" name="editFund">
                   <?php printFunds(); ?>
               </select>
             </div>
