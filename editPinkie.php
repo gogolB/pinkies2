@@ -564,7 +564,7 @@ function printAllFilesTable()
         <div class="form-group">
             <div class="col-md-12 container-fluid">
               <h4>Fund Name</h4>
-              <select class="form-control" id="newFund" name="newFund">
+              <select class="form-control chosen-select-no-results" id="newFund" name="newFund">
                   <option selected="selected" value="">--</option>
                   <?php printFunds(); ?>
               </select>
@@ -611,7 +611,7 @@ function printAllFilesTable()
               <input type="text" class="form-control" id="currentFund" name="currentFund" readonly>
 
               <h4>New Fund Name</h4>
-              <select class="form-control" id="editFund" name="editFund">
+              <select class="form-control chosen-select-no-results" id="editFund" name="editFund">
                   <option selected="selected" value="">--</option>
                   <?php printFunds(); ?>
               </select>
