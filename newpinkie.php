@@ -342,8 +342,7 @@ if(isset($_POST['title']))
           <div class="form-group form-group-lg">
             <label class="control-label col-sm-2" for="vendor">Vendor:</label>
             <div class="col-sm-10">
-              <select class="form-control" id="vendor" name="vendor">
-                  <option selected="selected" value="">--</option>
+              <select data-placeholder="Choose a fund..." class="form-control chosen-select-no-results" id="vendor" name="vendor">
                   <?php printVendors(); ?>
               </select>
             </div>
