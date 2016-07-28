@@ -9,8 +9,8 @@
   function printSubmittedToYouTable()
   {
       $_db = getMysqli();
-      $statement = $_db->prepare("SELECT * FROM Submitted_By WHERE SubmittedFor=? ");
-      $statement->bind_param('s', $_SESSION['Username']);
+      $statement = $_db->prepare("SELECT * FROM Submitted_By WHERE SubmittedFor=? OR SupervisorApprove=? OR AdminApprove=? OR TransProcess=?");
+      $statement->bind_param('ssss', $_SESSION['Username'], $_SESSION['Username'], $_SESSION['Username'], $_SESSION['Username']);
       $statement->execute();
 
       // Error running the statement.
