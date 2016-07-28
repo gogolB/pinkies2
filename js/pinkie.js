@@ -185,3 +185,21 @@ function onArchive(pinkieID)
   attachStatus(form, "Archived");
   form.submit();
 }
+
+// Input for tax calculation
+$(function(){
+   $( "#includeTax:checkbox" ).on("change",function()
+   {
+      if($('#includeTax').is(':checked'))
+      {
+         subTotal = parseFloat($("#subtotal").val());
+         tax = subTotal * 0.08;// Sales tax in california.
+         $("#tax").val(tax.toFixed(2));
+      }
+      else
+      {
+         $("#tax").val("0.00");
+      }
+      calcTotal();
+   });
+});
