@@ -13,6 +13,7 @@ if(!isset($_POST['pinkieID']))
 $_pinkie = new Pinkie();
 $_pinkie->i_PinkieID = (int)$_POST['pinkieID'];
 $_pinkie->fromDatabase();
+$_pinkie->s_AdminAprove = $_SESSION['Username'];
 
 if(strcmp($_POST['status'], ApprovedByAdmin) == 0)
 {

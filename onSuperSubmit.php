@@ -13,6 +13,7 @@ if(!isset($_POST['pinkieID']))
 $_pinkie = new Pinkie();
 $_pinkie->i_PinkieID = (int)$_POST['pinkieID'];
 $_pinkie->fromDatabase();
+$_pinkie->s_SupervisorApprove = $_SESSION['Username'];
 
 if(strcmp($_POST['status'], ApprovedBySuper) == 0)
 {
@@ -21,6 +22,7 @@ if(strcmp($_POST['status'], ApprovedBySuper) == 0)
   $_pinkie->s_SubmittedFor = $_POST['submitTo'];
   $_pinkie->s_Status = PendingAdminApproval;
   $_pinkie->toDatabase();
+
   logGeneral($_pinkie->i_PinkieID, $_SESSION['Username'], "Pinkie was approved by Supervisor: ".getName());
 }
 else if(strcmp($_POST['status'], RejectedBySuper) == 0)
