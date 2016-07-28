@@ -235,7 +235,7 @@ class Pinkie
       $_sql = "UPDATE Submitted_By SET Submitter=?, SubmittedFor=?, Title=?, Status=?, TotalValue=?, OriginalSubmitter=?, SupervisorApprove=?, AdminApprove=?, TransProcess=? WHERE PinkieID=?";
       $_stmt = $_db->prepare((string)$_sql);
 
-      $_stmt->bind_param('ssssdi', $this->s_Submitter, $this->s_SubmittedFor, $this->s_Title, $this->s_Status, $this->d_Total,  $this->s_OriginalSubmitter, $this->s_SupervisorApprove, $this->s_AdminAprove, $this->s_TransProcess, $this->i_PinkieID);
+      $_stmt->bind_param('ssssdssss', $this->s_Submitter, $this->s_SubmittedFor, $this->s_Title, $this->s_Status, $this->d_Total,  $this->s_OriginalSubmitter, $this->s_SupervisorApprove, $this->s_AdminAprove, $this->s_TransProcess, $this->i_PinkieID);
       $_stmt->execute();
 
       if ($_stmt->errno)
@@ -247,7 +247,7 @@ class Pinkie
 
       $_sql = "UPDATE PinkieInformation SET VendorID=?, Justification=?, JustificationText=?, EquipmentLocation=?, UCRPropertyNumber=?, ClassInstructed=?, Quote=?, Action=?, Priority=?, ReferenceNumber=?, EquipmentType=?, ShippingFreight=?, IsTaxable=? WHERE PinkieID=?";
       $_stmt = $_db->prepare((string)$_sql);
-      $_stmt->bind_param('issssssssssdi', $this->v_Vendor, $this->s_Justification, $this->s_JustificationText, $this->s_EquipmentLocation, $this->s_UCRPropertyTag, $this->s_classInstructed, $this->s_Quote, $this->s_Action, $this->s_Priority, $this->s_ReferenceNumber, $this->s_EquipmentType, $this->d_ShippingFreight, $this->b_isTaxable, $this->i_PinkieID);
+      $_stmt->bind_param('issssssssssdbi', $this->v_Vendor, $this->s_Justification, $this->s_JustificationText, $this->s_EquipmentLocation, $this->s_UCRPropertyTag, $this->s_classInstructed, $this->s_Quote, $this->s_Action, $this->s_Priority, $this->s_ReferenceNumber, $this->s_EquipmentType, $this->d_ShippingFreight, $this->b_isTaxable, $this->i_PinkieID);
 
       $_stmt->execute();
 
