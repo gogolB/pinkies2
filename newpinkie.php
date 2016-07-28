@@ -273,7 +273,7 @@ if(isset($_POST['title']))
           </div>
 
           <div class="form-group form-group-lg">
-            <div class="col-sm-offset-8 col-sm-4">
+            <div class="col-sm-offset-11 col-sm-1">
               <button type="button" class="btn btn-success" onclick="addAObject();"><span class="glyphicon glyphicon-plus"></span></button>
               <button type="button" class="btn btn-primary" onclick="removeAObject();"><span class="glyphicon glyphicon-minus"></span></button>
             </div>

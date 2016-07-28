@@ -286,7 +286,7 @@ class Pinkie
       $_sql = "INSERT INTO Submitted_By (Submitter, SubmittedFor, Title, Status, TotalValue, OriginalSubmitter, SupervisorApprove, AdminApprove, TransProcess) VALUES (?,?,?,?,?,?,?,?,?)";
       $_stmt = $_db->prepare((string)$_sql);
 
-      $_stmt->bind_param('ssssd', $this->s_Submitter, $this->s_SubmittedFor, $this->s_Title, $this->s_Status, $this->d_Total, $this->s_OriginalSubmitter, $this->s_SupervisorApprove, $this->s_AdminAprove, $this->s_TransProcess);
+      $_stmt->bind_param('ssssdssss', $this->s_Submitter, $this->s_SubmittedFor, $this->s_Title, $this->s_Status, $this->d_Total, $this->s_OriginalSubmitter, $this->s_SupervisorApprove, $this->s_AdminAprove, $this->s_TransProcess);
       $_stmt->execute();
 
       if ($_stmt->errno)
@@ -299,7 +299,7 @@ class Pinkie
       $_stmt->close();
       $_sql = "INSERT INTO PinkieInformation (PinkieID, VendorID, Justification, JustificationText, EquipmentLocation, UCRPropertyNumber, ClassInstructed, Quote, Action, Priority, ReferenceNumber, EquipmentType, ShippingFreight, IsTaxable) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
       $_stmt = $_db->prepare((string)$_sql);
-      $_stmt->bind_param('iissssssssssd', $this->i_PinkieID, $this->v_Vendor, $this->s_Justification, $this->s_JustificationText, $this->s_EquipmentLocation, $this->s_UCRPropertyTag, $this->s_classInstructed, $this->s_Quote, $this->s_Action, $this->s_Priority, $this->s_ReferenceNumber, $this->s_EquipmentType, $this->d_ShippingFreight,$this->b_isTaxable);
+      $_stmt->bind_param('iissssssssssdb', $this->i_PinkieID, $this->v_Vendor, $this->s_Justification, $this->s_JustificationText, $this->s_EquipmentLocation, $this->s_UCRPropertyTag, $this->s_classInstructed, $this->s_Quote, $this->s_Action, $this->s_Priority, $this->s_ReferenceNumber, $this->s_EquipmentType, $this->d_ShippingFreight,$this->b_isTaxable);
 
       $_stmt->execute();
 
@@ -558,7 +558,7 @@ class PinkieExpense
         }
 
 
-        if($this->i_ExpenseID > 0 or fundIsInDatabase())
+        if($this->i_ExpenseID > 0)
         {
             $this->update();
         }
