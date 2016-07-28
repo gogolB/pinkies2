@@ -23,7 +23,8 @@ $_pinkie->s_SubmittedFor = $_POST['submitTo'];
 $_pinkie->s_Action = $_POST['action'];
 $_pinkie->s_Priority  = $_POST['priority'];
 $_pinkie->s_ReferenceNumber = $_POST['referenceNumber'];
-#$_pinkie->s_Status = $_POST['status'];
+if(isset($_POST['status']))
+  $_pinkie->s_Status = $_POST['status'];
 
 if(isset($_POST['includeTax']) && $_POST['includeTax'] == '1')
 {
@@ -42,7 +43,8 @@ else
 //------------------------------------------------------------------------------
 
 // Vendors and Justification.
-#$_pinkie->v_Vendor = $_POST['vendor'];
+if(isset($_POST['vendor']))
+    $_pinkie->v_Vendor = $_POST['vendor'];
 $_pinkie->s_Justification=$_POST['justification'];
 $_pinkie->s_JustificationText=$_POST['justificationText'];
 $_pinkie->s_EquipmentLocation = $_POST['equipmentLocation'];
