@@ -15,6 +15,7 @@ if(!isset($_POST['pinkieID']))
 // force a database update.
 $_pinkie = new Pinkie();
 $_pinkie->i_PinkieID = (int)$_POST['pinkieID'];
+$_pinkie->fromDatabase();
 
 // All the stuff at the top.
 $_pinkie->s_Title = $_POST['title'];
