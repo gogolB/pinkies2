@@ -112,7 +112,7 @@ function calculateTotal(form)
       Shipping = parseFloat($( "#shipping" ).val());
     }
     else {
-      $( "#subtotal" ).val("0.00");
+      $( "#shipping" ).val("0.00");
     }
     var Total = parseFloat((SubTotal + Tax + Shipping)).toFixed(2);
     $( "#total" ).val(Total);
