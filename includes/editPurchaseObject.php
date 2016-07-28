@@ -1,5 +1,7 @@
 <?php
 include_once 'functions.php';
+include_once 'sessionFunctions.php';
+include_once 'logger.php';
 secureSessionStart();
 
 if(strcmp($_POST['mode'], "delete") == 0) // We are in delete mode.
