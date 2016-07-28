@@ -104,18 +104,18 @@ function calculateObjectTotal(form, i)
 
 function calculateTotal(form)
 {
-    var SubTotal = parseFloat(form.elements['subtotal'].value);
-    var Tax = parseFloat(form.elements['tax'].value);
+    var SubTotal = parseFloat($( "#subtotal" ).val());
+    var Tax = parseFloat($( "#tax" ).val());
     var Shipping = 0.0;
-    if(form.elements['shipping'].value != '')
+    if($( "#shipping" ).val() != '')
     {
-      Shipping = parseFloat(form.elements['shipping'].value);
+      Shipping = parseFloat($( "#shipping" ).val());
     }
     else {
-      form.elements['shipping'].value = "0.00";
+      $( "#subtotal" ).val("0.00");
     }
     var Total = parseFloat((SubTotal + Tax + Shipping)).toFixed(2);
-    form.elements['total'].value = Total;
+    $( "#total" ).val(Total);
     return Total;
 }
 
