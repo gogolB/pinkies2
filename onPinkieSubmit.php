@@ -18,6 +18,11 @@ $_pinkie->s_Action = $_POST['action'];
 $_pinkie->s_Priority  = $_POST['priority'];
 $_pinkie->s_ReferenceNumber = $_POST['referenceNumber'];
 $_pinkie->s_Status = $_POST['status'];
+if(isset( $_POST['includeTax']))
+  $_pinkie->b_isTaxable = TRUE;
+else {
+  $_pinkie->b_isTaxable = FALSE;
+}
 
 //------------------------------------------------------------------------------
 

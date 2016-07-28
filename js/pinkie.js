@@ -73,10 +73,18 @@ function calculateSubTotal(form)
 // Calculates and sets the tax, set at 8%.
 function calculateTax(form, subTotal)
 {
-    var salesTax = 0.08; // Sales tax in riverside.
-    var tax = parseFloat((subTotal * salesTax)).toFixed(2)
-    form.elements['tax'].value = tax;
-    return tax;
+    var checkedValue = $('.includeTax:checked').val();
+    if(checkedValue)
+    {
+      var salesTax = 0.08; // Sales tax in riverside.
+      var tax = parseFloat((subTotal * salesTax)).toFixed(2)
+      form.elements['tax'].value = tax;
+      return tax;
+    }
+    else
+    {
+      return 0.00;
+    }
 
 }
 

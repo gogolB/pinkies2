@@ -274,8 +274,8 @@ if(isset($_POST['title']))
 
           <div class="form-group form-group-lg">
             <div class="col-sm-offset-8 col-sm-4">
-              <button type="button" class="btn btn-success" onclick="addAObject();"><span class="glyphicon glyphicon-plus"></span> Add another Object</button>
-              <button type="button" class="btn btn-primary" onclick="removeAObject();"><span class="glyphicon glyphicon-minus"></span> Remove a Object</button>
+              <button type="button" class="btn btn-success" onclick="addAObject();"><span class="glyphicon glyphicon-plus"></span></button>
+              <button type="button" class="btn btn-primary" onclick="removeAObject();"><span class="glyphicon glyphicon-minus"></span></button>
             </div>
           </div>
 
@@ -290,7 +290,7 @@ if(isset($_POST['title']))
           </div>
 
           <div class="form-group form-group-lg">
-            <label class="control-label col-sm-2" for="tax">Tax:</label>
+            <label class="control-label col-sm-2" for="tax"><input type="checkbox" name="includeTax" id ="includeTax" value="1" style="margin-right:10px;">Tax:</label>
             <div class="col-sm-10">
               <div class="input-group">
                 <span class="input-group-addon">$</span>
