@@ -55,7 +55,7 @@ function onAddFund()
       {
          if(text.localeCompare("OKAY") == 0)
          {
-            $('#editFundModal').modal('hide');
+            $('#addFundModal').modal('hide');
             // Need to refresh the table somehow...
             return;
          }
@@ -74,7 +74,7 @@ function onEditFund()
       {
          if(text.localeCompare("OKAY") == 0)
          {
-            $('#addFundModal').modal('hide');
+            $('#editFundModal').modal('hide');
             // Need to refresh the table somehow...
             return;
          }
@@ -183,6 +183,12 @@ function onAddObject()
      data: "mode=add&pinkieID="+$('#pinkieID').val()+"&description="+$('#newPurchaseObjectDescription').val()+"&unitPrice="+$('#newPurchaseObjectUnitPrice').val()+"&quantity="+$('#newPurchaseObjectQuantity').val(),
      success : function(text)
      {
+        if(text.localeCompare("OKAY") == 0)
+        {
+           $('#addObjectModal').modal('hide');
+           // Need to refresh the table somehow...
+           return;
+        }
         alert(text);
      }
      });
@@ -197,6 +203,12 @@ function onEditObject()
      $('#editPurchaseObjectBC').val()+"&accountNumber="+$('#editPurchaseObjectAccountNumber').val()+"&unitPrice="+$('#editPurchaseObjectUnitPrice').val() + "&pinkieID=" + $('#pinkieID').val(),
      success : function(text)
      {
+        if(text.localeCompare("OKAY") == 0)
+        {
+           $('#editObjectModal').modal('hide');
+           // Need to refresh the table somehow...
+           return;
+        }
         alert(text);
      }
      });
@@ -210,6 +222,12 @@ function onDeleteObject()
      data: "mode=delete&objectID="+$('#deletePurchaseObjectID').val() + "&pinkieID=" + $('#pinkieID').val(),
      success : function(text)
      {
+        if(text.localeCompare("OKAY") == 0)
+        {
+           $('#deleteObjectModal').modal('hide');
+           // Need to refresh the table somehow...
+           return;
+        }
         alert(text);
      }
      });

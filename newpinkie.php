@@ -294,7 +294,7 @@ if(isset($_POST['title']))
             <div class="col-sm-10">
               <div class="input-group">
                 <span class="input-group-addon">$</span>
-                <input type="text" class="form-control" id="tax" name="tax" readonly>
+                <input type="text" class="form-control" id="tax" name="tax" value="0.00"readonly>
               </div>
             </div>
           </div>
