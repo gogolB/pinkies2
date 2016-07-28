@@ -235,7 +235,7 @@ class Pinkie
       $_sql = "UPDATE Submitted_By SET Submitter=?, SubmittedFor=?, Title=?, Status=?, TotalValue=?, OriginalSubmitter=?, SupervisorApprove=?, AdminApprove=?, TransProcess=? WHERE PinkieID=?";
       $_stmt = $_db->prepare((string)$_sql);
 
-      $_stmt->bind_param('ssssdssss', $this->s_Submitter, $this->s_SubmittedFor, $this->s_Title, $this->s_Status, $this->d_Total,  $this->s_OriginalSubmitter, $this->s_SupervisorApprove, $this->s_AdminAprove, $this->s_TransProcess, $this->i_PinkieID);
+      $_stmt->bind_param('ssssdssssi', $this->s_Submitter, $this->s_SubmittedFor, $this->s_Title, $this->s_Status, $this->d_Total,  $this->s_OriginalSubmitter, $this->s_SupervisorApprove, $this->s_AdminAprove, $this->s_TransProcess, $this->i_PinkieID);
       $_stmt->execute();
 
       if ($_stmt->errno)

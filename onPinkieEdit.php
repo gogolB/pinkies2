@@ -58,7 +58,7 @@ $_pinkie->s_Quote = $_POST['quote'];
 //------------------------------------------------------------------------------
 
 // Attachments.
-if(isset($_POST['attachment']))
+if(isset($_FILES['attachment']))
 {
 for($i=0; $i<count($_FILES['attachment']['name']); $i++)
 {
